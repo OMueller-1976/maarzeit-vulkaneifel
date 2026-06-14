@@ -159,6 +159,104 @@ const kategorien = [
     ],
   },
   {
+    titel: 'Höhlen & Unterirdisches',
+    eintraege: [
+      {
+        name: 'Buchenlochhöhle Gerolstein',
+        entfernung: 'ca. 18 km',
+        badge: 'Höhle · Kostenlos',
+        text: 'Karsthöhle in den Gerolsteiner Dolomiten, von Steinzeitmenschen vor rund 30.000 Jahren bewohnt. Frei zugänglich, Teil des Felsenpfads. Taschenlampe empfehlenswert – enger, aber eindrucksvoller Eingang.',
+      },
+      {
+        name: 'Birresborner Eishöhlen',
+        entfernung: 'ca. 30 km',
+        badge: 'Höhle · Geführt',
+        text: 'Vier Lavahöhlen im Vulkanpark Birresborn, entstanden durch erkaltende Lavaströme vor ca. 200.000 Jahren. Im Inneren herrschen ganzjährig Temperaturen um 0 °C – daher der Name. Geführte Touren buchbar, Schutzkleidung wird gestellt.',
+      },
+      {
+        name: 'Mühlsteinhöhlen Mayen',
+        entfernung: 'ca. 45 km',
+        badge: 'Höhle · Museum',
+        text: 'Unterirdisches Labyrinth aus mittelalterlichen Mühlsteinbrüchen im Lavakeller unter Mayen. Geführte Touren zeigen, wie seit der Römerzeit Basaltlava abgebaut wurde. Einmaliges Kulturdenkmal in situ.',
+      },
+    ],
+  },
+  {
+    titel: 'Wasserfälle & Quellen',
+    eintraege: [
+      {
+        name: 'Dreimühlen Wasserfall bei Üxheim-Ahütte',
+        entfernung: 'ca. 18 km',
+        badge: 'Naturdenkmal · Kostenlos',
+        text: 'Der einzige „wachsende" Wasserfall Deutschlands. Er entsteht durch Kalkablagerungen (Kalktuff) und wächst seit 1932 nachweislich. Kostenlos zugänglich, schöner Spazierweg entlang des Ahbachs. Ein stilles, beeindruckendes Naturdenkmal.',
+      },
+      {
+        name: 'Wallender Born / Brubbel Wallenborn',
+        entfernung: 'ca. 15 km',
+        badge: 'Naturphänomen · Kostenlos',
+        text: 'Der einzige periodisch sprudelnde Kaltwassergeysir Deutschlands. Er sprudelt unregelmäßig alle paar Stunden und ist kostenlos zugänglich. Kurzer Spaziergang vom Parkplatz – ein Naturphänomen, das es so nur einmal gibt.',
+      },
+      {
+        name: 'Helenenquelle im Kurpark Gerolstein',
+        entfernung: 'ca. 18 km',
+        badge: 'Quelle · Kostenlos',
+        text: 'Natürliche Mineralwasserquelle direkt im Gerolsteiner Kurpark, kostenlos zugänglich. Das kohlensäurereiche Wasser kann direkt aus dem Quellstein verkostet werden – ein kleines, aber besonderes Erlebnis.',
+      },
+    ],
+  },
+  {
+    titel: 'Flüsse & Bäche',
+    eintraege: [
+      {
+        name: 'Kyll – Fluss durch die Eifel',
+        entfernung: 'ab Gerolstein ca. 18 km',
+        badge: 'Natur · Radweg',
+        text: 'Die Kyll fließt von der Schneifel durch die Vulkaneifel bis zur Mosel. In Gerolstein gibt es Spazierwege direkt am Ufer, im Sommer lassen sich die Füße kühlen. Der Kyll-Radweg verläuft auf teils ehemaligen Bahntrassen durch das Kylltal.',
+      },
+      {
+        name: 'Lieser – Manderscheider Tal',
+        entfernung: 'ca. 20 km',
+        badge: 'Wandern',
+        text: 'Die Lieser schlängelt sich durch das romantische Liesertal bei Manderscheid. Der Lieserpfad (66 km, Premiumweg) führt direkt am Ufer entlang, vorbei an den Burgruinen Manderscheid. Kurze Abschnitte ab Manderscheid gut begehbar.',
+      },
+      {
+        name: 'Ahr – Rotweinwanderweg',
+        entfernung: 'ca. 60 km',
+        badge: 'Wein · Wandern',
+        text: 'Die Ahr ist Deutschlands nördlichstes Weinanbaugebiet. Der Rotweinwanderweg führt durch enge, steile Weinberglagen über dem Fluss. Bad Neuenahr-Ahrweiler bietet Weinkultur, Thermal-Wellness und eine sehenswerte Altstadt.',
+      },
+    ],
+  },
+  {
+    titel: 'Gerolstein – Erlebnisse & Besichtigungen',
+    eintraege: [
+      {
+        name: 'Gerolsteiner Brunnen Erlebniswelt',
+        entfernung: 'ca. 18 km',
+        badge: 'Neu 2026 · Kostenlos',
+        text: 'Neue interaktive Erlebniswelt bei Deutschlands größtem Mineralbrunnen. Führungen durch die Abfüllanlagen mit Gratisverkostung. Voranmeldung erforderlich (besucherzentrum@gerolsteiner.com). Führungen Mo–Do: 09:30 und 11:30 Uhr.',
+      },
+      {
+        name: 'Gerolsteiner Dolomiten & Felsenpfad',
+        entfernung: 'ca. 18 km',
+        badge: 'Wanderung · ca. 8 km',
+        text: 'Beeindruckendes Felsenmassiv direkt über der Stadt Gerolstein. Der Felsenpfad (ca. 8 km Rundweg) führt über die Munterley mit spektakulärem Blick ins Kylltal, die Löwenburg-Ruine und die Buchenlochhöhle.',
+      },
+      {
+        name: 'Naturkundemuseum Gerolstein',
+        entfernung: 'ca. 18 km',
+        badge: 'Museum',
+        text: 'Museum zur Naturgeschichte der Vulkaneifel – Geologie, Fossilien und Fauna der Region. Verständlich aufbereitet für alle Altersgruppen. Ideal für Regentage und naturinteressierte Besucher.',
+      },
+      {
+        name: 'Wassermühle Birgel',
+        entfernung: 'ca. 20 km',
+        badge: 'Museum · Hofladen',
+        text: 'Das größte Mühlen-Erlebniszentrum Europas liegt in Birgel. Vier Mühlen in Betrieb: Senf-, Getreide-, Öl- und Sägemühle. Führungen buchbar, Hofladen mit regionalen Produkten. Für alle Altersgruppen ein Erlebnis.',
+      },
+    ],
+  },
+  {
     titel: 'Tagesausflüge in der Region',
     eintraege: [
       {

@@ -38,6 +38,12 @@ const guides = [
     title: "Schlechtwetter-Tipps",
     text: "Auch wenn es regnet, muss die gute Stimmung nicht leiden. Unsere besten Alternativen für regnerische Tage in der Eifel.",
   },
+  {
+    href: "/guide/gerolstein",
+    icon: "🏔️",
+    title: "Gerolstein",
+    text: "Brunnen-Erlebniswelt · Dolomiten · Kurpark · Höhlen – die Brunnenstadt der Vulkaneifel in 20 Minuten erreichbar.",
+  },
 ];
 
 export default function GuidePage() {

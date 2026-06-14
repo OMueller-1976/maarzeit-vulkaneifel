@@ -62,6 +62,30 @@ const tipps = [
     badge: 'Schloss',
     text: 'Das besterhaltene Schloss der Eifel – nie zerstört, mit originalem Inventar aus mehreren Jahrhunderten. Geführte Touren täglich, innen vollständig zu besichtigen.',
   },
+  {
+    name: 'Gerolsteiner Brunnen Erlebniswelt',
+    entfernung: 'ca. 18 km',
+    badge: 'Neu 2026 · Kostenlos',
+    text: 'Neue interaktive Erlebniswelt bei Deutschlands größtem Mineralbrunnen. Führungen durch die Abfüllanlagen mit Gratisverkostung. Voranmeldung erforderlich (besucherzentrum@gerolsteiner.com, Tel. +49 6591 14238). Führungen Mo–Do: 09:30 und 11:30 Uhr. Innen, warm, kostenlos.',
+  },
+  {
+    name: 'Birresborner Eishöhlen',
+    entfernung: 'ca. 30 km',
+    badge: 'Höhle · Geführt',
+    text: 'Vier Lavahöhlen im Vulkanpark Birresborn – im Inneren ganzjährig um 0 °C, daher der Name. Geführte Touren buchbar, Schutzkleidung wird gestellt. Ein außergewöhnliches Erlebnis, das wetterfest ist.',
+  },
+  {
+    name: 'Naturkundemuseum Gerolstein',
+    entfernung: 'ca. 18 km',
+    badge: 'Museum',
+    text: 'Museum zur Naturgeschichte der Vulkaneifel – Geologie, Fossilien und Fauna der Region. Gut kombinierbar mit dem Felsenpfad oder der Erlebniswelt. Öffnungszeiten vorab prüfen.',
+  },
+  {
+    name: 'Wassermühle Birgel',
+    entfernung: 'ca. 20 km',
+    badge: 'Museum · Hofladen',
+    text: 'Das größte Mühlen-Erlebniszentrum Europas: vier Mühlen in Betrieb (Senf, Getreide, Öl, Säge). Führungen buchbar, Hofladen mit regionalen Produkten. Schön auch bei schlechtem Wetter.',
+  },
 ]
 
 export default function SchlechtwetterPage() {
