@@ -71,7 +71,7 @@ export default function BookingCalendar() {
     }
   }
 
-  const labelStyle = { fontSize: '0.72rem', color: '#999', letterSpacing: '0.08em', textTransform: 'uppercase' as const, display: 'block', marginBottom: '0.5rem' }
+  const labelStyle = { fontSize: '0.82rem', color: '#444', letterSpacing: '0.04em', textTransform: 'uppercase' as const, display: 'block', marginBottom: '0.5rem', fontWeight: 600 }
 
   return (
     <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '5rem', alignItems: 'start' }} className="booking-grid">
@@ -128,7 +128,7 @@ export default function BookingCalendar() {
       {/* Formular */}
       <div>
         <p style={{ ...labelStyle, marginBottom: '1.5rem' }}>Ihre Daten</p>
-        <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1.75rem' }}>
+        <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem' }}>
             <div>
               <label style={labelStyle}>Name *</label>
@@ -188,7 +188,7 @@ export default function BookingCalendar() {
             </label>
           </div>
           {error && (
-            <p style={{ color: '#C00', fontSize: '0.85rem', border: '1px solid #fcc', padding: '0.75rem 1rem', background: '#fff5f5' }}>
+            <p style={{ color: '#DC2626', fontSize: '0.9rem', border: '1.5px solid #FCA5A5', borderRadius: '6px', padding: '0.85rem 1rem', background: '#FEF2F2' }}>
               {error}
             </p>
           )}
