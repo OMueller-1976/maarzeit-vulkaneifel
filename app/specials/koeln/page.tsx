@@ -2,17 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Ausflug nach Köln ab Kirchweiler – Dom, Museen & Rheinufer | MaarZeit Vulkaneifel",
-  description:
-    "Köln liegt ca. 130 km von der Ferienwohnung in der Vulkaneifel entfernt. Kölner Dom, Museen, Rheinufer, Altstadt und Stadtleben – Köln als Tagesausflug aus der Eifel.",
-  keywords: [
-    "Köln Ausflug Eifel",
-    "Kölner Dom Tagesausflug",
-    "Köln Ferienwohnung Eifel",
-    "Köln Vulkaneifel",
-    "Köln Tagesausflug Kirchweiler",
-    "Köln Museen Ausflug",
-  ],
+  title: 'Ausflug Köln – Dom, Rheinufer & Museen, 130 km',
+  description: 'Köln: Kölner Dom, Altstadt, Rheinufer, Museen und Brauhauskultur. 130 km von der Ferienwohnung in der Vulkaneifel – lohnender Tagesausflug.',
+  alternates: { canonical: 'https://ferienwohnung-in-der-vulkaneifel.de/specials/koeln' },
 };
 
 export default function KoelnPage() {

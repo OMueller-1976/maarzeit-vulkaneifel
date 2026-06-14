@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "MaarZeit Vulkaneifel – Ferienwohnung an den Dauner Maaren",
-  description:
-    "Urlaub in der Vulkaneifel – Ihre Ferienwohnung MaarZeit direkt an den Dauner Maaren. Wandern, Radfahren, Motorrad – Hunde willkommen.",
+  title: 'Ferienwohnung Vulkaneifel bei Daun – Hund, Motorrad & Wandern',
+  description: 'Moderne 35 qm Ferienwohnung in der Vulkaneifel. Separater Eingang, Parkplatz, Terrasse, Hund willkommen. Direkt buchen ab 75 € pro Nacht.',
+  alternates: { canonical: 'https://ferienwohnung-in-der-vulkaneifel.de' },
 };
 
 const highlights = [

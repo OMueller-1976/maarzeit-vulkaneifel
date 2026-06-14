@@ -2,17 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Ausflug nach Cochem an der Mosel – ab Kirchweiler Vulkaneifel | MaarZeit",
-  description:
-    "Cochem an der Mosel liegt nur 45 km von der Ferienwohnung in der Vulkaneifel entfernt. Reichsburg Cochem, Altstadt, Weinkultur und Moselpromenade – der perfekte Tagesausflug.",
-  keywords: [
-    "Cochem Ausflug Eifel",
-    "Reichsburg Cochem",
-    "Mosel Tagesausflug Vulkaneifel",
-    "Cochem Ferienwohnung Eifel",
-    "Weinkultur Mosel Ausflug",
-    "Cochem Altstadt",
-  ],
+  title: 'Ausflug Cochem an der Mosel – 45 km ab Kirchweiler',
+  description: 'Cochem an der Mosel: Reichsburg, Altstadt, Weinkultur und Moselpromenade. Nur 45 km von der Ferienwohnung in der Vulkaneifel entfernt.',
+  alternates: { canonical: 'https://ferienwohnung-in-der-vulkaneifel.de/specials/cochem' },
 };
 
 export default function CochemPage() {

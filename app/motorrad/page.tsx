@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Motorradurlaub in der Vulkaneifel",
-  description:
-    "Die Vulkaneifel ist ein Paradies für Motorradfahrer. Kurvenreiche Strecken, wenig Verkehr und traumhafte Landschaft – mit Unterkunft in MaarZeit.",
+  title: 'Motorradfreundliche Ferienwohnung Eifel – Touren & Unterkunft',
+  description: 'Motorradurlaub in der Vulkaneifel. Eigener Parkplatz, kurvige Eifelstraßen, Nürburgring 55 km. Perfekte Basis für Motorradtouren in der Eifel.',
+  alternates: { canonical: 'https://ferienwohnung-in-der-vulkaneifel.de/motorrad' },
 };
 
 const strecken = [

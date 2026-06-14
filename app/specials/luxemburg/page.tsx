@@ -2,17 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Ausflug nach Luxemburg ab Kirchweiler – UNESCO-Altstadt & Kultur | MaarZeit",
-  description:
-    "Luxemburg liegt ca. 95 km von der Ferienwohnung in der Vulkaneifel entfernt. UNESCO-Altstadt, Casemates, Grund und Shopping – Luxemburg als Tagesausflug aus der Eifel.",
-  keywords: [
-    "Luxemburg Ausflug Eifel",
-    "Luxemburg Stadt Tagesausflug",
-    "UNESCO Altstadt Luxemburg",
-    "Luxemburg Ferienwohnung Eifel",
-    "Ausflug Luxemburg Vulkaneifel",
-    "Luxemburg Shopping Eifel",
-  ],
+  title: 'Ausflug Luxemburg – UNESCO-Altstadt, 95 km',
+  description: 'Luxemburg Stadt: UNESCO-Altstadt, Casemates, Grund-Viertel und Shopping. Nur 95 km von der Ferienwohnung in der Vulkaneifel entfernt.',
+  alternates: { canonical: 'https://ferienwohnung-in-der-vulkaneifel.de/specials/luxemburg' },
 };
 
 export default function LuxemburgPage() {

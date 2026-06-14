@@ -5,27 +5,32 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://ferienwohnung-in-der-vulkaneifel.de'),
   title: {
-    default: "MaarZeit Vulkaneifel – Ferienwohnung an den Dauner Maaren",
-    template: "%s | MaarZeit Vulkaneifel",
+    default: 'MaarZeit Vulkaneifel – Ferienwohnung bei Daun | Hund, Motorrad & Wandern',
+    template: '%s | MaarZeit Vulkaneifel',
   },
-  description:
-    "Ferienwohnung in der Vulkaneifel – direkt bei den Dauner Maaren. Naturnahes Urlaubsdomizil für Wanderer, Radfahrer und Motorradfahrer. Hunde willkommen.",
-  keywords: [
-    "Ferienwohnung Vulkaneifel",
-    "Dauner Maare",
-    "Urlaub Eifel",
-    "Wandern Vulkaneifel",
-    "Motorrad Eifel",
-    "Hund Ferienwohnung",
-  ],
+  description: 'Moderne 35 qm Ferienwohnung in der Vulkaneifel bei Daun. Separater Eingang, Parkplatz, Terrasse, Hund willkommen. Ideal für Wandern, Dauner Maare und Motorradtouren.',
+  keywords: ['Ferienwohnung Vulkaneifel', 'Ferienwohnung Daun', 'Unterkunft Vulkaneifel', 'Ferienwohnung mit Hund Eifel', 'Motorradurlaub Eifel', 'Dauner Maare Unterkunft', 'Wandern Vulkaneifel', 'Kurzurlaub Eifel', 'Ferienwohnung Kirchweiler'],
+  authors: [{ name: 'Markus Müller', url: 'https://ferienwohnung-in-der-vulkaneifel.de' }],
+  robots: { index: true, follow: true, googleBot: { index: true, follow: true, 'max-image-preview': 'large', 'max-snippet': -1 } },
   openGraph: {
-    title: "MaarZeit Vulkaneifel – Ferienwohnung an den Dauner Maaren",
-    description:
-      "Naturnahes Urlaubsdomizil in der Vulkaneifel. Wandern, Radfahren, Motorradfahren – Hunde willkommen.",
-    locale: "de_DE",
-    type: "website",
+    type: 'website',
+    locale: 'de_DE',
+    url: 'https://ferienwohnung-in-der-vulkaneifel.de',
+    siteName: 'MaarZeit Vulkaneifel',
+    title: 'MaarZeit Vulkaneifel – Ferienwohnung bei Daun',
+    description: 'Moderne 35 qm Ferienwohnung in der Vulkaneifel. Hund willkommen, Parkplatz, Terrasse.',
+    images: [{ url: '/og-image.jpg', width: 1200, height: 630, alt: 'MaarZeit Vulkaneifel Ferienwohnung' }],
   },
+  twitter: { card: 'summary_large_image', title: 'MaarZeit Vulkaneifel – Ferienwohnung bei Daun', description: 'Moderne 35 qm Ferienwohnung in der Vulkaneifel. Hund willkommen, Parkplatz, Terrasse.', images: ['/og-image.jpg'] },
+  alternates: { canonical: 'https://ferienwohnung-in-der-vulkaneifel.de' },
+};
+
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
 };
 
 export default function RootLayout({
@@ -59,6 +64,48 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', 'G-H24P94BWQD');`,
+          }}
+        />
+        <Script
+          id="schema-org"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "LodgingBusiness",
+              "name": "MaarZeit Vulkaneifel",
+              "description": "Moderne 35 qm Ferienwohnung in der Vulkaneifel bei Daun. Separater Eingang, Parkplatz, Terrasse, Hund willkommen.",
+              "url": "https://ferienwohnung-in-der-vulkaneifel.de",
+              "telephone": "",
+              "email": "kontakt@ferienwohnung-in-der-vulkaneifel.de",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Am Bruchborn 6",
+                "addressLocality": "Kirchweiler",
+                "postalCode": "54570",
+                "addressRegion": "Rheinland-Pfalz",
+                "addressCountry": "DE"
+              },
+              "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": 50.1747,
+                "longitude": 6.8397
+              },
+              "priceRange": "75€ - 125€",
+              "amenityFeature": [
+                { "@type": "LocationFeatureSpecification", "name": "Parkplatz", "value": true },
+                { "@type": "LocationFeatureSpecification", "name": "Hunde erlaubt", "value": true },
+                { "@type": "LocationFeatureSpecification", "name": "WLAN", "value": true },
+                { "@type": "LocationFeatureSpecification", "name": "Küche", "value": true },
+                { "@type": "LocationFeatureSpecification", "name": "Terrasse", "value": true },
+                { "@type": "LocationFeatureSpecification", "name": "TV", "value": true }
+              ],
+              "checkinTime": "15:00",
+              "checkoutTime": "11:00",
+              "petsAllowed": true,
+              "numberOfRooms": 1,
+              "floorSize": { "@type": "QuantitativeValue", "value": 35, "unitCode": "MTK" }
+            })
           }}
         />
       </head>

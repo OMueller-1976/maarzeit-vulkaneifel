@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Radfahren in der Vulkaneifel",
-  description:
-    "Radwege und Touren in der Vulkaneifel – Kyll-Radweg, Eifel-Ardenen-Trail und lokale Runden. Fahrradverleih und E-Bike-Infos.",
+  title: 'Radfahren Vulkaneifel – Maare-Mosel-Radweg ab Daun',
+  description: 'Maare-Mosel-Radweg: 51 km auf ehemaliger Bahntrasse von Daun bis zur Mosel. E-Bike-Touren in der Vulkaneifel ab unserer Ferienwohnung in Kirchweiler.',
+  alternates: { canonical: 'https://ferienwohnung-in-der-vulkaneifel.de/guide/radfahren' },
 };
 
 export default function RadfahrenPage() {

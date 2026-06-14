@@ -71,3 +71,54 @@ select.form-input {
   padding-right: 2.5rem;
   cursor: pointer;
 }
+
+/* Mobile Navigation */
+@media (max-width: 768px) {
+  .container { padding: 0 1rem; }
+  .section { padding: 3rem 1rem; }
+  .section-sm { padding: 2rem 1rem; }
+
+  /* Hero Text */
+  h1 { font-size: clamp(1.8rem, 6vw, 3rem) !important; }
+  h2 { font-size: clamp(1.4rem, 4vw, 2rem) !important; }
+
+  /* Grids auf Mobile: 1 Spalte */
+  [style*="grid-template-columns: repeat(3"] {
+    grid-template-columns: 1fr !important;
+  }
+  [style*="grid-template-columns: repeat(4"] {
+    grid-template-columns: 1fr 1fr !important;
+  }
+  [style*="grid-template-columns: 3fr 2fr"],
+  [style*="grid-template-columns: 2fr 1fr"],
+  [style*="grid-template-columns: 1fr 1fr"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Buttons volle Breite auf Mobile */
+  .btn-primary, .btn-outline, .btn-ghost {
+    display: block !important;
+    width: 100% !important;
+    text-align: center !important;
+  }
+
+  /* Preiskacheln */
+  .price-card { padding: 1.5rem 1rem; }
+
+  /* Tabellen scrollbar */
+  table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+}
+
+@media (max-width: 480px) {
+  .section { padding: 2.5rem 0.875rem; }
+  h1 { font-size: clamp(1.6rem, 7vw, 2.2rem) !important; }
+}
+
+/* Touch-Targets min. 44px */
+button, a, select, input[type="checkbox"] {
+  min-height: 44px;
+}
+
+input.form-input, select.form-input, textarea.form-input {
+  font-size: 16px !important; /* Verhindert iOS Zoom beim Focus */
+}

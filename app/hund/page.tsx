@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Mit Hund in die Vulkaneifel",
-  description:
-    "Urlaub mit Hund in der Vulkaneifel – die Ferienwohnung MaarZeit ist hundefreundlich mit eingezäuntem Garten und hundefreundlichen Wanderwegen.",
+  title: 'Ferienwohnung mit Hund Eifel – Urlaub in der Vulkaneifel',
+  description: 'Ferienwohnung mit Hund in der Vulkaneifel. Eigener Eingang, Parkplatz, Garten. Hundefreundliche Wanderwege und Freilinger See mit Hundestrand 45 km entfernt.',
+  alternates: { canonical: 'https://ferienwohnung-in-der-vulkaneifel.de/hund' },
 };
 
 export default function HundPage() {

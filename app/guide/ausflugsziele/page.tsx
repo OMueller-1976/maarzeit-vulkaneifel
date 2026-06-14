@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Ausflugsziele in der Vulkaneifel",
-  description:
-    "Die besten Ausflugsziele rund um die Vulkaneifel: Nürburgring, Mosel, Gerolstein, Römerthermen und mehr.",
+  title: 'Ausflugsziele Vulkaneifel – Wildpark, Burgen & Nürburgring',
+  description: 'Ausflugsziele rund um Kirchweiler: Wild- & Erlebnispark Daun, Manderscheider Burgen, Vulkanmuseum, Nürburgring 55 km, Mosel 45 km.',
+  alternates: { canonical: 'https://ferienwohnung-in-der-vulkaneifel.de/guide/ausflugsziele' },
 };
 
 const ziele = [

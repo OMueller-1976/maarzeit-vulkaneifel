@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import BookingCalendar from "@/components/BookingCalendar";
 
 export const metadata: Metadata = {
-  title: "Buchung & Verfügbarkeit",
-  description:
-    "Verfügbarkeit prüfen und Ferienwohnung MaarZeit Vulkaneifel buchen. Ab 95 € pro Nacht, Mindestaufenthalt 2 Nächte.",
+  title: 'Ferienwohnung Vulkaneifel buchen – Preise & Verfügbarkeit',
+  description: 'Ferienwohnung in der Vulkaneifel direkt buchen. Ab 75 € pro Nacht, Endreinigung 20 €. Verfügbarkeit prüfen und sicher via Stripe bezahlen.',
+  alternates: { canonical: 'https://ferienwohnung-in-der-vulkaneifel.de/buchung' },
 };
 
 export default function BuchungPage() {

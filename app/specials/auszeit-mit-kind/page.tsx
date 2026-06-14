@@ -2,17 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Familienurlaub in der Vulkaneifel – Auszeit mit Kind | MaarZeit Kirchweiler",
-  description:
-    "Familienurlaub in der Vulkaneifel: Wild- & Erlebnispark Daun, Dauner Maare, Natur, Wandern mit Kindern und kinderfreundliche Ausflüge ab unserer Ferienwohnung in Kirchweiler.",
-  keywords: [
-    "Familienurlaub Vulkaneifel",
-    "Urlaub mit Kind Eifel",
-    "Ferienwohnung Kinder Eifel",
-    "kinderfreundliche Unterkunft Vulkaneifel",
-    "Ausflüge mit Kindern Eifel",
-    "Wildpark Daun Kinder",
-  ],
+  title: 'Familienurlaub Vulkaneifel – Auszeit mit Kind',
+  description: 'Familienurlaub in der Vulkaneifel: Wildpark Daun, Dauner Maare, Wandern mit Kindern, Vulkanmuseum und Adler- & Wolfspark Kasselburg. Hund willkommen.',
+  alternates: { canonical: 'https://ferienwohnung-in-der-vulkaneifel.de/specials/auszeit-mit-kind' },
 };
 
 export default function AuszeitMitKindPage() {

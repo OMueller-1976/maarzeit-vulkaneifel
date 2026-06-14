@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Dauner Maare – Vulkanseen der Eifel",
-  description:
-    "Alles über die Dauner Maare: Schalkenmehrener Maar, Gemündener Maar und Weinfelder Maar – Entstehung, Zugänge, Schwimmen und Wanderwege.",
+  title: 'Dauner Maare – Gemündener, Schalkenmehrener & Weinfelder Maar',
+  description: 'Die Dauner Maare: Baden, Wandern und Natur in der Vulkaneifel. Gemündener, Schalkenmehrener und Weinfelder Maar – nur 6 km von unserer Ferienwohnung.',
+  alternates: { canonical: 'https://ferienwohnung-in-der-vulkaneifel.de/guide/dauner-maare' },
 };
 
 export default function DaunerMaarePage() {

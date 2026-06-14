@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Schlechtwetter-Tipps Vulkaneifel",
-  description:
-    "Was tun bei Regen in der Vulkaneifel? Museen, Thermalbäder, gemütliche Cafés und Indoor-Aktivitäten für Regentage.",
+  title: 'Schlechtwetter Vulkaneifel – Ausflüge bei Regen rund um Daun',
+  description: 'Was tun bei Regen in der Vulkaneifel? Vulkanmuseum Daun, Thermalbäder, Moselausflug und gemütliche Einkehr. Tipps für Regentage in der Eifel.',
+  alternates: { canonical: 'https://ferienwohnung-in-der-vulkaneifel.de/guide/schlechtwetter' },
 };
 
 export default function SchlechtwetterPage() {

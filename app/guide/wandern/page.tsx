@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Wandern in der Vulkaneifel",
-  description:
-    "Die besten Wanderwege in der Vulkaneifel: Eifelsteig, Maar-Rundwege und Tageswanderungen für alle Fitnesslevel.",
+  title: 'Wandern Vulkaneifel – Lieserpfad, Eifelsteig & Maare-Routen',
+  description: 'Die schönsten Wanderrouten in der Vulkaneifel: Lieserpfad, Eifelsteig, Manderscheider Burgenstieg und HeimatSpuren ab Kirchweiler bei Daun.',
+  alternates: { canonical: 'https://ferienwohnung-in-der-vulkaneifel.de/guide/wandern' },
 };
 
 const routen = [

@@ -2,16 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Nürburgring ab Kirchweiler – Ausflug in die Vulkaneifel | MaarZeit",
-  description:
-    "Der Nürburgring liegt nur 55 km von unserer Ferienwohnung in der Vulkaneifel entfernt. Nordschleife, Erlebniswelt, Rennsport und Touristenfahrten – alles über den Ausflug zum Nürburgring.",
-  keywords: [
-    "Nürburgring Ferienwohnung Eifel",
-    "Unterkunft Nürburgring",
-    "Motorsport Eifel Urlaub",
-    "Nürburgring Nordschleife Ausflug",
-    "Ferienwohnung Nürburgring Nähe",
-  ],
+  title: 'Nürburgring Ausflug ab Kirchweiler – nur 55 km',
+  description: 'Nürburgring liegt 55 km von unserer Ferienwohnung. Nordschleife, Erlebniswelt ring°werk, Touristenfahrten und Motorsport-Events in der Eifel.',
+  alternates: { canonical: 'https://ferienwohnung-in-der-vulkaneifel.de/specials/nuerburgring' },
 };
 
 export default function NuerburgringPage() {

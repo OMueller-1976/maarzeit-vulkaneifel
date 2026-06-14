@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Specials – Ausflugsziele & Erlebnisse ab Kirchweiler | MaarZeit Vulkaneifel",
-  description:
-    "Nürburgring, Cochem, Koblenz, Luxemburg, Köln und Familienurlaub mit Kind – die schönsten Ausflugsziele ab der Ferienwohnung in der Vulkaneifel mit Entfernungsangaben.",
+  title: 'Specials – Nürburgring, Cochem, Koblenz, Luxemburg & Köln',
+  description: 'Ausflugsziele ab Kirchweiler: Nürburgring 55 km, Cochem 45 km, Koblenz 85 km, Luxemburg 95 km, Köln 130 km. Mit Entfernungen und Insider-Tipps.',
+  alternates: { canonical: 'https://ferienwohnung-in-der-vulkaneifel.de/specials' },
 };
 
 const specials = [

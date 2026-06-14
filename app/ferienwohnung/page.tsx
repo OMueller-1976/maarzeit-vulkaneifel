@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Die Ferienwohnung",
-  description:
-    "35 qm Ferienwohnung in der Vulkaneifel – Neubau 2023, sonnige Terrasse, Garten mit Feuerschale, WLAN, für bis zu 3 Personen. Hunde willkommen.",
+  title: 'Die Ferienwohnung – 35 qm Neubau mit Terrasse & Parkplatz',
+  description: 'Moderne 35 qm Neubau-Ferienwohnung 2023. Separater Eingang, Parkplatz, Terrasse, Küchenzeile, Spülmaschine, TV mit Sky & Prime. Hund willkommen.',
+  alternates: { canonical: 'https://ferienwohnung-in-der-vulkaneifel.de/ferienwohnung' },
 };
 
 const ausstattung = [

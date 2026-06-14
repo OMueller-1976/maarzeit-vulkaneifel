@@ -2,17 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Ausflug nach Koblenz ab Kirchweiler – Deutsches Eck & Rhein | MaarZeit Vulkaneifel",
-  description:
-    "Koblenz liegt ca. 85 km von der Ferienwohnung in der Vulkaneifel entfernt. Deutsches Eck, Festung Ehrenbreitstein, Altstadt und Seilbahn – Koblenz als Tagesausflug.",
-  keywords: [
-    "Koblenz Ausflug Eifel",
-    "Deutsches Eck Koblenz",
-    "Festung Ehrenbreitstein",
-    "Koblenz Tagesausflug Vulkaneifel",
-    "Rhein Mosel Koblenz",
-    "Ferienwohnung Koblenz Nähe Eifel",
-  ],
+  title: 'Ausflug Koblenz – Deutsches Eck & Festung, 85 km',
+  description: 'Koblenz: Deutsches Eck, Festung Ehrenbreitstein, Seilbahn und Altstadt. 85 km von der Ferienwohnung in der Vulkaneifel – perfekter Tagesausflug.',
+  alternates: { canonical: 'https://ferienwohnung-in-der-vulkaneifel.de/specials/koblenz' },
 };
 
 export default function KoblenzPage() {
