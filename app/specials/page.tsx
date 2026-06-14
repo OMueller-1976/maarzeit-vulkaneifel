@@ -4,7 +4,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: 'Specials – Nürburgring, Cochem, Koblenz, Luxemburg & Köln',
   description: 'Ausflugsziele ab Kirchweiler: Nürburgring 55 km, Cochem 45 km, Koblenz 85 km, Luxemburg 95 km, Köln 130 km. Mit Entfernungen und Insider-Tipps.',
-  alternates: { canonical: 'https://ferienwohnung-in-der-vulkaneifel.de/specials' },
+  alternates: { canonical: 'https://www.ferienwohnung-in-der-vulkaneifel.de/specials' },
 };
 
 const specials = [

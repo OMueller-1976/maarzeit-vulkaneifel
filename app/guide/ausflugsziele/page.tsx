@@ -4,7 +4,7 @@ import Link from 'next/link'
 export const metadata: Metadata = {
   title: 'Ausflugsziele Vulkaneifel – Wildpark, Kino, Berlingen, Wasserfall & mehr',
   description: 'Alle Freizeitangebote im Umkreis von Kirchweiler: Eifel Adventures Berlingen, Sommerrodelbahn, Wildpark Daun, Dreimühlen Wasserfall, Kinopalast, Laurentiusbad und mehr.',
-  alternates: { canonical: 'https://ferienwohnung-in-der-vulkaneifel.de/guide/ausflugsziele' },
+  alternates: { canonical: 'https://www.ferienwohnung-in-der-vulkaneifel.de/guide/ausflugsziele' },
 }
 
 const kategorien = [

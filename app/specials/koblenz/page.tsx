@@ -4,7 +4,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: 'Ausflug Koblenz – Deutsches Eck & Festung, 85 km',
   description: 'Koblenz: Deutsches Eck, Festung Ehrenbreitstein, Seilbahn und Altstadt. 85 km von der Ferienwohnung in der Vulkaneifel – perfekter Tagesausflug.',
-  alternates: { canonical: 'https://ferienwohnung-in-der-vulkaneifel.de/specials/koblenz' },
+  alternates: { canonical: 'https://www.ferienwohnung-in-der-vulkaneifel.de/specials/koblenz' },
 };
 
 export default function KoblenzPage() {

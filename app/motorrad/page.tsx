@@ -4,7 +4,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: 'Motorradfreundliche Ferienwohnung Eifel – Touren & Unterkunft',
   description: 'Motorradurlaub in der Vulkaneifel. Eigener Parkplatz, kurvige Eifelstraßen, Nürburgring 55 km. Perfekte Basis für Motorradtouren in der Eifel.',
-  alternates: { canonical: 'https://ferienwohnung-in-der-vulkaneifel.de/motorrad' },
+  alternates: { canonical: 'https://www.ferienwohnung-in-der-vulkaneifel.de/motorrad' },
 };
 
 const strecken = [

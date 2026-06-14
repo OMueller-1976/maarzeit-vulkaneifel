@@ -5,7 +5,7 @@ import FAQ from "@/components/FAQ";
 export const metadata: Metadata = {
   title: 'Ferienwohnung Vulkaneifel bei Daun – Hund, Motorrad & Wandern',
   description: 'Moderne 35 qm Ferienwohnung in der Vulkaneifel. Separater Eingang, Parkplatz, Terrasse, Hund willkommen. Direkt buchen ab 75 € pro Nacht.',
-  alternates: { canonical: 'https://ferienwohnung-in-der-vulkaneifel.de' },
+  alternates: { canonical: 'https://www.ferienwohnung-in-der-vulkaneifel.de' },
 };
 
 const highlights = [

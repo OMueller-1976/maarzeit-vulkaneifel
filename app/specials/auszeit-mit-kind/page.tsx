@@ -4,7 +4,7 @@ import Link from 'next/link'
 export const metadata: Metadata = {
   title: 'Familienurlaub Vulkaneifel – Auszeit mit Kind',
   description: 'Familienurlaub in der Vulkaneifel: Wildpark Daun, Dauner Maare, Wandern mit Kindern, Vulkanmuseum und Adler- & Wolfspark Kasselburg. Hund willkommen.',
-  alternates: { canonical: 'https://ferienwohnung-in-der-vulkaneifel.de/specials/auszeit-mit-kind' },
+  alternates: { canonical: 'https://www.ferienwohnung-in-der-vulkaneifel.de/specials/auszeit-mit-kind' },
 }
 
 const ziele = [

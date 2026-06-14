@@ -5,7 +5,7 @@ import Script from "next/script";
 export const metadata: Metadata = {
   title: 'Ausflug Cochem an der Mosel – 45 km ab Kirchweiler',
   description: 'Cochem an der Mosel: Reichsburg, Altstadt, Weinkultur und Moselpromenade. Nur 45 km von der Ferienwohnung in der Vulkaneifel entfernt.',
-  alternates: { canonical: 'https://ferienwohnung-in-der-vulkaneifel.de/specials/cochem' },
+  alternates: { canonical: 'https://www.ferienwohnung-in-der-vulkaneifel.de/specials/cochem' },
 };
 
 const schema = {

@@ -5,7 +5,7 @@ import Script from 'next/script'
 export const metadata: Metadata = {
   title: 'Gerolstein – Ausflug in die Brunnenstadt der Vulkaneifel',
   description: 'Gerolstein: Gerolsteiner Brunnen Erlebniswelt, Dolomiten, Felsenpfad, Kurpark, Höhlen und Kyll. Alle Tipps für einen Ausflug nach Gerolstein ab Kirchweiler (18 km).',
-  alternates: { canonical: 'https://ferienwohnung-in-der-vulkaneifel.de/guide/gerolstein' },
+  alternates: { canonical: 'https://www.ferienwohnung-in-der-vulkaneifel.de/guide/gerolstein' },
 }
 
 const highlights = [

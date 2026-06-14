@@ -4,7 +4,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: 'Vulkaneifel Guide – Maare, Wandern, Ausflüge & Tipps',
   description: 'Reiseführer für die Vulkaneifel: Dauner Maare, Wanderwege, Radfahren, Ausflugsziele und Hundeurlaub. Alle Tipps ab Kirchweiler bei Daun.',
-  alternates: { canonical: 'https://ferienwohnung-in-der-vulkaneifel.de/guide' },
+  alternates: { canonical: 'https://www.ferienwohnung-in-der-vulkaneifel.de/guide' },
 };
 
 const guides = [

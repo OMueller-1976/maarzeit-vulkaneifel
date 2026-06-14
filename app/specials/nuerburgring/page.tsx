@@ -5,7 +5,7 @@ import Script from "next/script";
 export const metadata: Metadata = {
   title: 'Nürburgring Ausflug ab Kirchweiler – nur 55 km',
   description: 'Nürburgring liegt 55 km von unserer Ferienwohnung. Nordschleife, Erlebniswelt ring°werk, Touristenfahrten und Motorsport-Events in der Eifel.',
-  alternates: { canonical: 'https://ferienwohnung-in-der-vulkaneifel.de/specials/nuerburgring' },
+  alternates: { canonical: 'https://www.ferienwohnung-in-der-vulkaneifel.de/specials/nuerburgring' },
 };
 
 const schema = {

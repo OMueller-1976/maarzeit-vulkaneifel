@@ -4,7 +4,7 @@ import Link from 'next/link'
 export const metadata: Metadata = {
   title: 'Urlaub mit Hund in der Vulkaneifel – Wanderwege, Seen & Ausflüge',
   description: 'Hundefreundliche Ausflüge in der Vulkaneifel: Freilinger See mit Hundestrand, Wanderwege rund um Daun, Dauner Maare, Lieserpfad und Tipps für Urlaub mit Hund in der Eifel.',
-  alternates: { canonical: 'https://ferienwohnung-in-der-vulkaneifel.de/hund' },
+  alternates: { canonical: 'https://www.ferienwohnung-in-der-vulkaneifel.de/hund' },
 }
 
 const seen = [

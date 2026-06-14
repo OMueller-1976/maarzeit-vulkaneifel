@@ -4,7 +4,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: 'Ausflug Köln – Dom, Rheinufer & Museen, 130 km',
   description: 'Köln: Kölner Dom, Altstadt, Rheinufer, Museen und Brauhauskultur. 130 km von der Ferienwohnung in der Vulkaneifel – lohnender Tagesausflug.',
-  alternates: { canonical: 'https://ferienwohnung-in-der-vulkaneifel.de/specials/koeln' },
+  alternates: { canonical: 'https://www.ferienwohnung-in-der-vulkaneifel.de/specials/koeln' },
 };
 
 export default function KoelnPage() {

@@ -4,7 +4,7 @@ import BookingCalendar from "@/components/BookingCalendar";
 export const metadata: Metadata = {
   title: 'Ferienwohnung Vulkaneifel buchen – Preise & Verfügbarkeit',
   description: 'Ferienwohnung in der Vulkaneifel direkt buchen. Ab 75 € pro Nacht, Endreinigung 20 €. Verfügbarkeit prüfen und sicher via Stripe bezahlen.',
-  alternates: { canonical: 'https://ferienwohnung-in-der-vulkaneifel.de/buchung' },
+  alternates: { canonical: 'https://www.ferienwohnung-in-der-vulkaneifel.de/buchung' },
 };
 
 export default function BuchungPage() {
