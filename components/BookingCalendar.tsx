@@ -111,7 +111,7 @@ export default function BookingCalendar() {
             <div style={{ display: 'flex', justifyContent: 'space-between', borderTop: '1px solid #E5E5E5', paddingTop: '0.6rem', marginTop: '0.5rem', fontFamily: 'Georgia, serif', fontSize: '1.1rem' }}>
               <span>Gesamtpreis</span><span>{pricing.total} €</span>
             </div>
-            <div style={{ background: '#F9F8F6', padding: '1rem', marginTop: '1rem' }}>
+            <div style={{ background: 'white', border: '1px solid #E5E5E5', padding: '1rem', marginTop: '1rem' }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.88rem', marginBottom: '0.35rem' }}>
                 <span>30 % Anzahlung (jetzt via Stripe)</span>
                 <strong>{pricing.deposit} €</strong>

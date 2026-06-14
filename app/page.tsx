@@ -134,13 +134,13 @@ export default function HomePage() {
               key={p.label}
               className={`card border ${p.featured ? "bg-green-900 border-green-900 text-white" : "border-green-100"}`}
             >
-              <p className={`text-xs uppercase tracking-widest mb-2 ${p.featured ? "text-green-300" : "text-stone-400"}`}>
+              <p className={`text-xs uppercase tracking-widest mb-2 ${p.featured ? "text-white" : "text-stone-400"}`}>
                 {p.detail}
               </p>
               <p className={`font-bold text-2xl mb-1 ${p.featured ? "text-white" : "text-green-800"}`}>
                 {p.price}
               </p>
-              <p className={`text-xs ${p.featured ? "text-green-200" : "text-stone-500"}`}>
+              <p className={`text-xs ${p.featured ? "text-white/70" : "text-stone-500"}`}>
                 {p.label}
               </p>
             </div>

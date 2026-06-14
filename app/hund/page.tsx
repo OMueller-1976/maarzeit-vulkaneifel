@@ -126,7 +126,7 @@ export default function HundPage() {
       </section>
 
       {/* Badeseen */}
-      <section style={{ background: '#F9F8F6', padding: '5rem 1.5rem' }}>
+      <section style={{ background: 'white', padding: '5rem 1.5rem' }}>
         <div style={{ maxWidth: '960px', margin: '0 auto' }}>
           <h2 style={{ fontFamily: 'Georgia, serif', fontSize: '1.6rem', fontWeight: 'normal', marginBottom: '2.5rem', color: '#1A1A1A' }}>
             Badeseen mit Hund
@@ -178,7 +178,7 @@ export default function HundPage() {
       </section>
 
       {/* Praktische Tipps */}
-      <section style={{ background: '#F9F8F6', padding: '5rem 1.5rem' }}>
+      <section style={{ background: 'white', padding: '5rem 1.5rem' }}>
         <div style={{ maxWidth: '960px', margin: '0 auto' }}>
           <h2 style={{ fontFamily: 'Georgia, serif', fontSize: '1.6rem', fontWeight: 'normal', marginBottom: '2.5rem', color: '#1A1A1A' }}>
             Praktische Tipps für den Hundeurlaub

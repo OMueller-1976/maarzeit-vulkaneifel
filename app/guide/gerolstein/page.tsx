@@ -119,7 +119,7 @@ export default function GerolsteinPage() {
         </div>
 
         {/* Gastronomie */}
-        <div style={{ background: '#F9F8F6', border: '1px solid #E5E5E5', padding: '2rem', margin: '3rem 0' }}>
+        <div style={{ background: 'white', border: '1px solid #E5E5E5', padding: '2rem', margin: '3rem 0' }}>
           <p style={{ fontSize: '0.72rem', letterSpacing: '0.1em', textTransform: 'uppercase', color: '#888', marginBottom: '0.75rem' }}>
             Gastronomietipp
           </p>

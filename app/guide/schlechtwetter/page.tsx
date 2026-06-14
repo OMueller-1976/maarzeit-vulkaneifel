@@ -133,7 +133,7 @@ export default function SchlechtwetterPage() {
         </div>
 
         {/* Geheimtipp */}
-        <div style={{ background: '#F9F8F6', border: '1px solid #E5E5E5', padding: '2rem', marginBottom: '3rem' }}>
+        <div style={{ background: 'white', border: '1px solid #E5E5E5', padding: '2rem', marginBottom: '3rem' }}>
           <p style={{ fontSize: '0.72rem', letterSpacing: '0.1em', textTransform: 'uppercase', color: '#888', marginBottom: '0.75rem' }}>
             Geheimtipp
           </p>
