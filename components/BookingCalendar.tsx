@@ -1,122 +1,214 @@
-"use client";
+'use client'
+import { useState, useEffect, useCallback } from 'react'
+import { DayPicker, DateRange } from 'react-day-picker'
+import { de } from 'date-fns/locale'
+import { differenceInDays, format, addDays, isBefore, isAfter, isSameDay, parseISO } from 'date-fns'
+import { calculatePrice } from '@/lib/pricing'
+import 'react-day-picker/dist/style.css'
 
-import { useState } from "react";
-import { DayPicker, DateRange } from "react-day-picker";
-import { format, differenceInCalendarDays } from "date-fns";
-import { de } from "date-fns/locale";
-import "react-day-picker/dist/style.css";
-
-// Statische Beispiel-Belegtzeiten
-const bookedRanges: DateRange[] = [
-  { from: new Date(2026, 6, 1), to: new Date(2026, 6, 7) },
-  { from: new Date(2026, 6, 20), to: new Date(2026, 6, 27) },
-  { from: new Date(2026, 7, 10), to: new Date(2026, 7, 17) },
-];
-
-function isBooked(date: Date): boolean {
-  return bookedRanges.some((range) => {
-    if (!range.from || !range.to) return false;
-    return date >= range.from && date <= range.to;
-  });
-}
-
-function calcPrice(n: number) {
-  const per = n >= 7 ? 75 : n >= 4 ? 85 : 95;
-  return { per, total: per * n };
-}
+interface BlockedRange { from: string; to: string }
 
 export default function BookingCalendar() {
-  const [range, setRange] = useState<DateRange | undefined>();
+  const [range,         setRange]         = useState<DateRange | undefined>()
+  const [blockedRanges, setBlockedRanges] = useState<BlockedRange[]>([])
+  const [calLoading,    setCalLoading]    = useState(true)
+  const [submitting,    setSubmitting]    = useState(false)
+  const [error,         setError]         = useState('')
+  const [form, setForm] = useState({
+    name: '', email: '', phone: '',
+    personen: '2', hund: 'nein', motorrad: 'nein', nachricht: '',
+  })
 
-  const nights =
-    range?.from && range?.to
-      ? differenceInCalendarDays(range.to, range.from)
-      : 0;
+  useEffect(() => {
+    fetch('/api/availability')
+      .then(r => r.json())
+      .then(d => { setBlockedRanges(d.blockedRanges || []); setCalLoading(false) })
+      .catch(() => setCalLoading(false))
+  }, [])
 
-  const { per, total } = calcPrice(nights);
+  const isBlocked = useCallback((date: Date): boolean =>
+    blockedRanges.some(r => {
+      const from = parseISO(r.from)
+      const to   = parseISO(r.to)
+      return (isAfter(date, from) || isSameDay(date, from)) &&
+             (isBefore(date, to)  || isSameDay(date, to))
+    }), [blockedRanges])
+
+  const nights  = range?.from && range?.to ? differenceInDays(range.to, range.from) : 0
+  const pricing = nights >= 1 ? calculatePrice(nights) : null
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    if (!range?.from || !range?.to || nights < 1) {
+      setError('Bitte wählen Sie zuerst Ihren Reisezeitraum.')
+      return
+    }
+    setError('')
+    setSubmitting(true)
+    try {
+      const res = await fetch('/api/checkout', {
+        method:  'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          checkin:    format(range.from, 'yyyy-MM-dd'),
+          checkout:   format(range.to,   'yyyy-MM-dd'),
+          nights,
+          guests:     form.personen,
+          dog:        form.hund,
+          motorcycle: form.motorrad,
+          name:       form.name,
+          email:      form.email,
+          phone:      form.phone,
+          message:    form.nachricht,
+        }),
+      })
+      const data = await res.json()
+      if (!res.ok) { setError(data.error || 'Fehler aufgetreten.'); setSubmitting(false); return }
+      window.location.href = data.url
+    } catch {
+      setError('Verbindungsfehler. Bitte versuchen Sie es erneut.')
+      setSubmitting(false)
+    }
+  }
+
+  const labelStyle = { fontSize: '0.72rem', color: '#999', letterSpacing: '0.08em', textTransform: 'uppercase' as const, display: 'block', marginBottom: '0.5rem' }
 
   return (
-    <div className="flex flex-col lg:flex-row gap-8 items-start">
-      <div className="bg-white rounded-lg shadow-md p-4">
-        <DayPicker
-          mode="range"
-          selected={range}
-          onSelect={setRange}
-          locale={de}
-          disabled={[{ before: new Date() }, isBooked]}
-          modifiers={{ booked: isBooked }}
-          modifiersClassNames={{
-            booked: "line-through text-red-400 opacity-50",
-          }}
-          numberOfMonths={2}
-          showOutsideDays
-        />
-      </div>
+    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '5rem', alignItems: 'start' }} className="booking-grid">
 
-      <div className="bg-white rounded-lg shadow-md p-6 min-w-[260px]">
-        <h3 className="text-lg font-bold text-green-900 mb-4">Ihre Auswahl</h3>
-        {range?.from ? (
-          <>
-            <div className="text-sm space-y-2 text-stone-700">
-              <div className="flex justify-between">
-                <span>Anreise:</span>
-                <span className="font-medium">{format(range.from, "dd.MM.yyyy", { locale: de })}</span>
-              </div>
-              {range.to && (
-                <>
-                  <div className="flex justify-between">
-                    <span>Abreise:</span>
-                    <span className="font-medium">{format(range.to, "dd.MM.yyyy", { locale: de })}</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span>Nächte:</span>
-                    <span className="font-medium">{nights}</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span>Preis / Nacht:</span>
-                    <span className="font-medium">{per} €</span>
-                  </div>
-                  <div className="border-t border-stone-200 mt-2 pt-2 flex justify-between text-base font-bold text-green-900">
-                    <span>Gesamt:</span>
-                    <span>{total} €</span>
-                  </div>
-                  <p className="text-xs text-stone-400 mt-1">
-                    inkl. Nebenkosten · Mindestaufenthalt 2 Nächte
-                  </p>
-                </>
-              )}
-            </div>
-            {nights >= 2 && (
-              <a
-                href={`mailto:kontakt@ferienwohnung-in-der-vulkaneifel.de?subject=Buchungsanfrage ${format(range.from, "dd.MM.yyyy")} – ${range.to ? format(range.to, "dd.MM.yyyy") : ""}&body=Guten Tag,%0A%0Aich möchte die Ferienwohnung MaarZeit für folgende Zeit anfragen:%0A%0AAnreise: ${format(range.from, "dd.MM.yyyy")}%0AAbreise: ${range.to ? format(range.to, "dd.MM.yyyy") : ""}%0A%0AAnzahl Personen:%0AMit Hund: ja / nein%0A%0AMit freundlichen Grüßen`}
-                className="btn-primary w-full text-center mt-4 block"
-              >
-                Anfrage senden
-              </a>
-            )}
-            {nights === 1 && (
-              <p className="text-xs text-amber-700 mt-3 bg-amber-50 p-2 rounded">
-                Mindestaufenthalt: 2 Nächte
-              </p>
-            )}
-          </>
+      {/* Kalender */}
+      <div>
+        <p style={{ ...labelStyle, marginBottom: '1.5rem' }}>Reisezeitraum wählen</p>
+        {calLoading ? (
+          <p style={{ color: '#999', fontSize: '0.9rem' }}>Kalender wird geladen…</p>
         ) : (
-          <p className="text-sm text-stone-500">
-            Wählen Sie Anreise- und Abreisedatum im Kalender aus.
-          </p>
+          <DayPicker
+            mode="range" selected={range} onSelect={setRange} locale={de}
+            fromDate={addDays(new Date(), 1)}
+            disabled={(date) => isBlocked(date) || isBefore(date, new Date())}
+            modifiersStyles={{
+              selected:     { backgroundColor: '#1A1A1A', color: 'white' },
+              range_middle: { backgroundColor: '#F0F0F0', color: '#1A1A1A' },
+              disabled:     { opacity: 0.3, textDecoration: 'line-through' },
+            }}
+            numberOfMonths={2}
+          />
         )}
+        <p style={{ fontSize: '0.72rem', color: '#BBB', marginTop: '0.75rem' }}>
+          Durchgestrichene Tage sind belegt oder als Reinigungspuffer gesperrt.
+        </p>
 
-        <div className="mt-6 pt-4 border-t border-stone-100 text-xs text-stone-500 space-y-1">
-          <div className="flex items-center gap-2">
-            <span className="w-3 h-3 rounded-full bg-red-300 inline-block" />
-            <span>Bereits belegt</span>
+        {pricing && (
+          <div style={{ marginTop: '2rem', borderTop: '1px solid #E5E5E5', paddingTop: '2rem' }}>
+            {[
+              [`${nights} Nacht${nights > 1 ? 'nächte' : ''} × ${pricing.perNight} €`, `${pricing.subtotal} €`],
+              ['Endreinigung (pauschal)', '20 €'],
+            ].map(([label, val]) => (
+              <div key={label} style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.88rem', color: '#666', marginBottom: '0.5rem' }}>
+                <span>{label}</span><span>{val}</span>
+              </div>
+            ))}
+            <div style={{ display: 'flex', justifyContent: 'space-between', borderTop: '1px solid #E5E5E5', paddingTop: '0.6rem', marginTop: '0.5rem', fontFamily: 'Georgia, serif', fontSize: '1.1rem' }}>
+              <span>Gesamtpreis</span><span>{pricing.total} €</span>
+            </div>
+            <div style={{ background: '#F9F8F6', padding: '1rem', marginTop: '1rem' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.88rem', marginBottom: '0.35rem' }}>
+                <span>30 % Anzahlung (jetzt via Stripe)</span>
+                <strong>{pricing.deposit} €</strong>
+              </div>
+              <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.88rem', color: '#888' }}>
+                <span>70 % Restzahlung (bei Anreise)</span>
+                <span>{pricing.remainder} €</span>
+              </div>
+            </div>
           </div>
-          <div className="flex items-center gap-2">
-            <span className="w-3 h-3 rounded-full bg-green-700 inline-block" />
-            <span>Ausgewählter Zeitraum</span>
-          </div>
-        </div>
+        )}
       </div>
+
+      {/* Formular */}
+      <div>
+        <p style={{ ...labelStyle, marginBottom: '1.5rem' }}>Ihre Daten</p>
+        <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1.75rem' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem' }}>
+            <div>
+              <label style={labelStyle}>Name *</label>
+              <input className="form-input" type="text" required value={form.name}
+                onChange={e => setForm({ ...form, name: e.target.value })} placeholder="Ihr Name" />
+            </div>
+            <div>
+              <label style={labelStyle}>Personen</label>
+              <select className="form-input" value={form.personen}
+                onChange={e => setForm({ ...form, personen: e.target.value })}>
+                <option value="1">1 Person</option>
+                <option value="2">2 Personen</option>
+                <option value="3">3 Personen</option>
+              </select>
+            </div>
+          </div>
+          <div>
+            <label style={labelStyle}>E-Mail *</label>
+            <input className="form-input" type="email" required value={form.email}
+              onChange={e => setForm({ ...form, email: e.target.value })} placeholder="ihre@email.de" />
+          </div>
+          <div>
+            <label style={labelStyle}>Telefon</label>
+            <input className="form-input" type="tel" value={form.phone}
+              onChange={e => setForm({ ...form, phone: e.target.value })} placeholder="Optional" />
+          </div>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem' }}>
+            <div>
+              <label style={labelStyle}>Hund</label>
+              <select className="form-input" value={form.hund}
+                onChange={e => setForm({ ...form, hund: e.target.value })}>
+                <option value="nein">Kein Hund</option>
+                <option value="1">1 Hund</option>
+                <option value="2">2 Hunde</option>
+              </select>
+            </div>
+            <div>
+              <label style={labelStyle}>Motorrad</label>
+              <select className="form-input" value={form.motorrad}
+                onChange={e => setForm({ ...form, motorrad: e.target.value })}>
+                <option value="nein">Kein Motorrad</option>
+                <option value="ja">Ja</option>
+              </select>
+            </div>
+          </div>
+          <div>
+            <label style={labelStyle}>Nachricht</label>
+            <textarea className="form-input" rows={3} value={form.nachricht}
+              onChange={e => setForm({ ...form, nachricht: e.target.value })}
+              placeholder="Fragen oder Wünsche…" style={{ resize: 'vertical' }} />
+          </div>
+          <div style={{ fontSize: '0.75rem', color: '#999', display: 'flex', gap: '0.6rem', alignItems: 'flex-start' }}>
+            <input type="checkbox" required id="dsgvo" style={{ marginTop: '0.15rem', flexShrink: 0 }} />
+            <label htmlFor="dsgvo">
+              Ich stimme der Verarbeitung meiner Daten zu (<a href="/datenschutz" style={{ color: '#1A1A1A' }}>Datenschutz</a>).
+              Die Buchung wird durch Zahlung der 30 % Anzahlung verbindlich.
+            </label>
+          </div>
+          {error && (
+            <p style={{ color: '#C00', fontSize: '0.85rem', border: '1px solid #fcc', padding: '0.75rem 1rem', background: '#fff5f5' }}>
+              {error}
+            </p>
+          )}
+          <button type="submit" className="btn-primary"
+            style={{ alignSelf: 'flex-start', opacity: submitting ? 0.6 : 1 }}
+            disabled={submitting}>
+            {submitting ? 'Weiterleitung zu Stripe…' : `Jetzt ${pricing ? pricing.deposit + ' €' : ''} Anzahlung bezahlen →`}
+          </button>
+          <p style={{ fontSize: '0.72rem', color: '#BBB' }}>
+            Sichere Zahlung via Stripe · Kreditkarte & SEPA ·
+            Restzahlung {pricing ? pricing.remainder + ' €' : ''} bei Anreise
+          </p>
+        </form>
+      </div>
+
+      <style jsx>{`
+        @media (max-width: 760px) {
+          .booking-grid { grid-template-columns: 1fr !important; gap: 3rem !important; }
+        }
+      `}</style>
     </div>
-  );
+  )
 }

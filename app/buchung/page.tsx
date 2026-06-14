@@ -26,28 +26,31 @@ export default function BuchungPage() {
             <thead>
               <tr className="bg-green-900 text-white">
                 <th className="text-left px-4 py-3">Aufenthaltsdauer</th>
+                <th className="text-left px-4 py-3">Kategorie</th>
                 <th className="text-left px-4 py-3">Preis / Nacht</th>
-                <th className="text-right px-4 py-3">Beispiel (7 Nächte)</th>
+                <th className="text-right px-4 py-3">Beispiel</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-stone-200">
               {[
-                { dauer: "2–3 Nächte", preis: "95 €", beispiel: "–" },
-                { dauer: "4–7 Nächte", preis: "85 €", beispiel: "595 €" },
-                { dauer: "ab 7 Nächten", preis: "75 €", beispiel: "525 €" },
+                { dauer: "1 Nacht",       note: "Spontanurlaub",             preis: "125 €", beispiel: "125 € + 20 €" },
+                { dauer: "2–3 Nächte",    note: "Kurzurlaub & Wochenende",   preis: "95 €",  beispiel: "190 € + 20 €" },
+                { dauer: "4–7 Nächte",    note: "Verlängertes Wochenende",   preis: "85 €",  beispiel: "425 € + 20 €" },
+                { dauer: "Ab 7 Nächten",  note: "Urlaubswoche",              preis: "75 €",  beispiel: "525 € + 20 €" },
               ].map((row) => (
                 <tr key={row.dauer} className="hover:bg-stone-50">
                   <td className="px-4 py-3 font-medium">{row.dauer}</td>
+                  <td className="px-4 py-3 text-stone-500">{row.note}</td>
                   <td className="px-4 py-3 font-bold text-green-800">{row.preis}</td>
-                  <td className="px-4 py-3 text-right text-stone-600">{row.beispiel}</td>
+                  <td className="px-4 py-3 text-right text-stone-500 text-xs">{row.beispiel}</td>
                 </tr>
               ))}
             </tbody>
           </table>
         </div>
         <p className="text-xs text-stone-500 mt-3">
-          Alle Preise inkl. Strom, Heizung, WLAN und Endreinigung. Mindestaufenthalt 2 Nächte.
-          Kurtaxe nach Gemeindesatz ggf. separat.
+          Alle Preise inkl. Strom, Heizung und WLAN. Endreinigung 20 € pauschal pro Buchung.
+          Mindestaufenthalt 1 Nacht. Kurtaxe nach Gemeindesatz ggf. separat.
         </p>
       </div>
 

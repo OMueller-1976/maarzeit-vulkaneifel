@@ -120,22 +120,35 @@ export default function HomePage() {
       <section className="max-w-4xl mx-auto px-4 py-20 text-center">
         <h2 className="section-title">Preise & Verfügbarkeit</h2>
         <p className="text-stone-600 mb-8">
-          Ab <strong className="text-green-800 text-2xl">95 €</strong> pro Nacht –
-          inklusive aller Nebenkosten. Mindestaufenthalt 2 Nächte.
+          Ab <strong className="text-green-800 text-2xl">75 €</strong> pro Nacht –
+          zzgl. 20 € Endreinigung pro Buchung.
         </p>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-4">
           {[
-            { label: "Kurzurlaub", detail: "2–3 Nächte", price: "95 € / Nacht" },
-            { label: "Wochenurlaub", detail: "4–7 Nächte", price: "85 € / Nacht" },
-            { label: "Längerer Urlaub", detail: "ab 7 Nächten", price: "75 € / Nacht" },
+            { label: "Spontanurlaub",            detail: "1 Nacht",       price: "125 €", featured: false },
+            { label: "Kurzurlaub & Wochenende",  detail: "2–3 Nächte",    price: "95 €",  featured: true  },
+            { label: "Verlängertes Wochenende",  detail: "4–7 Nächte",    price: "85 €",  featured: false },
+            { label: "Urlaubswoche",             detail: "Ab 7 Nächten",  price: "75 €",  featured: false },
           ].map((p) => (
-            <div key={p.label} className="card border border-green-100">
-              <h3 className="font-bold text-green-900 text-lg mb-1">{p.label}</h3>
-              <p className="text-stone-500 text-sm mb-2">{p.detail}</p>
-              <p className="text-green-800 font-bold text-xl">{p.price}</p>
+            <div
+              key={p.label}
+              className={`card border ${p.featured ? "bg-green-900 border-green-900 text-white" : "border-green-100"}`}
+            >
+              <p className={`text-xs uppercase tracking-widest mb-2 ${p.featured ? "text-green-300" : "text-stone-400"}`}>
+                {p.detail}
+              </p>
+              <p className={`font-bold text-2xl mb-1 ${p.featured ? "text-white" : "text-green-800"}`}>
+                {p.price}
+              </p>
+              <p className={`text-xs ${p.featured ? "text-green-200" : "text-stone-500"}`}>
+                {p.label}
+              </p>
             </div>
           ))}
         </div>
+        <p className="text-center mb-8" style={{ color: "#888", fontSize: "0.78rem" }}>
+          Endreinigung 20 € pauschal pro Buchung · Mindestaufenthalt 1 Nacht
+        </p>
         <Link href="/buchung" className="btn-primary text-lg px-8 py-4">
           Jetzt Termin prüfen & buchen
         </Link>
