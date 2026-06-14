@@ -62,7 +62,7 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: 'Datenbankfehler' }, { status: 500 })
 
   const session = await stripe.checkout.sessions.create({
-    payment_method_types: ['card', 'sepa_debit'],
+    payment_method_types: ['card', 'sepa_debit', 'paypal'],
     mode:           'payment',
     customer_email: email,
     locale:         'de',
