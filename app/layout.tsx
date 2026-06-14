@@ -47,6 +47,20 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-MS9529LN');`,
           }}
         />
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-H24P94BWQD"
+          strategy="afterInteractive"
+        />
+        <Script
+          id="ga4-script"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-H24P94BWQD');`,
+          }}
+        />
       </head>
       <body className="bg-stone-50 text-stone-800 min-h-screen flex flex-col">
         <noscript>
