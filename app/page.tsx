@@ -86,19 +86,19 @@ export default function HomePage() {
           <div>
             <h2 className="section-title">Die Ferienwohnung</h2>
             <p className="text-stone-600 mb-4 leading-relaxed">
-              Ruhig gelegen in der Vulkaneifel bietet unsere Ferienwohnung auf ca. 75 m²
-              alles, was Sie für einen erholsamen Urlaub brauchen: modernes Wohnambiente,
-              voll ausgestattete Küche, gemütliches Schlafzimmer und eine sonnige Terrasse
-              mit Blick in den Garten.
+              Ruhig gelegen in der Vulkaneifel bietet unsere Ferienwohnung auf 35 qm
+              alles, was Sie für einen erholsamen Urlaub brauchen: modernes Wohnambiente
+              (Neubau 2023), voll ausgestattete Küche, gemütliches Schlafzimmer und eine
+              sonnige Terrasse mit Gartenmöbeln.
             </p>
             <ul className="text-stone-700 space-y-2 mb-6 text-sm">
               {[
-                "75 m² für 2–4 Personen",
-                "Vollausgestattete Küche",
-                "Sonnige Terrasse & Garten",
-                "Kostenloser Parkplatz",
-                "WLAN inklusive",
-                "Fahrradkeller & -werkzeug",
+                "35 qm für bis zu 3 Personen",
+                "Küchenzeile mit Spülmaschine",
+                "Terrasse & Garten mit Feuerschale",
+                "Eigener Parkplatz",
+                "WLAN & TV (Sky & Amazon Prime)",
+                "Hunde willkommen",
               ].map((item) => (
                 <li key={item} className="flex items-center gap-2">
                   <span className="text-green-700 font-bold">✓</span>
@@ -126,8 +126,8 @@ export default function HomePage() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
           {[
             { label: "Kurzurlaub", detail: "2–3 Nächte", price: "95 € / Nacht" },
-            { label: "Wochenurlaub", detail: "5–7 Nächte", price: "85 € / Nacht" },
-            { label: "Langzeiturlaub", detail: "ab 14 Nächte", price: "75 € / Nacht" },
+            { label: "Wochenurlaub", detail: "4–7 Nächte", price: "85 € / Nacht" },
+            { label: "Längerer Urlaub", detail: "ab 7 Nächten", price: "75 € / Nacht" },
           ].map((p) => (
             <div key={p.label} className="card border border-green-100">
               <h3 className="font-bold text-green-900 text-lg mb-1">{p.label}</h3>

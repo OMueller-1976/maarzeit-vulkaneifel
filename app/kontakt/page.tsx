@@ -20,7 +20,7 @@ export default function KontaktPage() {
         <div className="card">
           <h2 className="text-xl font-bold text-green-900 mb-5">Nachricht senden</h2>
           <form
-            action="mailto:info@maarzeit-vulkaneifel.de"
+            action="mailto:kontakt@ferienwohnung-in-der-vulkaneifel.de"
             method="GET"
             encType="text/plain"
             className="space-y-4"
@@ -90,8 +90,8 @@ export default function KontaktPage() {
                 <span className="text-2xl">📧</span>
                 <div>
                   <p className="font-medium">E-Mail</p>
-                  <a href="mailto:info@maarzeit-vulkaneifel.de" className="text-green-700 hover:underline">
-                    info@maarzeit-vulkaneifel.de
+                  <a href="mailto:kontakt@ferienwohnung-in-der-vulkaneifel.de" className="text-green-700 hover:underline">
+                    kontakt@ferienwohnung-in-der-vulkaneifel.de
                   </a>
                 </div>
               </li>
@@ -99,7 +99,11 @@ export default function KontaktPage() {
                 <span className="text-2xl">📍</span>
                 <div>
                   <p className="font-medium">Adresse</p>
-                  <p className="text-stone-600">Ferienwohnung MaarZeit<br />Vulkaneifel · Rheinland-Pfalz</p>
+                  <p className="text-stone-600">
+                    Markus Müller<br />
+                    Am Bruchborn 6<br />
+                    54570 Kirchweiler, Kreis Daun
+                  </p>
                 </div>
               </li>
               <li className="flex items-start gap-3">

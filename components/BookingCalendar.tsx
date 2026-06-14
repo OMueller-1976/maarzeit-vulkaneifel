@@ -20,7 +20,10 @@ function isBooked(date: Date): boolean {
   });
 }
 
-const PRICE_PER_NIGHT = 95;
+function calcPrice(n: number) {
+  const per = n >= 7 ? 75 : n >= 4 ? 85 : 95;
+  return { per, total: per * n };
+}
 
 export default function BookingCalendar() {
   const [range, setRange] = useState<DateRange | undefined>();
@@ -29,7 +32,8 @@ export default function BookingCalendar() {
     range?.from && range?.to
       ? differenceInCalendarDays(range.to, range.from)
       : 0;
-  const total = nights * PRICE_PER_NIGHT;
+
+  const { per, total } = calcPrice(nights);
 
   return (
     <div className="flex flex-col lg:flex-row gap-8 items-start">
@@ -68,19 +72,23 @@ export default function BookingCalendar() {
                     <span>Nächte:</span>
                     <span className="font-medium">{nights}</span>
                   </div>
+                  <div className="flex justify-between">
+                    <span>Preis / Nacht:</span>
+                    <span className="font-medium">{per} €</span>
+                  </div>
                   <div className="border-t border-stone-200 mt-2 pt-2 flex justify-between text-base font-bold text-green-900">
                     <span>Gesamt:</span>
                     <span>{total} €</span>
                   </div>
                   <p className="text-xs text-stone-400 mt-1">
-                    {PRICE_PER_NIGHT} € / Nacht · inkl. Nebenkosten
+                    inkl. Nebenkosten · Mindestaufenthalt 2 Nächte
                   </p>
                 </>
               )}
             </div>
             {nights >= 2 && (
               <a
-                href={`mailto:info@maarzeit-vulkaneifel.de?subject=Buchungsanfrage ${format(range.from, "dd.MM.yyyy")} – ${range.to ? format(range.to, "dd.MM.yyyy") : ""}&body=Guten Tag,%0A%0Aich möchte die Ferienwohnung MaarZeit für folgende Zeit anfragen:%0A%0AAnreise: ${format(range.from, "dd.MM.yyyy")}%0AAbreise: ${range.to ? format(range.to, "dd.MM.yyyy") : ""}%0A%0AAnzahl Personen:%0AMit Hund: ja / nein%0A%0AMit freundlichen Grüßen`}
+                href={`mailto:kontakt@ferienwohnung-in-der-vulkaneifel.de?subject=Buchungsanfrage ${format(range.from, "dd.MM.yyyy")} – ${range.to ? format(range.to, "dd.MM.yyyy") : ""}&body=Guten Tag,%0A%0Aich möchte die Ferienwohnung MaarZeit für folgende Zeit anfragen:%0A%0AAnreise: ${format(range.from, "dd.MM.yyyy")}%0AAbreise: ${range.to ? format(range.to, "dd.MM.yyyy") : ""}%0A%0AAnzahl Personen:%0AMit Hund: ja / nein%0A%0AMit freundlichen Grüßen`}
                 className="btn-primary w-full text-center mt-4 block"
               >
                 Anfrage senden

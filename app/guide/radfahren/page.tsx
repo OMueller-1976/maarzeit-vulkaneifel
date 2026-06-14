@@ -20,7 +20,7 @@ export default function RadfahrenPage() {
       <p className="text-stone-600 text-lg mb-10 max-w-2xl leading-relaxed">
         Ob entspannter Radausflug auf gut ausgebauten Radwegen oder sportliche Tour
         durch hügeliges Gelände – die Vulkaneifel bietet für jeden Radler die richtige
-        Strecke. Bei MaarZeit stehen Ihnen zwei Leihfahrräder kostenlos zur Verfügung.
+        Strecke.
       </p>
 
       <div className="grid md:grid-cols-2 gap-6 mb-12">
@@ -73,13 +73,11 @@ export default function RadfahrenPage() {
         ))}
       </div>
 
-      <h2 className="text-2xl font-bold text-green-900 mb-4">Fahrradverleih & E-Bikes</h2>
+      <h2 className="text-2xl font-bold text-green-900 mb-4">Fahrräder & E-Bikes</h2>
       <div className="card mb-10">
         <ul className="text-sm text-stone-700 space-y-2">
           {[
-            "2 Leihfahrräder inklusive im Mietpreis (Trekking, 28 Zoll)",
-            "Fahrradkeller mit abschließbarem Stellplatz für eigene Räder",
-            "Werkzeug und Luftpumpe vorhanden",
+            "Fahrräder können im Freien abgestellt werden",
             "E-Bike-Verleih: Zweirad-Center Daun (5 km), ab 35 €/Tag",
             "Fahrradkarte: liegt in der Wohnung aus",
           ].map((item) => (

@@ -46,9 +46,14 @@ export default function Footer() {
             ))}
           </ul>
           <div className="mt-4 text-sm text-stone-300">
-            <p>Vulkaneifel, Rheinland-Pfalz</p>
-            <a href="mailto:info@maarzeit-vulkaneifel.de" className="hover:text-white transition-colors">
-              info@maarzeit-vulkaneifel.de
+            <p>Markus Müller</p>
+            <p>Am Bruchborn 6, 54570 Kirchweiler</p>
+            <p>Kreis Daun, Rheinland-Pfalz</p>
+            <a
+              href="mailto:kontakt@ferienwohnung-in-der-vulkaneifel.de"
+              className="hover:text-white transition-colors mt-1 inline-block"
+            >
+              kontakt@ferienwohnung-in-der-vulkaneifel.de
             </a>
           </div>
         </div>

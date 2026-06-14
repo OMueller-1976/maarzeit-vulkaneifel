@@ -25,22 +25,21 @@ export default function BuchungPage() {
           <table className="w-full text-sm border-collapse">
             <thead>
               <tr className="bg-green-900 text-white">
-                <th className="text-left px-4 py-3">Saison</th>
-                <th className="text-left px-4 py-3">Zeitraum</th>
-                <th className="text-right px-4 py-3">Preis / Nacht</th>
+                <th className="text-left px-4 py-3">Aufenthaltsdauer</th>
+                <th className="text-left px-4 py-3">Preis / Nacht</th>
+                <th className="text-right px-4 py-3">Beispiel (7 Nächte)</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-stone-200">
               {[
-                { saison: "Nebensaison", zeitraum: "Jan–März, Nov–Dez", preis: "75 €" },
-                { saison: "Vorsaison", zeitraum: "Apr–Mai, Okt", preis: "85 €" },
-                { saison: "Hauptsaison", zeitraum: "Jun–Sep", preis: "95 €" },
-                { saison: "Feiertage & Silvester", zeitraum: "nach Anfrage", preis: "105 €" },
+                { dauer: "2–3 Nächte", preis: "95 €", beispiel: "–" },
+                { dauer: "4–7 Nächte", preis: "85 €", beispiel: "595 €" },
+                { dauer: "ab 7 Nächten", preis: "75 €", beispiel: "525 €" },
               ].map((row) => (
-                <tr key={row.saison} className="hover:bg-stone-50">
-                  <td className="px-4 py-3 font-medium">{row.saison}</td>
-                  <td className="px-4 py-3 text-stone-600">{row.zeitraum}</td>
-                  <td className="px-4 py-3 text-right font-bold text-green-800">{row.preis}</td>
+                <tr key={row.dauer} className="hover:bg-stone-50">
+                  <td className="px-4 py-3 font-medium">{row.dauer}</td>
+                  <td className="px-4 py-3 font-bold text-green-800">{row.preis}</td>
+                  <td className="px-4 py-3 text-right text-stone-600">{row.beispiel}</td>
                 </tr>
               ))}
             </tbody>
@@ -48,7 +47,7 @@ export default function BuchungPage() {
         </div>
         <p className="text-xs text-stone-500 mt-3">
           Alle Preise inkl. Strom, Heizung, WLAN und Endreinigung. Mindestaufenthalt 2 Nächte.
-          Kurtaxe (Daun) nach Gemeindesatz ggf. separat.
+          Kurtaxe nach Gemeindesatz ggf. separat.
         </p>
       </div>
 

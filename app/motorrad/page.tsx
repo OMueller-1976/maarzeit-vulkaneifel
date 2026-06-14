@@ -56,7 +56,6 @@ export default function MotorradPage() {
             {[
               "Überdachter Motorradstellplatz (abschließbar)",
               "Steckdose zum Laden / Warmhalten",
-              "Werkzeug für kleine Reparaturen",
               "Karten und Streckenempfehlungen",
               "Empfehlung für lokale Motorrad-Cafés",
               "Kontakt zu Pannenhilfe in der Region",
