@@ -25,6 +25,9 @@ export const metadata: Metadata = {
   },
   twitter: { card: 'summary_large_image', title: 'MaarZeit Vulkaneifel – Ferienwohnung bei Daun', description: 'Moderne 35 qm Ferienwohnung in der Vulkaneifel. Hund willkommen, Parkplatz, Terrasse.', images: ['/og-image.jpg'] },
   alternates: { canonical: 'https://ferienwohnung-in-der-vulkaneifel.de' },
+  verification: {
+    google: 'b83e8e154a47617a',
+  },
 };
 
 export const viewport = {
