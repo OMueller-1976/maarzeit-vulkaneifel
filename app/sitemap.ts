@@ -19,12 +19,24 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/impressum",
     "/datenschutz",
     "/buchungsbedingungen",
+    "/specials",
+    "/specials/nuerburgring",
+    "/specials/auszeit-mit-kind",
+    "/specials/cochem",
+    "/specials/koblenz",
+    "/specials/luxemburg",
+    "/specials/koeln",
   ];
 
   return routes.map((route) => ({
     url: `${BASE_URL}${route}`,
     lastModified: new Date(),
     changeFrequency: route === "" ? "weekly" : "monthly",
-    priority: route === "" ? 1 : route === "/buchung" ? 0.9 : 0.7,
+    priority:
+      route === "" ? 1
+      : route === "/buchung" ? 0.9
+      : route === "/specials" ? 0.8
+      : route.startsWith("/specials/") ? 0.7
+      : 0.7,
   }));
 }

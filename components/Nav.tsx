@@ -17,6 +17,7 @@ const navItems = [
       { href: "/guide/schlechtwetter", label: "Schlechtwetter" },
     ],
   },
+  { href: "/specials", label: "Specials" },
   { href: "/hund", label: "Mit Hund" },
   { href: "/motorrad", label: "Motorrad" },
   { href: "/kontakt", label: "Kontakt" },
