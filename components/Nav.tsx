@@ -18,6 +18,7 @@ const navItems = [
     ],
   },
   { href: "/specials", label: "Specials" },
+  { href: "/anreise", label: "Anreise" },
   { href: "/hund", label: "Mit Hund" },
   { href: "/motorrad", label: "Motorrad" },
   { href: "/kontakt", label: "Kontakt" },

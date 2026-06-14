@@ -19,6 +19,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/impressum",
     "/datenschutz",
     "/buchungsbedingungen",
+    "/anreise",
     "/specials",
     "/specials/nuerburgring",
     "/specials/auszeit-mit-kind",
