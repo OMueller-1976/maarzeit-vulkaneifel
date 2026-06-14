@@ -1,179 +1,134 @@
-import type { Metadata } from "next";
-import Link from "next/link";
+import type { Metadata } from 'next'
+import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'Familienurlaub Vulkaneifel – Auszeit mit Kind',
   description: 'Familienurlaub in der Vulkaneifel: Wildpark Daun, Dauner Maare, Wandern mit Kindern, Vulkanmuseum und Adler- & Wolfspark Kasselburg. Hund willkommen.',
   alternates: { canonical: 'https://ferienwohnung-in-der-vulkaneifel.de/specials/auszeit-mit-kind' },
-};
+}
+
+const ziele = [
+  {
+    name: 'Wild- & Erlebnispark Daun',
+    entfernung: 'ca. 6 km',
+    badge: 'Tier & Natur',
+    text: 'Autowanderroute durch den Park, Berberaffenschlucht, Greifvogel-Flugshows, Abenteuerspielplatz und Streichelzoo. Lamas, Mufflons, Wildyaks und Wildschweine auf großem Gelände. Für Kinder ein ganzer Nachmittag.',
+  },
+  {
+    name: 'Sommerrodelbahn Daun',
+    entfernung: 'ca. 6 km',
+    badge: 'Spaß & Abenteuer',
+    text: '800 Meter Abfahrt direkt am Wild- & Erlebnispark. Einer- und Zweierbob, Tempo selbst wählbar. Saison April bis Oktober – schnell, günstig und für Kinder ab etwa 4 Jahren geeignet.',
+  },
+  {
+    name: 'Eifel Adventures Berlingen',
+    entfernung: 'ca. 12 km',
+    badge: 'Abenteuer',
+    text: 'Ziplining, Adventure-Minigolf, Fußball-Billard und Boccia auf einem Outdoor-Gelände. Ideal für ältere Kinder und Jugendliche. Baumhaus-Übernachtungen möglich – auch für besondere Familienerlebnisse.',
+  },
+  {
+    name: 'Adler- & Wolfspark Kasselburg Pelm',
+    entfernung: 'ca. 20 km',
+    badge: 'Tiererlebnis',
+    text: 'Greifvogelshows und Wolfsfütterung auf 20 ha rund um eine historische Burg. Täglich Flugvorführungen in der Saison. Europäische Wölfe in weitläufigem Gehege – für Kinder ein Erlebnis, das lange nachwirkt.',
+  },
+  {
+    name: 'Dauner Maare',
+    entfernung: 'ca. 6 km',
+    badge: 'Natur & Baden',
+    text: 'Die drei Dauner Maare bieten ruhige Naturerlebnisse für Familien. Am Schalkenmehrener Maar gibt es im Sommer eine flache Badestelle. Der Rundweg ist auch mit kleineren Kindern gut begehbar.',
+  },
+  {
+    name: 'Laurentiusbad Daun',
+    entfernung: 'ca. 6 km',
+    badge: 'Hallenbad',
+    text: 'Hallenbad mit 28 °C Wassertemperatur, Schwimmer- und Nichtschwimmerbereich. Ganzjährig geöffnet – ideal für Regentage oder wenn die Maare zu kalt sind.',
+  },
+  {
+    name: 'Dreimühlen Wasserfall',
+    entfernung: 'ca. 18 km',
+    badge: 'Naturdenkmal',
+    text: 'Der einzige „wachsende" Wasserfall Deutschlands bei Üxheim-Ahütte. Kostenlos zugänglich, kurzer Spazierweg am Bach. Für Kinder ein spannender Ort – mit einfacher Erklärung wird daraus eine kleine Wissensstunde.',
+  },
+  {
+    name: 'Kurpark Daun mit Wasserspielplatz',
+    entfernung: 'ca. 6 km',
+    badge: 'Spielen',
+    text: 'Weitläufige Grünanlage im Zentrum Dauns mit Wasserspielplatz für Kinder. Kostenlos, ganzjährig nutzbar. Gut kombinierbar mit einem Stadtbummel und Eis in der Dauner Innenstadt.',
+  },
+  {
+    name: 'Eifel-Vulkanmuseum Daun',
+    entfernung: 'ca. 6 km',
+    badge: 'Museum',
+    text: 'Interaktives Museum zur Entstehung der Vulkanlandschaft – verständlich aufbereitet auch für Kinder. Ideal für Regentage. Wer danach weiß, wie ein Maar entsteht, sieht die Umgebung mit anderen Augen.',
+  },
+  {
+    name: 'Wandern: HeimatSpuren Daun',
+    entfernung: 'ab Daun ca. 6 km',
+    badge: 'Wandern',
+    text: 'Zertifizierte Rundwanderwege mit Informationsstationen zu Natur und Geologie. 4 bis 14 km Länge, verschiedene Schwierigkeitsgrade. Familiengeeignete Routen mit Rastplätzen und abwechslungsreicher Landschaft.',
+  },
+]
 
 export default function AuszeitMitKindPage() {
   return (
-    <div className="max-w-3xl mx-auto px-4 py-16">
-      <nav className="text-sm text-stone-500 mb-6">
-        <Link href="/specials" className="hover:text-green-800">Specials</Link>
-        {" › "}
-        <span>Auszeit mit Kind</span>
-      </nav>
+    <>
+      {/* Hero */}
+      <section style={{ background: '#1A1A1A', color: 'white', padding: '4rem 1.5rem' }}>
+        <div style={{ maxWidth: '760px', margin: '0 auto' }}>
+          <nav style={{ fontSize: '0.78rem', color: '#666', marginBottom: '2rem' }}>
+            <Link href="/specials" style={{ color: '#888', textDecoration: 'none' }}>Specials</Link>
+            {' › '}
+            <span>Auszeit mit Kind</span>
+          </nav>
+          <h1 style={{ fontFamily: 'Georgia, serif', fontSize: 'clamp(1.8rem, 4vw, 2.8rem)', fontWeight: 'normal', marginBottom: '1rem', lineHeight: 1.2 }}>
+            Auszeit mit Kind
+          </h1>
+          <p style={{ color: '#AAA', fontSize: '1.05rem', lineHeight: 1.7, maxWidth: '560px' }}>
+            Familienurlaub in der Vulkaneifel – Ziplining, Wildpark, Maare,
+            Wasserspielplatz und Naturerlebnisse direkt vor der Tür.
+          </p>
+        </div>
+      </section>
 
-      <h1 className="section-title">Auszeit mit Kind</h1>
-      <p className="text-stone-500 text-sm mb-8">Familienurlaub in der Vulkaneifel – regional</p>
-
-      <div className="space-y-8 text-stone-700 leading-relaxed">
-
-        <p className="text-lg text-stone-600">
-          Die Vulkaneifel ist ein ideales Reiseziel für Familien, die echte Natur, Ruhe und
-          unvergessliche Erlebnisse suchen – ohne stundenlange Anreise zu Freizeitparks oder
-          überfüllten Touristenzentren. Rund um unsere Ferienwohnung in Kirchweiler finden
-          Kinder jeden Alters spannende Ausflugsziele, sichere Bademöglichkeiten und Wege,
-          die zum Entdecken einladen. Entschleunigung ist hier kein Konzept, sondern
-          gelebter Alltag.
+      {/* Einleitung */}
+      <section style={{ maxWidth: '760px', margin: '0 auto', padding: '4rem 1.5rem 2rem' }}>
+        <p style={{ color: '#444', lineHeight: 1.9, fontSize: '1rem' }}>
+          Die Vulkaneifel bietet Familien mit Kindern ein breites Spektrum an Erlebnissen –
+          von Wildtierparks und Sommerrodelbahn über Naturschwimmen an den Maaren bis hin
+          zu abenteuerlichem Ziplining bei Berlingen. Rund um Kirchweiler und Daun gibt es
+          Ausflugsziele für jedes Alter, jedes Budget und jedes Wetter.
         </p>
+      </section>
 
-        <section>
-          <h2 className="text-2xl font-bold text-green-900 mb-3">Die Ferienwohnung für Familien</h2>
-          <p>
-            Unsere Ferienwohnung eignet sich auch für Familien mit einem Kind bestens:
-            Das Sofa lässt sich als Klappsofa für eine dritte Person nutzen, sodass auch
-            Familien zu dritt komfortabel schlafen können. Die Wohnung verfügt über einen
-            separaten Eingang, was besonders bei unterschiedlichen Schlafrhythmen von Eltern
-            und Kindern praktisch ist.
-          </p>
-          <p className="mt-3">
-            Die sonnige Terrasse mit Gartenmöbeln bietet Platz zum Frühstücken und Spielen
-            im Freien. Der Garten mit Feuerschale wird zum abendlichen Treffpunkt – für
-            gemeinsame Momente unter freiem Himmel, die Kinder noch lange in Erinnerung
-            behalten. Die ruhige Lage in Kirchweiler, umgeben von Feldern und Wäldern,
-            sorgt für eine entspannte Atmosphäre, in der Kinder sich frei bewegen können.
-          </p>
-        </section>
+      {/* Ziele */}
+      <div style={{ maxWidth: '960px', margin: '0 auto', padding: '2rem 1.5rem 4rem' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', marginBottom: '3rem' }}>
+          {ziele.map((z) => (
+            <div key={z.name} style={{ background: 'white', border: '1px solid #E5E5E5', padding: '1.75rem' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '0.75rem', gap: '1rem' }}>
+                <h3 style={{ fontFamily: 'Georgia, serif', fontSize: '1rem', fontWeight: 'normal', color: '#1A1A1A', lineHeight: 1.3 }}>
+                  {z.name}
+                </h3>
+                <span style={{ fontSize: '0.72rem', color: '#999', whiteSpace: 'nowrap', flexShrink: 0 }}>
+                  {z.entfernung}
+                </span>
+              </div>
+              <p style={{ color: '#555', lineHeight: 1.7, fontSize: '0.88rem', marginBottom: '1rem' }}>
+                {z.text}
+              </p>
+              <span style={{ fontSize: '0.68rem', letterSpacing: '0.08em', textTransform: 'uppercase', border: '1px solid #DDD', color: '#888', padding: '0.2rem 0.6rem' }}>
+                {z.badge}
+              </span>
+            </div>
+          ))}
+        </div>
 
-        <section>
-          <h2 className="text-2xl font-bold text-green-900 mb-3">Wild- & Erlebnispark Daun</h2>
-          <p>
-            Nur rund 5 Kilometer von der Ferienwohnung entfernt liegt der Wild- &amp; Erlebnispark
-            Daun – ein ideales Ausflugsziel für Familien mit Kindern. Auf großzügigem
-            Geländebereich leben heimische Wildtiere wie Damwild, Wildschweine, Mufflons
-            und verschiedene Vogelarten in naturnahen Gehegen. Der Park bietet ausreichend
-            Laufraum für aktive Kinder und lädt zum Entdecken ein.
-          </p>
-          <p className="mt-3">
-            Neben dem Tierbereich gibt es Spielbereiche und einen Erlebnisbereich, der
-            speziell auf jüngere Besucher ausgerichtet ist. Der Eintritt ist erschwinglich,
-            die Öffnungszeiten variieren je nach Saison – ein kurzer Blick auf die aktuelle
-            Website des Parks vor dem Besuch ist empfehlenswert.
-          </p>
-        </section>
-
-        <section>
-          <h2 className="text-2xl font-bold text-green-900 mb-3">Dauner Maare mit Kindern</h2>
-          <p>
-            Die Dauner Maare sind nicht nur für Erwachsene ein beeindruckendes Naturschauspiel –
-            auch Kinder sind von den ruhigen, klaren Vulkanseen fasziniert. Am Schalkenmehrener
-            Maar gibt es im Sommer eine Badestelle mit flachem Ufer, die sich ideal für Familien
-            mit kleineren Kindern eignet. Das Wasser erwärmt sich in der Saison angenehm, die
-            Umgebung ist gepflegt und überschaubar.
-          </p>
-          <p className="mt-3">
-            Der Rundweg um den Schalkenmehrener Maar ist kurz und gut begehbar – auch mit
-            Kinderwagen auf weiten Strecken möglich. Kinder können am Ufer Enten beobachten,
-            Steine ins Wasser werfen und die besondere Stille erleben, die nur Naturgewässer
-            fernab von Freibädern bieten.
-          </p>
-        </section>
-
-        <section>
-          <h2 className="text-2xl font-bold text-green-900 mb-3">Wandern mit Kindern</h2>
-          <p>
-            Die Vulkaneifel bietet eine Reihe von Wanderwegen, die auch für Familien mit
-            Kindern geeignet sind. Besonders empfehlenswert sind die sogenannten
-            HeimatSpuren-Rundwege, die speziell für Familien ausgeschildert sind und
-            interessante Informationsstationen zu Natur und Geologie der Region bieten.
-          </p>
-          <p className="mt-3">
-            Die meisten familiengeeigneten Routen liegen zwischen 4 und 8 Kilometern Länge
-            und halten sich im Hinblick auf Höhenmeter in überschaubarem Rahmen. Empfehlenswert
-            ist der Maar-Rundweg, der alle drei Dauner Maare verbindet und durch abwechslungsreiche
-            Landschaft führt – mit regelmäßigen Rastmöglichkeiten und kleinen Highlights für
-            Kinder unterwegs.
-          </p>
-        </section>
-
-        <section>
-          <h2 className="text-2xl font-bold text-green-900 mb-3">Eifel-Vulkanmuseum Daun</h2>
-          <p>
-            Für wissbegierige Kinder, die verstehen möchten, wie Maare entstehen und warum die
-            Eifel eine Vulkanlandschaft ist, lohnt sich ein Besuch im Eifel-Vulkanmuseum in Daun.
-            Die Ausstellung erklärt anschaulich die geologische Geschichte der Region – mit
-            Exponaten, interaktiven Stationen und verständlichen Erklärungen, die auch jüngere
-            Besucher begeistern.
-          </p>
-          <p className="mt-3">
-            Das Museum ist besonders an Regentagen ein empfehlenswertes Programm und bietet
-            einen guten Einstieg für alle, die die Naturphänomene der Eifel besser verstehen
-            möchten. Der Eintritt ist moderat, die Parkplatzsituation in Daun ist entspannt.
-          </p>
-        </section>
-
-        <section>
-          <h2 className="text-2xl font-bold text-green-900 mb-3">Adler- und Wolfspark Kasselburg</h2>
-          <p>
-            Etwa 22 Kilometer von Kirchweiler entfernt liegt die Kasselburg bei Pelm – eine
-            mittelalterliche Burgruine mit einem der spektakulärsten Greifvogel- und Wolfsparks
-            der Eifel. Täglich finden hier Greifvogelshows statt, bei denen Adler, Falken und
-            Eulen in unmittelbarer Nähe der Zuschauer fliegen.
-          </p>
-          <p className="mt-3">
-            Besonders beeindruckend ist der Wolfsbereich: Europäische Wölfe leben hier in einem
-            weitläufigen, naturnahen Gehege, das einen seltenen Einblick in das Leben dieser
-            faszinierenden Tiere bietet. Für Kinder ein Highlight, das lange im Gedächtnis bleibt.
-            Ein Besuch dauert erfahrungsgemäß zwei bis drei Stunden.
-          </p>
-        </section>
-
-        <section>
-          <h2 className="text-2xl font-bold text-green-900 mb-3">Abende am Feuer – gemeinsame Momente</h2>
-          <p>
-            Ein besonderes Erlebnis für Familien ist der gemeinsame Abend am Feuer. Der Garten
-            der Ferienwohnung verfügt über eine Feuerschale, die nach vorheriger Absprache genutzt
-            werden kann. Marshmallows rösten, Geschichten erzählen, Sterne beobachten – in der
-            lichtarmen Eifellandschaft ist der Blick in den Nachthimmel besonders beeindruckend.
-          </p>
-          <p className="mt-3">
-            Diese schlichten, gemeinsamen Momente abseits von Bildschirmen und Ablenkungen sind
-            oft das, was Kinder und Eltern gleichermaßen als das Schönste einer Reise in Erinnerung
-            behalten.
-          </p>
-        </section>
-
-        <section>
-          <h2 className="text-2xl font-bold text-green-900 mb-3">Praktische Tipps für Familien</h2>
-          <p>
-            Einkaufsmöglichkeiten für die tägliche Versorgung finden Sie in Daun (5 km), wo
-            Supermärkte, Bäcker, Metzger und eine Apotheke vorhanden sind. Kinderfreundliche
-            Restaurants gibt es in Daun und den umliegenden Orten – regionale Küche mit Kinderkarte
-            ist in der Eifel Standard.
-          </p>
-          <p className="mt-3">
-            Bitte beachten Sie, dass unsere Ferienwohnung für maximal 3 Personen ausgelegt ist –
-            ideal also für ein Elternpaar mit einem Kind. Ein Kinderbett oder Kinderreisebett kann
-            bei Bedarf vorab abgestimmt werden. Sprechen Sie uns bei der Buchungsanfrage einfach
-            darauf an.
-          </p>
-        </section>
-
-      </div>
-
-      <div className="mt-12 pt-8 border-t border-stone-200">
-        <p className="text-stone-600 mb-4">
-          Planen Sie einen Familienurlaub in der Vulkaneifel? Das Sofa ist als Schlafplatz
-          für eine dritte Person nutzbar – ideal für Familien zu dritt.
-        </p>
-        <div className="flex flex-wrap gap-4">
+        <div style={{ borderTop: '1px solid #E5E5E5', paddingTop: '2.5rem', display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
           <Link href="/buchung" className="btn-primary">Jetzt buchen</Link>
           <Link href="/specials" className="btn-secondary">Alle Specials</Link>
         </div>
       </div>
-    </div>
-  );
+    </>
+  )
 }

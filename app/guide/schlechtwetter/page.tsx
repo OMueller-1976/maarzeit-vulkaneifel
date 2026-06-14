@@ -1,97 +1,130 @@
-import type { Metadata } from "next";
-import Link from "next/link";
+import type { Metadata } from 'next'
+import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'Schlechtwetter Vulkaneifel – Ausflüge bei Regen rund um Daun',
   description: 'Was tun bei Regen in der Vulkaneifel? Vulkanmuseum Daun, Thermalbäder, Moselausflug und gemütliche Einkehr. Tipps für Regentage in der Eifel.',
   alternates: { canonical: 'https://ferienwohnung-in-der-vulkaneifel.de/guide/schlechtwetter' },
-};
+}
+
+const tipps = [
+  {
+    name: 'Kinopalast Vulkaneifel Daun',
+    entfernung: 'ca. 6 km',
+    badge: 'Unterhaltung',
+    text: 'Modernes Kino in Daun mit aktuellen Filmen in angenehmer Atmosphäre. Der klassische Regentag-Plan – funktioniert immer.',
+  },
+  {
+    name: 'Laurentiusbad Daun',
+    entfernung: 'ca. 6 km',
+    badge: 'Hallenbad',
+    text: 'Hallenbad mit 28 °C Wassertemperatur, Schwimmer- und Nichtschwimmerbereich. Barrierefrei, ganzjährig geöffnet. Entspannung und Bewegung, egal wie das Wetter draußen ist.',
+  },
+  {
+    name: 'Eifel-Vulkanmuseum Daun',
+    entfernung: 'ca. 6 km',
+    badge: 'Museum',
+    text: 'Interaktives Museum zur Entstehung der Vulkanlandschaft. Verständliche Aufbereitung für alle Altersgruppen, familienfreundlich. Pflichtprogramm für alle, die die Eifel wirklich verstehen möchten.',
+  },
+  {
+    name: 'Buchenlochhöhle Gerolstein',
+    entfernung: 'ca. 18 km',
+    badge: 'Höhle',
+    text: 'Eiszeithöhle mit Fundstücken aus der Altsteinzeit, Teil der Gerolsteiner Dolomiten. Geführte Touren ganzjährig – innen trocken, besonders stimmungsvoll bei Regen draußen.',
+  },
+  {
+    name: 'Maarmuseum Manderscheid',
+    entfernung: 'ca. 18 km',
+    badge: 'Museum',
+    text: 'Museum über die Entstehung der Maare – gut kombinierbar mit einem Besuch der Manderscheider Burgruinen. Regen stört hier nicht, da der Besuch größtenteils drinnen stattfindet.',
+  },
+  {
+    name: 'Heimwebermuseum Schalkenmehren',
+    entfernung: 'ca. 5 km',
+    badge: 'Heimatgeschichte',
+    text: 'Einblick in das traditionelle Handwerk und die Kulturgeschichte der Eifel. Klein, ruhig und authentisch – ein guter Halt für ein bis zwei Stunden.',
+  },
+  {
+    name: 'Einkaufen in Daun',
+    entfernung: 'ca. 6 km',
+    badge: 'Einkauf',
+    text: 'Die Dauner Innenstadt hat eine überschaubare, angenehme Einkaufszone mit inhabergeführten Geschäften. Wochenmarkt mit regionalen Produkten – Termine vorab prüfen.',
+  },
+  {
+    name: 'Moselausflug nach Cochem',
+    entfernung: 'ca. 45 km',
+    badge: 'Tagesausflug',
+    text: 'Reichsburg, Altstadt und gemütliche Weinstuben direkt an der Mosel. Bei Regen hat Cochem seinen ganz eigenen Charme – verwinkelte Gassen und warme Gasträume laden zum Verweilen ein.',
+  },
+  {
+    name: 'Schloss Bürresheim',
+    entfernung: 'ca. 25 km',
+    badge: 'Schloss',
+    text: 'Das besterhaltene Schloss der Eifel – nie zerstört, mit originalem Inventar aus mehreren Jahrhunderten. Geführte Touren täglich, innen vollständig zu besichtigen.',
+  },
+]
 
 export default function SchlechtwetterPage() {
   return (
-    <div className="max-w-5xl mx-auto px-4 py-16">
-      <nav className="text-sm text-stone-500 mb-6">
-        <Link href="/guide" className="hover:text-green-800">Reiseführer</Link>
-        {" › "}
-        <span>Schlechtwetter</span>
-      </nav>
+    <>
+      {/* Hero */}
+      <section style={{ background: '#1A1A1A', color: 'white', padding: '4rem 1.5rem' }}>
+        <div style={{ maxWidth: '760px', margin: '0 auto' }}>
+          <nav style={{ fontSize: '0.78rem', color: '#666', marginBottom: '2rem' }}>
+            <Link href="/guide" style={{ color: '#888', textDecoration: 'none' }}>Reiseführer</Link>
+            {' › '}
+            <span>Schlechtwetter</span>
+          </nav>
+          <h1 style={{ fontFamily: 'Georgia, serif', fontSize: 'clamp(1.8rem, 4vw, 2.8rem)', fontWeight: 'normal', marginBottom: '1rem', lineHeight: 1.2 }}>
+            Regentag? Kein Problem.
+          </h1>
+          <p style={{ color: '#AAA', fontSize: '1.05rem', lineHeight: 1.7, maxWidth: '560px' }}>
+            Die Vulkaneifel hat auch bei Regen einiges zu bieten –
+            von Höhlen und Museen bis Hallenbad und Kino.
+          </p>
+        </div>
+      </section>
 
-      <h1 className="section-title">Schlechtwetter? Kein Problem!</h1>
-      <p className="text-stone-600 text-lg mb-10 max-w-2xl leading-relaxed">
-        Regen in der Eifel gehört manchmal dazu – aber er muss die Stimmung nicht
-        verderben. Hier sind unsere besten Tipps für gemütliche und erlebnisreiche
-        Regentage in der Region.
-      </p>
-
-      <div className="grid md:grid-cols-2 gap-6 mb-12">
-        {[
-          {
-            icon: "🏛️",
-            title: "Vulkaneifel-Museum Daun",
-            text: "Das faszinierende Museum zeigt die Entstehung der Vulkanlandschaft, Fossilien und historische Funde. Pflichtprogramm für Neugierige – und trocken!",
-            entfernung: "5 km",
-          },
-          {
-            icon: "♨️",
-            title: "Strohner Märchen-Badesee",
-            text: "Der Freizeitsee Strohn hat auch bei bewölktem Himmel seinen Charme. Das angrenzende Freizeitbad ist ganzjährig geöffnet.",
-            entfernung: "8 km",
-          },
-          {
-            icon: "🏰",
-            title: "Schloss Bürresheim",
-            text: "Das besterhaltene Schloss der Eifel – nie zerstört, mit originalem Inventar aus Jahrhunderten. Geführte Touren täglich.",
-            entfernung: "25 km",
-          },
-          {
-            icon: "🍺",
-            title: "Brauerei-Führung Gerolstein",
-            text: "Die Gerolsteiner Brunnenbetriebe und lokale Brauereien bieten Führungen an – mit Verkostung am Ende.",
-            entfernung: "15 km",
-          },
-          {
-            icon: "📚",
-            title: "Gemütlich in der Wohnung",
-            text: "Büchersammlung, Brettspiele und ein Kamin in der Wohnung warten auf Sie. Manchmal ist ein Regentag der beste Erholungstag.",
-            entfernung: "0 km",
-          },
-          {
-            icon: "🎨",
-            title: "Töpferei-Workshop Daun",
-            text: "In der lokalen Töpferei können Sie an kreativen Workshops teilnehmen – ein schönes Erlebnis auch für Kinder.",
-            entfernung: "5 km",
-          },
-        ].map((item) => (
-          <div key={item.title} className="card border border-stone-100 hover:border-green-200 transition-colors">
-            <div className="flex items-start gap-3">
-              <div className="text-3xl">{item.icon}</div>
-              <div>
-                <div className="flex items-center gap-2 mb-1">
-                  <h3 className="font-bold text-green-900">{item.title}</h3>
-                  {item.entfernung !== "0 km" && (
-                    <span className="text-xs text-stone-400">{item.entfernung}</span>
-                  )}
-                </div>
-                <p className="text-stone-600 text-sm leading-relaxed">{item.text}</p>
+      {/* Tipps */}
+      <div style={{ maxWidth: '960px', margin: '0 auto', padding: '4rem 1.5rem' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', marginBottom: '3rem' }}>
+          {tipps.map((t) => (
+            <div key={t.name} style={{ background: 'white', border: '1px solid #E5E5E5', padding: '1.75rem' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '0.75rem', gap: '1rem' }}>
+                <h3 style={{ fontFamily: 'Georgia, serif', fontSize: '1rem', fontWeight: 'normal', color: '#1A1A1A', lineHeight: 1.3 }}>
+                  {t.name}
+                </h3>
+                <span style={{ fontSize: '0.72rem', color: '#999', whiteSpace: 'nowrap', flexShrink: 0 }}>
+                  {t.entfernung}
+                </span>
               </div>
+              <p style={{ color: '#555', lineHeight: 1.7, fontSize: '0.88rem', marginBottom: '1rem' }}>
+                {t.text}
+              </p>
+              <span style={{ fontSize: '0.68rem', letterSpacing: '0.08em', textTransform: 'uppercase', border: '1px solid #DDD', color: '#888', padding: '0.2rem 0.6rem' }}>
+                {t.badge}
+              </span>
             </div>
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
 
-      <div className="card bg-green-50 border border-green-200 mb-10">
-        <h3 className="font-bold text-green-900 mb-3">Unser Geheimtipp für Regentage</h3>
-        <p className="text-stone-700 leading-relaxed">
-          Fahren Sie nach <strong>Cochem an der Mosel</strong> (40 km): Reichsburg, verwinkelte
-          Altstadt und gemütliche Weinlokale – Regen stört hier kaum, denn es gibt immer
-          eine trockene Ecke mit Blick auf das Moseltal.
-        </p>
-      </div>
+        {/* Geheimtipp */}
+        <div style={{ background: '#F9F8F6', border: '1px solid #E5E5E5', padding: '2rem', marginBottom: '3rem' }}>
+          <p style={{ fontSize: '0.72rem', letterSpacing: '0.1em', textTransform: 'uppercase', color: '#888', marginBottom: '0.75rem' }}>
+            Geheimtipp
+          </p>
+          <p style={{ fontFamily: 'Georgia, serif', fontSize: '1.05rem', color: '#1A1A1A', lineHeight: 1.7, fontStyle: 'italic' }}>
+            „Fahren Sie an einem Regentag nach Cochem. Die Mosel-Altstadt im Nieselregen,
+            eine warme Weinstube, der Blick auf die Reichsburg – das ist Eifel-Urlaub
+            in seiner besten Form."
+          </p>
+        </div>
 
-      <div className="flex flex-wrap gap-4">
-        <Link href="/guide/ausflugsziele" className="btn-primary">Alle Ausflugsziele</Link>
-        <Link href="/buchung" className="btn-secondary">Urlaub buchen</Link>
+        <div style={{ borderTop: '1px solid #E5E5E5', paddingTop: '2.5rem', display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+          <Link href="/guide/ausflugsziele" className="btn-primary">Alle Ausflugsziele</Link>
+          <Link href="/buchung" className="btn-secondary">Urlaub buchen</Link>
+        </div>
       </div>
-    </div>
-  );
+    </>
+  )
 }
