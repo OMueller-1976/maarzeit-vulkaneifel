@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import Script from 'next/script'
 
 export const metadata: Metadata = {
   title: 'Gerolstein – Ausflug in die Brunnenstadt der Vulkaneifel',
@@ -58,11 +59,22 @@ const highlights = [
   },
 ]
 
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "TouristAttraction",
+  "name": "Gerolstein – Brunnenstadt der Vulkaneifel",
+  "description": "Gerolstein mit Gerolsteiner Brunnen Erlebniswelt, Dolomiten, Felsenpfad, Kurpark und Buchenlochhöhle. 18 km ab Kirchweiler.",
+  "url": "https://gerolstein.de",
+  "touristType": ["Natur", "Geologie", "Wandern"],
+  "geo": { "@type": "GeoCoordinates", "latitude": 50.2205, "longitude": 6.6536 }
+}
+
 export default function GerolsteinPage() {
   return (
     <>
+      <Script id="schema-tourist" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
       {/* Hero */}
-      <section style={{ background: '#1A1A1A', color: 'white', padding: '4rem 1.5rem' }}>
+      <section style={{ background: '#1C3A22', color: 'white', padding: '4rem 1.5rem' }}>
         <div style={{ maxWidth: '760px', margin: '0 auto' }}>
           <nav style={{ fontSize: '0.78rem', color: '#666', marginBottom: '2rem' }}>
             <Link href="/guide" style={{ color: '#888', textDecoration: 'none' }}>Reiseführer</Link>
@@ -101,7 +113,7 @@ export default function GerolsteinPage() {
                 <h2 style={{ fontFamily: 'Georgia, serif', fontSize: '1.05rem', fontWeight: 'normal', color: '#1A1A1A', lineHeight: 1.4, marginBottom: '0.6rem' }}>
                   {h.name}
                 </h2>
-                <span style={{ fontSize: '0.68rem', letterSpacing: '0.08em', textTransform: 'uppercase', border: '1px solid #DDD', color: '#888', padding: '0.2rem 0.6rem' }}>
+                <span style={{ fontSize: '0.68rem', letterSpacing: '0.08em', textTransform: 'uppercase', border: '1px solid #2D5A35', color: '#2D5A35', padding: '0.2rem 0.6rem' }}>
                   {h.badge}
                 </span>
               </div>

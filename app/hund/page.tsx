@@ -92,7 +92,7 @@ export default function HundPage() {
   return (
     <>
       {/* Hero */}
-      <section style={{ background: '#1A1A1A', color: 'white', padding: '5rem 1rem' }}>
+      <section style={{ background: '#1C3A22', color: 'white', padding: '5rem 1rem' }}>
         <div style={{ maxWidth: '720px', margin: '0 auto', textAlign: 'center' }}>
           <p style={{ fontSize: '0.78rem', letterSpacing: '0.12em', textTransform: 'uppercase', color: '#888', marginBottom: '1.5rem' }}>
             Vulkaneifel · Kirchweiler · Daun
@@ -217,7 +217,7 @@ export default function HundPage() {
       </section>
 
       {/* CTA */}
-      <section style={{ background: '#1A1A1A', color: 'white', padding: '5rem 1.5rem', textAlign: 'center' }}>
+      <section style={{ background: '#1C3A22', color: 'white', padding: '5rem 1.5rem', textAlign: 'center' }}>
         <p style={{ fontSize: '0.78rem', letterSpacing: '0.12em', textTransform: 'uppercase', color: '#666', marginBottom: '1.5rem' }}>
           Kirchweiler · Vulkaneifel
         </p>

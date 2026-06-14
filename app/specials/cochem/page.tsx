@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Script from "next/script";
 
 export const metadata: Metadata = {
   title: 'Ausflug Cochem an der Mosel – 45 km ab Kirchweiler',
@@ -7,8 +8,20 @@ export const metadata: Metadata = {
   alternates: { canonical: 'https://ferienwohnung-in-der-vulkaneifel.de/specials/cochem' },
 };
 
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "TouristAttraction",
+  "name": "Cochem an der Mosel",
+  "description": "Malerische Moselstadt mit Reichsburg, mittelalterlicher Altstadt, Weinkultur und Moselpromenade. 45 km ab Kirchweiler.",
+  "url": "https://cochem.de",
+  "touristType": ["Kultur", "Wein", "Geschichte"],
+  "geo": { "@type": "GeoCoordinates", "latitude": 50.1474, "longitude": 7.1677 }
+}
+
 export default function CochemPage() {
   return (
+    <>
+      <Script id="schema-tourist" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
     <div className="max-w-3xl mx-auto px-4 py-16">
       <nav className="text-sm text-stone-500 mb-6">
         <Link href="/specials" className="hover:text-green-800">Specials</Link>
@@ -161,5 +174,6 @@ export default function CochemPage() {
         </div>
       </div>
     </div>
+    </>
   );
 }

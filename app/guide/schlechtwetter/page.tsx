@@ -92,7 +92,7 @@ export default function SchlechtwetterPage() {
   return (
     <>
       {/* Hero */}
-      <section style={{ background: '#1A1A1A', color: 'white', padding: '4rem 1.5rem' }}>
+      <section style={{ background: '#1C3A22', color: 'white', padding: '4rem 1.5rem' }}>
         <div style={{ maxWidth: '760px', margin: '0 auto' }}>
           <nav style={{ fontSize: '0.78rem', color: '#666', marginBottom: '2rem' }}>
             <Link href="/guide" style={{ color: '#888', textDecoration: 'none' }}>Reiseführer</Link>
@@ -125,7 +125,7 @@ export default function SchlechtwetterPage() {
               <p style={{ color: '#555', lineHeight: 1.7, fontSize: '0.88rem', marginBottom: '1rem' }}>
                 {t.text}
               </p>
-              <span style={{ fontSize: '0.68rem', letterSpacing: '0.08em', textTransform: 'uppercase', border: '1px solid #DDD', color: '#888', padding: '0.2rem 0.6rem' }}>
+              <span style={{ fontSize: '0.68rem', letterSpacing: '0.08em', textTransform: 'uppercase', border: '1px solid #2D5A35', color: '#2D5A35', padding: '0.2rem 0.6rem' }}>
                 {t.badge}
               </span>
             </div>

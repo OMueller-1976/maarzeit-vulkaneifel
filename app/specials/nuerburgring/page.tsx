@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Script from "next/script";
 
 export const metadata: Metadata = {
   title: 'Nürburgring Ausflug ab Kirchweiler – nur 55 km',
@@ -7,8 +8,20 @@ export const metadata: Metadata = {
   alternates: { canonical: 'https://ferienwohnung-in-der-vulkaneifel.de/specials/nuerburgring' },
 };
 
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "TouristAttraction",
+  "name": "Nürburgring",
+  "description": "Legendäre Motorsportanlage in der Eifel mit Nordschleife, Touristenfahrten und Erlebniswelt ring°werk. 55 km ab Kirchweiler.",
+  "url": "https://nuerburgring.de",
+  "touristType": "Motorsport",
+  "geo": { "@type": "GeoCoordinates", "latitude": 50.3356, "longitude": 6.9475 }
+}
+
 export default function NuerburgringPage() {
   return (
+    <>
+      <Script id="schema-tourist" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
     <div className="max-w-3xl mx-auto px-4 py-16">
       <nav className="text-sm text-stone-500 mb-6">
         <Link href="/specials" className="hover:text-green-800">Specials</Link>
@@ -152,5 +165,6 @@ export default function NuerburgringPage() {
         </div>
       </div>
     </div>
+    </>
   );
 }
