@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-primary: #2d5a27;
+  --color-secondary: #8b6914;
+  --color-accent: #4a7c59;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Georgia, 'Times New Roman', serif;
+}
+
+h1, h2, h3, h4 {
+  font-family: Georgia, serif;
+}
+
+.nav-link {
+  @apply text-stone-700 hover:text-green-800 transition-colors duration-200;
+}
+
+.btn-primary {
+  @apply bg-green-800 text-white px-6 py-3 rounded hover:bg-green-900 transition-colors duration-200 inline-block;
+}
+
+.btn-secondary {
+  @apply border border-green-800 text-green-800 px-6 py-3 rounded hover:bg-green-50 transition-colors duration-200 inline-block;
+}
+
+.section-title {
+  @apply text-3xl font-bold text-green-900 mb-4;
+}
+
+.card {
+  @apply bg-white rounded-lg shadow-md p-6;
+}
