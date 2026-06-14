@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import FAQ from "@/components/FAQ";
 
 export const metadata: Metadata = {
   title: 'Ferienwohnung Vulkaneifel bei Daun – Hund, Motorrad & Wandern',
@@ -153,6 +154,8 @@ export default function HomePage() {
           Jetzt Termin prüfen & buchen
         </Link>
       </section>
+
+      <FAQ />
 
       {/* Guide Teaser */}
       <section className="bg-stone-100 py-20">
