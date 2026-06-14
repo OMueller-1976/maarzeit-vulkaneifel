@@ -5,7 +5,7 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://ferienwohnung-in-der-vulkaneifel.de'),
+  metadataBase: new URL('https://www.ferienwohnung-in-der-vulkaneifel.de'),
   title: {
     default: 'MaarZeit Vulkaneifel – Ferienwohnung bei Daun | Hund, Motorrad & Wandern',
     template: '%s | MaarZeit Vulkaneifel',
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     images: [{ url: '/og-image.jpg', width: 1200, height: 630, alt: 'MaarZeit Vulkaneifel Ferienwohnung' }],
   },
   twitter: { card: 'summary_large_image', title: 'MaarZeit Vulkaneifel – Ferienwohnung bei Daun', description: 'Moderne 35 qm Ferienwohnung in der Vulkaneifel. Hund willkommen, Parkplatz, Terrasse.', images: ['/og-image.jpg'] },
-  alternates: { canonical: 'https://ferienwohnung-in-der-vulkaneifel.de' },
+  alternates: { canonical: 'https://www.ferienwohnung-in-der-vulkaneifel.de' },
   verification: {
     google: 'b83e8e154a47617a',
   },

@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 
-const BASE_URL = "https://www.maarzeit-vulkaneifel.de";
+const BASE_URL = "https://www.ferienwohnung-in-der-vulkaneifel.de";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
