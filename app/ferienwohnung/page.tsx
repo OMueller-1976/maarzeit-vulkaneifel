@@ -44,6 +44,18 @@ export default function FerienwohnungPage() {
         mit Feuerschale ist gemeinsam nutzbar – ideal für entspannte Abende in der Eifelluft.
       </p>
 
+      {/* Fotos */}
+      <div className="mb-14">
+        <div style={{ borderRadius: '10px', overflow: 'hidden', aspectRatio: '4/3', maxWidth: '640px' }}>
+          <img
+            src="/garten-feuerschale.jpeg"
+            alt="Garten mit Feuerschale der Ferienwohnung MaarZeit Vulkaneifel"
+            style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+          />
+        </div>
+        <p className="text-stone-500 text-sm mt-2">Garten mit Feuerschale – für entspannte Abende unter dem Eifelturm.</p>
+      </div>
+
       {/* Eckdaten */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-14">
         {[

@@ -111,8 +111,12 @@ export default function HomePage() {
               Alle Details
             </Link>
           </div>
-          <div className="bg-stone-200 rounded-lg h-80 flex items-center justify-center text-stone-400">
-            <span className="text-6xl">🏡</span>
+          <div style={{ borderRadius: '10px', overflow: 'hidden', height: '320px' }}>
+            <img
+              src="/garten-feuerschale.jpeg"
+              alt="Garten mit Feuerschale der Ferienwohnung MaarZeit Vulkaneifel"
+              style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+            />
           </div>
         </div>
       </section>
