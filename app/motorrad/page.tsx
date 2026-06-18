@@ -67,9 +67,9 @@ export default function MotorradPage() {
             ))}
           </ul>
         </div>
-        <div className="card bg-green-900 text-white">
-          <h2 className="text-xl font-bold mb-4">Die Region auf einen Blick</h2>
-          <ul className="space-y-3 text-green-100">
+        <div className="card">
+          <h2 className="text-xl font-bold text-green-900 mb-4">Die Region auf einen Blick</h2>
+          <ul className="space-y-3" style={{ color: '#444' }}>
             {[
               "Hunderte Kilometer kurvenreicher Landstraßen",
               "Kaum LKW-Verkehr auf Nebenstraßen",
@@ -79,7 +79,7 @@ export default function MotorradPage() {
               "Viele Motorrad-Treffen in der Saison",
             ].map((item) => (
               <li key={item} className="flex items-start gap-2">
-                <span className="mt-0.5">✓</span>
+                <span className="mt-0.5" style={{ color: '#2D5A35' }}>✓</span>
                 {item}
               </li>
             ))}

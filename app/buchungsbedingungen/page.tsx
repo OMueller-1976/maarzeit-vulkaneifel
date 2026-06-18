@@ -23,10 +23,41 @@ export default function BuchungsbedingungenPage() {
         <section>
           <h2 className="text-lg font-bold text-green-900 mb-2">§ 2 Zahlungsbedingungen</h2>
           <ul className="list-disc pl-5 space-y-1">
-            <li>Anzahlung: 30 % des Gesamtpreises bei Buchungsbestätigung</li>
-            <li>Restzahlung: 4 Wochen vor Anreise</li>
-            <li>Kaution: 200 € – wird nach Abreise und Zustandsprüfung zurückgezahlt</li>
-            <li>Zahlungsart: Überweisung auf das angegebene Konto</li>
+            <li>Anzahlung: 30 % des Gesamtpreises bei Buchungsbestätigung (online via Stripe)</li>
+            <li>Restzahlung: vor Ort bei Anreise, auch per Karte möglich</li>
+            <li>Kaution: 100 € – wird nach Abreise und Zustandsprüfung zurückgezahlt</li>
+            <li>Zahlungsart: Anzahlung online (Kreditkarte, SEPA), Restzahlung vor Ort (Bar oder Karte)</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2 className="text-lg font-bold text-green-900 mb-2">§ 2a Preisübersicht</h2>
+          <table className="w-full text-sm border-collapse">
+            <thead>
+              <tr className="border-b border-stone-200">
+                <th className="text-left py-2 font-semibold text-stone-700">Aufenthalt</th>
+                <th className="text-left py-2 font-semibold text-stone-700">Preis pro Nacht</th>
+                <th className="text-left py-2 font-semibold text-stone-700 hidden sm:table-cell">Hinweis</th>
+              </tr>
+            </thead>
+            <tbody>
+              {[
+                { dauer: "1 Nacht", preis: "125 €", hinweis: "Spontanurlaub" },
+                { dauer: "2–3 Nächte", preis: "95 €", hinweis: "Kurzurlaub & Wochenende" },
+                { dauer: "4–7 Nächte", preis: "85 €", hinweis: "Verlängertes Wochenende" },
+                { dauer: "Ab 7 Nächten", preis: "75 €", hinweis: "Urlaubswoche" },
+              ].map((r) => (
+                <tr key={r.dauer} className="border-b border-stone-100">
+                  <td className="py-2 text-stone-700">{r.dauer}</td>
+                  <td className="py-2 font-medium text-stone-900">{r.preis}</td>
+                  <td className="py-2 text-stone-500 hidden sm:table-cell">{r.hinweis}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+          <ul className="list-disc pl-5 space-y-1 mt-3">
+            <li>Endreinigung: 20 € pauschal pro Buchung</li>
+            <li>Kaution: 100 € (Rückzahlung nach Abreise und Zustandsprüfung)</li>
           </ul>
         </section>
 
@@ -45,9 +76,8 @@ export default function BuchungsbedingungenPage() {
           <h2 className="text-lg font-bold text-green-900 mb-2">§ 4 An- und Abreise</h2>
           <ul className="list-disc pl-5 space-y-1">
             <li>Anreise: ab 15:00 Uhr</li>
-            <li>Abreise: bis 10:00 Uhr</li>
+            <li>Abreise: bis 11:00 Uhr</li>
             <li>Abweichungen nur nach vorheriger Absprache möglich</li>
-            <li>Mindestaufenthalt: 2 Nächte</li>
           </ul>
         </section>
 
@@ -56,7 +86,7 @@ export default function BuchungsbedingungenPage() {
           <p>
             Die Unterkunft ist pfleglich zu behandeln. Schäden sind unverzüglich zu melden.
             Rauchen ist in der Wohnung nicht gestattet. Haustiere nur nach vorheriger Absprache
-            (1 Hund bis 25 kg inklusive). Die maximale Personenzahl von 4 Personen darf nicht
+            (1 Hund bis 25 kg inklusive). Die maximale Personenzahl von 3 Personen darf nicht
             überschritten werden. Lärmbelästigung der Nachbarn ist zu unterlassen (Nachtruhe ab 22 Uhr).
           </p>
         </section>

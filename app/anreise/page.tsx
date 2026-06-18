@@ -19,7 +19,7 @@ import MapWrapper from "@/components/MapWrapper";
 
 const entfernungen = [
   { ziel: "Daun (Kreisstadt)", km: "6 km", zeit: "ca. 8 Min.", hinweis: "Einkauf, Supermarkt, Arzt" },
-  { ziel: "Gerolstein", km: "18 km", zeit: "ca. 20 Min.", hinweis: "Altstadt, Felsmassiv, Ausflugsziel" },
+  { ziel: "Gerolstein", km: "15 km", zeit: "ca. 18 Min.", hinweis: "Altstadt, Felsmassiv, Ausflugsziel" },
   { ziel: "Manderscheid", km: "18 km", zeit: "ca. 20 Min.", hinweis: "Burgruinen, Liesertal, Wandern" },
   { ziel: "Bitburg", km: "40 km", zeit: "ca. 35 Min.", hinweis: "Bitburger Brauerei, Römerstadt" },
   { ziel: "Cochem", km: "45 km", zeit: "ca. 45 Min.", hinweis: "Reichsburg, Moselwein, Altstadt" },
@@ -53,7 +53,7 @@ const verkehrsmittel = [
   {
     titel: "Per Bahn",
     inhalt: [
-      "Nächster Bahnhof: Gerolstein (ca. 18 km). Verbindungen über Köln und Trier.",
+      "Nächster Bahnhof: Gerolstein (ca. 15 km). Verbindungen über Köln und Trier.",
       "Ab Bahnhof Gerolstein: Abholung nach Absprache möglich oder Taxi/Mietwagen vor Ort.",
       "Alternativ: Bahnhof Daun (ca. 6 km) – regionaler Halt mit Busanbindung.",
       "Tipp: DB Sparpreis-Tickets frühzeitig buchen für günstige Verbindungen.",

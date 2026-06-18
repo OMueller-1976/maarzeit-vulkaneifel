@@ -4,7 +4,7 @@ import Script from 'next/script'
 
 export const metadata: Metadata = {
   title: 'Gerolstein – Ausflug in die Brunnenstadt der Vulkaneifel',
-  description: 'Gerolstein: Gerolsteiner Brunnen Erlebniswelt, Dolomiten, Felsenpfad, Kurpark, Höhlen und Kyll. Alle Tipps für einen Ausflug nach Gerolstein ab Kirchweiler (18 km).',
+  description: 'Gerolstein: Gerolsteiner Brunnen Erlebniswelt, Dolomiten, Felsenpfad, Kurpark, Höhlen und Kyll. Alle Tipps für einen Ausflug nach Gerolstein ab Kirchweiler (15 km).',
   alternates: { canonical: 'https://www.ferienwohnung-in-der-vulkaneifel.de/guide/gerolstein' },
 }
 
@@ -63,7 +63,7 @@ const schema = {
   "@context": "https://schema.org",
   "@type": "TouristAttraction",
   "name": "Gerolstein – Brunnenstadt der Vulkaneifel",
-  "description": "Gerolstein mit Gerolsteiner Brunnen Erlebniswelt, Dolomiten, Felsenpfad, Kurpark und Buchenlochhöhle. 18 km ab Kirchweiler.",
+  "description": "Gerolstein mit Gerolsteiner Brunnen Erlebniswelt, Dolomiten, Felsenpfad, Kurpark und Buchenlochhöhle. 15 km ab Kirchweiler.",
   "url": "https://gerolstein.de",
   "touristType": ["Natur", "Geologie", "Wandern"],
   "geo": { "@type": "GeoCoordinates", "latitude": 50.2205, "longitude": 6.6536 }
@@ -97,7 +97,7 @@ export default function GerolsteinPage() {
       {/* Einleitung */}
       <section style={{ maxWidth: '760px', margin: '0 auto', padding: '4rem 1.5rem 2rem' }}>
         <p style={{ color: '#444', lineHeight: 1.9, fontSize: '1rem', marginBottom: '1.2rem' }}>
-          Gerolstein liegt knapp 18 km von Kirchweiler entfernt und ist in etwa 20 Minuten erreichbar. Die Stadt ist bekannt als Heimat des gleichnamigen Mineralwassers, bietet aber weit mehr: ein beeindruckendes Felsenmassiv direkt über der Innenstadt, eine Karsthöhle aus der Steinzeit, einen weitläufigen Kurpark am Ufer der Kyll und seit 2026 eine neue Erlebniswelt rund um Deutschlands größten Mineralbrunnen.
+          Gerolstein liegt knapp 15 km von Kirchweiler entfernt und ist in etwa 18 Minuten erreichbar. Die Stadt ist bekannt als Heimat des gleichnamigen Mineralwassers, bietet aber weit mehr: ein beeindruckendes Felsenmassiv direkt über der Innenstadt, eine Karsthöhle aus der Steinzeit, einen weitläufigen Kurpark am Ufer der Kyll und seit 2026 eine neue Erlebniswelt rund um Deutschlands größten Mineralbrunnen.
         </p>
         <p style={{ color: '#444', lineHeight: 1.9, fontSize: '1rem' }}>
           Gerolstein eignet sich ideal für einen Halbtagsausflug – wer den Felsenpfad wandert und anschließend den Kurpark besucht, hat einen vollständigen, schönen Tag. Mit Besuch der Erlebniswelt (Voranmeldung nötig) auch als ganztägiger Ausflug empfehlenswert.

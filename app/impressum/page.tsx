@@ -31,8 +31,6 @@ export default function ImpressumPage() {
             >
               kontakt@ferienwohnung-in-der-vulkaneifel.de
             </a>
-            <br />
-            Telefon: [Telefonnummer eintragen]
           </p>
         </section>
 

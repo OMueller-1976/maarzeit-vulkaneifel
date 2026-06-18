@@ -133,15 +133,18 @@ export default function HomePage() {
           ].map((p) => (
             <div
               key={p.label}
-              className={`card border ${p.featured ? "bg-green-900 border-green-900 text-white" : "border-green-100"}`}
+              className={`card border ${p.featured ? "border-2 border-green-900" : "border-green-100"}`}
             >
-              <p className={`text-xs uppercase tracking-widest mb-2 ${p.featured ? "text-white" : "text-stone-400"}`}>
+              <p className={`text-xs uppercase tracking-widest mb-2 ${p.featured ? "" : "text-stone-400"}`}
+                style={{ color: p.featured ? '#1A1A1A' : undefined }}>
                 {p.detail}
               </p>
-              <p className={`font-bold text-2xl mb-1 ${p.featured ? "text-white" : "text-green-800"}`}>
+              <p className={`font-bold text-2xl mb-1 ${p.featured ? "" : "text-green-800"}`}
+                style={{ color: p.featured ? '#1A1A1A' : undefined }}>
                 {p.price}
               </p>
-              <p className={`text-xs ${p.featured ? "text-white/70" : "text-stone-500"}`}>
+              <p className={`text-xs ${p.featured ? "" : "text-stone-500"}`}
+                style={{ color: p.featured ? '#666' : undefined }}>
                 {p.label}
               </p>
             </div>

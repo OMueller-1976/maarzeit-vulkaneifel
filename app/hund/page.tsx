@@ -45,13 +45,13 @@ const wege = [
     name: 'Manderscheid – Liesertal',
     laenge: 'Burgenstieg ca. 6,6 km',
     schwierigkeit: 'leicht bis mittel',
-    text: 'Der Manderscheider Burgenstieg führt durch das Liesertal an beiden Burgruinen vorbei. Der Weg entlang der Lieser ist hundefreundlich, ruhig und bietet natürliche Wasserquellen. Leine auf dem gesamten Weg empfohlen. Anfahrt ab Kirchweiler ca. 20 km.',
+    text: 'Der Manderscheider Burgenstieg führt durch das Liesertal an beiden Burgruinen vorbei. Der Weg entlang der Lieser ist hundefreundlich, ruhig und bietet natürliche Wasserquellen. Leine auf dem gesamten Weg empfohlen. Anfahrt ab Kirchweiler ca. 15 km.',
   },
   {
     name: 'Gerolstein – Gerolsteiner Dolomiten',
     laenge: 'ca. 5–8 km',
     schwierigkeit: 'leicht',
-    text: 'Das Felsenmassiv rund um Gerolstein bietet kurze, beeindruckende Spazierwege. Hunde sind auf den Hauptwegen erlaubt. Die Kasselburg ist für Hunde weniger geeignet – der Felsenpfad dort ist steil und schmal. Anfahrt ab Kirchweiler ca. 20 km.',
+    text: 'Das Felsenmassiv rund um Gerolstein bietet kurze, beeindruckende Spazierwege. Hunde sind auf den Hauptwegen erlaubt. Die Kasselburg ist für Hunde weniger geeignet – der Felsenpfad dort ist steil und schmal. Anfahrt ab Kirchweiler ca. 15 km.',
   },
   {
     name: 'HeimatSpuren Daun',
