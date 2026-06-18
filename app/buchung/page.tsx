@@ -12,8 +12,7 @@ export default function BuchungPage() {
     <div className="max-w-6xl mx-auto px-4 py-16">
       <h1 className="section-title">Buchung & Verfügbarkeit</h1>
       <p className="text-stone-600 mb-10 max-w-2xl leading-relaxed">
-        Prüfen Sie die Verfügbarkeit direkt im Kalender und senden Sie uns Ihre Anfrage.
-        Wir bestätigen in der Regel innerhalb von 24 Stunden.
+        Prüfen Sie die Verfügbarkeit direkt im Kalender und buchen Sie Ihren Wunschzeitraum online – sofort und ohne Wartezeit.
       </p>
 
       <BookingCalendar />
@@ -59,10 +58,10 @@ export default function BuchungPage() {
         <h2 className="text-2xl font-bold text-green-900 mb-6">So funktioniert die Buchung</h2>
         <div className="grid md:grid-cols-4 gap-6">
           {[
-            { step: "1", title: "Anfrage senden", text: "Wählen Sie Ihren Wunschzeitraum und senden Sie uns per Kalender oder E-Mail eine Anfrage." },
-            { step: "2", title: "Bestätigung", text: "Wir bestätigen die Verfügbarkeit und senden Ihnen ein verbindliches Angebot." },
-            { step: "3", title: "Anzahlung", text: "Mit 30 % Anzahlung wird der Termin für Sie reserviert." },
-            { step: "4", title: "Schlüsselübergabe", text: "Restzahlung 4 Wochen vor Anreise – dann heißen wir Sie herzlich willkommen!" },
+            { step: "1", title: "Termin wählen", text: "Wählen Sie Ihren Wunschzeitraum direkt im Online-Kalender aus." },
+            { step: "2", title: "Sofortbestätigung", text: "Die Verfügbarkeit wird live geprüft – keine Wartezeit auf eine Antwort." },
+            { step: "3", title: "Anzahlung", text: "Mit 30 % Anzahlung über Stripe wird der Termin für Sie reserviert." },
+            { step: "4", title: "Schlüsselübergabe", text: "Restzahlung (70 %) bei Anreise vor Ort möglich – auch per Karte. Dann heißen wir Sie herzlich willkommen!" },
           ].map((s) => (
             <div key={s.step} className="text-center">
               <div className="w-12 h-12 rounded-full bg-green-800 text-white font-bold text-lg flex items-center justify-center mx-auto mb-3">
