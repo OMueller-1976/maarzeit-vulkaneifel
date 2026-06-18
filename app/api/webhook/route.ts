@@ -22,6 +22,16 @@ export async function POST(req: NextRequest) {
     const session    = event.data.object as Stripe.Checkout.Session
     const bookingId  = session.metadata?.booking_id
 
+    // Restzahlung: bestehende Buchung als fully_paid markieren, kein n8n-Trigger
+    if (session.metadata?.type === 'remainder_payment' && bookingId) {
+      await supabase
+        .from('bookings')
+        .update({ status: 'fully_paid' })
+        .eq('id', bookingId)
+
+      return NextResponse.json({ received: true })
+    }
+
     if (bookingId) {
       const { data: booking } = await supabase
         .from('bookings')
