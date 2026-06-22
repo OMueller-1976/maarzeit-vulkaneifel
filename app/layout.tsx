@@ -3,6 +3,7 @@ import Script from "next/script";
 import "./globals.css";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import CookieBanner from "@/components/CookieBanner";
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.ferienwohnung-in-der-vulkaneifel.de'),
@@ -124,6 +125,7 @@ gtag('config', 'G-H24P94BWQD');`,
         <Nav />
         <main className="flex-1">{children}</main>
         <Footer />
+        <CookieBanner />
       </body>
     </html>
   );
