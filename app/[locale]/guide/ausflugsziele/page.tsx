@@ -1,10 +1,19 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import { getLocale } from 'next-intl/server'
 
-export const metadata: Metadata = {
-  title: 'Ausflugsziele Vulkaneifel – Wildpark, Kino, Berlingen, Wasserfall & mehr',
-  description: 'Alle Freizeitangebote im Umkreis von Kirchweiler: Eifel Adventures Berlingen, Sommerrodelbahn, Wildpark Daun, Dreimühlen Wasserfall, Kinopalast, Laurentiusbad und mehr.',
-  alternates: { canonical: 'https://www.ferienwohnung-in-der-vulkaneifel.de/guide/ausflugsziele' },
+const metaTitles: Record<string, string> = {
+  de: 'Ausflugsziele Vulkaneifel – Wildpark, Höhlen & Nürburgring',
+  en: 'Attractions in the Vulkan Eifel – Wildlife Park, Caves & Nürburgring',
+  nl: 'Bezienswaardigheden Vulkaan Eifel – Wildpark, Grotten & Nürburgring',
+  fr: "Attractions de l'Eifel Volcanique – Parc Animalier, Grottes & Nürburgring",
+}
+
+const metaDescriptions: Record<string, string> = {
+  de: 'Alle Freizeitangebote im Umkreis von Kirchweiler: Eifel Adventures Berlingen, Sommerrodelbahn, Wildpark Daun, Dreimühlen Wasserfall, Kinopalast, Laurentiusbad und mehr.',
+  en: 'All leisure activities near Kirchweiler: Eifel Adventures Berlingen, summer toboggan run, wildlife park Daun, Dreimühlen waterfall, cinema, Laurentiusbad and more.',
+  nl: 'Alle vrijetijdsactiviteiten rondom Kirchweiler: Eifel Adventures Berlingen, zomerslee, wildpark Daun, Dreimühlen waterval, bioscoop, Laurentiusbad en meer.',
+  fr: "Toutes les activités de loisirs autour de Kirchweiler: Eifel Adventures Berlingen, luge d'été, parc animalier Daun, cascade Dreimühlen, cinéma, Laurentiusbad et plus.",
 }
 
 const kategorien = [
@@ -291,7 +300,18 @@ export function generateStaticParams() {
   ]
 }
 
-export default function AusflugszielePage() {
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params
+  return {
+    title: metaTitles[locale] ?? metaTitles.de,
+    description: metaDescriptions[locale] ?? metaDescriptions.de,
+    alternates: { canonical: 'https://www.ferienwohnung-in-der-vulkaneifel.de/guide/ausflugsziele' },
+  }
+}
+
+export default async function AusflugszielePage() {
+  const locale = await getLocale()
+
   return (
     <>
       {/* Hero */}

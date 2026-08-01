@@ -1,11 +1,20 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { getLocale } from 'next-intl/server'
 
-export const metadata: Metadata = {
-  title: 'Wandern Vulkaneifel – Lieserpfad, Eifelsteig & Maare-Routen',
-  description: 'Die schönsten Wanderrouten in der Vulkaneifel: Lieserpfad, Eifelsteig, Manderscheider Burgenstieg und HeimatSpuren ab Kirchweiler bei Daun.',
-  alternates: { canonical: 'https://www.ferienwohnung-in-der-vulkaneifel.de/guide/wandern' },
-};
+const metaTitles: Record<string, string> = {
+  de: 'Wandern in der Vulkaneifel – Lieserpfad, Eifelsteig & Maare-Runden',
+  en: 'Hiking in the Vulkan Eifel – Lieser Path, Eifel Trail & Lake Routes',
+  nl: 'Wandelen in de Vulkaan Eifel – Lieserpfad, Eifelsteig & Marenroutes',
+  fr: "Randonnée dans l'Eifel Volcanique – Lieserpfad, Eifelsteig & Routes",
+}
+
+const metaDescriptions: Record<string, string> = {
+  de: 'Die schönsten Wanderrouten in der Vulkaneifel: Lieserpfad, Eifelsteig, Manderscheider Burgenstieg und HeimatSpuren ab Kirchweiler bei Daun.',
+  en: 'The best hiking routes in the Vulkan Eifel: Lieser Path, Eifel Trail, Manderscheid Castle Trail and HeimatSpuren from Kirchweiler near Daun.',
+  nl: 'De mooiste wandelroutes in de Vulkaan Eifel: Lieserpfad, Eifelsteig, Burgenpad Manderscheid en HeimatSpuren vanaf Kirchweiler bij Daun.',
+  fr: "Les plus belles randonnées dans l'Eifel volcanique: Lieserpfad, Eifelsteig, sentier des châteaux de Manderscheid depuis Kirchweiler.",
+}
 
 const routen = [
   {
@@ -65,7 +74,18 @@ export function generateStaticParams() {
   ]
 }
 
-export default function WandernPage() {
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params
+  return {
+    title: metaTitles[locale] ?? metaTitles.de,
+    description: metaDescriptions[locale] ?? metaDescriptions.de,
+    alternates: { canonical: 'https://www.ferienwohnung-in-der-vulkaneifel.de/guide/wandern' },
+  }
+}
+
+export default async function WandernPage() {
+  const locale = await getLocale()
+
   return (
     <div className="max-w-5xl mx-auto px-4 py-16">
       <nav className="text-sm text-stone-500 mb-6">

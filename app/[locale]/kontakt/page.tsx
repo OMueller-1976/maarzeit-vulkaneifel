@@ -1,10 +1,28 @@
 import type { Metadata } from "next";
+import { getLocale } from 'next-intl/server'
 
-export const metadata: Metadata = {
-  title: "Kontakt",
-  description:
-    "Kontaktieren Sie die Ferienwohnung MaarZeit Vulkaneifel – per E-Mail oder Telefon für Buchungsanfragen und Fragen.",
-};
+const translations = {
+  de: {
+    meta: { title: 'Kontakt – MaarZeit Vulkaneifel', description: 'Kontaktieren Sie uns für Fragen zur Ferienwohnung in der Vulkaneifel.' },
+    hero: { title: 'Kontakt', subtitle: 'Wir freuen uns auf Ihre Nachricht' },
+    cta: 'Zur Buchung',
+  },
+  en: {
+    meta: { title: 'Contact – MaarZeit Vulkan Eifel', description: 'Contact us for questions about the holiday apartment in the Vulkan Eifel.' },
+    hero: { title: 'Contact', subtitle: 'We look forward to hearing from you' },
+    cta: 'Book Now',
+  },
+  nl: {
+    meta: { title: 'Contact – MaarZeit Vulkaan Eifel', description: 'Neem contact op voor vragen over het vakantieappartement in de Vulkaan Eifel.' },
+    hero: { title: 'Contact', subtitle: 'We horen graag van u' },
+    cta: 'Nu Boeken',
+  },
+  fr: {
+    meta: { title: 'Contact – MaarZeit Eifel Volcanique', description: "Contactez-nous pour des questions sur l'appartement de vacances dans l'Eifel volcanique." },
+    hero: { title: 'Contact', subtitle: 'Nous sommes ravis de vous entendre' },
+    cta: 'Réserver',
+  },
+}
 
 
 export function generateStaticParams() {
@@ -16,10 +34,22 @@ export function generateStaticParams() {
   ]
 }
 
-export default function KontaktPage() {
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params
+  const tr = translations[locale as keyof typeof translations] ?? translations.de
+  return {
+    title: tr.meta.title,
+    description: tr.meta.description,
+  }
+}
+
+export default async function KontaktPage() {
+  const locale = await getLocale()
+  const tr = translations[locale as keyof typeof translations] ?? translations.de
+
   return (
     <div className="max-w-4xl mx-auto px-4 py-16">
-      <h1 className="section-title">Kontakt</h1>
+      <h1 className="section-title">{tr.hero.title}</h1>
       <p className="text-stone-600 text-lg mb-10 max-w-xl leading-relaxed">
         Sie haben Fragen zur Ferienwohnung, möchten eine Buchungsanfrage stellen
         oder einfach mehr über die Region erfahren? Schreiben Sie uns!

@@ -1,10 +1,52 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import { getLocale } from 'next-intl/server'
 
-export const metadata: Metadata = {
-  title: 'Urlaub mit Hund in der Vulkaneifel – Wanderwege, Seen & Ausflüge',
-  description: 'Hundefreundliche Ausflüge in der Vulkaneifel: Freilinger See mit Hundestrand, Wanderwege rund um Daun, Dauner Maare, Lieserpfad und Tipps für Urlaub mit Hund in der Eifel.',
-  alternates: { canonical: 'https://www.ferienwohnung-in-der-vulkaneifel.de/hund' },
+const translations = {
+  de: {
+    meta: {
+      title: 'Urlaub mit Hund in der Vulkaneifel – Wanderwege, Seen & Ausflüge',
+      description: 'Hundefreundliche Ausflüge in der Vulkaneifel: Freilinger See mit Hundestrand, Wanderwege, Dauner Maare, Lieserpfad.',
+    },
+    hero: { title: 'Urlaub mit Hund', subtitle: 'in der Vulkaneifel' },
+    intro: 'Die Vulkaneifel ist ein Paradies für Hunde und ihre Besitzer. Weitläufige Wälder, ruhige Wanderwege und hundefreundliche Ausflugsziele machen die Region zum idealen Reiseziel.',
+    sections: { lakes: 'Badeseen mit Hund', trails: 'Wanderwege mit Hund', tips: 'Praktische Tipps' },
+    cta: 'Verfügbarkeit prüfen',
+    ctaNote: 'Hunde sind in unserer Ferienwohnung herzlich willkommen.',
+  },
+  en: {
+    meta: {
+      title: 'Holiday with Dog in Vulkan Eifel – Trails, Lakes & Trips',
+      description: 'Dog-friendly trips in the Vulkan Eifel: Freilinger See with dog beach, hiking trails, Daun Lakes, Lieser Path.',
+    },
+    hero: { title: 'Holiday with Your Dog', subtitle: 'in the Vulkan Eifel' },
+    intro: 'The Vulkan Eifel is a paradise for dogs and their owners. Vast forests, quiet hiking trails and dog-friendly attractions make the region an ideal destination.',
+    sections: { lakes: 'Lakes for Dogs', trails: 'Hiking Trails with Dogs', tips: 'Practical Tips' },
+    cta: 'Check Availability',
+    ctaNote: 'Dogs are warmly welcome in our holiday apartment.',
+  },
+  nl: {
+    meta: {
+      title: 'Vakantie met Hond in de Vulkaan Eifel – Wandelpaden & Meren',
+      description: 'Hondenvriendellijke uitjes in de Vulkaan Eifel: Freilinger See met hondenstrand, wandelpaden, Dauner Maren.',
+    },
+    hero: { title: 'Vakantie met Hond', subtitle: 'in de Vulkaan Eifel' },
+    intro: 'De Vulkaan Eifel is een paradijs voor honden en hun baasjes. Uitgestrekte bossen, rustige wandelpaden en hondenvriendelijke attracties maken de regio tot een ideale bestemming.',
+    sections: { lakes: 'Meren voor Honden', trails: 'Wandelpaden met Honden', tips: 'Praktische Tips' },
+    cta: 'Beschikbaarheid Controleren',
+    ctaNote: 'Honden zijn van harte welkom in ons vakantieappartement.',
+  },
+  fr: {
+    meta: {
+      title: "Vacances avec Chien dans l'Eifel Volcanique – Sentiers & Lacs",
+      description: "Sorties chien-friendly dans l'Eifel volcanique: Freilinger See avec plage pour chiens, sentiers de randonnée.",
+    },
+    hero: { title: 'Vacances avec Votre Chien', subtitle: "dans l'Eifel Volcanique" },
+    intro: "L'Eifel volcanique est un paradis pour les chiens et leurs propriétaires. Vastes forêts, sentiers tranquilles et attractions chien-friendly font de la région une destination idéale.",
+    sections: { lakes: 'Lacs pour Chiens', trails: 'Sentiers de Randonnée avec Chiens', tips: 'Conseils Pratiques' },
+    cta: 'Vérifier la Disponibilité',
+    ctaNote: 'Les chiens sont chaleureusement bienvenus dans notre appartement.',
+  },
 }
 
 const seen = [
@@ -98,7 +140,20 @@ export function generateStaticParams() {
   ]
 }
 
-export default function HundPage() {
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params
+  const tr = translations[locale as keyof typeof translations] ?? translations.de
+  return {
+    title: tr.meta.title,
+    description: tr.meta.description,
+    alternates: { canonical: 'https://www.ferienwohnung-in-der-vulkaneifel.de/hund' },
+  }
+}
+
+export default async function HundPage() {
+  const locale = await getLocale()
+  const tr = translations[locale as keyof typeof translations] ?? translations.de
+
   return (
     <>
       {/* Hero */}
@@ -108,7 +163,7 @@ export default function HundPage() {
             Vulkaneifel · Kirchweiler · Daun
           </p>
           <h1 style={{ fontFamily: 'Georgia, serif', fontSize: 'clamp(2rem, 5vw, 3rem)', fontWeight: 'normal', marginBottom: '1.5rem', lineHeight: 1.2 }}>
-            Urlaub mit Hund<br />in der Vulkaneifel
+            {tr.hero.title}<br />{tr.hero.subtitle}
           </h1>
           <p style={{ fontSize: '1.1rem', color: '#AAA', lineHeight: 1.8, maxWidth: '560px', margin: '0 auto' }}>
             Die schönsten Wanderwege, Badeseen und Ausflugsziele
@@ -124,7 +179,7 @@ export default function HundPage() {
         </h2>
         <div style={{ color: '#444', lineHeight: 1.9, fontSize: '1rem' }}>
           <p style={{ marginBottom: '1.2rem' }}>
-            Die Vulkaneifel gehört zu den ruhigsten und naturbelassensten Regionen Deutschlands. Weite Wälder, stille Maare, breite Forstwege und kaum befahrene Landstraßen machen die Gegend rund um Kirchweiler und Daun zu einem der besten Reiseziele für Hundebesitzer in Rheinland-Pfalz.
+            {tr.intro}
           </p>
           <p style={{ marginBottom: '1.2rem' }}>
             Hunde können hier frei durchatmen: Die Wanderwege sind gut beschildert, wenig frequentiert und führen durch abwechslungsreiche Landschaft – von vulkanischen Maar-Ufern über dichte Buchenwälder bis hin zu offenen Wiesen und dem Liesertal. Naturnahe Wasserstellen gibt es entlang vieler Routen.
@@ -139,7 +194,7 @@ export default function HundPage() {
       <section style={{ background: 'white', padding: '5rem 1.5rem' }}>
         <div style={{ maxWidth: '960px', margin: '0 auto' }}>
           <h2 style={{ fontFamily: 'Georgia, serif', fontSize: '1.6rem', fontWeight: 'normal', marginBottom: '2.5rem', color: '#1A1A1A' }}>
-            Badeseen mit Hund
+            {tr.sections.lakes}
           </h2>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem' }}>
             {seen.map((s) => (
@@ -165,7 +220,7 @@ export default function HundPage() {
       {/* Wanderwege */}
       <section style={{ maxWidth: '960px', margin: '0 auto', padding: '5rem 1.5rem' }}>
         <h2 style={{ fontFamily: 'Georgia, serif', fontSize: '1.6rem', fontWeight: 'normal', marginBottom: '2.5rem', color: '#1A1A1A' }}>
-          Wanderwege mit Hund
+          {tr.sections.trails}
         </h2>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '0' }}>
           {wege.map((w, i) => (
@@ -191,7 +246,7 @@ export default function HundPage() {
       <section style={{ background: 'white', padding: '5rem 1.5rem' }}>
         <div style={{ maxWidth: '960px', margin: '0 auto' }}>
           <h2 style={{ fontFamily: 'Georgia, serif', fontSize: '1.6rem', fontWeight: 'normal', marginBottom: '2.5rem', color: '#1A1A1A' }}>
-            Praktische Tipps für den Hundeurlaub
+            {tr.sections.tips}
           </h2>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '1.5rem' }}>
             {tipps.map((t) => (
@@ -232,13 +287,13 @@ export default function HundPage() {
           Kirchweiler · Vulkaneifel
         </p>
         <p style={{ fontFamily: 'Georgia, serif', fontSize: '1.4rem', color: '#DDD', marginBottom: '2rem', fontWeight: 'normal' }}>
-          Hunde sind in unserer Ferienwohnung herzlich willkommen.
+          {tr.ctaNote}
         </p>
         <Link
           href="/buchung"
           style={{ display: 'inline-block', background: 'white', color: '#1A1A1A', padding: '1rem 2.5rem', fontSize: '0.92rem', letterSpacing: '0.06em', textDecoration: 'none', textTransform: 'uppercase' }}
         >
-          Verfügbarkeit prüfen
+          {tr.cta}
         </Link>
       </section>
     </>

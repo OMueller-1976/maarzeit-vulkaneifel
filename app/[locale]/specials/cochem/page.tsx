@@ -1,12 +1,21 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Script from "next/script";
+import { getLocale } from 'next-intl/server'
 
-export const metadata: Metadata = {
-  title: 'Ausflug Cochem an der Mosel – 45 km ab Kirchweiler',
-  description: 'Cochem an der Mosel: Reichsburg, Altstadt, Weinkultur und Moselpromenade. Nur 45 km von der Ferienwohnung in der Vulkaneifel entfernt.',
-  alternates: { canonical: 'https://www.ferienwohnung-in-der-vulkaneifel.de/specials/cochem' },
-};
+const metaTitles: Record<string, string> = {
+  de: 'Tagesausflug nach Cochem an der Mosel – 45 km von Kirchweiler',
+  en: 'Day Trip to Cochem on the Moselle – 45 km from Kirchweiler',
+  nl: 'Daguitstap naar Cochem aan de Moezel – 45 km van Kirchweiler',
+  fr: 'Excursion à Cochem sur la Moselle – 45 km de Kirchweiler',
+}
+
+const metaDescriptions: Record<string, string> = {
+  de: 'Cochem an der Mosel: Reichsburg, Altstadt, Weinkultur und Moselpromenade. Nur 45 km von der Ferienwohnung in der Vulkaneifel entfernt.',
+  en: 'Cochem on the Moselle: Reichsburg, old town, wine culture and Moselle promenade. Only 45 km from the holiday apartment in the Vulkan Eifel.',
+  nl: 'Cochem aan de Moezel: Reichsburg, oude stad, wijncultuur en Moezelprommenade. Slechts 45 km van het vakantieappartement in de Vulkaan Eifel.',
+  fr: 'Cochem sur la Moselle: Reichsburg, vieille ville, culture viticole et promenade de la Moselle. À seulement 45 km de l\'appartement dans l\'Eifel volcanique.',
+}
 
 const schema = {
   "@context": "https://schema.org",
@@ -28,7 +37,18 @@ export function generateStaticParams() {
   ]
 }
 
-export default function CochemPage() {
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params
+  return {
+    title: metaTitles[locale] ?? metaTitles.de,
+    description: metaDescriptions[locale] ?? metaDescriptions.de,
+    alternates: { canonical: 'https://www.ferienwohnung-in-der-vulkaneifel.de/specials/cochem' },
+  }
+}
+
+export default async function CochemPage() {
+  const locale = await getLocale()
+
   return (
     <>
       <Script id="schema-tourist" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />

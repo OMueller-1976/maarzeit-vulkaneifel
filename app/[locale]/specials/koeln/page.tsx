@@ -1,11 +1,20 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { getLocale } from 'next-intl/server'
 
-export const metadata: Metadata = {
-  title: 'Ausflug Köln – Dom, Rheinufer & Museen, 130 km',
-  description: 'Köln: Kölner Dom, Altstadt, Rheinufer, Museen und Brauhauskultur. 130 km von der Ferienwohnung in der Vulkaneifel – lohnender Tagesausflug.',
-  alternates: { canonical: 'https://www.ferienwohnung-in-der-vulkaneifel.de/specials/koeln' },
-};
+const metaTitles: Record<string, string> = {
+  de: 'Tagesausflug nach Köln – Dom, Rhein & Museen, 130 km',
+  en: 'Day Trip to Cologne – Cathedral, Rhine & Museums, 130 km',
+  nl: 'Daguitstap naar Keulen – Dom, Rijn & Musea, 130 km',
+  fr: 'Excursion à Cologne – Cathédrale, Rhin & Musées, 130 km',
+}
+
+const metaDescriptions: Record<string, string> = {
+  de: 'Köln: Kölner Dom, Altstadt, Rheinufer, Museen und Brauhauskultur. 130 km von der Ferienwohnung in der Vulkaneifel – lohnender Tagesausflug.',
+  en: 'Cologne: Cologne Cathedral, old town, Rhine waterfront, museums and brewery culture. 130 km from the holiday apartment in the Vulkan Eifel.',
+  nl: 'Keulen: Keulse Dom, oude stad, Rijnoever, musea en brouwerijcultuur. 130 km van het vakantieappartement in de Vulkaan Eifel.',
+  fr: 'Cologne: Cathédrale de Cologne, vieille ville, bords du Rhin, musées et culture brassicole. 130 km de l\'appartement dans l\'Eifel volcanique.',
+}
 
 
 export function generateStaticParams() {
@@ -17,7 +26,18 @@ export function generateStaticParams() {
   ]
 }
 
-export default function KoelnPage() {
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params
+  return {
+    title: metaTitles[locale] ?? metaTitles.de,
+    description: metaDescriptions[locale] ?? metaDescriptions.de,
+    alternates: { canonical: 'https://www.ferienwohnung-in-der-vulkaneifel.de/specials/koeln' },
+  }
+}
+
+export default async function KoelnPage() {
+  const locale = await getLocale()
+
   return (
     <div className="max-w-3xl mx-auto px-4 py-16">
       <nav className="text-sm text-stone-500 mb-6">

@@ -1,11 +1,20 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { getLocale } from 'next-intl/server'
 
-export const metadata: Metadata = {
-  title: 'Radfahren Vulkaneifel – Maare-Mosel-Radweg ab Daun',
-  description: 'Maare-Mosel-Radweg: 51 km auf ehemaliger Bahntrasse von Daun bis zur Mosel. E-Bike-Touren in der Vulkaneifel ab unserer Ferienwohnung in Kirchweiler.',
-  alternates: { canonical: 'https://www.ferienwohnung-in-der-vulkaneifel.de/guide/radfahren' },
-};
+const metaTitles: Record<string, string> = {
+  de: 'Radfahren in der Vulkaneifel – Maare-Mosel Radweg ab Daun',
+  en: 'Cycling in the Vulkan Eifel – Maare-Mosel Cycle Route from Daun',
+  nl: 'Fietsen in de Vulkaan Eifel – Maare-Mosel Fietsroute vanaf Daun',
+  fr: "Vélo dans l'Eifel Volcanique – Piste Cyclable Maare-Mosel depuis Daun",
+}
+
+const metaDescriptions: Record<string, string> = {
+  de: 'Maare-Mosel-Radweg: 51 km auf ehemaliger Bahntrasse von Daun bis zur Mosel. E-Bike-Touren in der Vulkaneifel ab unserer Ferienwohnung in Kirchweiler.',
+  en: 'Maare-Mosel Cycle Route: 51 km on a former railway track from Daun to the Moselle. E-bike tours in the Vulkan Eifel from our holiday apartment in Kirchweiler.',
+  nl: 'Maare-Mosel Fietsroute: 51 km op voormalig spoortraject van Daun naar de Moezel. E-bike tours in de Vulkaan Eifel vanuit ons vakantieappartement in Kirchweiler.',
+  fr: "Piste cyclable Maare-Mosel: 51 km sur une ancienne voie ferrée de Daun à la Moselle. Randonnées à vélo dans l'Eifel volcanique depuis notre appartement à Kirchweiler.",
+}
 
 
 export function generateStaticParams() {
@@ -17,7 +26,18 @@ export function generateStaticParams() {
   ]
 }
 
-export default function RadfahrenPage() {
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params
+  return {
+    title: metaTitles[locale] ?? metaTitles.de,
+    description: metaDescriptions[locale] ?? metaDescriptions.de,
+    alternates: { canonical: 'https://www.ferienwohnung-in-der-vulkaneifel.de/guide/radfahren' },
+  }
+}
+
+export default async function RadfahrenPage() {
+  const locale = await getLocale()
+
   return (
     <div className="max-w-5xl mx-auto px-4 py-16">
       <nav className="text-sm text-stone-500 mb-6">

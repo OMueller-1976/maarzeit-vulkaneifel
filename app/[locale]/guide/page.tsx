@@ -1,11 +1,25 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { getLocale } from 'next-intl/server'
 
-export const metadata: Metadata = {
-  title: 'Vulkaneifel Guide – Maare, Wandern, Ausflüge & Tipps',
-  description: 'Reiseführer für die Vulkaneifel: Dauner Maare, Wanderwege, Radfahren, Ausflugsziele und Hundeurlaub. Alle Tipps ab Kirchweiler bei Daun.',
-  alternates: { canonical: 'https://www.ferienwohnung-in-der-vulkaneifel.de/guide' },
-};
+const translations = {
+  de: {
+    meta: { title: 'Vulkaneifel Guide – Maare, Wandern, Ausflüge & Tipps', description: 'Reiseführer für die Vulkaneifel: Dauner Maare, Wanderwege, Radfahren, Ausflugsziele.' },
+    hero: { title: 'Reiseführer Vulkaneifel', subtitle: 'Entdecken Sie die schönsten Seiten der Region' },
+  },
+  en: {
+    meta: { title: 'Vulkan Eifel Travel Guide – Lakes, Hiking, Trips & Tips', description: 'Travel guide for the Vulkan Eifel: Daun Lakes, hiking trails, cycling, attractions.' },
+    hero: { title: 'Vulkan Eifel Travel Guide', subtitle: 'Discover the Most Beautiful Sides of the Region' },
+  },
+  nl: {
+    meta: { title: 'Vulkaan Eifel Reisgids – Maren, Wandelen, Uitstapjes & Tips', description: 'Reisgids voor de Vulkaan Eifel: Dauner Maren, wandelpaden, fietsen, bezienswaardigheden.' },
+    hero: { title: 'Vulkaan Eifel Reisgids', subtitle: 'Ontdek de Mooiste Kanten van de Regio' },
+  },
+  fr: {
+    meta: { title: "Guide de la Vulkaneifel – Lacs, Randonnée, Sorties & Conseils", description: "Guide de voyage pour l'Eifel volcanique: Lacs de Daun, sentiers, vélo, attractions." },
+    hero: { title: "Guide de l'Eifel Volcanique", subtitle: 'Découvrez les Plus Beaux Aspects de la Région' },
+  },
+}
 
 const guides = [
   {
@@ -56,10 +70,23 @@ export function generateStaticParams() {
   ]
 }
 
-export default function GuidePage() {
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params
+  const tr = translations[locale as keyof typeof translations] ?? translations.de
+  return {
+    title: tr.meta.title,
+    description: tr.meta.description,
+    alternates: { canonical: 'https://www.ferienwohnung-in-der-vulkaneifel.de/guide' },
+  }
+}
+
+export default async function GuidePage() {
+  const locale = await getLocale()
+  const tr = translations[locale as keyof typeof translations] ?? translations.de
+
   return (
     <div className="max-w-5xl mx-auto px-4 py-16">
-      <h1 className="section-title">Reiseführer Vulkaneifel</h1>
+      <h1 className="section-title">{tr.hero.title}</h1>
       <p className="text-stone-600 text-lg mb-12 max-w-2xl leading-relaxed">
         Als Gastgeber in der Vulkaneifel kennen wir die Region wie unsere Westentasche.
         Hier teilen wir unsere liebsten Tipps, Routen und Geheimtipps – für den perfekten

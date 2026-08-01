@@ -1,8 +1,28 @@
 import Link from "next/link";
-import { getTranslations } from 'next-intl/server';
+import { getTranslations, getLocale } from 'next-intl/server';
+
+function localePath(path: string, loc: string): string {
+  return loc === 'de' ? path : `/${loc}${path}`
+}
 
 export default async function Footer() {
   const t = await getTranslations('footer')
+  const locale = await getLocale()
+
+  const navLinks = [
+    ["/ferienwohnung", "Ferienwohnung"],
+    ["/buchung", "Buchung & Preise"],
+    ["/hund", "Mit Hund"],
+    ["/motorrad", "Motorrad"],
+    ["/guide", "Reiseführer"],
+    ["/kontakt", "Kontakt"],
+  ]
+
+  const legalLinks = [
+    ["/impressum", t('imprint')],
+    ["/datenschutz", t('privacy')],
+    ["/buchungsbedingungen", t('terms')],
+  ]
 
   return (
     <footer className="bg-green-900 text-stone-200 mt-16">
@@ -17,16 +37,9 @@ export default async function Footer() {
         <div>
           <h3 className="text-white font-semibold mb-3">Navigation</h3>
           <ul className="space-y-1 text-sm">
-            {[
-              ["/ferienwohnung", "Ferienwohnung"],
-              ["/buchung", "Buchung & Preise"],
-              ["/hund", "Mit Hund"],
-              ["/motorrad", "Motorrad"],
-              ["/guide", "Reiseführer"],
-              ["/kontakt", "Kontakt"],
-            ].map(([href, label]) => (
-              <li key={href}>
-                <Link href={href} className="hover:text-white transition-colors">
+            {navLinks.map(([path, label]) => (
+              <li key={path}>
+                <Link href={localePath(path, locale)} className="hover:text-white transition-colors">
                   {label}
                 </Link>
               </li>
@@ -36,13 +49,9 @@ export default async function Footer() {
         <div>
           <h3 className="text-white font-semibold mb-3">Rechtliches</h3>
           <ul className="space-y-1 text-sm">
-            {[
-              ["/impressum", t('imprint')],
-              ["/datenschutz", t('privacy')],
-              ["/buchungsbedingungen", t('terms')],
-            ].map(([href, label]) => (
-              <li key={href}>
-                <Link href={href} className="hover:text-white transition-colors">
+            {legalLinks.map(([path, label]) => (
+              <li key={path}>
+                <Link href={localePath(path, locale)} className="hover:text-white transition-colors">
                   {label}
                 </Link>
               </li>

@@ -1,11 +1,20 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { getLocale } from 'next-intl/server'
 
-export const metadata: Metadata = {
-  title: 'Ausflug Koblenz – Deutsches Eck & Festung, 85 km',
-  description: 'Koblenz: Deutsches Eck, Festung Ehrenbreitstein, Seilbahn und Altstadt. 85 km von der Ferienwohnung in der Vulkaneifel – perfekter Tagesausflug.',
-  alternates: { canonical: 'https://www.ferienwohnung-in-der-vulkaneifel.de/specials/koblenz' },
-};
+const metaTitles: Record<string, string> = {
+  de: 'Tagesausflug nach Koblenz – Deutsches Eck & Festung, 85 km',
+  en: 'Day Trip to Koblenz – German Corner & Fortress, 85 km',
+  nl: 'Daguitstap naar Koblenz – Duits Hoek & Vesting, 85 km',
+  fr: 'Excursion à Coblence – Coin Allemand & Forteresse, 85 km',
+}
+
+const metaDescriptions: Record<string, string> = {
+  de: 'Koblenz: Deutsches Eck, Festung Ehrenbreitstein, Seilbahn und Altstadt. 85 km von der Ferienwohnung in der Vulkaneifel – perfekter Tagesausflug.',
+  en: 'Koblenz: German Corner, Ehrenbreitstein Fortress, cable car and old town. 85 km from the holiday apartment in the Vulkan Eifel – perfect day trip.',
+  nl: 'Koblenz: Duits Hoek, Vesting Ehrenbreitstein, kabelbaan en oude stad. 85 km van het vakantieappartement in de Vulkaan Eifel – perfecte daguitstap.',
+  fr: 'Coblence: Coin Allemand, Forteresse Ehrenbreitstein, téléphérique et vieille ville. 85 km de l\'appartement dans l\'Eifel – excursion idéale.',
+}
 
 
 export function generateStaticParams() {
@@ -17,7 +26,18 @@ export function generateStaticParams() {
   ]
 }
 
-export default function KoblenzPage() {
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params
+  return {
+    title: metaTitles[locale] ?? metaTitles.de,
+    description: metaDescriptions[locale] ?? metaDescriptions.de,
+    alternates: { canonical: 'https://www.ferienwohnung-in-der-vulkaneifel.de/specials/koblenz' },
+  }
+}
+
+export default async function KoblenzPage() {
+  const locale = await getLocale()
+
   return (
     <div className="max-w-3xl mx-auto px-4 py-16">
       <nav className="text-sm text-stone-500 mb-6">

@@ -1,12 +1,20 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { getLocale } from 'next-intl/server'
 
-export const metadata: Metadata = {
-  title: 'Dauner Maare – Gemündener, Schalkenmehrener & Weinfelder Maar',
-  description: 'Die Dauner Maare: Baden, Wandern und Natur in der Vulkaneifel. Gemündener, Schalkenmehrener und Weinfelder Maar – ca. 15 km entfernt (19 Min. per Auto) von unserer Ferienwohnung.',
-  alternates: { canonical: 'https://www.ferienwohnung-in-der-vulkaneifel.de/guide/dauner-maare' },
-};
+const metaTitles: Record<string, string> = {
+  de: 'Dauner Maare – Gemündener, Schalkenmehrener & Weinfelder Maar',
+  en: 'Daun Lakes – Gemündener, Schalkenmehren & Weinfeld Maar',
+  nl: 'Dauner Maren – Gemündener, Schalkenmehrener & Weinfelder Maar',
+  fr: 'Lacs de Daun – Gemündener, Schalkenmehren & Weinfeld Maar',
+}
 
+const metaDescriptions: Record<string, string> = {
+  de: 'Die Dauner Maare: Baden, Wandern und Natur in der Vulkaneifel. ca. 15 km entfernt von unserer Ferienwohnung.',
+  en: 'The Daun Lakes: swimming, hiking and nature in the Vulkan Eifel. Approx. 15 km from our holiday apartment.',
+  nl: 'De Dauner Maren: zwemmen, wandelen en natuur in de Vulkaan Eifel. Ca. 15 km van ons vakantieappartement.',
+  fr: "Les Lacs de Daun: baignade, randonnée et nature dans l'Eifel volcanique. Environ 15 km de notre appartement.",
+}
 
 export function generateStaticParams() {
   return [
@@ -17,7 +25,18 @@ export function generateStaticParams() {
   ]
 }
 
-export default function DaunerMaarePage() {
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params
+  return {
+    title: metaTitles[locale] ?? metaTitles.de,
+    description: metaDescriptions[locale] ?? metaDescriptions.de,
+    alternates: { canonical: 'https://www.ferienwohnung-in-der-vulkaneifel.de/guide/dauner-maare' },
+  }
+}
+
+export default async function DaunerMaarePage() {
+  const locale = await getLocale()
+
   return (
     <div className="max-w-5xl mx-auto px-4 py-16">
       <nav className="text-sm text-stone-500 mb-6">

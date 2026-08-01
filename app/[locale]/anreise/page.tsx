@@ -1,21 +1,91 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-
-export const metadata: Metadata = {
-  title:
-    "Anreise zur Ferienwohnung in Kirchweiler – Karte & Entfernungen | MaarZeit Vulkaneifel",
-  description:
-    "Anreise zur Ferienwohnung MaarZeit Vulkaneifel in Kirchweiler, Am Bruchborn 6. Interaktive Karte, Routenplanung und alle wichtigen Entfernungen und Fahrzeiten ab Kirchweiler.",
-  keywords: [
-    "Anreise Ferienwohnung Vulkaneifel",
-    "Kirchweiler Anfahrt",
-    "Ferienwohnung Kirchweiler Karte",
-    "Entfernungen Vulkaneifel",
-    "Anfahrt Am Bruchborn 6 Kirchweiler",
-  ],
-};
+import { getLocale } from 'next-intl/server'
 
 import MapWrapper from "@/components/MapWrapper";
+
+const translations = {
+  de: {
+    meta: {
+      title: 'Anreise zur Ferienwohnung in Kirchweiler – Karte & Entfernungen',
+      description: 'Anreise zur MaarZeit Ferienwohnung in Kirchweiler. Karte, Routenplanung und Entfernungen.',
+    },
+    hero: { title: 'Anreise & Entfernungen', subtitle: 'Am Bruchborn 6 · 54570 Kirchweiler' },
+    mapTitle: 'Lage auf der Karte',
+    btnGoogle: 'Route mit Google Maps planen',
+    btnApple: 'Route mit Apple Maps planen',
+    distancesTitle: 'Entfernungen ab Kirchweiler',
+    distancesNote: 'Alle Angaben sind Richtwerte per PKW ohne Stau.',
+    cols: { dest: 'Ziel', dist: 'Entfernung', time: 'Fahrzeit' },
+    howTitle: 'So erreichen Sie uns',
+    car: { title: 'Per PKW' },
+    train: { title: 'Per Bahn' },
+    plane: { title: 'Per Flugzeug' },
+    moto: { title: 'Per Motorrad' },
+    addressTitle: 'Adresse & GPS',
+    cta: 'Jetzt Verfügbarkeit prüfen',
+  },
+  en: {
+    meta: {
+      title: 'Getting to the Holiday Apartment in Kirchweiler – Map & Distances',
+      description: 'Directions to MaarZeit holiday apartment in Kirchweiler. Map, route planning and distances.',
+    },
+    hero: { title: 'Getting Here', subtitle: 'Am Bruchborn 6 · 54570 Kirchweiler' },
+    mapTitle: 'Location on the Map',
+    btnGoogle: 'Plan Route with Google Maps',
+    btnApple: 'Plan Route with Apple Maps',
+    distancesTitle: 'Distances from Kirchweiler',
+    distancesNote: 'All figures are approximate by car without traffic.',
+    cols: { dest: 'Destination', dist: 'Distance', time: 'Travel Time' },
+    howTitle: 'How to Reach Us',
+    car: { title: 'By Car' },
+    train: { title: 'By Train' },
+    plane: { title: 'By Plane' },
+    moto: { title: 'By Motorcycle' },
+    addressTitle: 'Address & GPS',
+    cta: 'Check Availability Now',
+  },
+  nl: {
+    meta: {
+      title: 'Aanrijden naar het Vakantieappartement in Kirchweiler – Kaart & Afstanden',
+      description: 'Routebeschrijving naar MaarZeit vakantieappartement in Kirchweiler. Kaart en afstanden.',
+    },
+    hero: { title: 'Aanrijden', subtitle: 'Am Bruchborn 6 · 54570 Kirchweiler' },
+    mapTitle: 'Locatie op de Kaart',
+    btnGoogle: 'Route Plannen met Google Maps',
+    btnApple: 'Route Plannen met Apple Maps',
+    distancesTitle: 'Afstanden vanuit Kirchweiler',
+    distancesNote: 'Alle gegevens zijn richtwaarden per auto zonder file.',
+    cols: { dest: 'Bestemming', dist: 'Afstand', time: 'Reistijd' },
+    howTitle: 'Hoe U Ons Bereikt',
+    car: { title: 'Per Auto' },
+    train: { title: 'Per Trein' },
+    plane: { title: 'Per Vliegtuig' },
+    moto: { title: 'Per Motor' },
+    addressTitle: 'Adres & GPS',
+    cta: 'Controleer Nu Beschikbaarheid',
+  },
+  fr: {
+    meta: {
+      title: "Accès à l'Appartement de Vacances à Kirchweiler – Carte & Distances",
+      description: "Itinéraire vers l'appartement MaarZeit à Kirchweiler. Carte et distances.",
+    },
+    hero: { title: 'Comment Nous Rejoindre', subtitle: 'Am Bruchborn 6 · 54570 Kirchweiler' },
+    mapTitle: 'Localisation sur la Carte',
+    btnGoogle: "Planifier l'Itinéraire avec Google Maps",
+    btnApple: "Planifier l'Itinéraire avec Apple Maps",
+    distancesTitle: 'Distances depuis Kirchweiler',
+    distancesNote: 'Toutes les données sont indicatives par voiture sans trafic.',
+    cols: { dest: 'Destination', dist: 'Distance', time: 'Temps de Trajet' },
+    howTitle: 'Comment Nous Rejoindre',
+    car: { title: 'En Voiture' },
+    train: { title: 'En Train' },
+    plane: { title: 'En Avion' },
+    moto: { title: 'En Moto' },
+    addressTitle: 'Adresse & GPS',
+    cta: 'Vérifier la Disponibilité',
+  },
+}
 
 const entfernungen = [
   { ziel: "Daun (Kreisstadt)", km: "6 km", zeit: "ca. 8 Min.", hinweis: "Einkauf, Supermarkt, Arzt" },
@@ -93,23 +163,35 @@ export function generateStaticParams() {
   ]
 }
 
-export default function AnreisePage() {
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params
+  const tr = translations[locale as keyof typeof translations] ?? translations.de
+  return {
+    title: tr.meta.title,
+    description: tr.meta.description,
+  }
+}
+
+export default async function AnreisePage() {
+  const locale = await getLocale()
+  const tr = translations[locale as keyof typeof translations] ?? translations.de
+
   return (
     <>
       {/* Hero */}
       <section className="bg-stone-900 text-white py-14 px-4 text-center">
         <h1 className="text-4xl md:text-5xl font-bold mb-3" style={{ fontFamily: "Georgia, serif" }}>
-          Anreise & Entfernungen
+          {tr.hero.title}
         </h1>
         <p className="text-stone-400 text-base mt-2">
-          Am Bruchborn 6 · 54570 Kirchweiler · Kreis Daun · Rheinland-Pfalz
+          {tr.hero.subtitle} · Kreis Daun · Rheinland-Pfalz
         </p>
       </section>
 
       {/* Karte */}
       <section className="max-w-5xl mx-auto px-4 py-12">
         <h2 className="text-2xl font-bold text-green-900 mb-6" style={{ fontFamily: "Georgia, serif" }}>
-          Lage auf der Karte
+          {tr.mapTitle}
         </h2>
         <div className="rounded-lg overflow-hidden border border-stone-200 shadow-sm">
           <MapWrapper />
@@ -121,7 +203,7 @@ export default function AnreisePage() {
             rel="noopener noreferrer"
             className="border border-stone-700 text-stone-700 px-5 py-2.5 rounded text-sm hover:bg-stone-700 hover:text-white transition-colors"
           >
-            Route mit Google Maps planen
+            {tr.btnGoogle}
           </a>
           <a
             href="https://maps.apple.com/?daddr=Am+Bruchborn+6,+54570+Kirchweiler"
@@ -129,7 +211,7 @@ export default function AnreisePage() {
             rel="noopener noreferrer"
             className="border border-stone-700 text-stone-700 px-5 py-2.5 rounded text-sm hover:bg-stone-700 hover:text-white transition-colors"
           >
-            Route mit Apple Maps planen
+            {tr.btnApple}
           </a>
         </div>
       </section>
@@ -137,10 +219,10 @@ export default function AnreisePage() {
       {/* Entfernungstabelle */}
       <section className="max-w-5xl mx-auto px-4 py-10">
         <h2 className="text-2xl font-bold text-green-900 mb-2" style={{ fontFamily: "Georgia, serif" }}>
-          Entfernungen ab Kirchweiler
+          {tr.distancesTitle}
         </h2>
         <p className="text-stone-500 text-sm mb-6">
-          Alle Angaben sind Richtwerte per PKW ohne Stau.
+          {tr.distancesNote}
         </p>
         <div className="overflow-x-auto">
           <table className="w-full text-sm border-collapse">
@@ -150,19 +232,19 @@ export default function AnreisePage() {
                   className="text-left pb-2 border-b border-stone-300"
                   style={{ fontSize: "0.72rem", letterSpacing: "0.1em", textTransform: "uppercase", color: "#999", fontWeight: 500 }}
                 >
-                  Ziel
+                  {tr.cols.dest}
                 </th>
                 <th
                   className="text-left pb-2 border-b border-stone-300"
                   style={{ fontSize: "0.72rem", letterSpacing: "0.1em", textTransform: "uppercase", color: "#999", fontWeight: 500 }}
                 >
-                  Entfernung
+                  {tr.cols.dist}
                 </th>
                 <th
                   className="text-left pb-2 border-b border-stone-300"
                   style={{ fontSize: "0.72rem", letterSpacing: "0.1em", textTransform: "uppercase", color: "#999", fontWeight: 500 }}
                 >
-                  Fahrzeit
+                  {tr.cols.time}
                 </th>
                 <th
                   className="text-left pb-2 border-b border-stone-300 hidden md:table-cell"
@@ -196,7 +278,7 @@ export default function AnreisePage() {
       {/* Verkehrsmittel */}
       <section className="max-w-5xl mx-auto px-4 py-10">
         <h2 className="text-2xl font-bold text-green-900 mb-8" style={{ fontFamily: "Georgia, serif" }}>
-          So erreichen Sie uns
+          {tr.howTitle}
         </h2>
         <div className="grid md:grid-cols-2 gap-8">
           {verkehrsmittel.map((vm) => (
@@ -215,7 +297,7 @@ export default function AnreisePage() {
       {/* Adresse & GPS */}
       <section className="max-w-5xl mx-auto px-4 py-10">
         <h2 className="text-2xl font-bold text-green-900 mb-6" style={{ fontFamily: "Georgia, serif" }}>
-          Adresse & GPS-Koordinaten
+          {tr.addressTitle}
         </h2>
         <div className="grid md:grid-cols-2 gap-10">
           <div className="text-sm text-stone-700 leading-loose">
@@ -261,7 +343,7 @@ export default function AnreisePage() {
           href="/buchung"
           className="inline-block bg-white text-stone-900 font-semibold px-8 py-3 rounded hover:bg-stone-100 transition-colors"
         >
-          Jetzt Verfügbarkeit prüfen
+          {tr.cta}
         </Link>
       </section>
     </>

@@ -1,11 +1,124 @@
-import type { Metadata } from "next";
 import Link from "next/link";
+import { getLocale } from 'next-intl/server';
 
-export const metadata: Metadata = {
-  title: 'Motorradfreundliche Ferienwohnung Eifel – Touren & Unterkunft',
-  description: 'Motorradurlaub in der Vulkaneifel. Eigener Parkplatz, kurvige Eifelstraßen, Nürburgring 55 km. Perfekte Basis für Motorradtouren in der Eifel.',
-  alternates: { canonical: 'https://www.ferienwohnung-in-der-vulkaneifel.de/motorrad' },
-};
+const translations = {
+  de: {
+    title: 'Motorradurlaub in der Vulkaneifel',
+    subtitle: 'Motorrad in der Vulkaneifel',
+    description: 'Kurvenreiche Landstraßen, kaum Verkehr, beeindruckende Vulkanlandschaft – die Vulkaneifel gehört zu den schönsten Motorradregionen Deutschlands. MaarZeit ist Ihre ideale Basis.',
+    serviceTitle: 'Unser Motorrad-Service',
+    serviceItems: [
+      'Überdachter Motorradstellplatz (abschließbar)',
+      'Steckdose zum Laden / Warmhalten',
+      'Karten und Streckenempfehlungen',
+      'Empfehlung für lokale Motorrad-Cafés',
+      'Kontakt zu Pannenhilfe in der Region',
+    ],
+    advantagesTitle: 'Vulkaneifel-Vorteile',
+    advantages: [
+      'Hunderte Kilometer kurvenreicher Landstraßen',
+      'Kaum LKW-Verkehr auf Nebenstraßen',
+      'Optimale Tagesstrecken von 80–200 km',
+      'Nürburgring nur 55 km entfernt',
+      'Benelux & Luxemburg leicht erreichbar',
+      'Viele Motorrad-Treffen in der Saison',
+    ],
+    routesTitle: 'Empfohlene Strecken',
+    ctaBtn: 'Jetzt Verfügbarkeit prüfen',
+    ctaContact: 'Fragen zur Anreise',
+    meta: {
+      title: 'Motorradfreundliche Ferienwohnung Eifel – Touren & Unterkunft',
+      description: 'Motorradurlaub in der Vulkaneifel. Eigener Parkplatz, kurvige Eifelstraßen, Nürburgring 55 km.',
+    }
+  },
+  en: {
+    title: 'Motorcycle Holiday in the Vulkan Eifel',
+    subtitle: 'Motorcycle in the Vulkan Eifel',
+    description: "Winding country roads, minimal traffic, stunning volcanic landscapes – the Vulkan Eifel is one of Germany's most beautiful motorcycle regions. MaarZeit is your ideal base.",
+    serviceTitle: 'Our Motorcycle Services',
+    serviceItems: [
+      'Covered motorcycle parking (lockable)',
+      'Power socket for charging / warming up',
+      'Maps and route recommendations',
+      'Recommendations for local motorcycle cafés',
+      'Contact for breakdown assistance in the region',
+    ],
+    advantagesTitle: 'Vulkan Eifel Advantages',
+    advantages: [
+      'Hundreds of kilometres of winding country roads',
+      'Minimal truck traffic on side roads',
+      'Ideal day routes of 80–200 km',
+      'Nürburgring only 55 km away',
+      'Benelux & Luxembourg easily reachable',
+      'Many motorcycle meets in season',
+    ],
+    routesTitle: 'Recommended Routes',
+    ctaBtn: 'Check Availability Now',
+    ctaContact: 'Questions about getting here',
+    meta: {
+      title: 'Motorcycle-Friendly Holiday Apartment Eifel – Tours & Accommodation',
+      description: 'Motorcycle holiday in the Vulkan Eifel. Private parking, winding Eifel roads, Nürburgring 55 km away.',
+    }
+  },
+  nl: {
+    title: 'Motorvakantie in de Vulkaan Eifel',
+    subtitle: 'Motor in de Vulkaan Eifel',
+    description: 'Bochtige landweggetjes, nauwelijks verkeer, indrukwekkende vulkanische landschappen – de Vulkaan Eifel behoort tot de mooiste motorgebieden van Duitsland. MaarZeit is uw ideale uitvalsbasis.',
+    serviceTitle: 'Onze Motorservices',
+    serviceItems: [
+      'Overdekte motorparkeerplaats (afsluitbaar)',
+      'Stopcontact voor opladen / opwarmen',
+      'Kaarten en routeaanbevelingen',
+      'Aanbevelingen voor lokale motorcafés',
+      'Contact voor pechhulp in de regio',
+    ],
+    advantagesTitle: 'Vulkaan Eifel Voordelen',
+    advantages: [
+      'Honderden kilometers bochtige landwegen',
+      'Nauwelijks vrachtverkeer op secundaire wegen',
+      'Ideale dagroutes van 80–200 km',
+      'Nürburgring op slechts 55 km',
+      'Benelux & Luxemburg gemakkelijk bereikbaar',
+      'Veel motorbijeenkomsten in het seizoen',
+    ],
+    routesTitle: 'Aanbevolen Routes',
+    ctaBtn: 'Controleer Nu Beschikbaarheid',
+    ctaContact: 'Vragen over de route',
+    meta: {
+      title: 'Motorvriendelijk Vakantieappartement Eifel – Touren & Verblijf',
+      description: 'Motorvakantie in de Vulkaan Eifel. Eigen parkeerplaats, bochtige Eifelwegen, Nürburgring 55 km.',
+    }
+  },
+  fr: {
+    title: "Vacances Moto dans l'Eifel Volcanique",
+    subtitle: "Moto dans l'Eifel Volcanique",
+    description: "Routes sinueuses, peu de circulation, paysages volcaniques impressionnants – l'Eifel volcanique est l'une des plus belles régions moto d'Allemagne. MaarZeit est votre base idéale.",
+    serviceTitle: 'Nos Services Moto',
+    serviceItems: [
+      'Parking moto couvert (fermable à clé)',
+      'Prise électrique pour charger / préchauffer',
+      "Cartes et recommandations d'itinéraires",
+      'Recommandations de cafés moto locaux',
+      'Contact pour assistance en cas de panne',
+    ],
+    advantagesTitle: "Avantages de l'Eifel Volcanique",
+    advantages: [
+      'Des centaines de kilomètres de routes sinueuses',
+      'Peu de camions sur les routes secondaires',
+      'Itinéraires journaliers idéaux de 80–200 km',
+      'Nürburgring à seulement 55 km',
+      'Benelux & Luxembourg facilement accessibles',
+      'Nombreux rassemblements moto en saison',
+    ],
+    routesTitle: 'Itinéraires Recommandés',
+    ctaBtn: 'Vérifier la Disponibilité',
+    ctaContact: "Questions sur l'accès",
+    meta: {
+      title: 'Appartement de Vacances Moto Eifel – Circuits & Hébergement',
+      description: "Vacances moto dans l'Eifel volcanique. Parking privé, routes sinueuses, Nürburgring à 55 km.",
+    }
+  },
+}
 
 const strecken = [
   {
@@ -36,8 +149,20 @@ const strecken = [
     schwierigkeit: "Mittel",
     beschreibung: "Durch die Gerolsteiner Felsenlandschaft und das romantische Our-Tal an der belgischen Grenze.",
   },
-];
+]
 
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>
+}) {
+  const { locale } = await params
+  const tr = translations[locale as keyof typeof translations] ?? translations.de
+  return {
+    title: tr.meta.title,
+    description: tr.meta.description,
+  }
+}
 
 export function generateStaticParams() {
   return [
@@ -48,28 +173,23 @@ export function generateStaticParams() {
   ]
 }
 
-export default function MotorradPage() {
+export default async function MotorradPage() {
+  const locale = await getLocale()
+  const tr = translations[locale as keyof typeof translations] ?? translations.de
+
   return (
     <div className="max-w-5xl mx-auto px-4 py-16">
-      <h1 className="section-title">Motorrad in der Vulkaneifel</h1>
+      <h1 className="section-title">{tr.subtitle}</h1>
       <p className="text-stone-600 text-lg mb-10 max-w-2xl leading-relaxed">
-        Kurvenreiche Landstraßen, kaum Verkehr, beeindruckende Vulkanlandschaft –
-        die Vulkaneifel gehört zu den schönsten Motorradregionen Deutschlands.
-        MaarZeit ist Ihre ideale Basis.
+        {tr.description}
       </p>
 
       {/* Service */}
       <div className="grid md:grid-cols-2 gap-8 mb-14">
         <div className="card">
-          <h2 className="text-xl font-bold text-green-900 mb-4">Unser Motorrad-Service</h2>
+          <h2 className="text-xl font-bold text-green-900 mb-4">{tr.serviceTitle}</h2>
           <ul className="space-y-3 text-stone-700">
-            {[
-              "Überdachter Motorradstellplatz (abschließbar)",
-              "Steckdose zum Laden / Warmhalten",
-              "Karten und Streckenempfehlungen",
-              "Empfehlung für lokale Motorrad-Cafés",
-              "Kontakt zu Pannenhilfe in der Region",
-            ].map((item) => (
+            {tr.serviceItems.map((item) => (
               <li key={item} className="flex items-start gap-2">
                 <span className="text-green-600 mt-0.5">🏍️</span>
                 {item}
@@ -78,16 +198,9 @@ export default function MotorradPage() {
           </ul>
         </div>
         <div className="card">
-          <h2 className="text-xl font-bold text-green-900 mb-4">Die Region auf einen Blick</h2>
+          <h2 className="text-xl font-bold text-green-900 mb-4">{tr.advantagesTitle}</h2>
           <ul className="space-y-3" style={{ color: '#444' }}>
-            {[
-              "Hunderte Kilometer kurvenreicher Landstraßen",
-              "Kaum LKW-Verkehr auf Nebenstraßen",
-              "Optimale Tagesstrecken von 80–200 km",
-              "Nürburgring nur 45 km entfernt",
-              "Benelux & Luxemburg leicht erreichbar",
-              "Viele Motorrad-Treffen in der Saison",
-            ].map((item) => (
+            {tr.advantages.map((item) => (
               <li key={item} className="flex items-start gap-2">
                 <span className="mt-0.5" style={{ color: '#2D5A35' }}>✓</span>
                 {item}
@@ -98,7 +211,7 @@ export default function MotorradPage() {
       </div>
 
       {/* Strecken */}
-      <h2 className="text-2xl font-bold text-green-900 mb-6">Empfohlene Strecken</h2>
+      <h2 className="text-2xl font-bold text-green-900 mb-6">{tr.routesTitle}</h2>
       <div className="space-y-4 mb-12">
         {strecken.map((s) => (
           <div key={s.name} className="card border border-stone-100 hover:border-green-200 transition-colors">
@@ -126,8 +239,8 @@ export default function MotorradPage() {
       </div>
 
       <div className="flex flex-wrap gap-4">
-        <Link href="/buchung" className="btn-primary">Termin reservieren</Link>
-        <Link href="/kontakt" className="btn-secondary">Fragen zur Anreise</Link>
+        <Link href="/buchung" className="btn-primary">{tr.ctaBtn}</Link>
+        <Link href="/kontakt" className="btn-secondary">{tr.ctaContact}</Link>
       </div>
     </div>
   );

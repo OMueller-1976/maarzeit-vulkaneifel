@@ -1,11 +1,20 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { getLocale } from 'next-intl/server'
 
-export const metadata: Metadata = {
-  title: 'Specials – Nürburgring, Cochem, Koblenz, Luxemburg & Köln',
-  description: 'Ausflugsziele ab Kirchweiler: Nürburgring 55 km, Cochem 45 km, Koblenz 85 km, Luxemburg 95 km, Köln 130 km. Mit Entfernungen und Insider-Tipps.',
-  alternates: { canonical: 'https://www.ferienwohnung-in-der-vulkaneifel.de/specials' },
-};
+const metaTitles: Record<string, string> = {
+  de: 'Specials – Nürburgring, Cochem, Koblenz, Luxemburg & Köln',
+  en: 'Specials – Nürburgring, Cochem, Koblenz, Luxembourg & Cologne',
+  nl: 'Specials – Nürburgring, Cochem, Koblenz, Luxemburg & Keulen',
+  fr: 'Specials – Nürburgring, Cochem, Coblence, Luxembourg & Cologne',
+}
+
+const metaDescriptions: Record<string, string> = {
+  de: 'Ausflugsziele ab Kirchweiler: Nürburgring 55 km, Cochem 45 km, Koblenz 85 km, Luxemburg 95 km, Köln 130 km. Mit Entfernungen und Insider-Tipps.',
+  en: 'Day trips from Kirchweiler: Nürburgring 55 km, Cochem 45 km, Koblenz 85 km, Luxembourg 95 km, Cologne 130 km. With distances and insider tips.',
+  nl: 'Daguitstapjes vanuit Kirchweiler: Nürburgring 55 km, Cochem 45 km, Koblenz 85 km, Luxemburg 95 km, Keulen 130 km. Met afstanden en insidertips.',
+  fr: 'Excursions depuis Kirchweiler: Nürburgring 55 km, Cochem 45 km, Coblence 85 km, Luxembourg 95 km, Cologne 130 km. Avec distances et conseils.',
+}
 
 const specials = [
   {
@@ -62,7 +71,18 @@ export function generateStaticParams() {
   ]
 }
 
-export default function SpecialsPage() {
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params
+  return {
+    title: metaTitles[locale] ?? metaTitles.de,
+    description: metaDescriptions[locale] ?? metaDescriptions.de,
+    alternates: { canonical: 'https://www.ferienwohnung-in-der-vulkaneifel.de/specials' },
+  }
+}
+
+export default async function SpecialsPage() {
+  const locale = await getLocale()
+
   return (
     <div className="max-w-5xl mx-auto px-4 py-16">
       <h1 className="section-title">Specials</h1>

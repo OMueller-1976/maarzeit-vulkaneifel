@@ -1,12 +1,21 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Script from "next/script";
+import { getLocale } from 'next-intl/server'
 
-export const metadata: Metadata = {
-  title: 'Nürburgring Ausflug ab Kirchweiler – nur 55 km',
-  description: 'Nürburgring liegt 55 km von unserer Ferienwohnung. Nordschleife, Erlebniswelt ring°werk, Touristenfahrten und Motorsport-Events in der Eifel.',
-  alternates: { canonical: 'https://www.ferienwohnung-in-der-vulkaneifel.de/specials/nuerburgring' },
-};
+const metaTitles: Record<string, string> = {
+  de: 'Nürburgring Tagesausflug von Kirchweiler – nur 55 km',
+  en: 'Nürburgring Day Trip from Kirchweiler – only 55 km',
+  nl: 'Nürburgring Daguitstap vanuit Kirchweiler – slechts 55 km',
+  fr: 'Excursion Nürburgring depuis Kirchweiler – à seulement 55 km',
+}
+
+const metaDescriptions: Record<string, string> = {
+  de: 'Nürburgring liegt 55 km von unserer Ferienwohnung. Nordschleife, Erlebniswelt ring°werk, Touristenfahrten und Motorsport-Events in der Eifel.',
+  en: 'Nürburgring is 55 km from our holiday apartment. Nordschleife, ring°werk experience world, tourist laps and motorsport events in the Eifel.',
+  nl: 'Nürburgring ligt 55 km van ons vakantieappartement. Nordschleife, ring°werk belevingswereld, toeristische ritten en motorsportevenementen in de Eifel.',
+  fr: 'Le Nürburgring est à 55 km de notre appartement de vacances. Nordschleife, monde ring°werk, tours touristiques et événements de motorsport dans l\'Eifel.',
+}
 
 const schema = {
   "@context": "https://schema.org",
@@ -28,7 +37,18 @@ export function generateStaticParams() {
   ]
 }
 
-export default function NuerburgringPage() {
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params
+  return {
+    title: metaTitles[locale] ?? metaTitles.de,
+    description: metaDescriptions[locale] ?? metaDescriptions.de,
+    alternates: { canonical: 'https://www.ferienwohnung-in-der-vulkaneifel.de/specials/nuerburgring' },
+  }
+}
+
+export default async function NuerburgringPage() {
+  const locale = await getLocale()
+
   return (
     <>
       <Script id="schema-tourist" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />

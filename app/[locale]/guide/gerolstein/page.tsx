@@ -1,11 +1,20 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import Script from 'next/script'
+import { getLocale } from 'next-intl/server'
 
-export const metadata: Metadata = {
-  title: 'Gerolstein – Ausflug in die Brunnenstadt der Vulkaneifel',
-  description: 'Gerolstein: Gerolsteiner Brunnen Erlebniswelt, Dolomiten, Felsenpfad, Kurpark, Höhlen und Kyll. Alle Tipps für einen Ausflug nach Gerolstein ab Kirchweiler (15 km).',
-  alternates: { canonical: 'https://www.ferienwohnung-in-der-vulkaneifel.de/guide/gerolstein' },
+const metaTitles: Record<string, string> = {
+  de: 'Gerolstein – Ausflugsziel in der Vulkaneifel',
+  en: 'Gerolstein – Day Trip to the Mineral Water Town of the Vulkan Eifel',
+  nl: 'Gerolstein – Daguitstap naar de Bronstad van de Vulkaan Eifel',
+  fr: "Gerolstein – Excursion à la Ville des Eaux de l'Eifel Volcanique",
+}
+
+const metaDescriptions: Record<string, string> = {
+  de: 'Gerolstein: Gerolsteiner Brunnen Erlebniswelt, Dolomiten, Felsenpfad, Kurpark, Höhlen und Kyll. Alle Tipps für einen Ausflug nach Gerolstein ab Kirchweiler (15 km).',
+  en: 'Gerolstein: Gerolsteiner spring experience world, Dolomites, rock path, spa park, caves and Kyll. All tips for a day trip to Gerolstein from Kirchweiler (15 km).',
+  nl: 'Gerolstein: Gerolsteiner bronnenwereld, Dolomieten, rotspad, kurpark, grotten en Kyll. Alle tips voor een daguitstap naar Gerolstein vanuit Kirchweiler (15 km).',
+  fr: "Gerolstein: monde de la source Gerolsteiner, Dolomites, sentier rocheux, parc thermal, grottes et Kyll. Tous les conseils pour une excursion depuis Kirchweiler (15 km).",
 }
 
 const highlights = [
@@ -79,7 +88,18 @@ export function generateStaticParams() {
   ]
 }
 
-export default function GerolsteinPage() {
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params
+  return {
+    title: metaTitles[locale] ?? metaTitles.de,
+    description: metaDescriptions[locale] ?? metaDescriptions.de,
+    alternates: { canonical: 'https://www.ferienwohnung-in-der-vulkaneifel.de/guide/gerolstein' },
+  }
+}
+
+export default async function GerolsteinPage() {
+  const locale = await getLocale()
+
   return (
     <>
       <Script id="schema-tourist" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />

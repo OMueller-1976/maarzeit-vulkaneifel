@@ -1,10 +1,19 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import { getLocale } from 'next-intl/server'
 
-export const metadata: Metadata = {
-  title: 'Schlechtwetter Vulkaneifel – Ausflüge bei Regen rund um Daun',
-  description: 'Was tun bei Regen in der Vulkaneifel? Vulkanmuseum Daun, Thermalbäder, Moselausflug und gemütliche Einkehr. Tipps für Regentage in der Eifel.',
-  alternates: { canonical: 'https://www.ferienwohnung-in-der-vulkaneifel.de/guide/schlechtwetter' },
+const metaTitles: Record<string, string> = {
+  de: 'Schlechtwetter-Tipps Vulkaneifel – Was tun bei Regen?',
+  en: 'Rainy Day Activities in the Vulkan Eifel – Indoor Tips near Daun',
+  nl: 'Slechtweer Activiteiten Vulkaan Eifel – Tips bij Regen rond Daun',
+  fr: "Activités par Mauvais Temps dans l'Eifel – Idées Intérieures près de Daun",
+}
+
+const metaDescriptions: Record<string, string> = {
+  de: 'Was tun bei Regen in der Vulkaneifel? Vulkanmuseum Daun, Thermalbäder, Moselausflug und gemütliche Einkehr. Tipps für Regentage in der Eifel.',
+  en: 'What to do on rainy days in the Vulkan Eifel? Volcano museum Daun, indoor pools, Moselle trip and cosy restaurants. Tips for wet days in the Eifel.',
+  nl: 'Wat te doen bij regen in de Vulkaan Eifel? Vulkaanmuseum Daun, zwembaden, Moezeluitstap en gezellige restaurants. Tips voor regenachtige dagen.',
+  fr: "Que faire par temps de pluie dans l'Eifel volcanique? Musée des volcans Daun, piscines intérieures, excursion sur la Moselle. Conseils pour les jours de pluie.",
 }
 
 const tipps = [
@@ -98,7 +107,18 @@ export function generateStaticParams() {
   ]
 }
 
-export default function SchlechtwetterPage() {
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params
+  return {
+    title: metaTitles[locale] ?? metaTitles.de,
+    description: metaDescriptions[locale] ?? metaDescriptions.de,
+    alternates: { canonical: 'https://www.ferienwohnung-in-der-vulkaneifel.de/guide/schlechtwetter' },
+  }
+}
+
+export default async function SchlechtwetterPage() {
+  const locale = await getLocale()
+
   return (
     <>
       {/* Hero */}

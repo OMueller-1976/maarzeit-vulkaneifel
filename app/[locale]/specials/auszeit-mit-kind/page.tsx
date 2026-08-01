@@ -1,10 +1,19 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import { getLocale } from 'next-intl/server'
 
-export const metadata: Metadata = {
-  title: 'Familienurlaub Vulkaneifel – Auszeit mit Kind',
-  description: 'Familienurlaub in der Vulkaneifel: Wildpark Daun, Dauner Maare, Wandern mit Kindern, Vulkanmuseum und Adler- & Wolfspark Kasselburg. Hund willkommen.',
-  alternates: { canonical: 'https://www.ferienwohnung-in-der-vulkaneifel.de/specials/auszeit-mit-kind' },
+const metaTitles: Record<string, string> = {
+  de: 'Familienurlaub in der Vulkaneifel – Auszeit mit Kind',
+  en: 'Family Holiday in the Vulkan Eifel – Break with Kids',
+  nl: 'Gezinsvakantie in de Vulkaan Eifel – Uitje met Kinderen',
+  fr: "Vacances en Famille dans l'Eifel Volcanique – Pause avec Enfants",
+}
+
+const metaDescriptions: Record<string, string> = {
+  de: 'Familienurlaub in der Vulkaneifel: Wildpark Daun, Dauner Maare, Wandern mit Kindern, Vulkanmuseum und Adler- & Wolfspark Kasselburg. Hund willkommen.',
+  en: 'Family holiday in the Vulkan Eifel: wildlife park Daun, Daun Lakes, hiking with kids, volcano museum and eagle & wolf park Kasselburg. Dogs welcome.',
+  nl: 'Gezinsvakantie in de Vulkaan Eifel: wildpark Daun, Dauner Maren, wandelen met kinderen, vulkaanmuseum en adelaar- & wolvenpark Kasselburg. Honden welkom.',
+  fr: "Vacances en famille dans l'Eifel volcanique: parc animalier Daun, Lacs de Daun, randonnée avec enfants, musée volcanique et parc aigles & loups Kasselburg. Chiens bienvenus.",
 }
 
 const ziele = [
@@ -80,7 +89,18 @@ export function generateStaticParams() {
   ]
 }
 
-export default function AuszeitMitKindPage() {
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params
+  return {
+    title: metaTitles[locale] ?? metaTitles.de,
+    description: metaDescriptions[locale] ?? metaDescriptions.de,
+    alternates: { canonical: 'https://www.ferienwohnung-in-der-vulkaneifel.de/specials/auszeit-mit-kind' },
+  }
+}
+
+export default async function AuszeitMitKindPage() {
+  const locale = await getLocale()
+
   return (
     <>
       {/* Hero */}

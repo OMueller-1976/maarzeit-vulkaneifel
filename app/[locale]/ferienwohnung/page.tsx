@@ -1,11 +1,45 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { getLocale } from 'next-intl/server'
 
-export const metadata: Metadata = {
-  title: 'Die Ferienwohnung – 35 qm Neubau mit Terrasse & Parkplatz',
-  description: 'Moderne 35 qm Neubau-Ferienwohnung 2023. Separater Eingang, Parkplatz, Terrasse, Küchenzeile, TV mit Amazon Prime. Hund willkommen.',
-  alternates: { canonical: 'https://www.ferienwohnung-in-der-vulkaneifel.de/ferienwohnung' },
-};
+const translations = {
+  de: {
+    meta: {
+      title: 'Die Ferienwohnung – 35 qm Neubau mit Terrasse & Parkplatz',
+      description: 'Moderne 35 qm Neubau-Ferienwohnung 2023. Separater Eingang, Parkplatz, Terrasse, Küchenzeile, Amazon Prime. Hund willkommen.',
+    },
+    hero: { title: 'Die Ferienwohnung', subtitle: 'Ihr Zuhause in der Vulkaneifel' },
+    features: { title: 'Ausstattung', items: ['35 qm für bis zu 3 Personen','Neubau 2023, modernes Design','Separater Eingang','Eigener Parkplatz','Küchenzeile mit Mini-Backofen','Terrasse mit Gartenmöbeln','Garten mit Feuerschale & Schwenkgrill','WLAN & TV mit Amazon Prime','Hunde willkommen'] },
+    cta: 'Jetzt buchen',
+  },
+  en: {
+    meta: {
+      title: 'The Apartment – 35 sqm New Build with Terrace & Parking',
+      description: 'Modern 35 sqm new build apartment 2023. Separate entrance, parking, terrace, kitchenette, Amazon Prime. Dogs welcome.',
+    },
+    hero: { title: 'The Apartment', subtitle: 'Your Home in the Vulkan Eifel' },
+    features: { title: 'Facilities', items: ['35 sqm for up to 3 persons','New build 2023, modern design','Separate entrance','Private parking space','Kitchenette with mini oven','Terrace with garden furniture','Garden with fire bowl & swing grill','WiFi & TV with Amazon Prime','Dogs welcome'] },
+    cta: 'Book Now',
+  },
+  nl: {
+    meta: {
+      title: 'Het Appartement – 35 m² Nieuwbouw met Terras & Parkeerplaats',
+      description: 'Modern 35 m² nieuwbouwappartement 2023. Aparte ingang, parkeerplaats, terras, kitchenette, Amazon Prime. Honden welkom.',
+    },
+    hero: { title: 'Het Appartement', subtitle: 'Uw Thuis in de Vulkaan Eifel' },
+    features: { title: 'Voorzieningen', items: ['35 m² voor maximaal 3 personen','Nieuwbouw 2023, modern design','Aparte ingang','Eigen parkeerplaats','Kitchenette met mini-oven','Terras met tuinmeubelen','Tuin met vuurschaal & zwenkgrill','WiFi & tv met Amazon Prime','Honden welkom'] },
+    cta: 'Nu Boeken',
+  },
+  fr: {
+    meta: {
+      title: "L'Appartement – 35 m² Construction Neuve avec Terrasse & Parking",
+      description: "Appartement moderne de 35 m² construction neuve 2023. Entrée séparée, parking, terrasse, kitchenette, Amazon Prime. Chiens bienvenus.",
+    },
+    hero: { title: "L'Appartement", subtitle: "Votre Chez-Vous dans l'Eifel Volcanique" },
+    features: { title: 'Équipements', items: ['35 m² pour 3 personnes maximum','Construction neuve 2023, design moderne','Entrée séparée','Place de parking privée','Kitchenette avec mini-four','Terrasse avec mobilier de jardin','Jardin avec brasero & barbecue pivotant','WiFi & TV avec Amazon Prime','Chiens bienvenus'] },
+    cta: 'Réserver Maintenant',
+  },
+}
 
 const ausstattung = [
   "35 qm Wohnfläche",
@@ -39,10 +73,23 @@ export function generateStaticParams() {
   ]
 }
 
-export default function FerienwohnungPage() {
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params
+  const tr = translations[locale as keyof typeof translations] ?? translations.de
+  return {
+    title: tr.meta.title,
+    description: tr.meta.description,
+    alternates: { canonical: 'https://www.ferienwohnung-in-der-vulkaneifel.de/ferienwohnung' },
+  }
+}
+
+export default async function FerienwohnungPage() {
+  const locale = await getLocale()
+  const tr = translations[locale as keyof typeof translations] ?? translations.de
+
   return (
     <div className="max-w-5xl mx-auto px-4 py-16">
-      <h1 className="section-title">Die Ferienwohnung</h1>
+      <h1 className="section-title">{tr.hero.title}</h1>
       <p className="text-stone-600 text-lg mb-6 max-w-2xl leading-relaxed">
         Unsere Ferienwohnung MaarZeit liegt ruhig in der Vulkaneifel, ca. 15 km von
         den weltberühmten Dauner Maaren entfernt (19 Min. per Auto). Auf 35 qm finden Sie alles, was Sie
@@ -82,7 +129,7 @@ export default function FerienwohnungPage() {
       </div>
 
       {/* Ausstattung */}
-      <h2 className="text-2xl font-bold text-green-900 mb-6">Ausstattung</h2>
+      <h2 className="text-2xl font-bold text-green-900 mb-6">{tr.features.title}</h2>
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 mb-14">
         {ausstattung.map((item) => (
           <div key={item} className="flex items-start gap-2 text-sm text-stone-700">
@@ -113,7 +160,7 @@ export default function FerienwohnungPage() {
       </ul>
 
       <div className="flex flex-wrap gap-4">
-        <Link href="/buchung" className="btn-primary">Jetzt buchen</Link>
+        <Link href="/buchung" className="btn-primary">{tr.cta}</Link>
         <Link href="/kontakt" className="btn-secondary">Fragen? Schreiben Sie uns</Link>
       </div>
     </div>

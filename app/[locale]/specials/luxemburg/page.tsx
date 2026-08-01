@@ -1,11 +1,20 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { getLocale } from 'next-intl/server'
 
-export const metadata: Metadata = {
-  title: 'Ausflug Luxemburg – UNESCO-Altstadt, 95 km',
-  description: 'Luxemburg Stadt: UNESCO-Altstadt, Casemates, Grund-Viertel und Shopping. Nur 95 km von der Ferienwohnung in der Vulkaneifel entfernt.',
-  alternates: { canonical: 'https://www.ferienwohnung-in-der-vulkaneifel.de/specials/luxemburg' },
-};
+const metaTitles: Record<string, string> = {
+  de: 'Tagesausflug nach Luxemburg – UNESCO-Altstadt, 95 km',
+  en: 'Day Trip to Luxembourg – UNESCO Old Town, 95 km',
+  nl: 'Daguitstap naar Luxemburg – UNESCO Oude Stad, 95 km',
+  fr: 'Excursion au Luxembourg – Vieille Ville UNESCO, 95 km',
+}
+
+const metaDescriptions: Record<string, string> = {
+  de: 'Luxemburg Stadt: UNESCO-Altstadt, Casemates, Grund-Viertel und Shopping. Nur 95 km von der Ferienwohnung in der Vulkaneifel entfernt.',
+  en: 'Luxembourg City: UNESCO old town, Casemates, Grund district and shopping. Only 95 km from the holiday apartment in the Vulkan Eifel.',
+  nl: 'Luxemburg Stad: UNESCO oude stad, Casemates, Grundwijk en shopping. Slechts 95 km van het vakantieappartement in de Vulkaan Eifel.',
+  fr: 'Luxembourg-Ville: vieille ville UNESCO, Casemates, quartier Grund et shopping. À seulement 95 km de l\'appartement dans l\'Eifel volcanique.',
+}
 
 
 export function generateStaticParams() {
@@ -17,7 +26,18 @@ export function generateStaticParams() {
   ]
 }
 
-export default function LuxemburgPage() {
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params
+  return {
+    title: metaTitles[locale] ?? metaTitles.de,
+    description: metaDescriptions[locale] ?? metaDescriptions.de,
+    alternates: { canonical: 'https://www.ferienwohnung-in-der-vulkaneifel.de/specials/luxemburg' },
+  }
+}
+
+export default async function LuxemburgPage() {
+  const locale = await getLocale()
+
   return (
     <div className="max-w-3xl mx-auto px-4 py-16">
       <nav className="text-sm text-stone-500 mb-6">
