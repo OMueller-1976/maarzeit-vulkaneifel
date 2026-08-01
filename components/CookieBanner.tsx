@@ -1,9 +1,11 @@
 'use client'
 import { useState, useEffect } from 'react'
+import { useTranslations } from 'next-intl'
 
 export default function CookieBanner() {
   const [visible, setVisible] = useState(false)
   const [showDetails, setShowDetails] = useState(false)
+  const t = useTranslations('cookie')
 
   useEffect(() => {
     const consent = localStorage.getItem('cookie-consent')
@@ -13,7 +15,6 @@ export default function CookieBanner() {
   const accept = () => {
     localStorage.setItem('cookie-consent', 'all')
     setVisible(false)
-    // GTM dataLayer push
     if (typeof window !== 'undefined' && (window as any).dataLayer) {
       (window as any).dataLayer.push({ event: 'cookie_consent_granted' })
     }
@@ -38,11 +39,7 @@ export default function CookieBanner() {
       padding: '1.5rem 2rem',
       boxShadow: '0 -4px 24px rgba(0,0,0,0.2)',
     }}>
-      <div style={{
-        maxWidth: 900,
-        margin: '0 auto',
-      }}>
-        {/* Hauptzeile */}
+      <div style={{ maxWidth: 900, margin: '0 auto' }}>
         <div style={{
           display: 'flex',
           alignItems: 'flex-start',
@@ -51,14 +48,8 @@ export default function CookieBanner() {
           flexWrap: 'wrap',
         }}>
           <div style={{ flex: 1, minWidth: 280 }}>
-            <p style={{
-              margin: '0 0 0.5rem',
-              fontSize: '0.95rem',
-              lineHeight: 1.6,
-              color: '#ffffff',
-            }}>
-              Diese Website verwendet Cookies und Google Analytics zur Analyse des Nutzerverhaltens.
-              Weitere Informationen finden Sie in unserer{' '}
+            <p style={{ margin: '0 0 0.5rem', fontSize: '0.95rem', lineHeight: 1.6, color: '#ffffff' }}>
+              {t('text')}{' '}
               <a href="/datenschutz" style={{ color: '#A8C9AE', textDecoration: 'underline' }}>
                 Datenschutzerklärung
               </a>.
@@ -75,11 +66,10 @@ export default function CookieBanner() {
                 textDecoration: 'underline',
               }}
             >
-              {showDetails ? 'Details ausblenden' : 'Details anzeigen'}
+              {showDetails ? t('hideDetails') : t('details')}
             </button>
           </div>
 
-          {/* Buttons */}
           <div style={{
             display: 'flex',
             gap: '0.75rem',
@@ -101,7 +91,7 @@ export default function CookieBanner() {
                 whiteSpace: 'nowrap',
               }}
             >
-              Nur notwendige
+              {t('necessary')}
             </button>
             <button
               onClick={accept}
@@ -118,12 +108,11 @@ export default function CookieBanner() {
                 whiteSpace: 'nowrap',
               }}
             >
-              Alle akzeptieren
+              {t('acceptAll')}
             </button>
           </div>
         </div>
 
-        {/* Details aufklappbar */}
         {showDetails && (
           <div style={{
             marginTop: '1.25rem',

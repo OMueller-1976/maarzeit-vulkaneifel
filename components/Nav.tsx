@@ -2,20 +2,28 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import { usePathname } from "next/navigation";
+import { useTranslations } from "next-intl";
+import LocaleSwitcher from "./LocaleSwitcher";
 
 const navItems = [
-  { href: "/ferienwohnung", label: "Ferienwohnung" },
-  { href: "/buchung", label: "Buchung" },
-  { href: "/guide", label: "Reiseführer" },
-  { href: "/specials", label: "Specials" },
-  { href: "/anreise", label: "Anreise" },
-  { href: "/hund", label: "Mit Hund" },
-  { href: "/motorrad", label: "Motorrad" },
-  { href: "/kontakt", label: "Kontakt" },
-];
+  { href: "/ferienwohnung", labelKey: "ferienwohnung" },
+  { href: "/buchung",       labelKey: "buchung"       },
+  { href: "/guide",         labelKey: "reisefuehrer"  },
+  { href: "/specials",      labelKey: "specials"      },
+  { href: "/anreise",       labelKey: "anreise"       },
+  { href: "/hund",          labelKey: "mitHund"       },
+  { href: "/motorrad",      labelKey: "motorrad"      },
+  { href: "/kontakt",       labelKey: "kontakt"       },
+] as const;
 
 export default function Nav() {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const pathname = usePathname();
+  const t = useTranslations("nav");
+  const currentLocale = (['en', 'nl', 'fr'] as const).find(l =>
+    pathname.startsWith('/' + l)
+  ) ?? 'de';
 
   return (
     <header className="bg-white border-b border-stone-200 sticky top-0 z-50 shadow-sm">
@@ -29,11 +37,12 @@ export default function Nav() {
         <nav className="hidden md:flex items-center gap-6 text-sm">
           {navItems.map((item) => (
             <Link key={item.href} href={item.href} className="nav-link">
-              {item.label}
+              {t(item.labelKey)}
             </Link>
           ))}
+          <LocaleSwitcher currentLocale={currentLocale} />
           <Link href="/buchung" className="btn-primary text-sm py-2 px-4">
-            Jetzt buchen
+            {t('jetztBuchen')}
           </Link>
         </nav>
 
@@ -63,16 +72,19 @@ export default function Nav() {
               className="block py-2 text-stone-700 hover:text-green-800"
               onClick={() => setMobileOpen(false)}
             >
-              {item.label}
+              {t(item.labelKey)}
             </Link>
           ))}
-          <Link
-            href="/buchung"
-            className="btn-primary block text-center mt-3"
-            onClick={() => setMobileOpen(false)}
-          >
-            Jetzt buchen
-          </Link>
+          <div className="mt-3 flex items-center gap-3">
+            <LocaleSwitcher currentLocale={currentLocale} />
+            <Link
+              href="/buchung"
+              className="btn-primary flex-1 block text-center"
+              onClick={() => setMobileOpen(false)}
+            >
+              {t('jetztBuchen')}
+            </Link>
+          </div>
         </div>
       )}
     </header>

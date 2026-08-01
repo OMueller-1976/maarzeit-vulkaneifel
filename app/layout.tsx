@@ -4,6 +4,8 @@ import "./globals.css";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import CookieBanner from "@/components/CookieBanner";
+import { NextIntlClientProvider } from 'next-intl';
+import { getMessages } from 'next-intl/server';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.ferienwohnung-in-der-vulkaneifel.de'),
@@ -37,11 +39,13 @@ export const viewport = {
   maximumScale: 5,
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const messages = await getMessages();
+
   return (
     <html lang="de">
       <head>
@@ -122,10 +126,12 @@ gtag('config', 'G-H24P94BWQD');`,
             style={{ display: "none", visibility: "hidden" }}
           />
         </noscript>
-        <Nav />
-        <main className="flex-1">{children}</main>
-        <Footer />
-        <CookieBanner />
+        <NextIntlClientProvider messages={messages}>
+          <Nav />
+          <main className="flex-1">{children}</main>
+          <Footer />
+          <CookieBanner />
+        </NextIntlClientProvider>
       </body>
     </html>
   );

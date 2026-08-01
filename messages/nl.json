@@ -1,0 +1,71 @@
+{
+  "nav": {
+    "ferienwohnung": "Appartement",
+    "buchung": "Boeken",
+    "reisefuehrer": "Reisgids",
+    "specials": "Specials",
+    "anreise": "Aanrijden",
+    "mitHund": "Met Hond",
+    "motorrad": "Motorfiets",
+    "kontakt": "Contact",
+    "jetztBuchen": "Nu Boeken"
+  },
+  "home": {
+    "hero": {
+      "badge": "Vakantiewoning · Vulkaan Eifel · Dauner Maren",
+      "title": "MaarZeit",
+      "subtitle": "Vulkaan Eifel",
+      "description": "Uw vakantiewoning in de Vulkaan Eifel – voor natuur, rust en onvergetelijke ervaringen in een van Duitslands mooiste landschappen.",
+      "btnAvailability": "Beschikbaarheid Controleren",
+      "btnApartment": "Bekijk Appartement"
+    },
+    "apartment": {
+      "title": "Het Appartement",
+      "description": "Rustig gelegen in de Vulkaan Eifel biedt ons vakantieappartement van 35 m² alles wat u nodig heeft voor een ontspannen vakantie.",
+      "features": [
+        "35 m² voor maximaal 3 personen",
+        "Kitchenette met mini-oven",
+        "Terras & tuin met vuurschaal",
+        "Zwenkgrill",
+        "Eigen parkeerplaats",
+        "WiFi & tv met Amazon Prime",
+        "Honden welkom"
+      ],
+      "btnDetails": "Alle Details"
+    },
+    "prices": {
+      "title": "Prijzen & Beschikbaarheid",
+      "subtitle": "Vanaf €75 per nacht – plus €20 eindschoonmaak per boeking.",
+      "tiers": [
+        { "label": "1 Nacht", "price": "€125", "note": "Spontaan uitje" },
+        { "label": "2–3 Nachten", "price": "€95", "note": "Kort verblijf & weekend" },
+        { "label": "4–7 Nachten", "price": "€85", "note": "Lang weekend" },
+        { "label": "Vanaf 7 Nachten", "price": "€75", "note": "Vakantieweek" }
+      ],
+      "footnote": "Eindschoonmaak €20 per boeking · Minimaal verblijf 1 nacht",
+      "btnBook": "Controleer Data & Boek"
+    },
+    "booking": {
+      "title": "Zo werkt het boeken",
+      "steps": [
+        { "title": "Kies Datums", "text": "Selecteer uw gewenste periode direct in de online kalender." },
+        { "title": "Directe Bevestiging", "text": "Beschikbaarheid wordt live gecontroleerd – geen wachttijd." },
+        { "title": "Aanbetaling", "text": "Met 30% aanbetaling via Stripe is uw boeking definitief." },
+        { "title": "Sleuteloverdracht", "text": "Restbetaling bij aankomst mogelijk – ook per kaart." }
+      ]
+    }
+  },
+  "footer": {
+    "aiNotice": "Opmerking: Delen van de inhoud van deze website zijn gemaakt met AI-ondersteuning en kunnen onnauwkeurigheden bevatten.",
+    "privacy": "Privacybeleid",
+    "imprint": "Impressum",
+    "terms": "Boekingsvoorwaarden"
+  },
+  "cookie": {
+    "text": "Deze website gebruikt cookies en Google Analytics om gebruikersgedrag te analyseren.",
+    "necessary": "Alleen noodzakelijk",
+    "acceptAll": "Alles accepteren",
+    "details": "Details tonen",
+    "hideDetails": "Details verbergen"
+  }
+}

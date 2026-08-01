@@ -1,33 +1,49 @@
 import type { MetadataRoute } from "next";
 
-const BASE_URL = "https://www.ferienwohnung-in-der-vulkaneifel.de";
+const BASE_URL = 'https://www.ferienwohnung-in-der-vulkaneifel.de'
+const locales = ['de', 'en', 'nl', 'fr']
+
+const pages = [
+  { path: '', priority: 1.0 },
+  { path: '/ferienwohnung', priority: 0.9 },
+  { path: '/buchung', priority: 0.9 },
+  { path: '/guide', priority: 0.8 },
+  { path: '/guide/dauner-maare', priority: 0.7 },
+  { path: '/guide/wandern', priority: 0.7 },
+  { path: '/guide/radfahren', priority: 0.7 },
+  { path: '/guide/ausflugsziele', priority: 0.7 },
+  { path: '/guide/schlechtwetter', priority: 0.7 },
+  { path: '/guide/gerolstein', priority: 0.7 },
+  { path: '/specials', priority: 0.7 },
+  { path: '/specials/nuerburgring', priority: 0.6 },
+  { path: '/specials/cochem', priority: 0.6 },
+  { path: '/specials/koblenz', priority: 0.6 },
+  { path: '/specials/luxemburg', priority: 0.6 },
+  { path: '/specials/koeln', priority: 0.6 },
+  { path: '/specials/auszeit-mit-kind', priority: 0.6 },
+  { path: '/hund', priority: 0.8 },
+  { path: '/motorrad', priority: 0.7 },
+  { path: '/anreise', priority: 0.6 },
+  { path: '/kontakt', priority: 0.5 },
+]
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  return [
-    { url: `${BASE_URL}`,                          lastModified: new Date(), changeFrequency: "weekly",  priority: 1.0 },
-    { url: `${BASE_URL}/ferienwohnung`,             lastModified: new Date(), changeFrequency: "monthly", priority: 0.7 },
-    { url: `${BASE_URL}/buchung`,                   lastModified: new Date(), changeFrequency: "monthly", priority: 0.9 },
-    { url: `${BASE_URL}/hund`,                      lastModified: new Date(), changeFrequency: "monthly", priority: 0.7 },
-    { url: `${BASE_URL}/motorrad`,                  lastModified: new Date(), changeFrequency: "monthly", priority: 0.7 },
-    { url: `${BASE_URL}/guide`,                     lastModified: new Date(), changeFrequency: "monthly", priority: 0.7 },
-    { url: `${BASE_URL}/guide/dauner-maare`,        lastModified: new Date(), changeFrequency: "monthly", priority: 0.7 },
-    { url: `${BASE_URL}/guide/wandern`,             lastModified: new Date(), changeFrequency: "monthly", priority: 0.7 },
-    { url: `${BASE_URL}/guide/radfahren`,           lastModified: new Date(), changeFrequency: "monthly", priority: 0.7 },
-    { url: `${BASE_URL}/guide/ausflugsziele`,       lastModified: new Date(), changeFrequency: "monthly", priority: 0.7 },
-    { url: `${BASE_URL}/guide/schlechtwetter`,      lastModified: new Date(), changeFrequency: "monthly", priority: 0.7 },
-    { url: `${BASE_URL}/guide/gerolstein`,          lastModified: new Date(), changeFrequency: "monthly", priority: 0.7 },
-    { url: `${BASE_URL}/kontakt`,                   lastModified: new Date(), changeFrequency: "monthly", priority: 0.7 },
-    { url: `${BASE_URL}/impressum`,                 lastModified: new Date(), changeFrequency: "monthly", priority: 0.7 },
-    { url: `${BASE_URL}/datenschutz`,               lastModified: new Date(), changeFrequency: "monthly", priority: 0.7 },
-    { url: `${BASE_URL}/buchungsbedingungen`,        lastModified: new Date(), changeFrequency: "monthly", priority: 0.7 },
-    { url: `${BASE_URL}/anreise`,                   lastModified: new Date(), changeFrequency: "monthly", priority: 0.7 },
-    { url: `${BASE_URL}/specials`,                  lastModified: new Date(), changeFrequency: "monthly", priority: 0.8 },
-    { url: `${BASE_URL}/specials/nuerburgring`,     lastModified: new Date(), changeFrequency: "monthly", priority: 0.7 },
-    { url: `${BASE_URL}/specials/auszeit-mit-kind`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.7 },
-    { url: `${BASE_URL}/specials/cochem`,           lastModified: new Date(), changeFrequency: "monthly", priority: 0.7 },
-    { url: `${BASE_URL}/specials/koblenz`,          lastModified: new Date(), changeFrequency: "monthly", priority: 0.7 },
-    { url: `${BASE_URL}/specials/luxemburg`,        lastModified: new Date(), changeFrequency: "monthly", priority: 0.7 },
-    { url: `${BASE_URL}/specials/koeln`,            lastModified: new Date(), changeFrequency: "monthly", priority: 0.7 },
-    { url: `${BASE_URL}/buchung/success`,           lastModified: new Date(), changeFrequency: "monthly", priority: 0.1 },
-  ];
+  const entries: MetadataRoute.Sitemap = []
+
+  for (const page of pages) {
+    for (const locale of locales) {
+      const url = locale === 'de'
+        ? `${BASE_URL}${page.path}`
+        : `${BASE_URL}/${locale}${page.path}`
+
+      entries.push({
+        url,
+        lastModified: new Date(),
+        changeFrequency: 'weekly',
+        priority: page.priority,
+      })
+    }
+  }
+
+  return entries
 }

@@ -1,0 +1,71 @@
+{
+  "nav": {
+    "ferienwohnung": "Appartement",
+    "buchung": "Réservation",
+    "reisefuehrer": "Guide de Voyage",
+    "specials": "Specials",
+    "anreise": "Accès",
+    "mitHund": "Avec Chien",
+    "motorrad": "Moto",
+    "kontakt": "Contact",
+    "jetztBuchen": "Réserver"
+  },
+  "home": {
+    "hero": {
+      "badge": "Appartement de Vacances · Eifel Volcanique · Lacs de Daun",
+      "title": "MaarZeit",
+      "subtitle": "Eifel Volcanique",
+      "description": "Votre appartement de vacances dans l'Eifel volcanique – pour la nature, la tranquillité et des expériences inoubliables dans l'un des plus beaux paysages d'Allemagne.",
+      "btnAvailability": "Vérifier la Disponibilité",
+      "btnApartment": "Voir l'Appartement"
+    },
+    "apartment": {
+      "title": "L'Appartement",
+      "description": "Situé au calme dans l'Eifel volcanique, notre appartement de vacances de 35 m² offre tout ce dont vous avez besoin pour des vacances reposantes.",
+      "features": [
+        "35 m² pour 3 personnes maximum",
+        "Kitchenette avec mini-four",
+        "Terrasse & jardin avec brasero",
+        "Barbecue pivotant",
+        "Place de parking privée",
+        "WiFi & TV avec Amazon Prime",
+        "Chiens bienvenus"
+      ],
+      "btnDetails": "Tous les Détails"
+    },
+    "prices": {
+      "title": "Prix & Disponibilité",
+      "subtitle": "À partir de 75 € par nuit – plus 20 € de frais de ménage par réservation.",
+      "tiers": [
+        { "label": "1 Nuit", "price": "125 €", "note": "Escapade spontanée" },
+        { "label": "2–3 Nuits", "price": "95 €", "note": "Court séjour & week-end" },
+        { "label": "4–7 Nuits", "price": "85 €", "note": "Long week-end" },
+        { "label": "À partir de 7 Nuits", "price": "75 €", "note": "Semaine de vacances" }
+      ],
+      "footnote": "Frais de ménage 20 € forfaitaires par réservation · Séjour minimum 1 nuit",
+      "btnBook": "Vérifier les Dates & Réserver"
+    },
+    "booking": {
+      "title": "Comment Réserver",
+      "steps": [
+        { "title": "Choisir les Dates", "text": "Sélectionnez vos dates souhaitées directement dans le calendrier en ligne." },
+        { "title": "Confirmation Immédiate", "text": "La disponibilité est vérifiée en temps réel – sans attente." },
+        { "title": "Acompte", "text": "Un acompte de 30 % via Stripe confirme votre réservation." },
+        { "title": "Remise des Clés", "text": "Le solde peut être réglé à l'arrivée – paiement par carte accepté." }
+      ]
+    }
+  },
+  "footer": {
+    "aiNotice": "Remarque : Certains contenus de ce site ont été créés avec l'aide de l'IA et peuvent contenir des inexactitudes.",
+    "privacy": "Politique de Confidentialité",
+    "imprint": "Mentions Légales",
+    "terms": "Conditions de Réservation"
+  },
+  "cookie": {
+    "text": "Ce site utilise des cookies et Google Analytics pour analyser le comportement des utilisateurs.",
+    "necessary": "Nécessaires uniquement",
+    "acceptAll": "Tout accepter",
+    "details": "Afficher les détails",
+    "hideDetails": "Masquer les détails"
+  }
+}

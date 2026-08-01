@@ -1,0 +1,71 @@
+{
+  "nav": {
+    "ferienwohnung": "Apartment",
+    "buchung": "Booking",
+    "reisefuehrer": "Travel Guide",
+    "specials": "Specials",
+    "anreise": "Getting Here",
+    "mitHund": "With Dog",
+    "motorrad": "Motorcycle",
+    "kontakt": "Contact",
+    "jetztBuchen": "Book Now"
+  },
+  "home": {
+    "hero": {
+      "badge": "Holiday Apartment · Vulkan Eifel · Daun Lakes",
+      "title": "MaarZeit",
+      "subtitle": "Vulkan Eifel",
+      "description": "Your holiday apartment in the Vulkan Eifel – for nature, tranquility and unforgettable experiences in one of Germany's most beautiful landscapes.",
+      "btnAvailability": "Check Availability",
+      "btnApartment": "View Apartment"
+    },
+    "apartment": {
+      "title": "The Apartment",
+      "description": "Quietly situated in the Vulkan Eifel, our 35 sqm holiday apartment offers everything you need for a relaxing break.",
+      "features": [
+        "35 sqm for up to 3 persons",
+        "Kitchenette with mini oven",
+        "Terrace & garden with fire bowl",
+        "Swing grill",
+        "Private parking space",
+        "WiFi & TV with Amazon Prime",
+        "Dogs welcome"
+      ],
+      "btnDetails": "View Details"
+    },
+    "prices": {
+      "title": "Prices & Availability",
+      "subtitle": "From €75 per night – plus €20 cleaning fee per booking.",
+      "tiers": [
+        { "label": "1 Night", "price": "€125", "note": "Spontaneous getaway" },
+        { "label": "2–3 Nights", "price": "€95", "note": "Short break & weekend" },
+        { "label": "4–7 Nights", "price": "€85", "note": "Extended weekend" },
+        { "label": "7+ Nights", "price": "€75", "note": "Holiday week" }
+      ],
+      "footnote": "Cleaning fee €20 flat per booking · Minimum stay 1 night",
+      "btnBook": "Check Dates & Book"
+    },
+    "booking": {
+      "title": "How Booking Works",
+      "steps": [
+        { "title": "Choose Dates", "text": "Select your preferred dates directly in the online calendar." },
+        { "title": "Instant Confirmation", "text": "Availability is checked in real time – no waiting." },
+        { "title": "Deposit", "text": "A 30% deposit via Stripe secures your booking." },
+        { "title": "Key Handover", "text": "Pay the remainder on arrival – card accepted." }
+      ]
+    }
+  },
+  "footer": {
+    "aiNotice": "Note: Some content on this website was created with AI assistance and may contain inaccuracies.",
+    "privacy": "Privacy Policy",
+    "imprint": "Legal Notice",
+    "terms": "Booking Terms"
+  },
+  "cookie": {
+    "text": "This website uses cookies and Google Analytics to analyse user behaviour.",
+    "necessary": "Necessary only",
+    "acceptAll": "Accept all",
+    "details": "Show details",
+    "hideDetails": "Hide details"
+  }
+}
