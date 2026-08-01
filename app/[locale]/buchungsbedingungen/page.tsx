@@ -1,12 +1,6 @@
 import type { Metadata } from "next";
 import { getLocale } from 'next-intl/server';
-
-const metaTitles: Record<string, string> = {
-  de: 'Buchungsbedingungen – MaarZeit Vulkaneifel',
-  en: 'Booking Terms & Conditions – MaarZeit Vulkan Eifel',
-  nl: 'Boekingsvoorwaarden – MaarZeit Vulkaan Eifel',
-  fr: 'Conditions de réservation – MaarZeit Eifel Volcanique',
-}
+import { generateSeoMetadata } from '@/lib/seo';
 
 const pageTitles: Record<string, string> = {
   de: 'Buchungsbedingungen',
@@ -21,16 +15,16 @@ const legalNotes: Record<string, string> = {
   fr: 'Ces conditions de réservation sont fournies en allemand conformément à la loi allemande. La version allemande ci-dessous est juridiquement contraignante.',
 }
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ locale: string }>
-}): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params
-  return {
-    title: metaTitles[locale] ?? metaTitles.de,
-    description: 'Allgemeine Buchungsbedingungen für die Ferienwohnung MaarZeit Vulkaneifel.',
+  const titles = {
+    de: 'Buchungsbedingungen – MaarZeit Vulkaneifel',
+    en: 'Booking Terms & Conditions – MaarZeit Vulkan Eifel',
+    nl: 'Boekingsvoorwaarden – MaarZeit Vulkaan Eifel',
+    fr: 'Conditions de Réservation – MaarZeit Eifel Volcanique',
   }
+  const l = locale as keyof typeof titles
+  return generateSeoMetadata('/buchungsbedingungen', locale, titles[l] || titles.de, 'Allgemeine Buchungsbedingungen für die Ferienwohnung MaarZeit Vulkaneifel.')
 }
 
 export function generateStaticParams() {

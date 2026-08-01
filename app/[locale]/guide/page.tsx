@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { getLocale } from 'next-intl/server'
+import { generateSeoMetadata } from '@/lib/seo';
 
 const translations = {
   de: {
@@ -72,12 +73,20 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params
-  const tr = translations[locale as keyof typeof translations] ?? translations.de
-  return {
-    title: tr.meta.title,
-    description: tr.meta.description,
-    alternates: { canonical: 'https://www.ferienwohnung-in-der-vulkaneifel.de/guide' },
+  const titles = {
+    'de': 'Vulkaneifel Guide – Maare, Wandern, Ausflüge & Tipps',
+    'en': 'Vulkan Eifel Travel Guide – Lakes, Hiking, Trips & Tips',
+    'nl': 'Vulkaan Eifel Reisgids – Maren, Wandelen, Uitstapjes & Tips',
+    'fr': 'Guide de l\'Eifel Volcanique – Lacs, Randonnée, Sorties & Conseils',
   }
+  const descs = {
+    'de': 'Reiseführer für die Vulkaneifel: Dauner Maare, Wanderwege, Radfahren, Ausflugsziele.',
+    'en': 'Travel guide for the Vulkan Eifel: Daun Lakes, hiking trails, cycling, attractions.',
+    'nl': 'Reisgids voor de Vulkaan Eifel: Dauner Maren, wandelpaden, fietsen, bezienswaardigheden.',
+    'fr': 'Guide de voyage pour l\'Eifel volcanique: Lacs de Daun, sentiers, vélo, attractions.',
+  }
+  const l = locale as keyof typeof titles
+  return generateSeoMetadata('/guide', locale, titles[l] || titles.de, descs[l] || descs.de)
 }
 
 export default async function GuidePage() {

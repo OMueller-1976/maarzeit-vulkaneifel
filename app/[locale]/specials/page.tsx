@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { getLocale } from 'next-intl/server'
+import { generateSeoMetadata } from '@/lib/seo';
 
 const metaTitles: Record<string, string> = {
   de: 'Specials – Nürburgring, Cochem, Koblenz, Luxemburg & Köln',
@@ -73,11 +74,20 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params
-  return {
-    title: metaTitles[locale] ?? metaTitles.de,
-    description: metaDescriptions[locale] ?? metaDescriptions.de,
-    alternates: { canonical: 'https://www.ferienwohnung-in-der-vulkaneifel.de/specials' },
+  const titles = {
+    'de': 'Specials – Nürburgring, Cochem, Koblenz, Luxemburg & Köln',
+    'en': 'Specials – Nürburgring, Cochem, Koblenz, Luxembourg & Cologne',
+    'nl': 'Specials – Nürburgring, Cochem, Koblenz, Luxemburg & Keulen',
+    'fr': 'Specials – Nürburgring, Cochem, Coblence, Luxembourg & Cologne',
   }
+  const descs = {
+    'de': 'Tagesausflüge von der Vulkaneifel: Nürburgring, Mosel, Koblenz, Luxemburg und Köln.',
+    'en': 'Day trips from the Vulkan Eifel: Nürburgring, Moselle, Koblenz, Luxembourg and Cologne.',
+    'nl': 'Daguitstapjes vanuit de Vulkaan Eifel: Nürburgring, Moezel, Koblenz, Luxemburg en Keulen.',
+    'fr': 'Excursions d\'une journée depuis l\'Eifel: Nürburgring, Moselle, Coblence, Luxembourg et Cologne.',
+  }
+  const l = locale as keyof typeof titles
+  return generateSeoMetadata('/specials', locale, titles[l] || titles.de, descs[l] || descs.de)
 }
 
 export default async function SpecialsPage() {

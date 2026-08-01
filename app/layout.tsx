@@ -4,6 +4,7 @@ import "./globals.css";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import CookieBanner from "@/components/CookieBanner";
+import Analytics from "@/components/Analytics";
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 
@@ -27,7 +28,6 @@ export const metadata: Metadata = {
     images: [{ url: '/og-image.jpg', width: 1200, height: 630, alt: 'MaarZeit Vulkaneifel Ferienwohnung' }],
   },
   twitter: { card: 'summary_large_image', title: 'MaarZeit Vulkaneifel – Ferienwohnung bei Daun', description: 'Moderne 35 qm Ferienwohnung in der Vulkaneifel. Hund willkommen, Parkplatz, Terrasse.', images: ['/og-image.jpg'] },
-  alternates: { canonical: 'https://www.ferienwohnung-in-der-vulkaneifel.de' },
   verification: {
     google: 'b83e8e154a47617a',
   },
@@ -49,31 +49,6 @@ export default async function RootLayout({
   return (
     <html lang="de">
       <head>
-        <Script
-          id="gtm-script"
-          strategy="afterInteractive"
-          dangerouslySetInnerHTML={{
-            __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-MS9529LN');`,
-          }}
-        />
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-H24P94BWQD"
-          strategy="afterInteractive"
-        />
-        <Script
-          id="ga4-script"
-          strategy="afterInteractive"
-          dangerouslySetInnerHTML={{
-            __html: `window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', 'G-H24P94BWQD');`,
-          }}
-        />
         <Script
           id="schema-org"
           type="application/ld+json"
@@ -131,6 +106,7 @@ gtag('config', 'G-H24P94BWQD');`,
           <main className="flex-1">{children}</main>
           <Footer />
           <CookieBanner />
+          <Analytics />
         </NextIntlClientProvider>
       </body>
     </html>

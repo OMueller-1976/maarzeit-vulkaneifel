@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { getLocale } from 'next-intl/server'
+import { generateSeoMetadata } from '@/lib/seo';
 
 const metaTitles: Record<string, string> = {
   de: 'Dauner Maare – Gemündener, Schalkenmehrener & Weinfelder Maar',
@@ -27,11 +28,20 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params
-  return {
-    title: metaTitles[locale] ?? metaTitles.de,
-    description: metaDescriptions[locale] ?? metaDescriptions.de,
-    alternates: { canonical: 'https://www.ferienwohnung-in-der-vulkaneifel.de/guide/dauner-maare' },
+  const titles = {
+    'de': 'Dauner Maare – Gemündener, Schalkenmehrener & Weinfelder Maar',
+    'en': 'Daun Lakes – Gemündener, Schalkenmehren & Weinfeld Maar',
+    'nl': 'Dauner Maren – Gemündener, Schalkenmehrener & Weinfelder Maar',
+    'fr': 'Lacs de Daun – Gemündener, Schalkenmehren & Weinfeld Maar',
   }
+  const descs = {
+    'de': 'Die Dauner Maare – Gemündener, Schalkenmehrener und Weinfelder Maar – direkt bei der Ferienwohnung.',
+    'en': 'The Daun Lakes – Gemündener, Schalkenmehren and Weinfeld Maar – right near the apartment.',
+    'nl': 'De Dauner Maren – Gemündener, Schalkenmehrener en Weinfelder Maar – vlak bij het appartement.',
+    'fr': 'Les Lacs de Daun – Gemündener, Schalkenmehren et Weinfeld – à proximité de l\'appartement.',
+  }
+  const l = locale as keyof typeof titles
+  return generateSeoMetadata('/guide/dauner-maare', locale, titles[l] || titles.de, descs[l] || descs.de)
 }
 
 export default async function DaunerMaarePage() {

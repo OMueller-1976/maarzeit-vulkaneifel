@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { getLocale } from 'next-intl/server'
+import { generateSeoMetadata } from '@/lib/seo';
 
 const metaTitles: Record<string, string> = {
   de: 'Radfahren in der Vulkaneifel – Maare-Mosel Radweg ab Daun',
@@ -28,11 +29,20 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params
-  return {
-    title: metaTitles[locale] ?? metaTitles.de,
-    description: metaDescriptions[locale] ?? metaDescriptions.de,
-    alternates: { canonical: 'https://www.ferienwohnung-in-der-vulkaneifel.de/guide/radfahren' },
+  const titles = {
+    'de': 'Radfahren Vulkaneifel – Maare-Mosel-Radweg ab Daun',
+    'en': 'Cycling in the Vulkan Eifel – Maare-Mosel Cycle Route from Daun',
+    'nl': 'Fietsen in de Vulkaan Eifel – Maare-Mosel Fietsroute vanaf Daun',
+    'fr': 'Vélo dans l\'Eifel Volcanique – Piste Cyclable Maare-Mosel depuis Daun',
   }
+  const descs = {
+    'de': 'Radfahren in der Vulkaneifel: Maare-Mosel-Radweg und weitere Touren ab Daun.',
+    'en': 'Cycling in the Vulkan Eifel: Maare-Mosel cycle route and further tours from Daun.',
+    'nl': 'Fietsen in de Vulkaan Eifel: Maare-Mosel fietsroute en andere tochten vanuit Daun.',
+    'fr': 'Vélo dans l\'Eifel volcanique: piste Maare-Mosel et autres circuits depuis Daun.',
+  }
+  const l = locale as keyof typeof titles
+  return generateSeoMetadata('/guide/radfahren', locale, titles[l] || titles.de, descs[l] || descs.de)
 }
 
 export default async function RadfahrenPage() {

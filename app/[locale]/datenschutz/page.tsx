@@ -1,12 +1,6 @@
 import type { Metadata } from "next";
 import { getLocale } from 'next-intl/server';
-
-const metaTitles: Record<string, string> = {
-  de: 'Datenschutzerklärung – MaarZeit Vulkaneifel',
-  en: 'Privacy Policy – MaarZeit Vulkan Eifel',
-  nl: 'Privacybeleid – MaarZeit Vulkaan Eifel',
-  fr: 'Politique de confidentialité – MaarZeit Eifel Volcanique',
-}
+import { generateSeoMetadata } from '@/lib/seo';
 
 const pageTitles: Record<string, string> = {
   de: 'Datenschutzerklärung',
@@ -21,16 +15,16 @@ const legalNotes: Record<string, string> = {
   fr: 'Cette politique de confidentialité est fournie en allemand conformément à la législation allemande sur la protection des données (RGPD / DSGVO). La version allemande ci-dessous est juridiquement contraignante.',
 }
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ locale: string }>
-}): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params
-  return {
-    title: metaTitles[locale] ?? metaTitles.de,
-    description: 'Datenschutzerklärung der Website MaarZeit Vulkaneifel gemäß DSGVO.',
+  const titles = {
+    de: 'Datenschutzerklärung – MaarZeit Vulkaneifel',
+    en: 'Privacy Policy – MaarZeit Vulkan Eifel',
+    nl: 'Privacybeleid – MaarZeit Vulkaan Eifel',
+    fr: 'Politique de Confidentialité – MaarZeit Eifel Volcanique',
   }
+  const l = locale as keyof typeof titles
+  return generateSeoMetadata('/datenschutz', locale, titles[l] || titles.de, 'Datenschutzerklärung der Website MaarZeit Vulkaneifel gemäß DSGVO.')
 }
 
 export function generateStaticParams() {

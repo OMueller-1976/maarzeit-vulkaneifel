@@ -24,7 +24,7 @@ export async function generateMetadata({
 }) {
   const { locale } = await params
   return {
-    title: titles[locale] ?? titles.de,
+    title: { absolute: titles[locale] ?? titles.de },
     description: descriptions[locale] ?? descriptions.de,
     alternates: {
       canonical: locale === 'de' ? BASE : `${BASE}/${locale}`,

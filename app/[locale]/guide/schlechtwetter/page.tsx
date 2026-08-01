@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { getLocale } from 'next-intl/server'
+import { generateSeoMetadata } from '@/lib/seo';
 
 const metaTitles: Record<string, string> = {
   de: 'Schlechtwetter-Tipps Vulkaneifel – Was tun bei Regen?',
@@ -109,11 +110,20 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params
-  return {
-    title: metaTitles[locale] ?? metaTitles.de,
-    description: metaDescriptions[locale] ?? metaDescriptions.de,
-    alternates: { canonical: 'https://www.ferienwohnung-in-der-vulkaneifel.de/guide/schlechtwetter' },
+  const titles = {
+    'de': 'Schlechtwetter Vulkaneifel – Ausflüge bei Regen rund um Daun',
+    'en': 'Rainy Day Activities in the Vulkan Eifel – Indoor Tips near Daun',
+    'nl': 'Slechtweer Activiteiten Vulkaan Eifel – Tips bij Regen rond Daun',
+    'fr': 'Activités par Mauvais Temps dans l\'Eifel – Idées près de Daun',
   }
+  const descs = {
+    'de': 'Was tun bei schlechtem Wetter in der Vulkaneifel? Museen, Thermen und Indoor-Tipps rund um Daun.',
+    'en': 'What to do in bad weather in the Vulkan Eifel? Museums, spas and indoor tips around Daun.',
+    'nl': 'Wat te doen bij slecht weer in de Vulkaan Eifel? Musea, thermen en binnentips rond Daun.',
+    'fr': 'Que faire par mauvais temps dans l\'Eifel? Musées, thermes et activités intérieures près de Daun.',
+  }
+  const l = locale as keyof typeof titles
+  return generateSeoMetadata('/guide/schlechtwetter', locale, titles[l] || titles.de, descs[l] || descs.de)
 }
 
 export default async function SchlechtwetterPage() {

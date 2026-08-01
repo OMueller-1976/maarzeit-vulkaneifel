@@ -2,13 +2,6 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { getLocale } from 'next-intl/server'
 
-const metaTitles: Record<string, string> = {
-  de: 'Buchung bestätigt – MaarZeit Vulkaneifel',
-  en: 'Booking Confirmed – MaarZeit Vulkan Eifel',
-  nl: 'Boeking Bevestigd – MaarZeit Vulkaan Eifel',
-  fr: 'Réservation Confirmée – MaarZeit Eifel Volcanique',
-}
-
 const translations = {
   de: {
     heading: 'Vielen Dank für Ihre Buchung!',
@@ -56,14 +49,16 @@ const translations = {
   },
 }
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ locale: string }>
-}): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params
+  const titles: Record<string, string> = {
+    de: 'Buchung bestätigt – MaarZeit Vulkaneifel',
+    en: 'Booking Confirmed – MaarZeit Vulkan Eifel',
+    nl: 'Boeking Bevestigd – MaarZeit Vulkaan Eifel',
+    fr: 'Réservation Confirmée – MaarZeit Eifel Volcanique',
+  }
   return {
-    title: metaTitles[locale] ?? metaTitles.de,
+    title: { absolute: titles[locale] ?? titles.de },
     robots: 'noindex',
   }
 }

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { getLocale } from 'next-intl/server'
+import { generateSeoMetadata } from '@/lib/seo';
 
 const metaTitles: Record<string, string> = {
   de: 'Wandern in der Vulkaneifel – Lieserpfad, Eifelsteig & Maare-Runden',
@@ -76,11 +77,20 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params
-  return {
-    title: metaTitles[locale] ?? metaTitles.de,
-    description: metaDescriptions[locale] ?? metaDescriptions.de,
-    alternates: { canonical: 'https://www.ferienwohnung-in-der-vulkaneifel.de/guide/wandern' },
+  const titles = {
+    'de': 'Wandern Vulkaneifel – Lieserpfad, Eifelsteig & Maare-Routen',
+    'en': 'Hiking in the Vulkan Eifel – Lieser Path, Eifel Trail & Lake Routes',
+    'nl': 'Wandelen in de Vulkaan Eifel – Lieserpfad, Eifelsteig & Marenroutes',
+    'fr': 'Randonnée dans l\'Eifel Volcanique – Lieserpfad, Eifelsteig & Routes',
   }
+  const descs = {
+    'de': 'Wanderwege in der Vulkaneifel: Lieserpfad, Eifelsteig und Maare-Routen ab Daun.',
+    'en': 'Hiking trails in the Vulkan Eifel: Lieser Path, Eifel Trail and lake routes from Daun.',
+    'nl': 'Wandelpaden in de Vulkaan Eifel: Lieserpfad, Eifelsteig en marenroutes vanuit Daun.',
+    'fr': 'Sentiers de randonnée dans l\'Eifel volcanique: Lieserpfad, Eifelsteig et routes des lacs.',
+  }
+  const l = locale as keyof typeof titles
+  return generateSeoMetadata('/guide/wandern', locale, titles[l] || titles.de, descs[l] || descs.de)
 }
 
 export default async function WandernPage() {

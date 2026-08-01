@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Script from "next/script";
 import { getLocale } from 'next-intl/server'
+import { generateSeoMetadata } from '@/lib/seo';
 
 const metaTitles: Record<string, string> = {
   de: 'Tagesausflug nach Cochem an der Mosel – 45 km von Kirchweiler',
@@ -39,11 +40,20 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params
-  return {
-    title: metaTitles[locale] ?? metaTitles.de,
-    description: metaDescriptions[locale] ?? metaDescriptions.de,
-    alternates: { canonical: 'https://www.ferienwohnung-in-der-vulkaneifel.de/specials/cochem' },
+  const titles = {
+    'de': 'Ausflug Cochem an der Mosel – 45 km ab Kirchweiler',
+    'en': 'Day Trip to Cochem on the Moselle – 45 km from Kirchweiler',
+    'nl': 'Daguitstap naar Cochem aan de Moezel – 45 km van Kirchweiler',
+    'fr': 'Excursion à Cochem sur la Moselle – 45 km de Kirchweiler',
   }
+  const descs = {
+    'de': 'Cochem an der Mosel: Reichsburg, Weinstuben und pittoreske Altstadt – nur 45 km entfernt.',
+    'en': 'Cochem on the Moselle: Reichsburg castle, wine taverns and picturesque old town – only 45 km away.',
+    'nl': 'Cochem aan de Moezel: Reichsburg, wijnkelders en pittoreske oude stad – slechts 45 km weg.',
+    'fr': 'Cochem sur la Moselle: château Reichsburg, caves à vin et vieille ville pittoresque – à 45 km.',
+  }
+  const l = locale as keyof typeof titles
+  return generateSeoMetadata('/specials/cochem', locale, titles[l] || titles.de, descs[l] || descs.de)
 }
 
 export default async function CochemPage() {

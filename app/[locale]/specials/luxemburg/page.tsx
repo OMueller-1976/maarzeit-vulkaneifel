@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { getLocale } from 'next-intl/server'
+import { generateSeoMetadata } from '@/lib/seo';
 
 const metaTitles: Record<string, string> = {
   de: 'Tagesausflug nach Luxemburg – UNESCO-Altstadt, 95 km',
@@ -28,11 +29,20 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params
-  return {
-    title: metaTitles[locale] ?? metaTitles.de,
-    description: metaDescriptions[locale] ?? metaDescriptions.de,
-    alternates: { canonical: 'https://www.ferienwohnung-in-der-vulkaneifel.de/specials/luxemburg' },
+  const titles = {
+    'de': 'Ausflug Luxemburg – UNESCO-Altstadt, 95 km',
+    'en': 'Day Trip to Luxembourg – UNESCO Old Town, 95 km',
+    'nl': 'Daguitstap naar Luxemburg – UNESCO Oude Stad, 95 km',
+    'fr': 'Excursion au Luxembourg – Vieille Ville UNESCO, 95 km',
   }
+  const descs = {
+    'de': 'Luxemburg Tagesausflug: UNESCO-Altstadt, Bock-Kasematten und europäische Hauptstadt – 95 km.',
+    'en': 'Luxembourg day trip: UNESCO old town, Bock Casemates and European capital – 95 km away.',
+    'nl': 'Luxemburg daguitstap: UNESCO Oude Stad, Bock Casemates en Europese hoofdstad – 95 km.',
+    'fr': 'Excursion Luxembourg: Vieille ville UNESCO, Casemates du Bock et capitale européenne – à 95 km.',
+  }
+  const l = locale as keyof typeof titles
+  return generateSeoMetadata('/specials/luxemburg', locale, titles[l] || titles.de, descs[l] || descs.de)
 }
 
 export default async function LuxemburgPage() {

@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import Script from 'next/script'
 import { getLocale } from 'next-intl/server'
+import { generateSeoMetadata } from '@/lib/seo';
 
 const metaTitles: Record<string, string> = {
   de: 'Gerolstein – Ausflugsziel in der Vulkaneifel',
@@ -90,11 +91,20 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params
-  return {
-    title: metaTitles[locale] ?? metaTitles.de,
-    description: metaDescriptions[locale] ?? metaDescriptions.de,
-    alternates: { canonical: 'https://www.ferienwohnung-in-der-vulkaneifel.de/guide/gerolstein' },
+  const titles = {
+    'de': 'Gerolstein – Ausflug in die Brunnenstadt der Vulkaneifel',
+    'en': 'Gerolstein – Day Trip to the Mineral Water Town of the Vulkan Eifel',
+    'nl': 'Gerolstein – Daguitstap naar de Bronstad van de Vulkaan Eifel',
+    'fr': 'Gerolstein – Excursion à la Ville des Eaux de l\'Eifel Volcanique',
   }
+  const descs = {
+    'de': 'Gerolstein Ausflug: Felsenmeer, Kasselburg und die berühmte Gerolsteiner Mineralquelle.',
+    'en': 'Gerolstein day trip: Felsenmeer rock formations, Kasselburg castle and the famous mineral springs.',
+    'nl': 'Gerolstein daguitstap: Felsenmeer, Kasselburg en de beroemde minerale bronnen.',
+    'fr': 'Excursion à Gerolstein: Felsenmeer, château Kasselburg et les célèbres sources minérales.',
+  }
+  const l = locale as keyof typeof titles
+  return generateSeoMetadata('/guide/gerolstein', locale, titles[l] || titles.de, descs[l] || descs.de)
 }
 
 export default async function GerolsteinPage() {

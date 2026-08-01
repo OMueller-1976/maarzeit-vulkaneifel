@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { getLocale } from 'next-intl/server'
+import { generateSeoMetadata } from '@/lib/seo';
 
 const translations = {
   de: {
@@ -36,11 +37,20 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params
-  const tr = translations[locale as keyof typeof translations] ?? translations.de
-  return {
-    title: tr.meta.title,
-    description: tr.meta.description,
+  const titles = {
+    'de': 'Kontakt – MaarZeit Vulkaneifel',
+    'en': 'Contact – MaarZeit Vulkan Eifel',
+    'nl': 'Contact – MaarZeit Vulkaan Eifel',
+    'fr': 'Contact – MaarZeit Eifel Volcanique',
   }
+  const descs = {
+    'de': 'Kontaktieren Sie uns für Fragen zur Ferienwohnung in der Vulkaneifel.',
+    'en': 'Contact us for questions about the holiday apartment in the Vulkan Eifel.',
+    'nl': 'Neem contact op voor vragen over het vakantieappartement in de Vulkaan Eifel.',
+    'fr': 'Contactez-nous pour des questions sur l\'appartement de vacances dans l\'Eifel volcanique.',
+  }
+  const l = locale as keyof typeof titles
+  return generateSeoMetadata('/kontakt', locale, titles[l] || titles.de, descs[l] || descs.de)
 }
 
 export default async function KontaktPage() {

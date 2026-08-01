@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { getLocale } from 'next-intl/server'
+import { generateSeoMetadata } from '@/lib/seo';
 
 const metaTitles: Record<string, string> = {
   de: 'Familienurlaub in der Vulkaneifel – Auszeit mit Kind',
@@ -91,11 +92,20 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params
-  return {
-    title: metaTitles[locale] ?? metaTitles.de,
-    description: metaDescriptions[locale] ?? metaDescriptions.de,
-    alternates: { canonical: 'https://www.ferienwohnung-in-der-vulkaneifel.de/specials/auszeit-mit-kind' },
+  const titles = {
+    'de': 'Familienurlaub Vulkaneifel – Auszeit mit Kind',
+    'en': 'Family Holiday in the Vulkan Eifel – Break with Kids',
+    'nl': 'Gezinsvakantie in de Vulkaan Eifel – Uitje met Kinderen',
+    'fr': 'Vacances en Famille dans l\'Eifel Volcanique – Pause avec Enfants',
   }
+  const descs = {
+    'de': 'Familienurlaub in der Vulkaneifel: Tierpark, Maare, Spielplätze und kinderfreundliche Ausflüge.',
+    'en': 'Family holiday in the Vulkan Eifel: animal park, lakes, playgrounds and child-friendly trips.',
+    'nl': 'Gezinsvakantie in de Vulkaan Eifel: dierenpark, maren, speeltuinen en gezinsvriendelijke uitjes.',
+    'fr': 'Vacances en famille dans l\'Eifel volcanique: parc animalier, lacs, aires de jeux et sorties.',
+  }
+  const l = locale as keyof typeof titles
+  return generateSeoMetadata('/specials/auszeit-mit-kind', locale, titles[l] || titles.de, descs[l] || descs.de)
 }
 
 export default async function AuszeitMitKindPage() {

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { getLocale } from 'next-intl/server'
+import { generateSeoMetadata } from '@/lib/seo';
 
 const metaTitles: Record<string, string> = {
   de: 'Tagesausflug nach Köln – Dom, Rhein & Museen, 130 km',
@@ -28,11 +29,20 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params
-  return {
-    title: metaTitles[locale] ?? metaTitles.de,
-    description: metaDescriptions[locale] ?? metaDescriptions.de,
-    alternates: { canonical: 'https://www.ferienwohnung-in-der-vulkaneifel.de/specials/koeln' },
+  const titles = {
+    'de': 'Ausflug Köln – Dom, Rheinufer & Museen, 130 km',
+    'en': 'Day Trip to Cologne – Cathedral, Rhine & Museums, 130 km',
+    'nl': 'Daguitstap naar Keulen – Dom, Rijn & Musea, 130 km',
+    'fr': 'Excursion à Cologne – Cathédrale, Rhin & Musées, 130 km',
   }
+  const descs = {
+    'de': 'Köln Tagesausflug: Kölner Dom, Rheinufer, Museen und Innenstadt – 130 km ab Kirchweiler.',
+    'en': 'Cologne day trip: Cologne Cathedral, Rhine waterfront, museums and city centre – 130 km from Kirchweiler.',
+    'nl': 'Keulen daguitstap: Kölner Dom, Rijnoever, musea en stadscentrum – 130 km van Kirchweiler.',
+    'fr': 'Excursion Cologne: Cathédrale de Cologne, bord du Rhin, musées et centre-ville – à 130 km.',
+  }
+  const l = locale as keyof typeof titles
+  return generateSeoMetadata('/specials/koeln', locale, titles[l] || titles.de, descs[l] || descs.de)
 }
 
 export default async function KoelnPage() {

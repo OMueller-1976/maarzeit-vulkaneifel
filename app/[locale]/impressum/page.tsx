@@ -1,12 +1,6 @@
 import type { Metadata } from "next";
 import { getLocale } from 'next-intl/server';
-
-const metaTitles: Record<string, string> = {
-  de: 'Impressum – MaarZeit Vulkaneifel',
-  en: 'Legal Notice – MaarZeit Vulkan Eifel',
-  nl: 'Colofon – MaarZeit Vulkaan Eifel',
-  fr: 'Mentions légales – MaarZeit Eifel Volcanique',
-}
+import { generateSeoMetadata } from '@/lib/seo';
 
 const pageTitles: Record<string, string> = {
   de: 'Impressum',
@@ -21,16 +15,16 @@ const legalNotes: Record<string, string> = {
   fr: 'Cette mention légale est fournie en allemand conformément à la loi allemande (§ 5 TMG). La version allemande ci-dessous est juridiquement contraignante.',
 }
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ locale: string }>
-}): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params
-  return {
-    title: metaTitles[locale] ?? metaTitles.de,
-    description: 'Impressum der Website MaarZeit Vulkaneifel.',
+  const titles = {
+    de: 'Impressum – MaarZeit Vulkaneifel',
+    en: 'Legal Notice – MaarZeit Vulkan Eifel',
+    nl: 'Impressum – MaarZeit Vulkaan Eifel',
+    fr: 'Mentions Légales – MaarZeit Eifel Volcanique',
   }
+  const l = locale as keyof typeof titles
+  return generateSeoMetadata('/impressum', locale, titles[l] || titles.de, 'Impressum der Website MaarZeit Vulkaneifel.')
 }
 
 export function generateStaticParams() {

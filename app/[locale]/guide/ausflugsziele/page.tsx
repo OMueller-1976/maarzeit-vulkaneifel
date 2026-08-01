@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { getLocale } from 'next-intl/server'
+import { generateSeoMetadata } from '@/lib/seo';
 
 const metaTitles: Record<string, string> = {
   de: 'Ausflugsziele Vulkaneifel – Wildpark, Höhlen & Nürburgring',
@@ -302,11 +303,20 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params
-  return {
-    title: metaTitles[locale] ?? metaTitles.de,
-    description: metaDescriptions[locale] ?? metaDescriptions.de,
-    alternates: { canonical: 'https://www.ferienwohnung-in-der-vulkaneifel.de/guide/ausflugsziele' },
+  const titles = {
+    'de': 'Ausflugsziele Vulkaneifel – Wildpark, Höhlen & Nürburgring',
+    'en': 'Attractions in the Vulkan Eifel – Wildlife Park, Caves & Nürburgring',
+    'nl': 'Bezienswaardigheden Vulkaan Eifel – Wildpark, Grotten & Nürburgring',
+    'fr': 'Attractions de l\'Eifel Volcanique – Parc Animalier, Grottes & Nürburgring',
   }
+  const descs = {
+    'de': 'Ausflugsziele in der Vulkaneifel: Wildpark Daun, Gerolsteiner Felsenmeer, Nürburgring und mehr.',
+    'en': 'Attractions in the Vulkan Eifel: Daun Wildlife Park, Gerolstein rock formations, Nürburgring and more.',
+    'nl': 'Bezienswaardigheden Vulkaan Eifel: Wildpark Daun, Gerolsteiner Felsenmeer, Nürburgring en meer.',
+    'fr': 'Attractions de l\'Eifel volcanique: Parc animalier Daun, Gerolstein, Nürburgring et plus.',
+  }
+  const l = locale as keyof typeof titles
+  return generateSeoMetadata('/guide/ausflugsziele', locale, titles[l] || titles.de, descs[l] || descs.de)
 }
 
 export default async function AusflugszielePage() {

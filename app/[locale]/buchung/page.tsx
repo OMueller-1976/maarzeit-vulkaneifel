@@ -1,20 +1,7 @@
 import type { Metadata } from "next";
 import BookingCalendar from "@/components/BookingCalendar";
 import { getLocale } from 'next-intl/server';
-
-const metaTitles: Record<string, string> = {
-  de: 'Ferienwohnung Vulkaneifel buchen – Preise & Verfügbarkeit',
-  en: 'Book Holiday Apartment Vulkan Eifel – Prices & Availability',
-  nl: 'Vakantiewoning Vulkaan Eifel Boeken – Prijzen & Beschikbaarheid',
-  fr: "Réserver l'Appartement Eifel Volcanique – Prix & Disponibilité",
-}
-
-const metaDescriptions: Record<string, string> = {
-  de: 'Ferienwohnung in der Vulkaneifel direkt buchen. Ab 75 € pro Nacht, Endreinigung 20 €. Verfügbarkeit prüfen und sicher via Stripe bezahlen.',
-  en: 'Book the holiday apartment in the Vulkan Eifel directly. From €75 per night, final cleaning €20. Check availability and pay securely via Stripe.',
-  nl: 'Boek de vakantiewoning in de Vulkaan Eifel direct. Vanaf €75 per nacht, eindschoonmaak €20. Controleer beschikbaarheid en betaal veilig via Stripe.',
-  fr: "Réservez l'appartement de vacances dans l'Eifel volcanique. À partir de 75 €/nuit, nettoyage final 20 €. Vérifiez la disponibilité et payez en toute sécurité via Stripe.",
-}
+import { generateSeoMetadata } from '@/lib/seo';
 
 const translations = {
   de: {
@@ -99,17 +86,22 @@ const translations = {
   },
 }
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ locale: string }>
-}): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params
-  return {
-    title: metaTitles[locale] ?? metaTitles.de,
-    description: metaDescriptions[locale] ?? metaDescriptions.de,
-    alternates: { canonical: 'https://www.ferienwohnung-in-der-vulkaneifel.de/buchung' },
+  const titles = {
+    de: 'Ferienwohnung Vulkaneifel buchen – Preise & Verfügbarkeit',
+    en: 'Book Holiday Apartment Vulkan Eifel – Prices & Availability',
+    nl: 'Vakantieappartement Vulkaan Eifel Boeken – Prijzen & Beschikbaarheid',
+    fr: 'Réserver Appartement Eifel Volcanique – Prix & Disponibilité',
   }
+  const descs = {
+    de: 'Direkt buchen ab 75 € pro Nacht. Verfügbarkeit prüfen und sicher via Stripe bezahlen.',
+    en: 'Book directly from €75 per night. Check availability and pay securely via Stripe.',
+    nl: 'Direct boeken vanaf €75 per nacht. Beschikbaarheid controleren en veilig betalen via Stripe.',
+    fr: 'Réservez directement à partir de 75 € par nuit. Disponibilité et paiement sécurisé via Stripe.',
+  }
+  const l = locale as keyof typeof titles
+  return generateSeoMetadata('/buchung', locale, titles[l] || titles.de, descs[l] || descs.de)
 }
 
 export function generateStaticParams() {

@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { getLocale } from 'next-intl/server'
+import { generateSeoMetadata } from '@/lib/seo';
 
 const translations = {
   de: {
@@ -142,12 +143,20 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params
-  const tr = translations[locale as keyof typeof translations] ?? translations.de
-  return {
-    title: tr.meta.title,
-    description: tr.meta.description,
-    alternates: { canonical: 'https://www.ferienwohnung-in-der-vulkaneifel.de/hund' },
+  const titles = {
+    'de': 'Urlaub mit Hund in der Vulkaneifel – Wanderwege, Seen & Ausflüge',
+    'en': 'Holiday with Dog in Vulkan Eifel – Trails, Lakes & Trips',
+    'nl': 'Vakantie met Hond in de Vulkaan Eifel – Wandelpaden & Meren',
+    'fr': 'Vacances avec Chien dans l\'Eifel Volcanique – Sentiers & Lacs',
   }
+  const descs = {
+    'de': 'Hundefreundliche Ausflüge in der Vulkaneifel: Freilinger See, Wanderwege, Dauner Maare.',
+    'en': 'Dog-friendly trips in Vulkan Eifel: Freilinger See with dog beach, hiking trails, Daun Lakes.',
+    'nl': 'Hondenvriendelijke uitjes in de Vulkaan Eifel: Freilinger See met hondenstrand, wandelpaden.',
+    'fr': 'Sorties chien-friendly dans l\'Eifel: Freilinger See avec plage pour chiens, sentiers de randonnée.',
+  }
+  const l = locale as keyof typeof titles
+  return generateSeoMetadata('/hund', locale, titles[l] || titles.de, descs[l] || descs.de)
 }
 
 export default async function HundPage() {

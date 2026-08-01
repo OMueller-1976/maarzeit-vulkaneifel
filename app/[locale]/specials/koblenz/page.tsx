@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { getLocale } from 'next-intl/server'
+import { generateSeoMetadata } from '@/lib/seo';
 
 const metaTitles: Record<string, string> = {
   de: 'Tagesausflug nach Koblenz – Deutsches Eck & Festung, 85 km',
@@ -28,11 +29,20 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params
-  return {
-    title: metaTitles[locale] ?? metaTitles.de,
-    description: metaDescriptions[locale] ?? metaDescriptions.de,
-    alternates: { canonical: 'https://www.ferienwohnung-in-der-vulkaneifel.de/specials/koblenz' },
+  const titles = {
+    'de': 'Ausflug Koblenz – Deutsches Eck & Festung, 85 km',
+    'en': 'Day Trip to Koblenz – German Corner & Fortress, 85 km',
+    'nl': 'Daguitstap naar Koblenz – Duits Hoek & Vesting, 85 km',
+    'fr': 'Excursion à Coblence – Coin Allemand & Forteresse, 85 km',
   }
+  const descs = {
+    'de': 'Koblenz Tagesausflug: Deutsches Eck, Festung Ehrenbreitstein und Rheinufer – 85 km ab Kirchweiler.',
+    'en': 'Koblenz day trip: German Corner, Ehrenbreitstein Fortress and Rhine waterfront – 85 km from Kirchweiler.',
+    'nl': 'Koblenz daguitstap: Duits Hoek, Vesting Ehrenbreitstein en Rijnoever – 85 km van Kirchweiler.',
+    'fr': 'Excursion Coblence: Coin Allemand, Forteresse Ehrenbreitstein et bord du Rhin – à 85 km.',
+  }
+  const l = locale as keyof typeof titles
+  return generateSeoMetadata('/specials/koblenz', locale, titles[l] || titles.de, descs[l] || descs.de)
 }
 
 export default async function KoblenzPage() {

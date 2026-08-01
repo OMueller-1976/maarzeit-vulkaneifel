@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { getLocale } from 'next-intl/server'
+import { generateSeoMetadata } from '@/lib/seo';
 
 const translations = {
   de: {
@@ -75,12 +76,20 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params
-  const tr = translations[locale as keyof typeof translations] ?? translations.de
-  return {
-    title: tr.meta.title,
-    description: tr.meta.description,
-    alternates: { canonical: 'https://www.ferienwohnung-in-der-vulkaneifel.de/ferienwohnung' },
+  const titles = {
+    'de': 'Die Ferienwohnung – 35 qm Neubau mit Terrasse & Parkplatz',
+    'en': 'The Apartment – 35 sqm New Build with Terrace & Parking',
+    'nl': 'Het Appartement – 35 m² Nieuwbouw met Terras & Parkeerplaats',
+    'fr': 'L\'Appartement – 35 m² Construction Neuve avec Terrasse & Parking',
   }
+  const descs = {
+    'de': 'Moderne 35 qm Neubau-Ferienwohnung 2023. Separater Eingang, Parkplatz, Terrasse, Amazon Prime. Hund willkommen.',
+    'en': 'Modern 35 sqm new build 2023. Separate entrance, parking, terrace, Amazon Prime. Dogs welcome.',
+    'nl': 'Modern 35 m² nieuwbouwappartement 2023. Aparte ingang, parkeerplaats, terras, Amazon Prime. Honden welkom.',
+    'fr': 'Appartement moderne 35 m² construction neuve 2023. Entrée séparée, parking, terrasse, Amazon Prime. Chiens bienvenus.',
+  }
+  const l = locale as keyof typeof titles
+  return generateSeoMetadata('/ferienwohnung', locale, titles[l] || titles.de, descs[l] || descs.de)
 }
 
 export default async function FerienwohnungPage() {

@@ -3,6 +3,7 @@ import Link from "next/link";
 import { getLocale } from 'next-intl/server'
 
 import MapWrapper from "@/components/MapWrapper";
+import { generateSeoMetadata } from '@/lib/seo';
 
 const translations = {
   de: {
@@ -165,11 +166,20 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params
-  const tr = translations[locale as keyof typeof translations] ?? translations.de
-  return {
-    title: tr.meta.title,
-    description: tr.meta.description,
+  const titles = {
+    'de': 'Anreise zur Ferienwohnung in Kirchweiler – Karte & Entfernungen',
+    'en': 'Getting to the Holiday Apartment in Kirchweiler – Map & Distances',
+    'nl': 'Aanrijden naar het Vakantieappartement in Kirchweiler – Kaart & Afstanden',
+    'fr': 'Accès à l\'Appartement de Vacances à Kirchweiler – Carte & Distances',
   }
+  const descs = {
+    'de': 'Anreise zur MaarZeit Ferienwohnung in Kirchweiler. Karte, Routenplanung und Entfernungen.',
+    'en': 'Directions to MaarZeit holiday apartment in Kirchweiler. Map, route planning and distances.',
+    'nl': 'Routebeschrijving naar MaarZeit in Kirchweiler. Kaart en afstanden.',
+    'fr': 'Itinéraire vers l\'appartement MaarZeit à Kirchweiler. Carte et distances.',
+  }
+  const l = locale as keyof typeof titles
+  return generateSeoMetadata('/anreise', locale, titles[l] || titles.de, descs[l] || descs.de)
 }
 
 export default async function AnreisePage() {

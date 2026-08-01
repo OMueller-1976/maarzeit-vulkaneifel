@@ -1,5 +1,7 @@
 import Link from "next/link";
 import { getLocale } from 'next-intl/server';
+import { generateSeoMetadata } from '@/lib/seo';
+import type { Metadata } from 'next';
 
 const translations = {
   de: {
@@ -151,17 +153,22 @@ const strecken = [
   },
 ]
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ locale: string }>
-}) {
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params
-  const tr = translations[locale as keyof typeof translations] ?? translations.de
-  return {
-    title: tr.meta.title,
-    description: tr.meta.description,
+  const titles = {
+    de: 'Motorradfreundliche Ferienwohnung Eifel – Touren & Unterkunft',
+    en: 'Motorcycle-Friendly Holiday Apartment Eifel – Tours & Accommodation',
+    nl: 'Motorvriendelijk Vakantieappartement Eifel – Touren & Verblijf',
+    fr: 'Appartement Moto Eifel Volcanique – Circuits & Hébergement',
   }
+  const descs = {
+    de: 'Motorradurlaub in der Vulkaneifel. Eigener Parkplatz, Nürburgring 55 km.',
+    en: 'Motorcycle holiday in the Vulkan Eifel. Private parking, Nürburgring 55 km.',
+    nl: 'Motorvakantie in de Vulkaan Eifel. Eigen parkeerplaats, Nürburgring 55 km.',
+    fr: "Vacances moto dans l'Eifel volcanique. Parking privé, Nürburgring à 55 km.",
+  }
+  const l = locale as keyof typeof titles
+  return generateSeoMetadata('/motorrad', locale, titles[l] || titles.de, descs[l] || descs.de)
 }
 
 export function generateStaticParams() {

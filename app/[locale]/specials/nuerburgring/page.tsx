@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Script from "next/script";
 import { getLocale } from 'next-intl/server'
+import { generateSeoMetadata } from '@/lib/seo';
 
 const metaTitles: Record<string, string> = {
   de: 'Nürburgring Tagesausflug von Kirchweiler – nur 55 km',
@@ -39,11 +40,20 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params
-  return {
-    title: metaTitles[locale] ?? metaTitles.de,
-    description: metaDescriptions[locale] ?? metaDescriptions.de,
-    alternates: { canonical: 'https://www.ferienwohnung-in-der-vulkaneifel.de/specials/nuerburgring' },
+  const titles = {
+    'de': 'Nürburgring Ausflug ab Kirchweiler – nur 55 km',
+    'en': 'Nürburgring Day Trip from Kirchweiler – only 55 km',
+    'nl': 'Nürburgring Daguitstap vanuit Kirchweiler – slechts 55 km',
+    'fr': 'Excursion Nürburgring depuis Kirchweiler – à seulement 55 km',
   }
+  const descs = {
+    'de': 'Der Nürburgring ist nur 55 km von der Ferienwohnung entfernt – ideal für Motorsport-Fans.',
+    'en': 'The Nürburgring is only 55 km from the holiday apartment – perfect for motorsport fans.',
+    'nl': 'De Nürburgring ligt op slechts 55 km van het vakantieappartement – ideaal voor motorsportfans.',
+    'fr': 'Le Nürburgring est à seulement 55 km de l\'appartement – idéal pour les amateurs de sport automobile.',
+  }
+  const l = locale as keyof typeof titles
+  return generateSeoMetadata('/specials/nuerburgring', locale, titles[l] || titles.de, descs[l] || descs.de)
 }
 
 export default async function NuerburgringPage() {
