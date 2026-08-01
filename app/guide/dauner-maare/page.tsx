@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export const metadata: Metadata = {
   title: 'Dauner Maare – Gemündener, Schalkenmehrener & Weinfelder Maar',
-  description: 'Die Dauner Maare: Baden, Wandern und Natur in der Vulkaneifel. Gemündener, Schalkenmehrener und Weinfelder Maar – nur 6 km von unserer Ferienwohnung.',
+  description: 'Die Dauner Maare: Baden, Wandern und Natur in der Vulkaneifel. Gemündener, Schalkenmehrener und Weinfelder Maar – ca. 15 km entfernt (19 Min. per Auto) von unserer Ferienwohnung.',
   alternates: { canonical: 'https://www.ferienwohnung-in-der-vulkaneifel.de/guide/dauner-maare' },
 };
 

@@ -46,7 +46,7 @@ export default function HomePage() {
             <span className="text-green-300">Vulkaneifel</span>
           </h1>
           <p className="text-lg md:text-xl text-stone-200 max-w-2xl mx-auto mb-10 leading-relaxed">
-            Ihre Ferienwohnung direkt an den Dauner Maaren – für Natur, Stille und unvergessliche
+            Ihre Ferienwohnung in der Vulkaneifel – nahe den Dauner Maaren, für Natur, Stille und unvergessliche
             Erlebnisse in einer der schönsten Landschaften Deutschlands.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
@@ -95,10 +95,11 @@ export default function HomePage() {
             <ul className="text-stone-700 space-y-2 mb-6 text-sm">
               {[
                 "35 qm für bis zu 3 Personen",
-                "Küchenzeile mit Spülmaschine",
+                "Küchenzeile",
                 "Terrasse & Garten mit Feuerschale",
+                "Schwenkgrill",
                 "Eigener Parkplatz",
-                "WLAN & TV (Sky & Amazon Prime)",
+                "WLAN & TV (Amazon Prime)",
                 "Hunde willkommen",
               ].map((item) => (
                 <li key={item} className="flex items-center gap-2">

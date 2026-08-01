@@ -69,6 +69,21 @@ export default function ImpressumPage() {
             Seiten verantwortlich.
           </p>
         </section>
+
+        <section>
+          <h2 className="text-lg font-bold text-green-900 mb-2">Hinweis zu KI-generierten Inhalten</h2>
+          <p>
+            Teile der auf dieser Website veröffentlichten Inhalte – insbesondere
+            Reiseführer-Artikel, Ausflugstipps und Ratgeber – wurden mit
+            Unterstützung von KI-Systemen (Künstliche Intelligenz) erstellt
+            oder überarbeitet. Trotz sorgfältiger Prüfung können diese Inhalte
+            Ungenauigkeiten, veraltete Informationen oder Fehler enthalten.
+            Angaben zu Öffnungszeiten, Preisen, Entfernungen und
+            Veranstaltungen sind ohne Gewähr. Wir empfehlen, wichtige
+            Informationen vor Ihrem Besuch direkt beim jeweiligen Anbieter
+            zu verifizieren.
+          </p>
+        </section>
       </div>
     </div>
   );

@@ -108,6 +108,17 @@ export default function BuchungsbedingungenPage() {
             Sitz des Vermieters in Rheinland-Pfalz.
           </p>
         </section>
+
+        <section>
+          <h2 className="text-lg font-bold text-green-900 mb-2">Hinweis zu KI-generierten Inhalten</h2>
+          <p>
+            Die Reisetipps, Ausflugsbeschreibungen und Informationsartikel
+            auf dieser Website wurden teilweise mit Hilfe von
+            KI-Systemen erstellt. Sie dienen der allgemeinen Orientierung
+            und ersetzen keine offizielle Auskunft. Angaben zu
+            Entfernungen, Öffnungszeiten und Preisen können abweichen.
+          </p>
+        </section>
       </div>
     </div>
   );

@@ -60,6 +60,11 @@ export default function Footer() {
       </div>
       <div className="border-t border-green-800 text-center py-4 text-xs text-stone-400">
         © {new Date().getFullYear()} MaarZeit Vulkaneifel. Alle Rechte vorbehalten.
+        <p style={{ fontSize: '0.75rem', color: '#999', marginTop: '0.5rem' }}>
+          Hinweis: Teile der Inhalte, Artikel und Reisetipps dieser Website
+          wurden mit Unterstützung von KI-Systemen erstellt und können
+          Ungenauigkeiten enthalten.
+        </p>
       </div>
     </footer>
   );

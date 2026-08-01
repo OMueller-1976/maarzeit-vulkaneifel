@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export const metadata: Metadata = {
   title: 'Die Ferienwohnung – 35 qm Neubau mit Terrasse & Parkplatz',
-  description: 'Moderne 35 qm Neubau-Ferienwohnung 2023. Separater Eingang, Parkplatz, Terrasse, Küchenzeile, Spülmaschine, TV mit Sky & Prime. Hund willkommen.',
+  description: 'Moderne 35 qm Neubau-Ferienwohnung 2023. Separater Eingang, Parkplatz, Terrasse, Küchenzeile, TV mit Amazon Prime. Hund willkommen.',
   alternates: { canonical: 'https://www.ferienwohnung-in-der-vulkaneifel.de/ferienwohnung' },
 };
 
@@ -15,14 +15,14 @@ const ausstattung = [
   "Doppelbett",
   "Sofa (als Klappsofa für 3. Person nutzbar)",
   "Küchenzeile",
-  "Spülmaschine",
   "Kühlschrank",
   "Bar-Esstisch mit Hockern",
   "Terrasse mit Gartenmöbeln (3 Stühle & Tisch)",
   "Garten mit Feuerschale",
+  "Schwenkgrill",
   "Bad mit Dusche",
   "WLAN",
-  "TV mit Sky & Amazon Prime",
+  "TV mit Amazon Prime",
   "Haarfön",
   "Hunde erlaubt",
   "Nichtraucherwohnung",
@@ -34,8 +34,8 @@ export default function FerienwohnungPage() {
     <div className="max-w-5xl mx-auto px-4 py-16">
       <h1 className="section-title">Die Ferienwohnung</h1>
       <p className="text-stone-600 text-lg mb-6 max-w-2xl leading-relaxed">
-        Unsere Ferienwohnung MaarZeit liegt ruhig in der Vulkaneifel, nur wenige Minuten von
-        den weltberühmten Dauner Maaren entfernt. Auf 35 qm finden Sie alles, was Sie
+        Unsere Ferienwohnung MaarZeit liegt ruhig in der Vulkaneifel, ca. 15 km von
+        den weltberühmten Dauner Maaren entfernt (19 Min. per Auto). Auf 35 qm finden Sie alles, was Sie
         für einen erholsamen Urlaub brauchen – modern eingerichtet (Neubau 2023), gemütlich
         und naturnah.
       </p>
@@ -86,14 +86,12 @@ export default function FerienwohnungPage() {
       <h2 className="text-2xl font-bold text-green-900 mb-4">Lage & Umgebung</h2>
       <p className="text-stone-600 mb-4 leading-relaxed">
         Die Wohnung befindet sich in Kirchweiler, Kreis Daun, im Herzen der Vulkaneifel.
-        Der Schalkenmehrener Maar ist in wenigen Minuten erreichbar, die Kreisstadt Daun
+        Die Dauner Maare sind ca. 15 km entfernt (19 Min. per Auto), die Kreisstadt Daun
         mit Restaurants, Supermärkten und Apotheke liegt nur 5 km entfernt.
       </p>
       <ul className="text-sm text-stone-700 space-y-1 mb-10">
         {[
-          "Schalkenmehrener Maar: wenige Minuten",
-          "Gemündener Maar: ca. 3 km",
-          "Weinfelder Maar: ca. 4 km",
+          "Dauner Maare: ca. 15 km (19 Min. per Auto)",
           "Daun Innenstadt: 5 km",
           "Nürburgring: 45 km",
           "Trier: 70 km",

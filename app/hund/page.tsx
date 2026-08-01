@@ -16,7 +16,7 @@ const seen = [
   },
   {
     name: 'Maare der Vulkaneifel',
-    entfernung: 'Dauner Maare ab Kirchweiler ca. 6 km',
+    entfernung: 'Dauner Maare ab Kirchweiler ca. 15 km (19 Min. per Auto)',
     text: 'Die Dauner Maare – Gemündener, Schalkenmehrener und Weinfelder Maar – sind mit Hund begehbar. Am Ufer gilt Leinenpflicht, da es sich um Naturschutzgebiete handelt. Das Badeverbot in den Maaren gilt für Hunde wie für Menschen gleichermaßen. Die Rundwanderwege rund um die Maare eignen sich hervorragend für ruhige Spaziergänge.',
     hinweis: 'Leinenpflicht am Ufer · Betreten der Naturschutzzone verboten',
   },
