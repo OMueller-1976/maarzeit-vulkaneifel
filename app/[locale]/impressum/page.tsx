@@ -1,10 +1,37 @@
 import type { Metadata } from "next";
+import { getLocale } from 'next-intl/server';
 
-export const metadata: Metadata = {
-  title: "Impressum",
-  description: "Impressum der Website MaarZeit Vulkaneifel.",
-};
+const metaTitles: Record<string, string> = {
+  de: 'Impressum – MaarZeit Vulkaneifel',
+  en: 'Legal Notice – MaarZeit Vulkan Eifel',
+  nl: 'Colofon – MaarZeit Vulkaan Eifel',
+  fr: 'Mentions légales – MaarZeit Eifel Volcanique',
+}
 
+const pageTitles: Record<string, string> = {
+  de: 'Impressum',
+  en: 'Legal Notice',
+  nl: 'Colofon',
+  fr: 'Mentions légales',
+}
+
+const legalNotes: Record<string, string> = {
+  en: 'This legal notice is provided in German as required by German law (§ 5 TMG). The German version below is legally binding.',
+  nl: 'Deze wettelijke kennisgeving is in het Duits opgesteld zoals vereist door de Duitse wetgeving (§ 5 TMG). De onderstaande Duitse versie is juridisch bindend.',
+  fr: 'Cette mention légale est fournie en allemand conformément à la loi allemande (§ 5 TMG). La version allemande ci-dessous est juridiquement contraignante.',
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>
+}): Promise<Metadata> {
+  const { locale } = await params
+  return {
+    title: metaTitles[locale] ?? metaTitles.de,
+    description: 'Impressum der Website MaarZeit Vulkaneifel.',
+  }
+}
 
 export function generateStaticParams() {
   return [
@@ -15,10 +42,18 @@ export function generateStaticParams() {
   ]
 }
 
-export default function ImpressumPage() {
+export default async function ImpressumPage() {
+  const locale = await getLocale()
+
   return (
     <div className="max-w-3xl mx-auto px-4 py-16">
-      <h1 className="section-title">Impressum</h1>
+      <h1 className="section-title">{pageTitles[locale] ?? pageTitles.de}</h1>
+
+      {locale !== 'de' && (
+        <p style={{ background: '#F9F8F6', border: '1px solid #E5E5E5', borderRadius: '4px', padding: '0.75rem 1rem', fontSize: '0.875rem', color: '#666', marginBottom: '2rem' }}>
+          {legalNotes[locale]}
+        </p>
+      )}
 
       <div className="prose prose-stone max-w-none space-y-6 text-stone-700">
         <section>

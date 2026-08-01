@@ -1,10 +1,37 @@
 import type { Metadata } from "next";
+import { getLocale } from 'next-intl/server';
 
-export const metadata: Metadata = {
-  title: "Datenschutzerklärung",
-  description: "Datenschutzerklärung der Website MaarZeit Vulkaneifel gemäß DSGVO.",
-};
+const metaTitles: Record<string, string> = {
+  de: 'Datenschutzerklärung – MaarZeit Vulkaneifel',
+  en: 'Privacy Policy – MaarZeit Vulkan Eifel',
+  nl: 'Privacybeleid – MaarZeit Vulkaan Eifel',
+  fr: 'Politique de confidentialité – MaarZeit Eifel Volcanique',
+}
 
+const pageTitles: Record<string, string> = {
+  de: 'Datenschutzerklärung',
+  en: 'Privacy Policy',
+  nl: 'Privacybeleid',
+  fr: 'Politique de confidentialité',
+}
+
+const legalNotes: Record<string, string> = {
+  en: 'This privacy policy is provided in German as required by German data protection law (GDPR / DSGVO). The German version below is legally binding.',
+  nl: 'Dit privacybeleid is in het Duits opgesteld zoals vereist door de Duitse privacywetgeving (AVG / DSGVO). De onderstaande Duitse versie is juridisch bindend.',
+  fr: 'Cette politique de confidentialité est fournie en allemand conformément à la législation allemande sur la protection des données (RGPD / DSGVO). La version allemande ci-dessous est juridiquement contraignante.',
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>
+}): Promise<Metadata> {
+  const { locale } = await params
+  return {
+    title: metaTitles[locale] ?? metaTitles.de,
+    description: 'Datenschutzerklärung der Website MaarZeit Vulkaneifel gemäß DSGVO.',
+  }
+}
 
 export function generateStaticParams() {
   return [
@@ -15,10 +42,18 @@ export function generateStaticParams() {
   ]
 }
 
-export default function DatenschutzPage() {
+export default async function DatenschutzPage() {
+  const locale = await getLocale()
+
   return (
     <div className="max-w-3xl mx-auto px-4 py-16">
-      <h1 className="section-title">Datenschutzerklärung</h1>
+      <h1 className="section-title">{pageTitles[locale] ?? pageTitles.de}</h1>
+
+      {locale !== 'de' && (
+        <p style={{ background: '#F9F8F6', border: '1px solid #E5E5E5', borderRadius: '4px', padding: '0.75rem 1rem', fontSize: '0.875rem', color: '#666', marginBottom: '2rem' }}>
+          {legalNotes[locale]}
+        </p>
+      )}
 
       <div className="space-y-8 text-stone-700 text-sm leading-relaxed">
 
