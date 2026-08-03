@@ -19,6 +19,16 @@
       "btnAvailability": "Check Availability",
       "btnApartment": "View Apartment"
     },
+    "highlights": {
+      "heading": "Why MaarZeit?",
+      "subtitle": "The Vulkan Eifel is one of Germany's most nature-rich regions – and MaarZeit is right in the middle of it.",
+      "items": [
+        { "icon": "🌋", "title": "Volcanic Landscape", "text": "Unique maare and volcanic cones right on your doorstep – a natural wonder of the Eifel." },
+        { "icon": "🥾", "title": "Hiking Paradise", "text": "Stunning trails like the Eifelsteig lead through forests, maare and quiet valleys." },
+        { "icon": "🏍️", "title": "Motorcycle Region", "text": "Winding roads through the Eifel landscape make this region a biker's paradise." },
+        { "icon": "🐕", "title": "Dogs Welcome", "text": "Your four-legged friend is warmly welcome – with a fenced garden and open meadow." }
+      ]
+    },
     "apartment": {
       "title": "The Apartment",
       "description": "Quietly situated in the Vulkan Eifel, our 35 sqm holiday apartment offers everything you need for a relaxing break.",
@@ -31,6 +41,7 @@
         "WiFi & TV with Amazon Prime",
         "Dogs welcome"
       ],
+      "imgAlt": "Garden with fire bowl at MaarZeit Vulkan Eifel holiday apartment",
       "btnDetails": "View Details"
     },
     "prices": {
@@ -53,6 +64,17 @@
         { "title": "Deposit", "text": "A 30% deposit via Stripe secures your booking." },
         { "title": "Key Handover", "text": "Pay the remainder on arrival – card accepted." }
       ]
+    },
+    "guide": {
+      "heading": "Vulkan Eifel Travel Guide",
+      "subtitle": "Discover the best tips for hiking, cycling, excursions and more – compiled by locals for our guests.",
+      "links": [
+        { "href": "/guide/dauner-maare", "icon": "🌊", "label": "Daun Maare" },
+        { "href": "/guide/wandern", "icon": "🥾", "label": "Hiking" },
+        { "href": "/guide/radfahren", "icon": "🚴", "label": "Cycling" },
+        { "href": "/guide/ausflugsziele", "icon": "🗺️", "label": "Excursions" },
+        { "href": "/guide/schlechtwetter", "icon": "🌧️", "label": "Rainy Days" }
+      ]
     }
   },
   "footer": {
@@ -66,6 +88,67 @@
     "necessary": "Necessary only",
     "acceptAll": "Accept all",
     "details": "Show details",
-    "hideDetails": "Hide details"
+    "hideDetails": "Hide details",
+    "privacyLinkText": "Privacy Policy",
+    "necessaryTitle": "✓ Necessary Cookies",
+    "necessaryText": "Session management, booking process (Stripe). Always active.",
+    "ga4Title": "Google Analytics (GA4)",
+    "ga4Text": "User behaviour analysis, anonymised. Only with consent.",
+    "gtmTitle": "Google Tag Manager",
+    "gtmText": "Controls tracking tags. Only active with consent."
+  },
+  "faq": {
+    "heading": "Frequently Asked Questions",
+    "subtitle": "Everything you need to know about the holiday apartment in the Vulkan Eifel at a glance.",
+    "questions": [
+      {
+        "q": "Where exactly is the MaarZeit holiday apartment located?",
+        "a": "The apartment is in Kirchweiler, Am Bruchborn 6, in the Daun district in the Vulkan Eifel (Rhineland-Palatinate). The Daun Maare are reachable in around 6 minutes from Kirchweiler, and the town of Daun is just 6 km away."
+      },
+      {
+        "q": "How big is the apartment and how many guests can it accommodate?",
+        "a": "The apartment is 35 sqm and accommodates up to 3 guests. It has a double bed and a sofa bed (usable as a fold-out bed for a third person). New build 2023."
+      },
+      {
+        "q": "Are dogs allowed in the apartment?",
+        "a": "Yes, dogs are very welcome. The Vulkan Eifel offers numerous dog-friendly hiking trails, forests and excursion destinations – including Freilinger See with a designated dog beach (approx. 45 km away)."
+      },
+      {
+        "q": "What does the apartment cost per night?",
+        "a": "Prices vary by length of stay: 1 night €125, 2–3 nights €95/night, 4–7 nights €85/night, 7+ nights €75/night. A flat cleaning fee of €20 per booking applies. Book directly with no platform fees."
+      },
+      {
+        "q": "How far are the Daun Maare from the apartment?",
+        "a": "The Daun Maare – Gemündener Maar, Schalkenmehrener Maar and Weinfelder Maar – are just 5–8 km from the apartment and reachable in a few minutes by car. A real advantage of our location in Kirchweiler."
+      },
+      {
+        "q": "Is there private parking?",
+        "a": "Yes, a dedicated parking space directly at the property is included free of charge. Ideal for motorcyclists who want to park their bike securely, and for guests with lots of luggage."
+      },
+      {
+        "q": "Is the apartment suitable for motorcyclists?",
+        "a": "Absolutely. The Vulkan Eifel is one of Germany's finest motorcycle regions. Private parking, winding Eifel roads right outside, Nürburgring approx. 55 km and the Moselle approx. 45 km – the perfect base for day trips."
+      },
+      {
+        "q": "How does booking work?",
+        "a": "Choose your dates in the calendar, enter your details and pay a 30% deposit securely via Stripe (credit card, SEPA or Apple/Google Pay). The remaining 70% is due on arrival. Book directly with your host – no platform fees."
+      },
+      {
+        "q": "What are the best excursion destinations in the Vulkan Eifel?",
+        "a": "Highlights near Kirchweiler: Daun Maare (6 km), Wild & Adventure Park Daun (6 km), Eifel Volcano Museum (6 km), Eagle & Wolf Park Kasselburg (20 km), Gerolsteiner Erlebniswelt (18 km), Dreimühlen Waterfall (18 km), Manderscheid Castles (18 km) and the Nürburgring (55 km)."
+      },
+      {
+        "q": "Which hiking trails are nearby?",
+        "a": "Accessible directly from Kirchweiler: circular walk around the Daun Maare, Lieserpfad (51 km long-distance trail), Eifelsteig, Manderscheid Castle Trail and various HeimatSpuren circular routes. Suitable for all fitness levels."
+      },
+      {
+        "q": "Does the apartment have a kitchen?",
+        "a": "Yes, the apartment has a full kitchenette with dishwasher, refrigerator and cooking facilities – ideal for self-caterers and longer stays. Plus a terrace with garden furniture and a fire bowl in the garden."
+      },
+      {
+        "q": "What are the check-in and check-out times?",
+        "a": "Check-in from 3:00 PM, check-out by 11:00 AM. For special requests, please feel free to contact us – we will do our best to be flexible."
+      }
+    ]
   }
 }

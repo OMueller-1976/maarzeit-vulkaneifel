@@ -19,6 +19,16 @@
       "btnAvailability": "Verfügbarkeit prüfen",
       "btnApartment": "Die Wohnung ansehen"
     },
+    "highlights": {
+      "heading": "Warum MaarZeit?",
+      "subtitle": "Die Vulkaneifel ist eine der naturreichsten Regionen Deutschlands – und MaarZeit liegt mittendrin.",
+      "items": [
+        { "icon": "🌋", "title": "Vulkanische Landschaft", "text": "Einmalige Maare und Vulkankegel direkt vor der Haustür – ein Naturwunder der Eifel." },
+        { "icon": "🥾", "title": "Wanderparadies", "text": "Traumhafte Wanderwege wie der Eifelsteig führen durch Wälder, Maare und stille Täler." },
+        { "icon": "🏍️", "title": "Motorradregion", "text": "Kurvenreiche Strecken durch die Eifellandschaft machen die Region zum Biker-Paradies." },
+        { "icon": "🐕", "title": "Hunde willkommen", "text": "Ihr Vierbeiner ist bei uns herzlich willkommen – mit eingezäuntem Garten und Auslaufwiese." }
+      ]
+    },
     "apartment": {
       "title": "Die Ferienwohnung",
       "description": "Ruhig gelegen in der Vulkaneifel bietet unsere Ferienwohnung auf 35 qm alles, was Sie für einen erholsamen Urlaub brauchen.",
@@ -31,6 +41,7 @@
         "WLAN & TV mit Amazon Prime",
         "Hunde willkommen"
       ],
+      "imgAlt": "Garten mit Feuerschale der Ferienwohnung MaarZeit Vulkaneifel",
       "btnDetails": "Alle Details"
     },
     "prices": {
@@ -53,6 +64,17 @@
         { "title": "Anzahlung", "text": "Mit 30 % Anzahlung über Stripe wird der Termin reserviert." },
         { "title": "Schlüsselübergabe", "text": "Restzahlung bei Anreise vor Ort möglich – auch per Karte." }
       ]
+    },
+    "guide": {
+      "heading": "Reiseführer Vulkaneifel",
+      "subtitle": "Entdecken Sie die besten Tipps für Wanderungen, Radtouren, Ausflugsziele und mehr – zusammengestellt von Einheimischen für unsere Gäste.",
+      "links": [
+        { "href": "/guide/dauner-maare", "icon": "🌊", "label": "Dauner Maare" },
+        { "href": "/guide/wandern", "icon": "🥾", "label": "Wandern" },
+        { "href": "/guide/radfahren", "icon": "🚴", "label": "Radfahren" },
+        { "href": "/guide/ausflugsziele", "icon": "🗺️", "label": "Ausflugsziele" },
+        { "href": "/guide/schlechtwetter", "icon": "🌧️", "label": "Schlechtwetter" }
+      ]
     }
   },
   "footer": {
@@ -66,6 +88,67 @@
     "necessary": "Nur notwendige",
     "acceptAll": "Alle akzeptieren",
     "details": "Details anzeigen",
-    "hideDetails": "Details ausblenden"
+    "hideDetails": "Details ausblenden",
+    "privacyLinkText": "Datenschutzerklärung",
+    "necessaryTitle": "✓ Notwendige Cookies",
+    "necessaryText": "Session-Verwaltung, Buchungsprozess (Stripe). Immer aktiv.",
+    "ga4Title": "Google Analytics (GA4)",
+    "ga4Text": "Analyse des Nutzerverhaltens, anonymisiert. Nur bei Zustimmung.",
+    "gtmTitle": "Google Tag Manager",
+    "gtmText": "Steuerung von Tracking-Tags. Nur bei Zustimmung aktiv."
+  },
+  "faq": {
+    "heading": "Häufige Fragen",
+    "subtitle": "Alles Wichtige zur Ferienwohnung in der Vulkaneifel auf einen Blick.",
+    "questions": [
+      {
+        "q": "Wo liegt die Ferienwohnung MaarZeit genau?",
+        "a": "Die Ferienwohnung liegt in Kirchweiler, Am Bruchborn 6, im Kreis Daun in der Vulkaneifel (Rheinland-Pfalz). Von Kirchweiler sind die Dauner Maare in ca. 6 Minuten erreichbar, die Kreisstadt Daun liegt nur 6 km entfernt."
+      },
+      {
+        "q": "Wie groß ist die Ferienwohnung und für wie viele Personen ist sie geeignet?",
+        "a": "Die Ferienwohnung ist 35 qm groß und für bis zu 3 Personen geeignet. Sie verfügt über ein Doppelbett und ein Schlafsofa (als Klappsofa für eine dritte Person nutzbar). Neubau 2023."
+      },
+      {
+        "q": "Sind Hunde in der Ferienwohnung erlaubt?",
+        "a": "Ja, Hunde sind herzlich willkommen. Die Vulkaneifel bietet zahlreiche hundefreundliche Wanderwege, Wälder und Ausflugsziele – darunter der Freilinger See mit ausgewiesenem Hundestrand (ca. 45 km)."
+      },
+      {
+        "q": "Was kostet die Ferienwohnung pro Nacht?",
+        "a": "Die Preise staffeln sich nach Aufenthaltsdauer: 1 Nacht 125 €, 2–3 Nächte 95 € pro Nacht, 4–7 Nächte 85 € pro Nacht, ab 7 Nächten 75 € pro Nacht. Dazu kommt eine Endreinigungspauschale von 20 € pro Buchung. Direkte Buchung ohne Plattformgebühren."
+      },
+      {
+        "q": "Wie weit sind die Dauner Maare von der Ferienwohnung entfernt?",
+        "a": "Die Dauner Maare – Gemündener Maar, Schalkenmehrener Maar und Weinfelder Maar – sind nur ca. 5–8 km von der Ferienwohnung entfernt und in wenigen Minuten per Auto erreichbar. Ein echter Vorteil unserer Lage in Kirchweiler."
+      },
+      {
+        "q": "Gibt es einen eigenen Parkplatz?",
+        "a": "Ja, ein eigener Stellplatz direkt an der Unterkunft ist kostenfrei inklusive. Ideal für Motorradfahrer, die ihre Maschine sicher abstellen möchten, und für Gäste mit viel Gepäck."
+      },
+      {
+        "q": "Ist die Ferienwohnung für Motorradfahrer geeignet?",
+        "a": "Absolut. Die Vulkaneifel zählt zu den schönsten Motorradregionen Deutschlands. Eigener Parkplatz, kurvige Eifelstraßen direkt vor der Tür, Nürburgring ca. 55 km entfernt und Mosel ca. 45 km – perfekte Ausgangslage für Tagestouren."
+      },
+      {
+        "q": "Wie funktioniert die Buchung?",
+        "a": "Reisezeitraum im Kalender wählen, Daten eingeben und 30 % Anzahlung sicher via Stripe bezahlen (Kreditkarte, SEPA oder Apple/Google Pay). Die Restzahlung (70 %) ist bei Anreise fällig. Buchung direkt beim Gastgeber – ohne Plattformgebühren."
+      },
+      {
+        "q": "Was sind die besten Ausflugsziele in der Vulkaneifel?",
+        "a": "Die Highlights rund um Kirchweiler: Dauner Maare (6 km), Wild- & Erlebnispark Daun (6 km), Eifel-Vulkanmuseum (6 km), Adler- & Wolfspark Kasselburg (20 km), Gerolsteiner Brunnen Erlebniswelt (18 km), Dreimühlen Wasserfall (18 km), Manderscheider Burgen (18 km) und der Nürburgring (55 km)."
+      },
+      {
+        "q": "Welche Wanderwege gibt es in der Nähe?",
+        "a": "Direkt ab Kirchweiler zugänglich: Rundwanderung Dauner Maare, Lieserpfad (51 km Fernwanderweg), Eifelsteig, Manderscheider Burgenstieg und diverse HeimatSpuren-Rundwege. Für alle Fitnesslevel geeignet."
+      },
+      {
+        "q": "Hat die Ferienwohnung eine Küche?",
+        "a": "Ja, die Ferienwohnung verfügt über eine vollständige Küchenzeile mit Spülmaschine, Kühlschrank und Kochmöglichkeit – ideal für Selbstversorger und längere Aufenthalte. Dazu Terrasse mit Gartenmöbeln und Feuerschale im Garten."
+      },
+      {
+        "q": "Wann ist Check-in und Check-out?",
+        "a": "Check-in ist ab 15:00 Uhr, Check-out bis 11:00 Uhr. Bei besonderen Wünschen sprechen Sie uns gerne an – wir versuchen flexibel zu sein."
+      }
+    ]
   }
 }

@@ -49,7 +49,7 @@ export default function CookieBanner() {
             <p style={{ margin: '0 0 0.5rem', fontSize: '0.95rem', lineHeight: 1.6, color: '#ffffff' }}>
               {t('text')}{' '}
               <a href="/datenschutz" style={{ color: '#A8C9AE', textDecoration: 'underline' }}>
-                Datenschutzerklärung
+                {t('privacyLinkText')}
               </a>.
             </p>
             <button
@@ -124,21 +124,21 @@ export default function CookieBanner() {
           }}>
             <div>
               <strong style={{ color: '#ffffff', display: 'block', marginBottom: 4 }}>
-                ✓ Notwendige Cookies
+                {t('necessaryTitle')}
               </strong>
-              Session-Verwaltung, Buchungsprozess (Stripe). Immer aktiv.
+              {t('necessaryText')}
             </div>
             <div>
               <strong style={{ color: '#ffffff', display: 'block', marginBottom: 4 }}>
-                Google Analytics (GA4)
+                {t('ga4Title')}
               </strong>
-              Analyse des Nutzerverhaltens, anonymisiert. Nur bei Zustimmung.
+              {t('ga4Text')}
             </div>
             <div>
               <strong style={{ color: '#ffffff', display: 'block', marginBottom: 4 }}>
-                Google Tag Manager
+                {t('gtmTitle')}
               </strong>
-              Steuerung von Tracking-Tags. Nur bei Zustimmung aktiv.
+              {t('gtmText')}
             </div>
           </div>
         )}

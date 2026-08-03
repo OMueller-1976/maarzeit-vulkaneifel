@@ -17,50 +17,188 @@ const metaDescriptions: Record<string, string> = {
   fr: 'Excursions depuis Kirchweiler: Nürburgring 55 km, Cochem 45 km, Coblence 85 km, Luxembourg 95 km, Cologne 130 km. Avec distances et conseils.',
 }
 
-const specials = [
-  {
-    href: "/specials/nuerburgring",
-    title: "Nürburgring",
-    entfernung: "ca. 55 km",
-    beschreibung:
-      "Motorsport, Nordschleife und die Erlebniswelt ring°werk – der Nürburgring ist eines der bekanntesten Ausflugsziele Deutschlands. Touristenfahrten auf der legendären Nordschleife sind möglich.",
+const translations = {
+  de: {
+    heading: 'Specials',
+    subtitle: 'Die Ferienwohnung MaarZeit liegt zentral in der Vulkaneifel – ideal als Ausgangspunkt für Ausflüge in alle Richtungen. Ob Motorsport, Weinkultur, Metropolen oder Familienurlaub: Hier finden Sie unsere persönlichen Empfehlungen.',
+    learnMore: 'Mehr erfahren →',
+    ctaText: 'Sie möchten eines dieser Ziele mit einem Aufenthalt in der Vulkaneifel verbinden?',
+    ctaBtn: 'Jetzt Ferienwohnung buchen',
+    specials: [
+      {
+        href: '/specials/nuerburgring',
+        title: 'Nürburgring',
+        entfernung: 'ca. 55 km',
+        beschreibung: 'Motorsport, Nordschleife und die Erlebniswelt ring°werk – der Nürburgring ist eines der bekanntesten Ausflugsziele Deutschlands. Touristenfahrten auf der legendären Nordschleife sind möglich.',
+      },
+      {
+        href: '/specials/auszeit-mit-kind',
+        title: 'Auszeit mit Kind',
+        entfernung: 'regional',
+        beschreibung: 'Die Vulkaneifel ist ein ideales Familienziel: Wildpark, Maare, Wanderwege und ein Garten mit Feuerschale. Naturerlebnisse ohne lange Anfahrten – direkt vor der Haustür.',
+      },
+      {
+        href: '/specials/cochem',
+        title: 'Cochem an der Mosel',
+        entfernung: 'ca. 45 km',
+        beschreibung: 'Die Reichsburg hoch über der Mosel, eine malerische Altstadt und erstklassige Weinkultur machen Cochem zum schönsten Tagesausflug entlang der Mosel.',
+      },
+      {
+        href: '/specials/koblenz',
+        title: 'Koblenz',
+        entfernung: 'ca. 85 km',
+        beschreibung: 'Dort, wo Rhein und Mosel zusammenfließen: Das Deutsche Eck, die Festung Ehrenbreitstein und eine lebendige Altstadt machen Koblenz zu einem lohnenswerten Ausflugsziel.',
+      },
+      {
+        href: '/specials/luxemburg',
+        title: 'Luxemburg',
+        entfernung: 'ca. 95 km',
+        beschreibung: 'Die kleine Hauptstadt mit großem Charme: UNESCO-Altstadt, unterirdische Casemates, das Viertel Grund und internationales Flair – Luxemburg überrascht auf Tagesausflug.',
+      },
+      {
+        href: '/specials/koeln',
+        title: 'Köln',
+        entfernung: 'ca. 130 km',
+        beschreibung: 'Der Kölner Dom, Brauhauskultur, Rheinufer und erstklassige Museen – Köln ist die nächste Metropole und ein großartiges Ziel für einen ausgedehnten Tagesausflug.',
+      },
+    ],
   },
-  {
-    href: "/specials/auszeit-mit-kind",
-    title: "Auszeit mit Kind",
-    entfernung: "regional",
-    beschreibung:
-      "Die Vulkaneifel ist ein ideales Familienziel: Wildpark, Maare, Wanderwege und ein Garten mit Feuerschale. Naturerlebnisse ohne lange Anfahrten – direkt vor der Haustür.",
+  en: {
+    heading: 'Specials',
+    subtitle: 'The MaarZeit holiday apartment is centrally located in the Vulkan Eifel – ideal as a starting point for trips in all directions. Whether motorsport, wine culture, city breaks or family holidays: here you will find our personal recommendations.',
+    learnMore: 'Find out more →',
+    ctaText: 'Would you like to combine one of these destinations with a stay in the Vulkan Eifel?',
+    ctaBtn: 'Book the Holiday Apartment Now',
+    specials: [
+      {
+        href: '/specials/nuerburgring',
+        title: 'Nürburgring',
+        entfernung: 'approx. 55 km',
+        beschreibung: 'Motorsport, the Nordschleife and the ring°werk experience world – the Nürburgring is one of Germany\'s most famous attractions. Tourist laps on the legendary Nordschleife are possible.',
+      },
+      {
+        href: '/specials/auszeit-mit-kind',
+        title: 'Break with Kids',
+        entfernung: 'regional',
+        beschreibung: 'The Vulkan Eifel is an ideal family destination: wildlife park, maars, hiking trails and a garden with fire bowl. Nature experiences without long drives – right on the doorstep.',
+      },
+      {
+        href: '/specials/cochem',
+        title: 'Cochem on the Moselle',
+        entfernung: 'approx. 45 km',
+        beschreibung: 'The Reichsburg high above the Moselle, a picturesque old town and first-class wine culture make Cochem the most beautiful day trip along the Moselle.',
+      },
+      {
+        href: '/specials/koblenz',
+        title: 'Koblenz',
+        entfernung: 'approx. 85 km',
+        beschreibung: 'Where the Rhine and Moselle meet: the German Corner, Ehrenbreitstein Fortress and a vibrant old town make Koblenz a worthwhile destination.',
+      },
+      {
+        href: '/specials/luxemburg',
+        title: 'Luxembourg',
+        entfernung: 'approx. 95 km',
+        beschreibung: 'The small capital with great charm: UNESCO old town, underground casemates, the Grund district and an international atmosphere – Luxembourg surprises on a day trip.',
+      },
+      {
+        href: '/specials/koeln',
+        title: 'Cologne',
+        entfernung: 'approx. 130 km',
+        beschreibung: 'Cologne Cathedral, brewery culture, the Rhine waterfront and world-class museums – Cologne is the nearest metropolis and a great destination for an extended day trip.',
+      },
+    ],
   },
-  {
-    href: "/specials/cochem",
-    title: "Cochem an der Mosel",
-    entfernung: "ca. 45 km",
-    beschreibung:
-      "Die Reichsburg hoch über der Mosel, eine malerische Altstadt und erstklassige Weinkultur machen Cochem zum schönsten Tagesausflug entlang der Mosel.",
+  nl: {
+    heading: 'Specials',
+    subtitle: 'Het vakantieappartement MaarZeit ligt centraal in de Vulkaan Eifel – ideaal als vertrekpunt voor uitstapjes in alle richtingen. Of het nu motorsport, wijncultuur, stadsbezoeken of gezinsvakantie is: hier vindt u onze persoonlijke aanbevelingen.',
+    learnMore: 'Meer ontdekken →',
+    ctaText: 'Wilt u een van deze bestemmingen combineren met een verblijf in de Vulkaan Eifel?',
+    ctaBtn: 'Boek Nu het Vakantieappartement',
+    specials: [
+      {
+        href: '/specials/nuerburgring',
+        title: 'Nürburgring',
+        entfernung: 'ca. 55 km',
+        beschreibung: 'Motorsport, de Nordschleife en de belevingswereld ring°werk – de Nürburgring is een van de bekendste attracties van Duitsland. Toeristische ritten op de legendarische Nordschleife zijn mogelijk.',
+      },
+      {
+        href: '/specials/auszeit-mit-kind',
+        title: 'Uitje met Kinderen',
+        entfernung: 'regionaal',
+        beschreibung: 'De Vulkaan Eifel is een ideale gezinsbestemming: wildpark, maren, wandelpaden en een tuin met vuurschaal. Natuurervaringen zonder lange ritten – direct voor de deur.',
+      },
+      {
+        href: '/specials/cochem',
+        title: 'Cochem aan de Moezel',
+        entfernung: 'ca. 45 km',
+        beschreibung: 'De Reichsburg hoog boven de Moezel, een schilderachtige oude stad en eersteklas wijncultuur maken Cochem tot de mooiste daguitstap langs de Moezel.',
+      },
+      {
+        href: '/specials/koblenz',
+        title: 'Koblenz',
+        entfernung: 'ca. 85 km',
+        beschreibung: 'Daar waar Rijn en Moezel samenkomen: het Duits Hoek, de Vesting Ehrenbreitstein en een levendige oude stad maken Koblenz een lohnende bestemming.',
+      },
+      {
+        href: '/specials/luxemburg',
+        title: 'Luxemburg',
+        entfernung: 'ca. 95 km',
+        beschreibung: 'De kleine hoofdstad met grote charme: UNESCO oude stad, ondergrondse casemates, het Grundkwartier en internationaal flair – Luxemburg verrast op een daguitstap.',
+      },
+      {
+        href: '/specials/koeln',
+        title: 'Keulen',
+        entfernung: 'ca. 130 km',
+        beschreibung: 'De Kölner Dom, brouwerijcultuur, Rijnoever en eersteklas musea – Keulen is de dichtstbijzijnde metropool en een geweldige bestemming voor een uitgebreid daguitstap.',
+      },
+    ],
   },
-  {
-    href: "/specials/koblenz",
-    title: "Koblenz",
-    entfernung: "ca. 85 km",
-    beschreibung:
-      "Dort, wo Rhein und Mosel zusammenfließen: Das Deutsche Eck, die Festung Ehrenbreitstein und eine lebendige Altstadt machen Koblenz zu einem lohnenswerten Ausflugsziel.",
+  fr: {
+    heading: 'Specials',
+    subtitle: "L'appartement de vacances MaarZeit est idéalement situé dans l'Eifel volcanique – idéal comme point de départ pour des excursions dans toutes les directions. Que ce soit le sport automobile, la culture viticole, les séjours en ville ou les vacances en famille : voici nos recommandations personnelles.",
+    learnMore: 'En savoir plus →',
+    ctaText: "Souhaitez-vous combiner l'une de ces destinations avec un séjour dans l'Eifel volcanique ?",
+    ctaBtn: "Réserver l'Appartement Maintenant",
+    specials: [
+      {
+        href: '/specials/nuerburgring',
+        title: 'Nürburgring',
+        entfernung: 'environ 55 km',
+        beschreibung: "Sport automobile, la Nordschleife et le monde ring°werk – le Nürburgring est l'une des attractions les plus célèbres d'Allemagne. Des tours touristiques sur la légendaire Nordschleife sont possibles.",
+      },
+      {
+        href: '/specials/auszeit-mit-kind',
+        title: 'Pause avec Enfants',
+        entfernung: 'régional',
+        beschreibung: "L'Eifel volcanique est une destination idéale pour les familles : parc animalier, maars, sentiers de randonnée et un jardin avec brasero. Des expériences naturelles sans longs trajets – juste devant la porte.",
+      },
+      {
+        href: '/specials/cochem',
+        title: 'Cochem sur la Moselle',
+        entfernung: 'environ 45 km',
+        beschreibung: "Le château Reichsburg haut au-dessus de la Moselle, une vieille ville pittoresque et une excellente culture viticole font de Cochem la plus belle excursion d'une journée le long de la Moselle.",
+      },
+      {
+        href: '/specials/koblenz',
+        title: 'Coblence',
+        entfernung: 'environ 85 km',
+        beschreibung: "Là où le Rhin et la Moselle se rejoignent : le Coin Allemand, la Forteresse Ehrenbreitstein et une vieille ville animée font de Coblence une destination qui vaut le détour.",
+      },
+      {
+        href: '/specials/luxemburg',
+        title: 'Luxembourg',
+        entfernung: 'environ 95 km',
+        beschreibung: "La petite capitale au grand charme : vieille ville UNESCO, casemates souterraines, le quartier Grund et une atmosphère internationale – Luxembourg surprend lors d'une excursion.",
+      },
+      {
+        href: '/specials/koeln',
+        title: 'Cologne',
+        entfernung: 'environ 130 km',
+        beschreibung: "La cathédrale de Cologne, la culture brassicole, les bords du Rhin et des musées de classe mondiale – Cologne est la métropole la plus proche et une excellente destination pour une grande excursion d'une journée.",
+      },
+    ],
   },
-  {
-    href: "/specials/luxemburg",
-    title: "Luxemburg",
-    entfernung: "ca. 95 km",
-    beschreibung:
-      "Die kleine Hauptstadt mit großem Charme: UNESCO-Altstadt, unterirdische Casemates, das Viertel Grund und internationales Flair – Luxemburg überrascht auf Tagesausflug.",
-  },
-  {
-    href: "/specials/koeln",
-    title: "Köln",
-    entfernung: "ca. 130 km",
-    beschreibung:
-      "Der Kölner Dom, Brauhauskultur, Rheinufer und erstklassige Museen – Köln ist die nächste Metropole und ein großartiges Ziel für einen ausgedehnten Tagesausflug.",
-  },
-];
+}
 
 
 export function generateStaticParams() {
@@ -92,18 +230,17 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 
 export default async function SpecialsPage() {
   const locale = await getLocale()
+  const tr = translations[locale as keyof typeof translations] ?? translations.de
 
   return (
     <div className="max-w-5xl mx-auto px-4 py-16">
-      <h1 className="section-title">Specials</h1>
+      <h1 className="section-title">{tr.heading}</h1>
       <p className="text-stone-600 text-lg mb-12 max-w-2xl leading-relaxed">
-        Die Ferienwohnung MaarZeit liegt zentral in der Vulkaneifel – ideal als Ausgangspunkt
-        für Ausflüge in alle Richtungen. Ob Motorsport, Weinkultur, Metropolen oder
-        Familienurlaub: Hier finden Sie unsere persönlichen Empfehlungen.
+        {tr.subtitle}
       </p>
 
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {specials.map((s) => (
+        {tr.specials.map((s) => (
           <Link
             key={s.href}
             href={s.href}
@@ -117,7 +254,7 @@ export default async function SpecialsPage() {
             </div>
             <p className="text-stone-600 text-sm leading-relaxed flex-1">{s.beschreibung}</p>
             <span className="mt-4 text-sm text-green-700 font-medium group-hover:underline">
-              Mehr erfahren →
+              {tr.learnMore}
             </span>
           </Link>
         ))}
@@ -125,10 +262,10 @@ export default async function SpecialsPage() {
 
       <div className="mt-16 border-t border-stone-200 pt-10 text-center">
         <p className="text-stone-600 mb-4">
-          Sie möchten eines dieser Ziele mit einem Aufenthalt in der Vulkaneifel verbinden?
+          {tr.ctaText}
         </p>
         <Link href="/buchung" className="btn-primary">
-          Jetzt Ferienwohnung buchen
+          {tr.ctaBtn}
         </Link>
       </div>
     </div>

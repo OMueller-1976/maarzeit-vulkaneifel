@@ -26,12 +26,43 @@ const translations = {
       'Viele Motorrad-Treffen in der Saison',
     ],
     routesTitle: 'Empfohlene Strecken',
+    highlightsLabel: 'Highlights:',
     ctaBtn: 'Jetzt Verfügbarkeit prüfen',
     ctaContact: 'Fragen zur Anreise',
     meta: {
       title: 'Motorradfreundliche Ferienwohnung Eifel – Touren & Unterkunft',
       description: 'Motorradurlaub in der Vulkaneifel. Eigener Parkplatz, kurvige Eifelstraßen, Nürburgring 55 km.',
-    }
+    },
+    strecken: [
+      {
+        name: 'Maaren-Runde',
+        km: 'ca. 85 km',
+        highlights: 'Schalkenmehrener Maar, Strohn, Ulmen',
+        schwierigkeit: 'Mittel',
+        beschreibung: 'Eine abwechslungsreiche Runde durch die Maare der Vulkaneifel mit wunderschönen Aussichten und ruhigen Landstraßen.',
+      },
+      {
+        name: 'Mosel-Eifel-Loop',
+        km: 'ca. 160 km',
+        highlights: 'Cochem, Traben-Trarbach, Bernkastel-Kues',
+        schwierigkeit: 'Leicht',
+        beschreibung: 'Von der Vulkaneifel hinunter zur Mosel – herrliche Weinberge, malerische Flussschleifen und charmante Winzerstädte.',
+      },
+      {
+        name: 'Nürburgring-Anfahrt',
+        km: 'ca. 45 km',
+        highlights: 'Adenau, Nürburgring, Hocheifel',
+        schwierigkeit: 'Leicht–Mittel',
+        beschreibung: 'Auf direktem Weg zum Ring über die traumhaften Hocheifel-Straßen – ideal für Motorsport-Fans.',
+      },
+      {
+        name: 'Südeifel & Felsenlandschaft',
+        km: 'ca. 130 km',
+        highlights: 'Gerolstein, Prüm, Our-Tal',
+        schwierigkeit: 'Mittel',
+        beschreibung: 'Durch die Gerolsteiner Felsenlandschaft und das romantische Our-Tal an der belgischen Grenze.',
+      },
+    ],
   },
   en: {
     title: 'Motorcycle Holiday in the Vulkan Eifel',
@@ -55,12 +86,43 @@ const translations = {
       'Many motorcycle meets in season',
     ],
     routesTitle: 'Recommended Routes',
+    highlightsLabel: 'Highlights:',
     ctaBtn: 'Check Availability Now',
     ctaContact: 'Questions about getting here',
     meta: {
       title: 'Motorcycle-Friendly Holiday Apartment Eifel – Tours & Accommodation',
       description: 'Motorcycle holiday in the Vulkan Eifel. Private parking, winding Eifel roads, Nürburgring 55 km away.',
-    }
+    },
+    strecken: [
+      {
+        name: 'Maare Loop',
+        km: 'approx. 85 km',
+        highlights: 'Schalkenmehrener Maar, Strohn, Ulmen',
+        schwierigkeit: 'Moderate',
+        beschreibung: 'A varied loop through the volcanic maars of the Eifel with beautiful views and quiet country roads.',
+      },
+      {
+        name: 'Moselle-Eifel Loop',
+        km: 'approx. 160 km',
+        highlights: 'Cochem, Traben-Trarbach, Bernkastel-Kues',
+        schwierigkeit: 'Easy',
+        beschreibung: 'From the Vulkan Eifel down to the Moselle – magnificent vineyards, picturesque river bends and charming wine villages.',
+      },
+      {
+        name: 'Nürburgring Ride',
+        km: 'approx. 45 km',
+        highlights: 'Adenau, Nürburgring, Hocheifel',
+        schwierigkeit: 'Easy–Moderate',
+        beschreibung: 'A direct route to the Ring via the stunning Hocheifel roads – ideal for motorsport fans.',
+      },
+      {
+        name: 'Southern Eifel & Rock Landscapes',
+        km: 'approx. 130 km',
+        highlights: 'Gerolstein, Prüm, Our Valley',
+        schwierigkeit: 'Moderate',
+        beschreibung: 'Through the Gerolstein rock formations and the romantic Our Valley on the Belgian border.',
+      },
+    ],
   },
   nl: {
     title: 'Motorvakantie in de Vulkaan Eifel',
@@ -84,12 +146,43 @@ const translations = {
       'Veel motorbijeenkomsten in het seizoen',
     ],
     routesTitle: 'Aanbevolen Routes',
+    highlightsLabel: 'Highlights:',
     ctaBtn: 'Controleer Nu Beschikbaarheid',
     ctaContact: 'Vragen over de route',
     meta: {
       title: 'Motorvriendelijk Vakantieappartement Eifel – Touren & Verblijf',
       description: 'Motorvakantie in de Vulkaan Eifel. Eigen parkeerplaats, bochtige Eifelwegen, Nürburgring 55 km.',
-    }
+    },
+    strecken: [
+      {
+        name: 'Maren-Ronde',
+        km: 'ca. 85 km',
+        highlights: 'Schalkenmehrener Maar, Strohn, Ulmen',
+        schwierigkeit: 'Gemiddeld',
+        beschreibung: 'Een afwisselende ronde door de vulkanische maren van de Eifel met prachtige uitzichten en rustige landwegen.',
+      },
+      {
+        name: 'Moezel-Eifel-Loop',
+        km: 'ca. 160 km',
+        highlights: 'Cochem, Traben-Trarbach, Bernkastel-Kues',
+        schwierigkeit: 'Gemakkelijk',
+        beschreibung: 'Van de Vulkaan Eifel naar de Moezel – prachtige wijngaarden, schilderachtige rivierbochten en charmante wijnsteden.',
+      },
+      {
+        name: 'Nürburgring Rit',
+        km: 'ca. 45 km',
+        highlights: 'Adenau, Nürburgring, Hocheifel',
+        schwierigkeit: 'Gemakkelijk–Gemiddeld',
+        beschreibung: 'Rechtstreeks naar de Ring via de schitterende Hocheifel-wegen – ideaal voor motorsportfans.',
+      },
+      {
+        name: 'Zuid-Eifel & Rotslandschap',
+        km: 'ca. 130 km',
+        highlights: 'Gerolstein, Prüm, Our-Vallei',
+        schwierigkeit: 'Gemiddeld',
+        beschreibung: 'Door het Gerolsteiner rotslandschap en het romantische Our-dal aan de Belgische grens.',
+      },
+    ],
   },
   fr: {
     title: "Vacances Moto dans l'Eifel Volcanique",
@@ -113,45 +206,45 @@ const translations = {
       'Nombreux rassemblements moto en saison',
     ],
     routesTitle: 'Itinéraires Recommandés',
+    highlightsLabel: 'Points forts :',
     ctaBtn: 'Vérifier la Disponibilité',
     ctaContact: "Questions sur l'accès",
     meta: {
       title: 'Appartement de Vacances Moto Eifel – Circuits & Hébergement',
       description: "Vacances moto dans l'Eifel volcanique. Parking privé, routes sinueuses, Nürburgring à 55 km.",
-    }
+    },
+    strecken: [
+      {
+        name: 'Tour des Maars',
+        km: 'environ 85 km',
+        highlights: 'Schalkenmehrener Maar, Strohn, Ulmen',
+        schwierigkeit: 'Modéré',
+        beschreibung: "Un circuit varié à travers les maars volcaniques de l'Eifel avec de magnifiques vues et des routes de campagne tranquilles.",
+      },
+      {
+        name: 'Boucle Moselle-Eifel',
+        km: 'environ 160 km',
+        highlights: 'Cochem, Traben-Trarbach, Bernkastel-Kues',
+        schwierigkeit: 'Facile',
+        beschreibung: "De l'Eifel volcanique vers la Moselle – magnifiques vignobles, méandres pittoresques et charmantes villes viticoles.",
+      },
+      {
+        name: 'Route Nürburgring',
+        km: 'environ 45 km',
+        highlights: 'Adenau, Nürburgring, Hocheifel',
+        schwierigkeit: 'Facile–Modéré',
+        beschreibung: "Itinéraire direct vers le Ring via les superbes routes du Hocheifel – idéal pour les fans de sport automobile.",
+      },
+      {
+        name: 'Sud-Eifel & Paysages Rocheux',
+        km: 'environ 130 km',
+        highlights: 'Gerolstein, Prüm, Vallée de l\'Our',
+        schwierigkeit: 'Modéré',
+        beschreibung: "À travers les formations rocheuses de Gerolstein et la romantique vallée de l'Our à la frontière belge.",
+      },
+    ],
   },
 }
-
-const strecken = [
-  {
-    name: "Maaren-Runde",
-    km: "ca. 85 km",
-    highlights: "Schalkenmehrener Maar, Strohn, Ulmen",
-    schwierigkeit: "Mittel",
-    beschreibung: "Eine abwechslungsreiche Runde durch die Maare der Vulkaneifel mit wunderschönen Aussichten und ruhigen Landstraßen.",
-  },
-  {
-    name: "Mosel-Eifel-Loop",
-    km: "ca. 160 km",
-    highlights: "Cochem, Traben-Trarbach, Bernkastel-Kues",
-    schwierigkeit: "Leicht",
-    beschreibung: "Von der Vulkaneifel hinunter zur Mosel – herrliche Weinberge, malerische Flussschleifen und charmante Winzerstädte.",
-  },
-  {
-    name: "Nürburgring-Anfahrt",
-    km: "ca. 45 km",
-    highlights: "Adenau, Nürburgring, Hocheifel",
-    schwierigkeit: "Leicht–Mittel",
-    beschreibung: "Auf direktem Weg zum Ring über die traumhaften Hocheifel-Straßen – ideal für Motorsport-Fans.",
-  },
-  {
-    name: "Südeifel & Felsenlandschaft",
-    km: "ca. 130 km",
-    highlights: "Gerolstein, Prüm, Our-Tal",
-    schwierigkeit: "Mittel",
-    beschreibung: "Durch die Gerolsteiner Felsenlandschaft und das romantische Our-Tal an der belgischen Grenze.",
-  },
-]
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params
@@ -220,23 +313,19 @@ export default async function MotorradPage() {
       {/* Strecken */}
       <h2 className="text-2xl font-bold text-green-900 mb-6">{tr.routesTitle}</h2>
       <div className="space-y-4 mb-12">
-        {strecken.map((s) => (
+        {tr.strecken.map((s) => (
           <div key={s.name} className="card border border-stone-100 hover:border-green-200 transition-colors">
             <div className="flex flex-wrap items-start justify-between gap-4">
               <div>
                 <h3 className="font-bold text-green-900 text-lg">{s.name}</h3>
                 <p className="text-stone-600 text-sm mt-1 mb-2">{s.beschreibung}</p>
                 <p className="text-sm text-stone-500">
-                  <strong>Highlights:</strong> {s.highlights}
+                  <strong>{tr.highlightsLabel}</strong> {s.highlights}
                 </p>
               </div>
               <div className="flex flex-col items-end gap-1 min-w-[100px]">
                 <span className="text-green-800 font-bold">{s.km}</span>
-                <span className={`text-xs px-2 py-1 rounded-full ${
-                  s.schwierigkeit === "Leicht" ? "bg-green-100 text-green-800" :
-                  s.schwierigkeit === "Mittel" ? "bg-amber-100 text-amber-800" :
-                  "bg-red-100 text-red-800"
-                }`}>
+                <span className="text-xs px-2 py-1 rounded-full bg-amber-100 text-amber-800">
                   {s.schwierigkeit}
                 </span>
               </div>

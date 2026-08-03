@@ -19,6 +19,16 @@
       "btnAvailability": "Vérifier la Disponibilité",
       "btnApartment": "Voir l'Appartement"
     },
+    "highlights": {
+      "heading": "Pourquoi MaarZeit ?",
+      "subtitle": "L'Eifel volcanique est l'une des régions les plus riches en nature d'Allemagne – et MaarZeit se trouve en plein cœur.",
+      "items": [
+        { "icon": "🌋", "title": "Paysage Volcanique", "text": "Des maare et cônes volcaniques uniques juste devant la porte – une merveille naturelle de l'Eifel." },
+        { "icon": "🥾", "title": "Paradis Randonnée", "text": "Des sentiers magnifiques comme l'Eifelsteig traversent forêts, maare et vallées tranquilles." },
+        { "icon": "🏍️", "title": "Région Moto", "text": "Des routes sinueuses à travers le paysage de l'Eifel font de cette région un paradis pour les motards." },
+        { "icon": "🐕", "title": "Chiens Bienvenus", "text": "Votre compagnon à quatre pattes est chaleureusement bienvenu – avec jardin clôturé et prairie." }
+      ]
+    },
     "apartment": {
       "title": "L'Appartement",
       "description": "Situé au calme dans l'Eifel volcanique, notre appartement de vacances de 35 m² offre tout ce dont vous avez besoin pour des vacances reposantes.",
@@ -31,6 +41,7 @@
         "WiFi & TV avec Amazon Prime",
         "Chiens bienvenus"
       ],
+      "imgAlt": "Jardin avec brasero de l'appartement de vacances MaarZeit Eifel Volcanique",
       "btnDetails": "Tous les Détails"
     },
     "prices": {
@@ -53,6 +64,17 @@
         { "title": "Acompte", "text": "Un acompte de 30 % via Stripe confirme votre réservation." },
         { "title": "Remise des Clés", "text": "Le solde peut être réglé à l'arrivée – paiement par carte accepté." }
       ]
+    },
+    "guide": {
+      "heading": "Guide de Voyage Eifel Volcanique",
+      "subtitle": "Découvrez les meilleurs conseils pour les randonnées, les balades à vélo, les excursions et plus encore – compilés par des locaux pour nos hôtes.",
+      "links": [
+        { "href": "/guide/dauner-maare", "icon": "🌊", "label": "Dauner Maare" },
+        { "href": "/guide/wandern", "icon": "🥾", "label": "Randonnée" },
+        { "href": "/guide/radfahren", "icon": "🚴", "label": "Vélo" },
+        { "href": "/guide/ausflugsziele", "icon": "🗺️", "label": "Excursions" },
+        { "href": "/guide/schlechtwetter", "icon": "🌧️", "label": "Mauvais Temps" }
+      ]
     }
   },
   "footer": {
@@ -66,6 +88,67 @@
     "necessary": "Nécessaires uniquement",
     "acceptAll": "Tout accepter",
     "details": "Afficher les détails",
-    "hideDetails": "Masquer les détails"
+    "hideDetails": "Masquer les détails",
+    "privacyLinkText": "Politique de confidentialité",
+    "necessaryTitle": "✓ Cookies Nécessaires",
+    "necessaryText": "Gestion de session, processus de réservation (Stripe). Toujours actif.",
+    "ga4Title": "Google Analytics (GA4)",
+    "ga4Text": "Analyse du comportement des utilisateurs, anonymisée. Uniquement avec consentement.",
+    "gtmTitle": "Google Tag Manager",
+    "gtmText": "Gestion des balises de suivi. Uniquement actif avec consentement."
+  },
+  "faq": {
+    "heading": "Questions Fréquentes",
+    "subtitle": "Tout ce que vous devez savoir sur l'appartement de vacances dans l'Eifel volcanique en un coup d'œil.",
+    "questions": [
+      {
+        "q": "Où se trouve exactement l'appartement de vacances MaarZeit ?",
+        "a": "L'appartement est situé à Kirchweiler, Am Bruchborn 6, dans le district de Daun dans l'Eifel volcanique (Rhénanie-Palatinat). Les Dauner Maare sont accessibles en environ 6 minutes depuis Kirchweiler, et la ville de Daun se trouve à seulement 6 km."
+      },
+      {
+        "q": "Quelle est la superficie de l'appartement et combien de personnes peut-il accueillir ?",
+        "a": "L'appartement fait 35 m² et peut accueillir jusqu'à 3 personnes. Il dispose d'un lit double et d'un canapé-lit (utilisable comme lit pliant pour une troisième personne). Construction neuve en 2023."
+      },
+      {
+        "q": "Les chiens sont-ils autorisés dans l'appartement ?",
+        "a": "Oui, les chiens sont les bienvenus. L'Eifel volcanique offre de nombreux sentiers, forêts et sites d'excursion accessibles aux chiens – notamment le lac Freilinger See avec une plage réservée aux chiens (environ 45 km)."
+      },
+      {
+        "q": "Quel est le prix de l'appartement par nuit ?",
+        "a": "Les prix varient selon la durée du séjour : 1 nuit 125 €, 2–3 nuits 95 € par nuit, 4–7 nuits 85 € par nuit, à partir de 7 nuits 75 € par nuit. Des frais de ménage forfaitaires de 20 € par réservation s'ajoutent. Réservation directe sans frais de plateforme."
+      },
+      {
+        "q": "À quelle distance se trouvent les Dauner Maare ?",
+        "a": "Les Dauner Maare – Gemündener Maar, Schalkenmehrener Maar et Weinfelder Maar – se trouvent à seulement 5–8 km de l'appartement et sont accessibles en quelques minutes en voiture. Un vrai avantage de notre emplacement à Kirchweiler."
+      },
+      {
+        "q": "Y a-t-il un parking privé ?",
+        "a": "Oui, une place de parking dédiée directement à l'hébergement est incluse gratuitement. Idéal pour les motards souhaitant garer leur moto en sécurité et pour les clients avec beaucoup de bagages."
+      },
+      {
+        "q": "L'appartement est-il adapté aux motards ?",
+        "a": "Absolument. L'Eifel volcanique est l'une des plus belles régions moto d'Allemagne. Parking privé, routes sinueuses de l'Eifel devant la porte, Nürburgring à environ 55 km et la Moselle à environ 45 km – base idéale pour les excursions à la journée."
+      },
+      {
+        "q": "Comment fonctionne la réservation ?",
+        "a": "Choisissez votre période dans le calendrier, saisissez vos coordonnées et payez un acompte de 30 % en toute sécurité via Stripe (carte de crédit, SEPA ou Apple/Google Pay). Le solde (70 %) est dû à l'arrivée. Réservation directe auprès de l'hôte – sans frais de plateforme."
+      },
+      {
+        "q": "Quels sont les meilleurs sites d'excursion dans l'Eifel volcanique ?",
+        "a": "Les incontournables autour de Kirchweiler : Dauner Maare (6 km), Parc animalier et d'aventure de Daun (6 km), Musée du volcan Eifel (6 km), Parc des aigles et loups de Kasselburg (20 km), Monde de l'expérience Gerolsteiner (18 km), Cascade de Dreimühlen (18 km), Châteaux de Manderscheid (18 km) et le Nürburgring (55 km)."
+      },
+      {
+        "q": "Quels sentiers de randonnée se trouvent à proximité ?",
+        "a": "Accessible directement depuis Kirchweiler : randonnée circulaire des Dauner Maare, Lieserpfad (51 km de grande randonnée), Eifelsteig, sentier des châteaux de Manderscheid et diverses boucles HeimatSpuren. Adapté à tous les niveaux de condition physique."
+      },
+      {
+        "q": "L'appartement dispose-t-il d'une cuisine ?",
+        "a": "Oui, l'appartement est équipé d'une kitchenette complète avec lave-vaisselle, réfrigérateur et possibilités de cuisson – idéal pour les séjours en autonomie et les longs séjours. Plus une terrasse avec mobilier de jardin et un brasero dans le jardin."
+      },
+      {
+        "q": "Quels sont les horaires de check-in et check-out ?",
+        "a": "Check-in à partir de 15h00, check-out avant 11h00. Pour toute demande spéciale, n'hésitez pas à nous contacter – nous ferons de notre mieux pour être flexibles."
+      }
+    ]
   }
 }

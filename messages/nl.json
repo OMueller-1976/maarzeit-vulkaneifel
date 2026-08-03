@@ -19,6 +19,16 @@
       "btnAvailability": "Beschikbaarheid Controleren",
       "btnApartment": "Bekijk Appartement"
     },
+    "highlights": {
+      "heading": "Waarom MaarZeit?",
+      "subtitle": "De Vulkaan Eifel is een van de meest natuurrijke regio's van Duitsland – en MaarZeit ligt er middenin.",
+      "items": [
+        { "icon": "🌋", "title": "Vulkanisch Landschap", "text": "Unieke maren en vulkaankegels voor de deur – een natuurwonder van de Eifel." },
+        { "icon": "🥾", "title": "Wandelparadijs", "text": "Prachtige wandelpaden zoals de Eifelsteig voeren door bossen, maren en stille dalen." },
+        { "icon": "🏍️", "title": "Motorregion", "text": "Bochtige wegen door het Eifellandschap maken de regio een paradijs voor motorrijders." },
+        { "icon": "🐕", "title": "Honden Welkom", "text": "Uw viervoetige vriend is van harte welkom – met omheinde tuin en speelweide." }
+      ]
+    },
     "apartment": {
       "title": "Het Appartement",
       "description": "Rustig gelegen in de Vulkaan Eifel biedt ons vakantieappartement van 35 m² alles wat u nodig heeft voor een ontspannen vakantie.",
@@ -31,6 +41,7 @@
         "WiFi & tv met Amazon Prime",
         "Honden welkom"
       ],
+      "imgAlt": "Tuin met vuurschaal bij vakantieappartement MaarZeit Vulkaan Eifel",
       "btnDetails": "Alle Details"
     },
     "prices": {
@@ -53,6 +64,17 @@
         { "title": "Aanbetaling", "text": "Met 30% aanbetaling via Stripe is uw boeking definitief." },
         { "title": "Sleuteloverdracht", "text": "Restbetaling bij aankomst mogelijk – ook per kaart." }
       ]
+    },
+    "guide": {
+      "heading": "Vulkaan Eifel Reisgids",
+      "subtitle": "Ontdek de beste tips voor wandelingen, fietstochten, uitstapjes en meer – samengesteld door locals voor onze gasten.",
+      "links": [
+        { "href": "/guide/dauner-maare", "icon": "🌊", "label": "Dauner Maren" },
+        { "href": "/guide/wandern", "icon": "🥾", "label": "Wandelen" },
+        { "href": "/guide/radfahren", "icon": "🚴", "label": "Fietsen" },
+        { "href": "/guide/ausflugsziele", "icon": "🗺️", "label": "Uitstapjes" },
+        { "href": "/guide/schlechtwetter", "icon": "🌧️", "label": "Slecht Weer" }
+      ]
     }
   },
   "footer": {
@@ -66,6 +88,67 @@
     "necessary": "Alleen noodzakelijk",
     "acceptAll": "Alles accepteren",
     "details": "Details tonen",
-    "hideDetails": "Details verbergen"
+    "hideDetails": "Details verbergen",
+    "privacyLinkText": "Privacybeleid",
+    "necessaryTitle": "✓ Noodzakelijke Cookies",
+    "necessaryText": "Sessiebeheer, boekingsproces (Stripe). Altijd actief.",
+    "ga4Title": "Google Analytics (GA4)",
+    "ga4Text": "Analyse van gebruikersgedrag, geanonimiseerd. Alleen met toestemming.",
+    "gtmTitle": "Google Tag Manager",
+    "gtmText": "Beheer van tracking-tags. Alleen actief met toestemming."
+  },
+  "faq": {
+    "heading": "Veelgestelde Vragen",
+    "subtitle": "Alles wat u moet weten over het vakantieappartement in de Vulkaan Eifel in één oogopslag.",
+    "questions": [
+      {
+        "q": "Waar ligt het vakantieappartement MaarZeit precies?",
+        "a": "Het appartement ligt in Kirchweiler, Am Bruchborn 6, in het district Daun in de Vulkaan Eifel (Rijnland-Palts). De Dauner Maren zijn vanuit Kirchweiler in circa 6 minuten te bereiken en de stad Daun ligt op slechts 6 km afstand."
+      },
+      {
+        "q": "Hoe groot is het appartement en voor hoeveel personen is het geschikt?",
+        "a": "Het appartement is 35 m² groot en geschikt voor maximaal 3 personen. Het heeft een tweepersoonsbed en een slaapbank (als vouwbed bruikbaar voor een derde persoon). Nieuwbouw 2023."
+      },
+      {
+        "q": "Zijn honden toegestaan in het appartement?",
+        "a": "Ja, honden zijn van harte welkom. De Vulkaan Eifel biedt talrijke hondvriendelijke wandelpaden, bossen en uitstapjes – waaronder het Freilinger See met een aangewezen hondenstrand (ca. 45 km)."
+      },
+      {
+        "q": "Wat kost het appartement per nacht?",
+        "a": "De prijzen variëren per verblijfsduur: 1 nacht €125, 2–3 nachten €95 per nacht, 4–7 nachten €85 per nacht, vanaf 7 nachten €75 per nacht. Een eindschoonmaak van €20 per boeking is verschuldigd. Direct boeken zonder platformkosten."
+      },
+      {
+        "q": "Hoe ver zijn de Dauner Maren van het appartement?",
+        "a": "De Dauner Maren – Gemündener Maar, Schalkenmehrener Maar en Weinfelder Maar – zijn slechts 5–8 km van het appartement en in enkele minuten per auto te bereiken. Een echt voordeel van onze locatie in Kirchweiler."
+      },
+      {
+        "q": "Is er een eigen parkeerplaats?",
+        "a": "Ja, een eigen parkeerplaats direct bij de accommodatie is gratis inbegrepen. Ideaal voor motorrijders die hun motor veilig willen stallen en voor gasten met veel bagage."
+      },
+      {
+        "q": "Is het appartement geschikt voor motorrijders?",
+        "a": "Absoluut. De Vulkaan Eifel behoort tot de mooiste motorregionen van Duitsland. Eigen parkeerplaats, bochtige Eifelwegen voor de deur, Nürburgring op ca. 55 km en de Moezel op ca. 45 km – perfecte uitvalsbasis voor dagtochten."
+      },
+      {
+        "q": "Hoe werkt het boeken?",
+        "a": "Kies uw reisperiode in de kalender, vul uw gegevens in en betaal 30% aanbetaling veilig via Stripe (creditcard, SEPA of Apple/Google Pay). De restbetaling (70%) is bij aankomst verschuldigd. Direct boeken bij de gastheer – zonder platformkosten."
+      },
+      {
+        "q": "Wat zijn de beste uitstapjes in de Vulkaan Eifel?",
+        "a": "Hoogtepunten rondom Kirchweiler: Dauner Maren (6 km), Wild- & Erlebnispark Daun (6 km), Eifel Vulkaanmuseum (6 km), Adelaars- & Wolvenpark Kasselburg (20 km), Gerolsteiner Erlebniswelt (18 km), Dreimühlen Waterval (18 km), Kastelen van Manderscheid (18 km) en de Nürburgring (55 km)."
+      },
+      {
+        "q": "Welke wandelpaden zijn er in de buurt?",
+        "a": "Direct bereikbaar vanuit Kirchweiler: rondwandeling Dauner Maren, Lieserpfad (51 km langeafstandspad), Eifelsteig, Manderscheider Burgenstieg en diverse HeimatSpuren-rondwandelingen. Geschikt voor alle fitnessniveaus."
+      },
+      {
+        "q": "Heeft het appartement een keuken?",
+        "a": "Ja, het appartement heeft een volledige keuken met vaatwasser, koelkast en kookmogelijkheden – ideaal voor zelfverzorgers en langere verblijven. Daarbij een terras met tuinmeubelen en een vuurschaal in de tuin."
+      },
+      {
+        "q": "Wanneer is de in- en uitchecktijd?",
+        "a": "Inchecken vanaf 15:00 uur, uitchecken voor 11:00 uur. Voor bijzondere wensen kunt u ons contacteren – wij proberen flexibel te zijn."
+      }
+    ]
   }
 }

@@ -48,29 +48,6 @@ export function generateStaticParams() {
   ]
 }
 
-const highlights = [
-  {
-    icon: "🌋",
-    title: "Vulkanische Landschaft",
-    text: "Einmalige Maare und Vulkankegel direkt vor der Haustür – ein Naturwunder der Eifel.",
-  },
-  {
-    icon: "🥾",
-    title: "Wanderparadies",
-    text: "Traumhafte Wanderwege wie der Eifelsteig führen durch Wälder, Maare und stille Täler.",
-  },
-  {
-    icon: "🏍️",
-    title: "Motorradregion",
-    text: "Kurvenreiche Strecken durch die Eifellandschaft machen die Region zum Biker-Paradies.",
-  },
-  {
-    icon: "🐕",
-    title: "Hunde willkommen",
-    text: "Ihr Vierbeiner ist bei uns herzlich willkommen – mit eingezäuntem Garten und Auslaufwiese.",
-  },
-];
-
 export default async function HomePage({
   params,
 }: {
@@ -78,6 +55,11 @@ export default async function HomePage({
 }) {
   await params
   const t = await getTranslations('home')
+
+  const highlights = t.raw('highlights.items') as Array<{ icon: string; title: string; text: string }>
+  const features = t.raw('apartment.features') as string[]
+  const priceTiers = t.raw('prices.tiers') as Array<{ label: string; price: string; note: string }>
+  const guideLinks = t.raw('guide.links') as Array<{ href: string; icon: string; label: string }>
 
   return (
     <>
@@ -111,10 +93,9 @@ export default async function HomePage({
 
       {/* Highlights */}
       <section className="max-w-6xl mx-auto px-4 py-20">
-        <h2 className="section-title text-center">Warum MaarZeit?</h2>
+        <h2 className="section-title text-center">{t('highlights.heading')}</h2>
         <p className="text-center text-stone-600 mb-12 max-w-2xl mx-auto">
-          Die Vulkaneifel ist eine der naturreichsten Regionen Deutschlands – und MaarZeit
-          liegt mittendrin.
+          {t('highlights.subtitle')}
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {highlights.map((h) => (
@@ -136,15 +117,7 @@ export default async function HomePage({
               {t('apartment.description')}
             </p>
             <ul className="text-stone-700 space-y-2 mb-6 text-sm">
-              {[
-                "35 qm für bis zu 3 Personen",
-                "Küchenzeile",
-                "Terrasse & Garten mit Feuerschale",
-                "Schwenkgrill",
-                "Eigener Parkplatz",
-                "WLAN & TV (Amazon Prime)",
-                "Hunde willkommen",
-              ].map((item) => (
+              {features.map((item) => (
                 <li key={item} className="flex items-center gap-2">
                   <span className="text-green-700 font-bold">✓</span>
                   {item}
@@ -158,7 +131,7 @@ export default async function HomePage({
           <div style={{ borderRadius: '10px', overflow: 'hidden', height: '320px' }}>
             <img
               src="/garten-feuerschale.jpeg"
-              alt="Garten mit Feuerschale der Ferienwohnung MaarZeit Vulkaneifel"
+              alt={t('apartment.imgAlt')}
               style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
             />
           </div>
@@ -172,27 +145,22 @@ export default async function HomePage({
           {t('prices.subtitle')}
         </p>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-4">
-          {[
-            { label: "Spontanurlaub",            detail: "1 Nacht",       price: "125 €", featured: false },
-            { label: "Kurzurlaub & Wochenende",  detail: "2–3 Nächte",    price: "95 €",  featured: true  },
-            { label: "Verlängertes Wochenende",  detail: "4–7 Nächte",    price: "85 €",  featured: false },
-            { label: "Urlaubswoche",             detail: "Ab 7 Nächten",  price: "75 €",  featured: false },
-          ].map((p) => (
+          {priceTiers.map((tier, i) => (
             <div
-              key={p.label}
-              className={`card border ${p.featured ? "border-2 border-green-900" : "border-green-100"}`}
+              key={tier.label}
+              className={`card border ${i === 1 ? "border-2 border-green-900" : "border-green-100"}`}
             >
-              <p className={`text-xs uppercase tracking-widest mb-2 ${p.featured ? "" : "text-stone-400"}`}
-                style={{ color: p.featured ? '#1A1A1A' : undefined }}>
-                {p.detail}
+              <p className={`text-xs uppercase tracking-widest mb-2 ${i === 1 ? "" : "text-stone-400"}`}
+                style={{ color: i === 1 ? '#1A1A1A' : undefined }}>
+                {tier.label}
               </p>
-              <p className={`font-bold text-2xl mb-1 ${p.featured ? "" : "text-green-800"}`}
-                style={{ color: p.featured ? '#1A1A1A' : undefined }}>
-                {p.price}
+              <p className={`font-bold text-2xl mb-1 ${i === 1 ? "" : "text-green-800"}`}
+                style={{ color: i === 1 ? '#1A1A1A' : undefined }}>
+                {tier.price}
               </p>
-              <p className={`text-xs ${p.featured ? "" : "text-stone-500"}`}
-                style={{ color: p.featured ? '#666' : undefined }}>
-                {p.label}
+              <p className={`text-xs ${i === 1 ? "" : "text-stone-500"}`}
+                style={{ color: i === 1 ? '#666' : undefined }}>
+                {tier.note}
               </p>
             </div>
           ))}
@@ -226,19 +194,12 @@ export default async function HomePage({
       {/* Guide Teaser */}
       <section className="bg-stone-100 py-20">
         <div className="max-w-6xl mx-auto px-4">
-          <h2 className="section-title text-center">Reiseführer Vulkaneifel</h2>
+          <h2 className="section-title text-center">{t('guide.heading')}</h2>
           <p className="text-center text-stone-600 mb-10 max-w-2xl mx-auto">
-            Entdecken Sie die besten Tipps für Wanderungen, Radtouren, Ausflugsziele und mehr –
-            zusammengestellt von Einheimischen für unsere Gäste.
+            {t('guide.subtitle')}
           </p>
           <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
-            {[
-              { href: "/guide/dauner-maare", icon: "🌊", label: "Dauner Maare" },
-              { href: "/guide/wandern", icon: "🥾", label: "Wandern" },
-              { href: "/guide/radfahren", icon: "🚴", label: "Radfahren" },
-              { href: "/guide/ausflugsziele", icon: "🗺️", label: "Ausflugsziele" },
-              { href: "/guide/schlechtwetter", icon: "🌧️", label: "Schlechtwetter" },
-            ].map((g) => (
+            {guideLinks.map((g) => (
               <Link
                 key={g.href}
                 href={g.href}
