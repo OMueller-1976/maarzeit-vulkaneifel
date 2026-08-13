@@ -74,9 +74,40 @@ export async function POST(req: NextRequest) {
 
   const session = await stripe.checkout.sessions.create({
     payment_method_types: ['card', 'sepa_debit', 'paypal'],
-    mode:           'payment',
-    customer_email: email,
-    locale:         'de',
+    mode:             'payment',
+    customer_email:   email,
+    customer_creation: 'always',
+    locale:           'de',
+    automatic_tax:    { enabled: true },
+    invoice_creation: {
+      enabled: true,
+      invoice_data: {
+        description: `MaarZeit Vulkaneifel – Buchung ${checkin} bis ${checkout}`,
+        metadata: {
+          booking_id: booking.id,
+          checkin,
+          checkout,
+          guest_name: name,
+        },
+        footer: 'Gem. § 12 Abs. 2 Nr. 11 UStG: Übernachtungsleistungen 7% USt. | MaarZeit Vulkaneifel, Am Bruchborn 6, 54570 Kirchweiler | Inhaber: Markus Müller',
+        rendering_options: {
+          amount_tax_display: 'include_inclusive_tax',
+        },
+        custom_fields: [
+          { name: 'Check-in',  value: checkin },
+          { name: 'Check-out', value: checkout },
+          { name: 'Personen',  value: String(guestsCount) },
+        ],
+      },
+    },
+    payment_intent_data: {
+      metadata: {
+        checkin,
+        checkout,
+        guest_name:  name,
+        guest_email: email,
+      },
+    },
     line_items: [
       {
         price_data: {

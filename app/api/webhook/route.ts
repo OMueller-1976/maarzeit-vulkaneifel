@@ -67,6 +67,23 @@ export async function POST(req: NextRequest) {
     }
   }
 
+  if (event.type === 'invoice.payment_succeeded') {
+    const invoice   = event.data.object as Stripe.Invoice
+    const bookingId = invoice.metadata?.booking_id
+
+    if (bookingId) {
+      await supabase
+        .from('bookings')
+        .update({
+          stripe_invoice_id:  invoice.id,
+          stripe_invoice_url: invoice.hosted_invoice_url,
+        })
+        .eq('id', bookingId)
+
+      console.log('Invoice sent:', invoice.id, '→', invoice.customer_email)
+    }
+  }
+
   if (event.type === 'checkout.session.expired') {
     const session   = event.data.object as Stripe.Checkout.Session
     const bookingId = session.metadata?.booking_id
