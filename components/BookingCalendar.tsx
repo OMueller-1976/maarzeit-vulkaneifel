@@ -35,7 +35,8 @@ export default function BookingCalendar() {
     }), [blockedRanges])
 
   const nights  = range?.from && range?.to ? differenceInDays(range.to, range.from) : 0
-  const pricing = nights >= 1 ? calculatePrice(nights) : null
+  const persons = parseInt(form.personen) || 1
+  const pricing = nights >= 1 ? calculatePrice(nights, persons) : null
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -50,11 +51,12 @@ export default function BookingCalendar() {
         method:  'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          checkin:    format(range.from, 'yyyy-MM-dd'),
-          checkout:   format(range.to,   'yyyy-MM-dd'),
+          checkin:      format(range.from, 'yyyy-MM-dd'),
+          checkout:     format(range.to,   'yyyy-MM-dd'),
           nights,
-          guests:     form.personen,
-          dog:        form.hund,
+          guests:       form.personen,
+          guests_count: persons,
+          dog:          form.hund,
           motorcycle: form.motorrad,
           name:       form.name,
           email:      form.email,
@@ -109,7 +111,28 @@ export default function BookingCalendar() {
               </div>
             ))}
             <div style={{ display: 'flex', justifyContent: 'space-between', borderTop: '1px solid #E5E5E5', paddingTop: '0.6rem', marginTop: '0.5rem', fontFamily: 'Georgia, serif', fontSize: '1.1rem' }}>
-              <span>Gesamtpreis</span><span>{pricing.total} €</span>
+              <span>Gesamtpreis</span><span>{pricing.gesamtMitKurtaxe.toFixed(2)} €</span>
+            </div>
+            {/* MwSt und Kurtaxe Aufschlüsselung */}
+            <div style={{
+              borderTop: '1px solid #E5E5E5',
+              marginTop: '0.75rem',
+              paddingTop: '0.75rem',
+              fontSize: '0.8rem',
+              color: '#888',
+            }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.25rem' }}>
+                <span>Nettobetrag (Übernachtung + Reinigung)</span>
+                <span>{pricing.nettoGesamt.toFixed(2)} €</span>
+              </div>
+              <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.25rem' }}>
+                <span>MwSt. 7 %</span>
+                <span>{pricing.ustBetrag.toFixed(2)} €</span>
+              </div>
+              <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                <span>Kurtaxe ({persons} Pers. × {nights} Nächte × 2,00 €)</span>
+                <span>{pricing.kurtaxeTotal.toFixed(2)} €</span>
+              </div>
             </div>
             <div style={{ background: 'white', border: '1px solid #E5E5E5', padding: '1rem', marginTop: '1rem' }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.88rem', marginBottom: '0.35rem' }}>

@@ -81,6 +81,15 @@ export default async function ImpressumPage() {
         </section>
 
         <section>
+          <h2 className="text-lg font-bold text-green-900 mb-2">Steuerliche Angaben</h2>
+          <p>
+            Umsatzsteuer-Identifikationsnummer: [beim Finanzamt Wittlich beantragen]<br />
+            Zuständiges Finanzamt: Finanzamt Wittlich<br />
+            Steuernummer: 43/222/06079
+          </p>
+        </section>
+
+        <section>
           <h2 className="text-lg font-bold text-green-900 mb-2">Streitschlichtung</h2>
           <p>
             Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit:

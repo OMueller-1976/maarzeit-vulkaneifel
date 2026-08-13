@@ -11,7 +11,7 @@ export async function POST(req: NextRequest) {
     apiVersion: '2026-05-27.dahlia',
   })
   const body = await req.json()
-  const { checkin, checkout, nights, guests, dog, motorcycle, name, email, phone, message } = body
+  const { checkin, checkout, nights, guests, dog, motorcycle, name, email, phone, message, guests_count } = body
 
   if (!checkin || !checkout || !nights || !name || !email)
     return NextResponse.json({ error: 'Pflichtfelder fehlen' }, { status: 400 })
@@ -30,6 +30,11 @@ export async function POST(req: NextRequest) {
     )
 
   const price        = calculatePrice(Number(nights))
+  const guestsCount  = parseInt(guests_count) || 1
+  const KURTAXE      = 2.00
+  const kurtaxeTotal = guestsCount * price.nights * KURTAXE
+  const nettoGesamt  = (price.subtotal + price.cleaningFee) / 1.07
+  const ustBetrag    = nettoGesamt * 0.07
   const checkinDate  = parseISO(checkin)
   const checkoutDate = parseISO(checkout)
 
@@ -45,13 +50,19 @@ export async function POST(req: NextRequest) {
       guest_email:     email,
       guest_phone:     phone || null,
       message:         message || null,
-      price_per_night: price.perNight,
-      subtotal:        price.subtotal,
-      cleaning_fee:    price.cleaningFee,
-      total:           price.total,
-      deposit:         price.deposit,
-      remainder:       price.remainder,
-      status:          'pending',
+      price_per_night:              price.perNight,
+      subtotal:                     price.subtotal,
+      cleaning_fee:                 price.cleaningFee,
+      total:                        price.subtotal + price.cleaningFee + kurtaxeTotal,
+      deposit:                      price.deposit,
+      remainder:                    price.remainder,
+      kurtaxe_per_person_per_night: KURTAXE,
+      kurtaxe_total:                kurtaxeTotal,
+      ust_satz:                     7.00,
+      ust_betrag:                   Math.round(ustBetrag * 100) / 100,
+      netto_betrag:                 Math.round(nettoGesamt * 100) / 100,
+      guests_count:                 guestsCount,
+      status:                       'pending',
       blocked_from:    format(subDays(checkinDate, 1),  'yyyy-MM-dd'),
       blocked_until:   format(addDays(checkoutDate, 1), 'yyyy-MM-dd'),
     })
@@ -66,17 +77,30 @@ export async function POST(req: NextRequest) {
     mode:           'payment',
     customer_email: email,
     locale:         'de',
-    line_items: [{
-      price_data: {
-        currency: 'eur',
-        product_data: {
-          name: `MaarZeit Vulkaneifel – ${nights} Nacht${Number(nights) > 1 ? 'nächte' : ''}`,
-          description: `Check-in: ${checkin} · Check-out: ${checkout} · ${guests} Person(en) · Endreinigung inklusive · Restzahlung ${price.remainder} € bei Anreise`,
+    line_items: [
+      {
+        price_data: {
+          currency: 'eur',
+          product_data: {
+            name: `MaarZeit Vulkaneifel – ${nights} Nacht${Number(nights) > 1 ? 'nächte' : ''}`,
+            description: `Check-in: ${checkin} · Check-out: ${checkout} · ${guests} Person(en) · Endreinigung inklusive · Restzahlung ${price.remainder} € bei Anreise`,
+          },
+          unit_amount: price.deposit * 100,
         },
-        unit_amount: price.deposit * 100,
+        quantity: 1,
       },
-      quantity: 1,
-    }],
+      {
+        price_data: {
+          currency: 'eur',
+          product_data: {
+            name: 'Kurtaxe (Gästebeitrag)',
+            description: `${guestsCount} Person(en) × ${price.nights} Nächte × 2,00 €`,
+          },
+          unit_amount: Math.round(kurtaxeTotal * 100),
+        },
+        quantity: 1,
+      },
+    ],
     metadata: {
       booking_id:    booking.id,
       checkin,       checkout,
@@ -84,7 +108,7 @@ export async function POST(req: NextRequest) {
       guests,
       dog:           dog || 'nein',
       name,          email,
-      total_eur:     String(price.total),
+      total_eur:     String(price.subtotal + price.cleaningFee + kurtaxeTotal),
       deposit_eur:   String(price.deposit),
       remainder_eur: String(price.remainder),
     },

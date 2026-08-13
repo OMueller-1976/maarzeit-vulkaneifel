@@ -51,6 +51,19 @@ export default async function BuchungsbedingungenPage() {
 
       <div className="space-y-8 text-stone-700 text-sm leading-relaxed">
         <section>
+          <h2 className="text-lg font-bold text-green-900 mb-2">§ 0 Preise und Steuern</h2>
+          <p>
+            Alle angegebenen Preise sind Bruttopreise inkl. der gesetzlichen
+            Umsatzsteuer von 7 % gemäß § 12 Abs. 2 Nr. 11 UStG
+            (Beherbergungsleistungen inkl. Nebenleistungen).
+            Zusätzlich wird ein Kurtaxe-/Gästebeitrag gemäß der Satzung
+            der zuständigen Verbandsgemeinde erhoben (derzeit 2,00 €
+            pro Person und Nacht). Die Kurtaxe ist kein Bestandteil des
+            Mietpreises und wird separat ausgewiesen.
+          </p>
+        </section>
+
+        <section>
           <h2 className="text-lg font-bold text-green-900 mb-2">§ 1 Buchungsabschluss</h2>
           <p>
             Der Mietvertrag kommt durch die schriftliche Bestätigung des Vermieters zustande.
