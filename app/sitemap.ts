@@ -8,6 +8,7 @@ const pages = [
   { path: '/ferienwohnung', priority: 0.9 },
   { path: '/buchung', priority: 0.9 },
   { path: '/guide', priority: 0.8 },
+  { path: '/guide/eifel-entdecken', priority: 0.8 },
   { path: '/guide/dauner-maare', priority: 0.7 },
   { path: '/guide/wandern', priority: 0.7 },
   { path: '/guide/radfahren', priority: 0.7 },

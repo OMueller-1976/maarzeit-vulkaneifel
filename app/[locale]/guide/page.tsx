@@ -16,6 +16,7 @@ const translations = {
       { href: '/guide/ausflugsziele', icon: '🗺️', title: 'Ausflugsziele', text: 'Burgen, Thermalbäder, Museen und Naturparks in der Umgebung – Empfehlungen für Tagesausflüge mit und ohne Kinder.' },
       { href: '/guide/schlechtwetter', icon: '🌧️', title: 'Schlechtwetter-Tipps', text: 'Auch wenn es regnet, muss die gute Stimmung nicht leiden. Unsere besten Alternativen für regnerische Tage in der Eifel.' },
       { href: '/guide/gerolstein', icon: '🏔️', title: 'Gerolstein', text: 'Brunnen-Erlebniswelt · Dolomiten · Kurpark · Höhlen – die Brunnenstadt der Vulkaneifel in 20 Minuten erreichbar.' },
+      { href: '/guide/eifel-entdecken', icon: '🗾', title: 'Eifel entdecken', text: 'Kanu · Nationalpark · Burgen · Monschau · Rursee – die große Übersicht aller Aktivitäten und Ausflugsziele.' },
     ],
   },
   en: {
@@ -30,6 +31,7 @@ const translations = {
       { href: '/guide/ausflugsziele', icon: '🗺️', title: 'Excursions', text: 'Castles, thermal baths, museums and nature parks nearby – recommendations for day trips with and without children.' },
       { href: '/guide/schlechtwetter', icon: '🌧️', title: 'Rainy Day Tips', text: 'Even when it rains, the mood needn\'t suffer. Our best alternatives for wet days in the Eifel.' },
       { href: '/guide/gerolstein', icon: '🏔️', title: 'Gerolstein', text: 'Spring experience world · Dolomites · Spa park · Caves – the mineral water town of the Vulkan Eifel, 20 minutes away.' },
+      { href: '/guide/eifel-entdecken', icon: '🗾', title: 'Discover the Eifel', text: 'Canoeing · National Park · Castles · Monschau · Lake Rur – the complete overview of activities and day trips.' },
     ],
   },
   nl: {
@@ -44,6 +46,7 @@ const translations = {
       { href: '/guide/ausflugsziele', icon: '🗺️', title: 'Uitstapjes', text: 'Kastelen, thermen, musea en natuurparken in de omgeving – aanbevelingen voor daguitstapjes met en zonder kinderen.' },
       { href: '/guide/schlechtwetter', icon: '🌧️', title: 'Slechtweer Tips', text: 'Ook als het regent hoeft de stemming er niet onder te lijden. Onze beste alternatieven voor regenachtige dagen in de Eifel.' },
       { href: '/guide/gerolstein', icon: '🏔️', title: 'Gerolstein', text: 'Bronnenwereld · Dolomieten · Kurpark · Grotten – de bronstad van de Vulkaan Eifel, 20 minuten rijden.' },
+      { href: '/guide/eifel-entdecken', icon: '🗾', title: 'Eifel Ontdekken', text: 'Kano\u00ebren · Nationaal Park · Kastelen · Monschau · Rursee \u2013 het grote overzicht van activiteiten en uitstapjes.' },
     ],
   },
   fr: {
@@ -58,6 +61,7 @@ const translations = {
       { href: '/guide/ausflugsziele', icon: '🗺️', title: 'Excursions', text: "Châteaux, thermes, musées et parcs naturels à proximité – recommandations pour des excursions à la journée avec et sans enfants." },
       { href: '/guide/schlechtwetter', icon: '🌧️', title: 'Jours de Pluie', text: "Même quand il pleut, l'humeur n'a pas à en souffrir. Nos meilleures alternatives pour les jours pluvieux dans l'Eifel." },
       { href: '/guide/gerolstein', icon: '🏔️', title: 'Gerolstein', text: "Monde de la source · Dolomites · Parc thermal · Grottes – la ville des eaux de l'Eifel volcanique, à 20 minutes." },
+      { href: '/guide/eifel-entdecken', icon: '🗾', title: "D\u00e9couvrir l\u2019Eifel", text: 'Cano\u00eb \u00b7 Parc national \u00b7 Ch\u00e2teaux \u00b7 Monschau \u00b7 Lac Rur \u2013 la grande vue d\u2019ensemble des activit\u00e9s et excursions.' },
     ],
   },
 }
