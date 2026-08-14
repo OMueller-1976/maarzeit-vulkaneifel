@@ -23,10 +23,26 @@
       "heading": "Warum MaarZeit?",
       "subtitle": "Die Vulkaneifel ist eine der naturreichsten Regionen Deutschlands – und MaarZeit liegt mittendrin.",
       "items": [
-        { "icon": "🌋", "title": "Vulkanische Landschaft", "text": "Einmalige Maare und Vulkankegel direkt vor der Haustür – ein Naturwunder der Eifel." },
-        { "icon": "🥾", "title": "Wanderparadies", "text": "Traumhafte Wanderwege wie der Eifelsteig führen durch Wälder, Maare und stille Täler." },
-        { "icon": "🏍️", "title": "Motorradregion", "text": "Kurvenreiche Strecken durch die Eifellandschaft machen die Region zum Biker-Paradies." },
-        { "icon": "🐕", "title": "Hunde willkommen", "text": "Ihr Vierbeiner ist bei uns herzlich willkommen – mit eingezäuntem Garten und Auslaufwiese." }
+        {
+          "icon": "🌋",
+          "title": "Vulkanische Landschaft",
+          "text": "Einmalige Maare und Vulkankegel direkt vor der Haustür – ein Naturwunder der Eifel."
+        },
+        {
+          "icon": "🥾",
+          "title": "Wanderparadies",
+          "text": "Traumhafte Wanderwege wie der Eifelsteig führen durch Wälder, Maare und stille Täler."
+        },
+        {
+          "icon": "🏍️",
+          "title": "Motorradregion",
+          "text": "Kurvenreiche Strecken durch die Eifellandschaft machen die Region zum Biker-Paradies."
+        },
+        {
+          "icon": "🐕",
+          "title": "Hunde willkommen",
+          "text": "Ihr Vierbeiner ist bei uns herzlich willkommen – mit eingezäuntem Garten und Auslaufwiese."
+        }
       ]
     },
     "apartment": {
@@ -48,10 +64,26 @@
       "title": "Preise & Verfügbarkeit",
       "subtitle": "Ab 75 € pro Nacht – zzgl. 20 € Endreinigung pro Buchung.",
       "tiers": [
-        { "label": "1 Nacht", "price": "125 €", "note": "Spontanurlaub" },
-        { "label": "2–3 Nächte", "price": "95 €", "note": "Kurzurlaub & Wochenende" },
-        { "label": "4–7 Nächte", "price": "85 €", "note": "Verlängertes Wochenende" },
-        { "label": "Ab 7 Nächten", "price": "75 €", "note": "Urlaubswoche" }
+        {
+          "label": "1 Nacht",
+          "price": "125 €",
+          "note": "Spontanurlaub"
+        },
+        {
+          "label": "2–3 Nächte",
+          "price": "95 €",
+          "note": "Kurzurlaub & Wochenende"
+        },
+        {
+          "label": "4–7 Nächte",
+          "price": "85 €",
+          "note": "Verlängertes Wochenende"
+        },
+        {
+          "label": "Ab 7 Nächten",
+          "price": "75 €",
+          "note": "Urlaubswoche"
+        }
       ],
       "footnote": "Endreinigung 20 € pauschal pro Buchung · Mindestaufenthalt 1 Nacht",
       "btnBook": "Jetzt Termin prüfen & buchen"
@@ -59,21 +91,58 @@
     "booking": {
       "title": "So funktioniert die Buchung",
       "steps": [
-        { "title": "Termin wählen", "text": "Wählen Sie Ihren Wunschzeitraum direkt im Online-Kalender aus." },
-        { "title": "Sofortbestätigung", "text": "Die Verfügbarkeit wird live geprüft – keine Wartezeit." },
-        { "title": "Anzahlung", "text": "Mit 30 % Anzahlung über Stripe wird der Termin reserviert." },
-        { "title": "Schlüsselübergabe", "text": "Restzahlung bei Anreise vor Ort möglich – auch per Karte." }
+        {
+          "title": "Termin wählen",
+          "text": "Wählen Sie Ihren Wunschzeitraum direkt im Online-Kalender aus."
+        },
+        {
+          "title": "Sofortbestätigung",
+          "text": "Die Verfügbarkeit wird live geprüft – keine Wartezeit."
+        },
+        {
+          "title": "Anzahlung",
+          "text": "Mit 30 % Anzahlung über Stripe wird der Termin reserviert."
+        },
+        {
+          "title": "Schlüsselübergabe",
+          "text": "Restzahlung bei Anreise vor Ort möglich – auch per Karte."
+        }
       ]
     },
     "guide": {
       "heading": "Reiseführer Vulkaneifel",
       "subtitle": "Entdecken Sie die besten Tipps für Wanderungen, Radtouren, Ausflugsziele und mehr – zusammengestellt von Einheimischen für unsere Gäste.",
       "links": [
-        { "href": "/guide/dauner-maare", "icon": "🌊", "label": "Dauner Maare" },
-        { "href": "/guide/wandern", "icon": "🥾", "label": "Wandern" },
-        { "href": "/guide/radfahren", "icon": "🚴", "label": "Radfahren" },
-        { "href": "/guide/ausflugsziele", "icon": "🗺️", "label": "Ausflugsziele" },
-        { "href": "/guide/schlechtwetter", "icon": "🌧️", "label": "Schlechtwetter" }
+        {
+          "href": "/guide/dauner-maare",
+          "icon": "🌊",
+          "label": "Dauner Maare"
+        },
+        {
+          "href": "/guide/wandern",
+          "icon": "🥾",
+          "label": "Wandern"
+        },
+        {
+          "href": "/guide/radfahren",
+          "icon": "🚴",
+          "label": "Radfahren"
+        },
+        {
+          "href": "/guide/ausflugsziele",
+          "icon": "🗺️",
+          "label": "Ausflugsziele"
+        },
+        {
+          "href": "/guide/schlechtwetter",
+          "icon": "🌧️",
+          "label": "Schlechtwetter"
+        },
+        {
+          "href": "/specials/events",
+          "icon": "🎪",
+          "label": "Events & Feste"
+        }
       ]
     }
   },

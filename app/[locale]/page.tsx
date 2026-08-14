@@ -198,7 +198,7 @@ export default async function HomePage({
           <p className="text-center text-stone-600 mb-10 max-w-2xl mx-auto">
             {t('guide.subtitle')}
           </p>
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
             {guideLinks.map((g) => (
               <Link
                 key={g.href}

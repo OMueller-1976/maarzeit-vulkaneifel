@@ -23,10 +23,26 @@
       "heading": "Why MaarZeit?",
       "subtitle": "The Vulkan Eifel is one of Germany's most nature-rich regions – and MaarZeit is right in the middle of it.",
       "items": [
-        { "icon": "🌋", "title": "Volcanic Landscape", "text": "Unique maare and volcanic cones right on your doorstep – a natural wonder of the Eifel." },
-        { "icon": "🥾", "title": "Hiking Paradise", "text": "Stunning trails like the Eifelsteig lead through forests, maare and quiet valleys." },
-        { "icon": "🏍️", "title": "Motorcycle Region", "text": "Winding roads through the Eifel landscape make this region a biker's paradise." },
-        { "icon": "🐕", "title": "Dogs Welcome", "text": "Your four-legged friend is warmly welcome – with a fenced garden and open meadow." }
+        {
+          "icon": "🌋",
+          "title": "Volcanic Landscape",
+          "text": "Unique maare and volcanic cones right on your doorstep – a natural wonder of the Eifel."
+        },
+        {
+          "icon": "🥾",
+          "title": "Hiking Paradise",
+          "text": "Stunning trails like the Eifelsteig lead through forests, maare and quiet valleys."
+        },
+        {
+          "icon": "🏍️",
+          "title": "Motorcycle Region",
+          "text": "Winding roads through the Eifel landscape make this region a biker's paradise."
+        },
+        {
+          "icon": "🐕",
+          "title": "Dogs Welcome",
+          "text": "Your four-legged friend is warmly welcome – with a fenced garden and open meadow."
+        }
       ]
     },
     "apartment": {
@@ -48,10 +64,26 @@
       "title": "Prices & Availability",
       "subtitle": "From €75 per night – plus €20 cleaning fee per booking.",
       "tiers": [
-        { "label": "1 Night", "price": "€125", "note": "Spontaneous getaway" },
-        { "label": "2–3 Nights", "price": "€95", "note": "Short break & weekend" },
-        { "label": "4–7 Nights", "price": "€85", "note": "Extended weekend" },
-        { "label": "7+ Nights", "price": "€75", "note": "Holiday week" }
+        {
+          "label": "1 Night",
+          "price": "€125",
+          "note": "Spontaneous getaway"
+        },
+        {
+          "label": "2–3 Nights",
+          "price": "€95",
+          "note": "Short break & weekend"
+        },
+        {
+          "label": "4–7 Nights",
+          "price": "€85",
+          "note": "Extended weekend"
+        },
+        {
+          "label": "7+ Nights",
+          "price": "€75",
+          "note": "Holiday week"
+        }
       ],
       "footnote": "Cleaning fee €20 flat per booking · Minimum stay 1 night",
       "btnBook": "Check Dates & Book"
@@ -59,21 +91,58 @@
     "booking": {
       "title": "How Booking Works",
       "steps": [
-        { "title": "Choose Dates", "text": "Select your preferred dates directly in the online calendar." },
-        { "title": "Instant Confirmation", "text": "Availability is checked in real time – no waiting." },
-        { "title": "Deposit", "text": "A 30% deposit via Stripe secures your booking." },
-        { "title": "Key Handover", "text": "Pay the remainder on arrival – card accepted." }
+        {
+          "title": "Choose Dates",
+          "text": "Select your preferred dates directly in the online calendar."
+        },
+        {
+          "title": "Instant Confirmation",
+          "text": "Availability is checked in real time – no waiting."
+        },
+        {
+          "title": "Deposit",
+          "text": "A 30% deposit via Stripe secures your booking."
+        },
+        {
+          "title": "Key Handover",
+          "text": "Pay the remainder on arrival – card accepted."
+        }
       ]
     },
     "guide": {
       "heading": "Vulkan Eifel Travel Guide",
       "subtitle": "Discover the best tips for hiking, cycling, excursions and more – compiled by locals for our guests.",
       "links": [
-        { "href": "/guide/dauner-maare", "icon": "🌊", "label": "Daun Maare" },
-        { "href": "/guide/wandern", "icon": "🥾", "label": "Hiking" },
-        { "href": "/guide/radfahren", "icon": "🚴", "label": "Cycling" },
-        { "href": "/guide/ausflugsziele", "icon": "🗺️", "label": "Excursions" },
-        { "href": "/guide/schlechtwetter", "icon": "🌧️", "label": "Rainy Days" }
+        {
+          "href": "/guide/dauner-maare",
+          "icon": "🌊",
+          "label": "Daun Maare"
+        },
+        {
+          "href": "/guide/wandern",
+          "icon": "🥾",
+          "label": "Hiking"
+        },
+        {
+          "href": "/guide/radfahren",
+          "icon": "🚴",
+          "label": "Cycling"
+        },
+        {
+          "href": "/guide/ausflugsziele",
+          "icon": "🗺️",
+          "label": "Excursions"
+        },
+        {
+          "href": "/guide/schlechtwetter",
+          "icon": "🌧️",
+          "label": "Rainy Days"
+        },
+        {
+          "href": "/specials/events",
+          "icon": "🎪",
+          "label": "Events & Festivals"
+        }
       ]
     }
   },

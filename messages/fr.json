@@ -23,10 +23,26 @@
       "heading": "Pourquoi MaarZeit ?",
       "subtitle": "L'Eifel volcanique est l'une des régions les plus riches en nature d'Allemagne – et MaarZeit se trouve en plein cœur.",
       "items": [
-        { "icon": "🌋", "title": "Paysage Volcanique", "text": "Des maare et cônes volcaniques uniques juste devant la porte – une merveille naturelle de l'Eifel." },
-        { "icon": "🥾", "title": "Paradis Randonnée", "text": "Des sentiers magnifiques comme l'Eifelsteig traversent forêts, maare et vallées tranquilles." },
-        { "icon": "🏍️", "title": "Région Moto", "text": "Des routes sinueuses à travers le paysage de l'Eifel font de cette région un paradis pour les motards." },
-        { "icon": "🐕", "title": "Chiens Bienvenus", "text": "Votre compagnon à quatre pattes est chaleureusement bienvenu – avec jardin clôturé et prairie." }
+        {
+          "icon": "🌋",
+          "title": "Paysage Volcanique",
+          "text": "Des maare et cônes volcaniques uniques juste devant la porte – une merveille naturelle de l'Eifel."
+        },
+        {
+          "icon": "🥾",
+          "title": "Paradis Randonnée",
+          "text": "Des sentiers magnifiques comme l'Eifelsteig traversent forêts, maare et vallées tranquilles."
+        },
+        {
+          "icon": "🏍️",
+          "title": "Région Moto",
+          "text": "Des routes sinueuses à travers le paysage de l'Eifel font de cette région un paradis pour les motards."
+        },
+        {
+          "icon": "🐕",
+          "title": "Chiens Bienvenus",
+          "text": "Votre compagnon à quatre pattes est chaleureusement bienvenu – avec jardin clôturé et prairie."
+        }
       ]
     },
     "apartment": {
@@ -48,10 +64,26 @@
       "title": "Prix & Disponibilité",
       "subtitle": "À partir de 75 € par nuit – plus 20 € de frais de ménage par réservation.",
       "tiers": [
-        { "label": "1 Nuit", "price": "125 €", "note": "Escapade spontanée" },
-        { "label": "2–3 Nuits", "price": "95 €", "note": "Court séjour & week-end" },
-        { "label": "4–7 Nuits", "price": "85 €", "note": "Long week-end" },
-        { "label": "À partir de 7 Nuits", "price": "75 €", "note": "Semaine de vacances" }
+        {
+          "label": "1 Nuit",
+          "price": "125 €",
+          "note": "Escapade spontanée"
+        },
+        {
+          "label": "2–3 Nuits",
+          "price": "95 €",
+          "note": "Court séjour & week-end"
+        },
+        {
+          "label": "4–7 Nuits",
+          "price": "85 €",
+          "note": "Long week-end"
+        },
+        {
+          "label": "À partir de 7 Nuits",
+          "price": "75 €",
+          "note": "Semaine de vacances"
+        }
       ],
       "footnote": "Frais de ménage 20 € forfaitaires par réservation · Séjour minimum 1 nuit",
       "btnBook": "Vérifier les Dates & Réserver"
@@ -59,21 +91,58 @@
     "booking": {
       "title": "Comment Réserver",
       "steps": [
-        { "title": "Choisir les Dates", "text": "Sélectionnez vos dates souhaitées directement dans le calendrier en ligne." },
-        { "title": "Confirmation Immédiate", "text": "La disponibilité est vérifiée en temps réel – sans attente." },
-        { "title": "Acompte", "text": "Un acompte de 30 % via Stripe confirme votre réservation." },
-        { "title": "Remise des Clés", "text": "Le solde peut être réglé à l'arrivée – paiement par carte accepté." }
+        {
+          "title": "Choisir les Dates",
+          "text": "Sélectionnez vos dates souhaitées directement dans le calendrier en ligne."
+        },
+        {
+          "title": "Confirmation Immédiate",
+          "text": "La disponibilité est vérifiée en temps réel – sans attente."
+        },
+        {
+          "title": "Acompte",
+          "text": "Un acompte de 30 % via Stripe confirme votre réservation."
+        },
+        {
+          "title": "Remise des Clés",
+          "text": "Le solde peut être réglé à l'arrivée – paiement par carte accepté."
+        }
       ]
     },
     "guide": {
       "heading": "Guide de Voyage Eifel Volcanique",
       "subtitle": "Découvrez les meilleurs conseils pour les randonnées, les balades à vélo, les excursions et plus encore – compilés par des locaux pour nos hôtes.",
       "links": [
-        { "href": "/guide/dauner-maare", "icon": "🌊", "label": "Dauner Maare" },
-        { "href": "/guide/wandern", "icon": "🥾", "label": "Randonnée" },
-        { "href": "/guide/radfahren", "icon": "🚴", "label": "Vélo" },
-        { "href": "/guide/ausflugsziele", "icon": "🗺️", "label": "Excursions" },
-        { "href": "/guide/schlechtwetter", "icon": "🌧️", "label": "Mauvais Temps" }
+        {
+          "href": "/guide/dauner-maare",
+          "icon": "🌊",
+          "label": "Dauner Maare"
+        },
+        {
+          "href": "/guide/wandern",
+          "icon": "🥾",
+          "label": "Randonnée"
+        },
+        {
+          "href": "/guide/radfahren",
+          "icon": "🚴",
+          "label": "Vélo"
+        },
+        {
+          "href": "/guide/ausflugsziele",
+          "icon": "🗺️",
+          "label": "Excursions"
+        },
+        {
+          "href": "/guide/schlechtwetter",
+          "icon": "🌧️",
+          "label": "Mauvais Temps"
+        },
+        {
+          "href": "/specials/events",
+          "icon": "🎪",
+          "label": "Événements"
+        }
       ]
     }
   },

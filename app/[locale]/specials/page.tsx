@@ -61,6 +61,12 @@ const translations = {
         entfernung: 'ca. 130 km',
         beschreibung: 'Der Kölner Dom, Brauhauskultur, Rheinufer und erstklassige Museen – Köln ist die nächste Metropole und ein großartiges Ziel für einen ausgedehnten Tagesausflug.',
       },
+      {
+        href: '/specials/events',
+        title: 'Events & Veranstaltungen',
+        entfernung: '6–55 km',
+        beschreibung: 'Nürburgring 24h, Rock am Ring, Eifel Rallye Festival, Laurentiuskirmes Daun, Konzerte und mehr – die schönsten Veranstaltungshighlights der Vulkaneifel im Jahreskalender.',
+      },
     ],
   },
   en: {
@@ -105,6 +111,12 @@ const translations = {
         title: 'Cologne',
         entfernung: 'approx. 130 km',
         beschreibung: 'Cologne Cathedral, brewery culture, the Rhine waterfront and world-class museums – Cologne is the nearest metropolis and a great destination for an extended day trip.',
+      },
+      {
+        href: '/specials/events',
+        title: 'Events & Festivals',
+        entfernung: '6–55 km',
+        beschreibung: 'Nürburgring 24h, Rock am Ring, Eifel Rallye Festival, Daun folk festival, concerts and more – the best annual event highlights of the Vulkan Eifel.',
       },
     ],
   },
@@ -151,6 +163,12 @@ const translations = {
         entfernung: 'ca. 130 km',
         beschreibung: 'De Kölner Dom, brouwerijcultuur, Rijnoever en eersteklas musea – Keulen is de dichtstbijzijnde metropool en een geweldige bestemming voor een uitgebreid daguitstap.',
       },
+      {
+        href: '/specials/events',
+        title: 'Events & Festivals',
+        entfernung: '6–55 km',
+        beschreibung: 'Nürburgring 24h, Rock am Ring, Eifel Rallye Festival, Laurentiuskirmes Daun, concerten en meer – de beste jaarlijkse evenementenhoogtepunten van de Vulkaan Eifel.',
+      },
     ],
   },
   fr: {
@@ -195,6 +213,12 @@ const translations = {
         title: 'Cologne',
         entfernung: 'environ 130 km',
         beschreibung: "La cathédrale de Cologne, la culture brassicole, les bords du Rhin et des musées de classe mondiale – Cologne est la métropole la plus proche et une excellente destination pour une grande excursion d'une journée.",
+      },
+      {
+        href: '/specials/events',
+        title: 'Événements & Festivals',
+        entfernung: '6–55 km',
+        beschreibung: "Nürburgring 24h, Rock am Ring, Eifel Rallye Festival, Laurentiuskirmes Daun, concerts et plus – les meilleurs temps forts annuels de l'Eifel volcanique.",
       },
     ],
   },

@@ -23,10 +23,26 @@
       "heading": "Waarom MaarZeit?",
       "subtitle": "De Vulkaan Eifel is een van de meest natuurrijke regio's van Duitsland – en MaarZeit ligt er middenin.",
       "items": [
-        { "icon": "🌋", "title": "Vulkanisch Landschap", "text": "Unieke maren en vulkaankegels voor de deur – een natuurwonder van de Eifel." },
-        { "icon": "🥾", "title": "Wandelparadijs", "text": "Prachtige wandelpaden zoals de Eifelsteig voeren door bossen, maren en stille dalen." },
-        { "icon": "🏍️", "title": "Motorregion", "text": "Bochtige wegen door het Eifellandschap maken de regio een paradijs voor motorrijders." },
-        { "icon": "🐕", "title": "Honden Welkom", "text": "Uw viervoetige vriend is van harte welkom – met omheinde tuin en speelweide." }
+        {
+          "icon": "🌋",
+          "title": "Vulkanisch Landschap",
+          "text": "Unieke maren en vulkaankegels voor de deur – een natuurwonder van de Eifel."
+        },
+        {
+          "icon": "🥾",
+          "title": "Wandelparadijs",
+          "text": "Prachtige wandelpaden zoals de Eifelsteig voeren door bossen, maren en stille dalen."
+        },
+        {
+          "icon": "🏍️",
+          "title": "Motorregion",
+          "text": "Bochtige wegen door het Eifellandschap maken de regio een paradijs voor motorrijders."
+        },
+        {
+          "icon": "🐕",
+          "title": "Honden Welkom",
+          "text": "Uw viervoetige vriend is van harte welkom – met omheinde tuin en speelweide."
+        }
       ]
     },
     "apartment": {
@@ -48,10 +64,26 @@
       "title": "Prijzen & Beschikbaarheid",
       "subtitle": "Vanaf €75 per nacht – plus €20 eindschoonmaak per boeking.",
       "tiers": [
-        { "label": "1 Nacht", "price": "€125", "note": "Spontaan uitje" },
-        { "label": "2–3 Nachten", "price": "€95", "note": "Kort verblijf & weekend" },
-        { "label": "4–7 Nachten", "price": "€85", "note": "Lang weekend" },
-        { "label": "Vanaf 7 Nachten", "price": "€75", "note": "Vakantieweek" }
+        {
+          "label": "1 Nacht",
+          "price": "€125",
+          "note": "Spontaan uitje"
+        },
+        {
+          "label": "2–3 Nachten",
+          "price": "€95",
+          "note": "Kort verblijf & weekend"
+        },
+        {
+          "label": "4–7 Nachten",
+          "price": "€85",
+          "note": "Lang weekend"
+        },
+        {
+          "label": "Vanaf 7 Nachten",
+          "price": "€75",
+          "note": "Vakantieweek"
+        }
       ],
       "footnote": "Eindschoonmaak €20 per boeking · Minimaal verblijf 1 nacht",
       "btnBook": "Controleer Data & Boek"
@@ -59,21 +91,58 @@
     "booking": {
       "title": "Zo werkt het boeken",
       "steps": [
-        { "title": "Kies Datums", "text": "Selecteer uw gewenste periode direct in de online kalender." },
-        { "title": "Directe Bevestiging", "text": "Beschikbaarheid wordt live gecontroleerd – geen wachttijd." },
-        { "title": "Aanbetaling", "text": "Met 30% aanbetaling via Stripe is uw boeking definitief." },
-        { "title": "Sleuteloverdracht", "text": "Restbetaling bij aankomst mogelijk – ook per kaart." }
+        {
+          "title": "Kies Datums",
+          "text": "Selecteer uw gewenste periode direct in de online kalender."
+        },
+        {
+          "title": "Directe Bevestiging",
+          "text": "Beschikbaarheid wordt live gecontroleerd – geen wachttijd."
+        },
+        {
+          "title": "Aanbetaling",
+          "text": "Met 30% aanbetaling via Stripe is uw boeking definitief."
+        },
+        {
+          "title": "Sleuteloverdracht",
+          "text": "Restbetaling bij aankomst mogelijk – ook per kaart."
+        }
       ]
     },
     "guide": {
       "heading": "Vulkaan Eifel Reisgids",
       "subtitle": "Ontdek de beste tips voor wandelingen, fietstochten, uitstapjes en meer – samengesteld door locals voor onze gasten.",
       "links": [
-        { "href": "/guide/dauner-maare", "icon": "🌊", "label": "Dauner Maren" },
-        { "href": "/guide/wandern", "icon": "🥾", "label": "Wandelen" },
-        { "href": "/guide/radfahren", "icon": "🚴", "label": "Fietsen" },
-        { "href": "/guide/ausflugsziele", "icon": "🗺️", "label": "Uitstapjes" },
-        { "href": "/guide/schlechtwetter", "icon": "🌧️", "label": "Slecht Weer" }
+        {
+          "href": "/guide/dauner-maare",
+          "icon": "🌊",
+          "label": "Dauner Maren"
+        },
+        {
+          "href": "/guide/wandern",
+          "icon": "🥾",
+          "label": "Wandelen"
+        },
+        {
+          "href": "/guide/radfahren",
+          "icon": "🚴",
+          "label": "Fietsen"
+        },
+        {
+          "href": "/guide/ausflugsziele",
+          "icon": "🗺️",
+          "label": "Uitstapjes"
+        },
+        {
+          "href": "/guide/schlechtwetter",
+          "icon": "🌧️",
+          "label": "Slecht Weer"
+        },
+        {
+          "href": "/specials/events",
+          "icon": "🎪",
+          "label": "Events & Festivals"
+        }
       ]
     }
   },
