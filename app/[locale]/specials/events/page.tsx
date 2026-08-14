@@ -19,6 +19,11 @@ const uiTranslations = {
     ctaTitle:   'Aufenthalt rund um ein Event planen?',
     ctaBtn:     'Verfügbarkeit prüfen',
     breadcrumb: 'Specials',
+    preview2027Title: 'Vorschau 2027 – Jetzt bereits buchbar',
+    preview2027Note: 'Früh planen lohnt sich – beliebte Events sind schnell ausgebucht. Jetzt Unterkunft sichern!',
+    earlyBookTip: '💡 Tipp: Frühzeitig buchen',
+    earlyBookText: 'Events wie Rock am Ring oder der Truck Grand Prix ziehen zehntausende Besucher in die Region. Unterkunftskapazitäten sind in Eventwochen schnell vergriffen. Wir empfehlen, Ihren MaarZeit-Aufenthalt frühzeitig zu sichern.',
+    earlyBookLink: '→ Jetzt Verfügbarkeit prüfen',
   },
   en: {
     title:      'Events & Festivals in the Vulkan Eifel',
@@ -35,6 +40,11 @@ const uiTranslations = {
     ctaTitle:   'Plan your stay around an event?',
     ctaBtn:     'Check Availability',
     breadcrumb: 'Specials',
+    preview2027Title: '2027 Preview – Book Early',
+    preview2027Note: 'Popular events sell out fast. Secure your stay now!',
+    earlyBookTip: '💡 Tip: Book Early',
+    earlyBookText: 'Events like Rock am Ring or the Truck Grand Prix attract tens of thousands of visitors to the region. Accommodation fills up fast in event weeks. We recommend securing your MaarZeit stay well in advance.',
+    earlyBookLink: '→ Check Availability Now',
   },
   nl: {
     title:      'Events & Festivals in de Vulkaan Eifel',
@@ -51,6 +61,11 @@ const uiTranslations = {
     ctaTitle:   'Verblijf rondom een evenement plannen?',
     ctaBtn:     'Beschikbaarheid controleren',
     breadcrumb: 'Specials',
+    preview2027Title: '2027 Vooruitblik – Vroeg Boeken',
+    preview2027Note: 'Populaire evenementen zijn snel volgeboekt. Boek nu uw verblijf!',
+    earlyBookTip: '💡 Tip: Vroeg Boeken',
+    earlyBookText: 'Evenementen zoals Rock am Ring of de Truck Grand Prix trekken tienduizenden bezoekers naar de regio. Accommodaties in evenementenweken zijn snel volgeboekt. Wij raden aan uw MaarZeit-verblijf tijdig te reserveren.',
+    earlyBookLink: '→ Controleer nu de beschikbaarheid',
   },
   fr: {
     title:      "Événements & Festivals dans l'Eifel Volcanique",
@@ -67,6 +82,11 @@ const uiTranslations = {
     ctaTitle:   'Planifier votre séjour autour d\'un événement ?',
     ctaBtn:     'Vérifier la disponibilité',
     breadcrumb: 'Specials',
+    preview2027Title: "Aperçu 2027 – Réservez Tôt",
+    preview2027Note: "Les événements populaires se remplissent vite. Réservez votre séjour maintenant !",
+    earlyBookTip: '💡 Conseil : Réservez tôt',
+    earlyBookText: "Des événements comme Rock am Ring ou le Truck Grand Prix attirent des dizaines de milliers de visiteurs dans la région. Les hébergements se remplissent vite pendant les semaines d'événements. Nous recommandons de réserver votre séjour MaarZeit à l'avance.",
+    earlyBookLink: '→ Vérifier la disponibilité maintenant',
   },
 }
 
@@ -184,6 +204,41 @@ const events = [
   },
 ]
 
+const preview2027Events = [
+  {
+    badge: 'FESTIVAL',
+    name: 'Rock am Ring 2027',
+    termin: '4.–6. Juni 2027 · Camping ab 2. Juni',
+    entfernung: 'ca. 55 km',
+    beschreibung: 'Die 42. Ausgabe des legendären Festivals. Erster bestätigter Headliner: blink-182 – ihr Debüt bei Rock am Ring nach über 40 Jahren Festivalgeschichte. Erfolgreichster Vorverkaufsstart aller Zeiten.',
+    link: 'https://www.rock-am-ring.com',
+  },
+  {
+    badge: 'MOTORSPORT',
+    name: 'Int. ADAC Truck-Grand-Prix 2027',
+    termin: '9.–11. Juli 2027',
+    entfernung: 'ca. 55 km',
+    beschreibung: 'Das jährliche Trucker-Spektakel am Nürburgring. Motorsport, Musik-Festival, Industriemesse und Trucker-Camp in einem.',
+    link: 'https://www.adac.de/veranstaltungen/truck-grand-prix/',
+  },
+  {
+    badge: 'RALLYE',
+    name: 'Eifel Rallye Festival Daun 2027',
+    termin: 'Juli 2027 (genaue Termine folgen)',
+    entfernung: 'ca. 6 km',
+    beschreibung: 'Das größte rollende Rallye-Museum Europas kehrt nach Daun zurück. Tickets und Details in Kürze beim Veranstalter.',
+    link: 'https://eifel-rallye-festival.de',
+  },
+  {
+    badge: 'VOLKSFEST',
+    name: 'Dauner Laurentiuskirmes 2027',
+    termin: 'August 2027 (traditionell 2. Augustwoche)',
+    entfernung: 'ca. 6 km',
+    beschreibung: 'Das größte Volksfest der Vulkaneifel – jährliche Tradition seit Jahrhunderten.',
+    link: 'https://stadt-daun.de',
+  },
+]
+
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params
   const titles = {
@@ -225,6 +280,18 @@ const badgeStyle: React.CSSProperties = {
 const distanceStyle: React.CSSProperties = {
   color: '#999',
   fontSize: '0.75rem',
+  whiteSpace: 'nowrap',
+}
+
+const previewBadgeStyle: React.CSSProperties = {
+  border: '1px solid #D97706',
+  color: '#92400E',
+  backgroundColor: '#FFFBEB',
+  fontSize: '0.65rem',
+  padding: '0.15rem 0.45rem',
+  borderRadius: '3px',
+  fontWeight: 700,
+  letterSpacing: '0.06em',
   whiteSpace: 'nowrap',
 }
 
@@ -315,6 +382,57 @@ export default async function EventsPage() {
         )
       })}
 
+      {/* 2027 Vorschau */}
+      <section style={{ marginBottom: '2rem' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', borderBottom: '2px solid #D97706', paddingBottom: '0.5rem', marginBottom: '1.25rem' }}>
+          <h2 style={{ fontSize: '1.1rem', fontWeight: 700, color: '#92400E' }}>
+            {ui.preview2027Title}
+          </h2>
+          <span style={previewBadgeStyle}>BEREITS BUCHBAR 2027</span>
+        </div>
+        <p style={{ fontSize: '0.82rem', color: '#92400E', marginBottom: '1.25rem', fontWeight: 500 }}>
+          {ui.preview2027Note}
+        </p>
+        <div className="grid md:grid-cols-2 gap-4">
+          {preview2027Events.map((ev) => (
+            <div key={ev.name} className="card flex flex-col" style={{ border: '1px solid #FDE68A', background: '#FFFBEB' }}>
+              <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: '0.75rem', marginBottom: '0.4rem' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', flexWrap: 'wrap' }}>
+                  <span style={previewBadgeStyle}>{ev.badge}</span>
+                  <h3 className="font-bold" style={{ fontSize: '0.95rem', color: '#92400E' }}>{ev.name}</h3>
+                </div>
+                <span style={distanceStyle}>{ev.entfernung}</span>
+              </div>
+              <p style={{ fontSize: '0.75rem', color: '#B45309', marginBottom: '0.5rem' }}>{ev.termin}</p>
+              <p className="text-stone-600 text-sm leading-relaxed" style={{ flex: 1, marginBottom: '0.75rem' }}>
+                {ev.beschreibung}
+              </p>
+              <a href={ev.link} target="_blank" rel="noopener noreferrer" style={{ ...linkBtnStyle, borderColor: '#D97706', color: '#92400E' }}>
+                {ui.moreInfo}
+              </a>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Früh-Bucher Hinweis */}
+      <div style={{
+        background: '#F9F8F6',
+        border: '1px solid #E5E5E5',
+        borderLeft: '3px solid #2D5A35',
+        borderRadius: '6px',
+        padding: '1.5rem',
+        margin: '2rem 0',
+      }}>
+        <strong style={{ color: '#1C3A22' }}>{ui.earlyBookTip}</strong>
+        <p style={{ margin: '0.5rem 0 0', color: '#555', fontSize: '0.9rem' }}>
+          {ui.earlyBookText}
+        </p>
+        <a href="/buchung" style={{ color: '#2D5A35', fontWeight: 600, fontSize: '0.9rem', display: 'inline-block', marginTop: '0.75rem', textDecoration: 'none' }}>
+          {ui.earlyBookLink}
+        </a>
+      </div>
+
       {/* Info-Box */}
       <div style={{
         background: '#F9F8F6',
@@ -327,9 +445,10 @@ export default async function EventsPage() {
       }}>
         <strong>{ui.infoBoxTitle}</strong>
         <ul style={{ marginTop: '0.5rem', lineHeight: 2 }}>
-          <li><a href="https://www.gesundland-vulkaneifel.de/events" target="_blank" rel="noopener noreferrer" style={{ color: '#2D5A35' }}>gesundland-vulkaneifel.de/events</a></li>
-          <li><a href="https://tourismus.eifel.info" target="_blank" rel="noopener noreferrer" style={{ color: '#2D5A35' }}>tourismus.eifel.info</a></li>
+          <li><a href="https://www.gesundland-vulkaneifel.de/events/veranstaltungskalender/" target="_blank" rel="noopener noreferrer" style={{ color: '#2D5A35' }}>gesundland-vulkaneifel.de/events/veranstaltungskalender/</a></li>
+          <li><a href="https://tourismus.eifel.info/terminkalender/" target="_blank" rel="noopener noreferrer" style={{ color: '#2D5A35' }}>tourismus.eifel.info/terminkalender/</a></li>
           <li><a href="https://nuerburgring.de/events" target="_blank" rel="noopener noreferrer" style={{ color: '#2D5A35' }}>nuerburgring.de/events</a></li>
+          <li><a href="https://eifel-rallye-festival.de" target="_blank" rel="noopener noreferrer" style={{ color: '#2D5A35' }}>eifel-rallye-festival.de</a></li>
         </ul>
       </div>
 
