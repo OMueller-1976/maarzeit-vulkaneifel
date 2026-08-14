@@ -28,6 +28,19 @@ export const metadata: Metadata = {
     images: [{ url: '/og-image.jpg', width: 1200, height: 630, alt: 'MaarZeit Vulkaneifel Ferienwohnung' }],
   },
   twitter: { card: 'summary_large_image', title: 'MaarZeit Vulkaneifel – Ferienwohnung bei Daun', description: 'Moderne 35 qm Ferienwohnung in der Vulkaneifel. Hund willkommen, Parkplatz, Terrasse.', images: ['/og-image.jpg'] },
+  icons: {
+    icon: [
+      { url: '/icon-favicon.png', sizes: '32x32',   type: 'image/png' },
+      { url: '/icon-64.png',      sizes: '64x64',   type: 'image/png' },
+      { url: '/icon-128.png',     sizes: '128x128', type: 'image/png' },
+      { url: '/icon-192.png',     sizes: '192x192', type: 'image/png' },
+    ],
+    apple: [
+      { url: '/icon-192.png', sizes: '192x192', type: 'image/png' },
+    ],
+    shortcut: '/icon-favicon.png',
+  },
+  manifest: '/manifest.json',
   verification: {
     google: 'b83e8e154a47617a',
   },
