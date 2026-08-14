@@ -67,6 +67,12 @@ const translations = {
         entfernung: '6–55 km',
         beschreibung: 'Nürburgring 24h, Rock am Ring, Eifel Rallye Festival, Laurentiuskirmes Daun, Konzerte und mehr – die schönsten Veranstaltungshighlights der Vulkaneifel im Jahreskalender.',
       },
+      {
+        href: '/specials/laacher-see',
+        title: 'Laacher See',
+        entfernung: 'ca. 65 km',
+        beschreibung: 'Vulkankrater-See bei Andernach mit Benediktinerkloster Maria Laach – einer der eindrucksvollsten Seen Deutschlands. Rundwanderweg, Fähre und Klostergastronomie.',
+      },
     ],
   },
   en: {
@@ -117,6 +123,12 @@ const translations = {
         title: 'Events & Festivals',
         entfernung: '6–55 km',
         beschreibung: 'Nürburgring 24h, Rock am Ring, Eifel Rallye Festival, Daun folk festival, concerts and more – the best annual event highlights of the Vulkan Eifel.',
+      },
+      {
+        href: '/specials/laacher-see',
+        title: 'Laacher See',
+        entfernung: 'approx. 65 km',
+        beschreibung: 'Volcanic crater lake near Andernach with the Benedictine monastery Maria Laach – one of Germany\'s most impressive lakes. Circular hiking trail, ferry and monastery restaurant.',
       },
     ],
   },
@@ -169,6 +181,12 @@ const translations = {
         entfernung: '6–55 km',
         beschreibung: 'Nürburgring 24h, Rock am Ring, Eifel Rallye Festival, Laurentiuskirmes Daun, concerten en meer – de beste jaarlijkse evenementenhoogtepunten van de Vulkaan Eifel.',
       },
+      {
+        href: '/specials/laacher-see',
+        title: 'Laacher See',
+        entfernung: 'ca. 65 km',
+        beschreibung: 'Vulkaankrater-meer bij Andernach met het Benedictijnse klooster Maria Laach – een van de mooiste meren van Duitsland. Rondetrekpad, veerboot en kloosterrestaurant.',
+      },
     ],
   },
   fr: {
@@ -219,6 +237,12 @@ const translations = {
         title: 'Événements & Festivals',
         entfernung: '6–55 km',
         beschreibung: "Nürburgring 24h, Rock am Ring, Eifel Rallye Festival, Laurentiuskirmes Daun, concerts et plus – les meilleurs temps forts annuels de l'Eifel volcanique.",
+      },
+      {
+        href: '/specials/laacher-see',
+        title: 'Laacher See',
+        entfernung: 'environ 65 km',
+        beschreibung: "Lac de cratère volcanique près d'Andernach avec le monastère bénédictin Maria Laach – l'un des lacs les plus impressionnants d'Allemagne. Sentier circulaire, ferry et restaurant du monastère.",
       },
     ],
   },

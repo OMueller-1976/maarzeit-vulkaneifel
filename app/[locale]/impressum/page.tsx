@@ -119,6 +119,23 @@ export default async function ImpressumPage() {
         </section>
 
         <section>
+          <h2 className="text-lg font-bold text-green-900 mb-2">Bildnachweis</h2>
+          <p>
+            Fotografien auf dieser Website stammen aus folgenden Quellen:
+          </p>
+          <ul className="list-disc list-inside mt-2 space-y-1 text-sm">
+            <li>Weinfelder Maar: © Eifel Tourismus GmbH, D. Ketz</li>
+            <li>Wandern in der Vulkaneifel: © Eifel Tourismus GmbH, D. Ketz</li>
+            <li>Lauschtour Grüne Hölle: © Eifel Tourismus GmbH</li>
+            <li>Wild- & Erlebnispark Daun: © Wild- & Erlebnispark Daun</li>
+            <li>Adler- & Wolfspark Kasselburg: © Adler- & Wolfspark Kasselburg</li>
+            <li>Ulmener Maar: © Eifel Tourismus GmbH, T. Roth</li>
+            <li>Laacher See: © Eifel Tourismus GmbH</li>
+            <li>Eigene Aufnahmen: © Markus Müller / MaarZeit Vulkaneifel</li>
+          </ul>
+        </section>
+
+        <section>
           <h2 className="text-lg font-bold text-green-900 mb-2">Hinweis zu KI-generierten Inhalten</h2>
           <p>
             Teile der auf dieser Website veröffentlichten Inhalte – insbesondere

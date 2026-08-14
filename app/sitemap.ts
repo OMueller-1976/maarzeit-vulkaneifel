@@ -22,6 +22,7 @@ const pages = [
   { path: '/specials/koeln', priority: 0.6 },
   { path: '/specials/auszeit-mit-kind', priority: 0.6 },
   { path: '/specials/events', priority: 0.7 },
+  { path: '/specials/laacher-see', priority: 0.6 },
   { path: '/hund', priority: 0.8 },
   { path: '/motorrad', priority: 0.7 },
   { path: '/anreise', priority: 0.6 },

@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { getLocale } from 'next-intl/server'
 import { generateSeoMetadata } from '@/lib/seo';
+import RegionImage from '@/lib/regionImage';
 
 const metaTitles: Record<string, string> = {
   de: 'Ausflugsziele Vulkaneifel – Wildpark, Höhlen & Nürburgring',
@@ -24,6 +25,8 @@ const translations = {
     subtitle: 'Freizeitangebote, Natur, Kultur und Erlebnis rund um Kirchweiler – von 5 km bis 70 km Entfernung.',
     ctaPrimary: 'Urlaub planen & buchen',
     ctaSecondary: 'Schlechtwetter-Tipps',
+    ulmenerMaarHeading: 'Ulmener Maar',
+    ulmenerMaarText: 'Das Ulmener Maar liegt 10 km nördlich von Kirchweiler und ist das jüngste bekannte Vulkankrater Deutschlands – entstanden vor ca. 11.000 Jahren. Der tiefe, kreisrunde See liegt idyllisch im Wald und ist von einem Rundwanderweg umgeben. Der Ort Ulmen mit seiner Burgruine liegt direkt am Maar-Rand.',
     kategorien: [
       {
         titel: 'Erlebnis & Abenteuer',
@@ -281,6 +284,8 @@ const translations = {
     subtitle: 'Leisure, nature, culture and adventure around Kirchweiler – from 5 km to 70 km away.',
     ctaPrimary: 'Plan & Book Your Holiday',
     ctaSecondary: 'Rainy Day Tips',
+    ulmenerMaarHeading: 'Ulmener Maar',
+    ulmenerMaarText: 'The Ulmener Maar lies 10 km north of Kirchweiler and is the youngest known volcanic crater in Germany – formed around 11,000 years ago. The deep, circular lake sits idyllically in the forest, surrounded by a circular walking trail. The town of Ulmen with its castle ruins sits right on the lake\'s edge.',
     kategorien: [
       {
         titel: 'Adventure & Thrills',
@@ -538,6 +543,8 @@ const translations = {
     subtitle: 'Vrije tijd, natuur, cultuur en beleving rondom Kirchweiler – van 5 km tot 70 km afstand.',
     ctaPrimary: 'Vakantie Plannen & Boeken',
     ctaSecondary: 'Slechtweer Tips',
+    ulmenerMaarHeading: 'Ulmener Maar',
+    ulmenerMaarText: 'Het Ulmener Maar ligt 10 km ten noorden van Kirchweiler en is de jongste bekende vulkaankrater van Duitsland – ontstaan ca. 11.000 jaar geleden. Het diepe, ronde meer ligt idyllisch in het bos, omgeven door een rondetrekpad. Het stadje Ulmen met zijn kasteelruïne ligt direct aan de oever van het meer.',
     kategorien: [
       {
         titel: 'Avontuur & Beleving',
@@ -795,6 +802,8 @@ const translations = {
     subtitle: 'Loisirs, nature, culture et aventure autour de Kirchweiler – de 5 km à 70 km de distance.',
     ctaPrimary: 'Planifier & Réserver des Vacances',
     ctaSecondary: 'Activités par Mauvais Temps',
+    ulmenerMaarHeading: 'Ulmener Maar',
+    ulmenerMaarText: "L'Ulmener Maar se trouve à 10 km au nord de Kirchweiler et est le plus jeune cratère volcanique connu d'Allemagne – formé il y a environ 11 000 ans. Le lac profond et circulaire est niché dans la forêt, entouré d'un sentier de randonnée circulaire. La ville d'Ulmen avec ses ruines de château se trouve directement au bord du lac.",
     kategorien: [
       {
         titel: 'Aventure & Sensations',
@@ -1131,6 +1140,45 @@ export default async function AusflugszielePage() {
             </div>
           </section>
         ))}
+
+        {/* Bildergalerie */}
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem', marginBottom: '3rem' }}>
+          <div>
+            <RegionImage
+              src="/images/region/wildpark-daun.jpg"
+              alt="Wild- & Erlebnispark Daun – Tiere und Natur"
+              credit="Wild- & Erlebnispark Daun"
+              height={220}
+            />
+          </div>
+          <div>
+            <RegionImage
+              src="/images/region/adler-wolfspark-kasselburg.jpg"
+              alt="Adler- & Wolfspark Kasselburg Pelm – Greifvögel"
+              credit="Adler- & Wolfspark Kasselburg"
+              height={220}
+            />
+          </div>
+        </div>
+
+        {/* Ulmener Maar */}
+        <section style={{ marginBottom: '3rem' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem', marginBottom: '1.5rem' }}>
+            <h2 style={{ fontFamily: 'Georgia, serif', fontSize: '1.4rem', fontWeight: 'normal', color: '#1A1A1A', whiteSpace: 'nowrap' }}>
+              {tr.ulmenerMaarHeading}
+            </h2>
+            <div style={{ flex: 1, height: '1px', background: '#E5E5E5' }} />
+          </div>
+          <p style={{ color: '#555', lineHeight: 1.7, fontSize: '0.92rem', marginBottom: '1.5rem', maxWidth: '680px' }}>
+            {tr.ulmenerMaarText}
+          </p>
+          <RegionImage
+            src="/images/region/ulmener-maar.jpg"
+            alt="Ulmener Maar – jüngster Vulkankrater Deutschlands"
+            credit="Eifel Tourismus GmbH, T. Roth"
+            height={280}
+          />
+        </section>
 
         <div style={{ borderTop: '1px solid #E5E5E5', paddingTop: '2.5rem', display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
           <Link href="/buchung" className="btn-primary">{tr.ctaPrimary}</Link>

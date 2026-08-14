@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { getLocale } from 'next-intl/server'
 import { generateSeoMetadata } from '@/lib/seo';
+import RegionImage from '@/lib/regionImage';
 
 const translations = {
   de: {
@@ -277,6 +278,15 @@ export default async function DaunerMaarePage() {
       <p className="text-stone-600 text-lg mb-10 max-w-2xl leading-relaxed">
         {tr.intro}
       </p>
+
+      {/* Weinfelder Maar Foto */}
+      <RegionImage
+        src="/images/region/weinfelder-maar.jpg"
+        alt="Weinfelder Maar mit Kapelle St. Thomas – Vulkaneifel"
+        credit="Eifel Tourismus GmbH, D. Ketz"
+        height={340}
+        className="mb-10"
+      />
 
       {/* Die drei Maare */}
       <h2 className="text-2xl font-bold text-green-900 mb-6">{tr.overviewHeading}</h2>

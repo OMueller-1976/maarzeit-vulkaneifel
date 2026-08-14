@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { getLocale } from 'next-intl/server'
 import { generateSeoMetadata } from '@/lib/seo';
+import RegionImage from '@/lib/regionImage';
 
 const metaTitles: Record<string, string> = {
   de: 'Wandern in der Vulkaneifel – Lieserpfad, Eifelsteig & Maare-Runden',
@@ -81,6 +82,8 @@ const translations = {
     startLabel: "Start:",
     ctaHike: "Dauner Maare entdecken",
     ctaDog: "Wandern mit Hund",
+    lauschtourHeading: "Lauschtour Grüne Hölle",
+    lauschtourText: "Die Lauschtour \u201eGr\u00fcne H\u00f6lle\u201c ist ein multimedialer Erlebnispfad durch das wildromantische Liesertal. Entlang des Weges erz\u00e4hlen interaktive H\u00f6rstationen Geschichten aus Natur, Sagenwelt und Geschichte der Eifel. Startpunkt ist Manderscheid \u2013 von MaarZeit in etwa 15 Minuten mit dem Auto erreichbar.",
   },
   en: {
     routen: [
@@ -145,6 +148,8 @@ const translations = {
     startLabel: "Start:",
     ctaHike: "Discover the Dauner Maare",
     ctaDog: "Hiking with dogs",
+    lauschtourHeading: "Lauschtour Grüne Hölle",
+    lauschtourText: "The Lauschtour 'Grüne Hölle' (Green Hell) is a multimedia experience trail through the wild-romantic Lieser Valley. Interactive audio stations along the way tell stories from nature, local legend and Eifel history. The starting point is Manderscheid – about 15 minutes by car from MaarZeit.",
   },
   nl: {
     routen: [
@@ -209,6 +214,8 @@ const translations = {
     startLabel: "Start:",
     ctaHike: "Ontdek de Dauner Maren",
     ctaDog: "Wandelen met hond",
+    lauschtourHeading: "Lauschtour Grüne Hölle",
+    lauschtourText: "De Lauschtour 'Grüne Hölle' is een multimediaal ervaringsparcours door de wildromantische Lieservallei. Interactieve luisterstations langs de route vertellen verhalen uit de natuur, sagen en geschiedenis van de Eifel. Het startpunt is Manderscheid – vanuit MaarZeit ongeveer 15 minuten rijden.",
   },
   fr: {
     routen: [
@@ -273,6 +280,8 @@ const translations = {
     startLabel: "Départ :",
     ctaHike: "Découvrir les Dauner Maare",
     ctaDog: "Randonnée avec chien",
+    lauschtourHeading: "Lauschtour Grüne Hölle",
+    lauschtourText: "La Lauschtour 'Grüne Hölle' est un sentier d'expérience multimédia à travers la vallée romantique de la Lieser. Des stations audio interactives racontent des histoires de la nature, des légendes locales et de l'histoire de l'Eifel. Le point de départ est Manderscheid – à environ 15 minutes en voiture de MaarZeit.",
   },
 }
 
@@ -316,9 +325,17 @@ export default async function WandernPage() {
       </nav>
 
       <h1 className="section-title">{tr.heading}</h1>
-      <p className="text-stone-600 text-lg mb-10 max-w-2xl leading-relaxed">
+      <p className="text-stone-600 text-lg mb-8 max-w-2xl leading-relaxed">
         {tr.intro}
       </p>
+
+      <RegionImage
+        src="/images/region/wandern-eifel.jpg"
+        alt="Wandern in der Vulkaneifel – Blick über Maare und Wälder"
+        credit="Eifel Tourismus GmbH, D. Ketz"
+        height={300}
+        className="mb-10"
+      />
 
       <div className="space-y-4 mb-12">
         {tr.routen.map((r) => (
@@ -357,6 +374,19 @@ export default async function WandernPage() {
             </li>
           ))}
         </ul>
+      </div>
+
+      {/* Lauschtour Grüne Hölle */}
+      <div className="mt-12 mb-4">
+        <h2 className="text-2xl font-bold text-green-900 mb-3">{tr.lauschtourHeading}</h2>
+        <p className="text-stone-600 mb-5 leading-relaxed">{tr.lauschtourText}</p>
+        <RegionImage
+          src="/images/region/lauschtour-gruene-hoelle.jpg"
+          alt="Lauschtour Grüne Hölle – Wanderweg Vulkaneifel"
+          credit="Eifel Tourismus GmbH"
+          height={260}
+          className="mb-6"
+        />
       </div>
 
       <div className="flex flex-wrap gap-4">

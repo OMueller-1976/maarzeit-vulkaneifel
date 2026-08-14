@@ -130,7 +130,7 @@ export default async function HomePage({
           </div>
           <div style={{ borderRadius: '10px', overflow: 'hidden', height: '320px' }}>
             <img
-              src="/garten-feuerschale.jpeg"
+              src="/images/region/garten-feuerschale.jpg"
               alt={t('apartment.imgAlt')}
               style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
             />
