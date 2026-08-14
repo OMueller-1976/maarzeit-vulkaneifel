@@ -8,14 +8,6 @@ const translations = {
     title: 'Motorradurlaub in der Vulkaneifel',
     subtitle: 'Motorrad in der Vulkaneifel',
     description: 'Kurvenreiche Landstraßen, kaum Verkehr, beeindruckende Vulkanlandschaft – die Vulkaneifel gehört zu den schönsten Motorradregionen Deutschlands. MaarZeit ist Ihre ideale Basis.',
-    serviceTitle: 'Unser Motorrad-Service',
-    serviceItems: [
-      'Überdachter Motorradstellplatz (abschließbar)',
-      'Steckdose zum Laden / Warmhalten',
-      'Karten und Streckenempfehlungen',
-      'Empfehlung für lokale Motorrad-Cafés',
-      'Kontakt zu Pannenhilfe in der Region',
-    ],
     advantagesTitle: 'Vulkaneifel-Vorteile',
     advantages: [
       'Hunderte Kilometer kurvenreicher Landstraßen',
@@ -68,14 +60,6 @@ const translations = {
     title: 'Motorcycle Holiday in the Vulkan Eifel',
     subtitle: 'Motorcycle in the Vulkan Eifel',
     description: "Winding country roads, minimal traffic, stunning volcanic landscapes – the Vulkan Eifel is one of Germany's most beautiful motorcycle regions. MaarZeit is your ideal base.",
-    serviceTitle: 'Our Motorcycle Services',
-    serviceItems: [
-      'Covered motorcycle parking (lockable)',
-      'Power socket for charging / warming up',
-      'Maps and route recommendations',
-      'Recommendations for local motorcycle cafés',
-      'Contact for breakdown assistance in the region',
-    ],
     advantagesTitle: 'Vulkan Eifel Advantages',
     advantages: [
       'Hundreds of kilometres of winding country roads',
@@ -128,14 +112,6 @@ const translations = {
     title: 'Motorvakantie in de Vulkaan Eifel',
     subtitle: 'Motor in de Vulkaan Eifel',
     description: 'Bochtige landweggetjes, nauwelijks verkeer, indrukwekkende vulkanische landschappen – de Vulkaan Eifel behoort tot de mooiste motorgebieden van Duitsland. MaarZeit is uw ideale uitvalsbasis.',
-    serviceTitle: 'Onze Motorservices',
-    serviceItems: [
-      'Overdekte motorparkeerplaats (afsluitbaar)',
-      'Stopcontact voor opladen / opwarmen',
-      'Kaarten en routeaanbevelingen',
-      'Aanbevelingen voor lokale motorcafés',
-      'Contact voor pechhulp in de regio',
-    ],
     advantagesTitle: 'Vulkaan Eifel Voordelen',
     advantages: [
       'Honderden kilometers bochtige landwegen',
@@ -188,14 +164,6 @@ const translations = {
     title: "Vacances Moto dans l'Eifel Volcanique",
     subtitle: "Moto dans l'Eifel Volcanique",
     description: "Routes sinueuses, peu de circulation, paysages volcaniques impressionnants – l'Eifel volcanique est l'une des plus belles régions moto d'Allemagne. MaarZeit est votre base idéale.",
-    serviceTitle: 'Nos Services Moto',
-    serviceItems: [
-      'Parking moto couvert (fermable à clé)',
-      'Prise électrique pour charger / préchauffer',
-      "Cartes et recommandations d'itinéraires",
-      'Recommandations de cafés moto locaux',
-      'Contact pour assistance en cas de panne',
-    ],
     advantagesTitle: "Avantages de l'Eifel Volcanique",
     advantages: [
       'Des centaines de kilomètres de routes sinueuses',
@@ -284,19 +252,8 @@ export default async function MotorradPage() {
         {tr.description}
       </p>
 
-      {/* Service */}
-      <div className="grid md:grid-cols-2 gap-8 mb-14">
-        <div className="card">
-          <h2 className="text-xl font-bold text-green-900 mb-4">{tr.serviceTitle}</h2>
-          <ul className="space-y-3 text-stone-700">
-            {tr.serviceItems.map((item) => (
-              <li key={item} className="flex items-start gap-2">
-                <span className="text-green-600 mt-0.5">🏍️</span>
-                {item}
-              </li>
-            ))}
-          </ul>
-        </div>
+      {/* Vorteile */}
+      <div className="mb-14">
         <div className="card">
           <h2 className="text-xl font-bold text-green-900 mb-4">{tr.advantagesTitle}</h2>
           <ul className="space-y-3" style={{ color: '#444' }}>
