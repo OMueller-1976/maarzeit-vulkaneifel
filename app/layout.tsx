@@ -21,7 +21,6 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'de_DE',
-    url: 'https://www.ferienwohnung-in-der-vulkaneifel.de',
     siteName: 'MaarZeit Vulkaneifel',
     title: 'MaarZeit Vulkaneifel – Ferienwohnung bei Daun',
     description: 'Moderne 35 qm Ferienwohnung in der Vulkaneifel. Hund willkommen, Parkplatz, Terrasse.',

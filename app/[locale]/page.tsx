@@ -1,8 +1,7 @@
 import Link from "next/link";
 import FAQ from "@/components/FAQ";
 import { getTranslations } from 'next-intl/server';
-
-const BASE = 'https://www.ferienwohnung-in-der-vulkaneifel.de'
+import { generateSeoMetadata } from '@/lib/seo';
 
 const titles: Record<string, string> = {
   de: 'MaarZeit Vulkaneifel – Ferienwohnung bei Daun | Hund & Motorrad',
@@ -23,20 +22,7 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>
 }) {
   const { locale } = await params
-  return {
-    title: { absolute: titles[locale] ?? titles.de },
-    description: descriptions[locale] ?? descriptions.de,
-    alternates: {
-      canonical: locale === 'de' ? BASE : `${BASE}/${locale}`,
-      languages: {
-        'de': BASE,
-        'en': `${BASE}/en`,
-        'nl': `${BASE}/nl`,
-        'fr': `${BASE}/fr`,
-        'x-default': BASE,
-      }
-    }
-  }
+  return generateSeoMetadata('/', locale, titles[locale] ?? titles.de, descriptions[locale] ?? descriptions.de)
 }
 
 export function generateStaticParams() {

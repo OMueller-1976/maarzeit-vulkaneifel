@@ -13,6 +13,16 @@ export function generateSeoMetadata(
   return {
     title: { absolute: title },
     description,
+    openGraph: {
+      title,
+      description,
+      url: canonical,
+      siteName: 'MaarZeit Vulkaneifel',
+      locale: locale === 'de' ? 'de_DE' :
+              locale === 'nl' ? 'nl_NL' :
+              locale === 'fr' ? 'fr_FR' : 'en_GB',
+      type: 'website' as const,
+    },
     alternates: {
       canonical,
       languages: {
