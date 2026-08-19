@@ -72,9 +72,14 @@ export function generateStaticParams() {
   ]
 }
 
-export default async function SuccessPage() {
+export default async function SuccessPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ booking_id?: string }>
+}) {
   const locale = await getLocale()
   const tr = translations[locale as keyof typeof translations] ?? translations.de
+  const { booking_id } = await searchParams
 
   return (
     <div className="max-w-2xl mx-auto px-4 py-20 text-center">
@@ -85,6 +90,22 @@ export default async function SuccessPage() {
       <p className="text-stone-600 mb-6 leading-relaxed">
         {tr.subText}
       </p>
+
+      {booking_id && (
+        <div className="bg-amber-50 border border-amber-200 rounded-lg p-5 mb-8 text-left">
+          <h2 className="font-bold text-amber-900 mb-2">Meldepflicht – jetzt bequem vorab erledigen</h2>
+          <p className="text-sm text-amber-800 leading-relaxed mb-4">
+            Gemäß Bundesmeldegesetz benötigen wir Ihre Meldedaten vor Anreise.
+            Füllen Sie das Formular jetzt aus – es dauert nur 2 Minuten.
+          </p>
+          <Link
+            href={`/buchung/gaeste?booking_id=${booking_id}`}
+            className="inline-block bg-amber-700 text-white px-5 py-3 rounded font-semibold text-sm hover:bg-amber-800 transition-colors"
+          >
+            Meldedaten jetzt hinterlegen
+          </Link>
+        </div>
+      )}
 
       <div className="bg-green-50 rounded-lg p-6 text-left mb-8">
         <h2 className="font-bold text-green-900 mb-3">{tr.checkInTitle}</h2>
