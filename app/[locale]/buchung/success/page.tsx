@@ -140,6 +140,12 @@ export default async function SuccessPage({
           {tr.btnGuide}
         </Link>
       </div>
+
+      <p className="mt-6 text-sm text-stone-500">
+        <Link href="/gaestekarte" className="text-green-700 hover:underline">
+          Mehr über Ihre Gästekarte &amp; VRT-Ticket erfahren →
+        </Link>
+      </p>
     </div>
   )
 }

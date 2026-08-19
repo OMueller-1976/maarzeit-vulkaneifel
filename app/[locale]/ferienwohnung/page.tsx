@@ -289,6 +289,7 @@ export default async function FerienwohnungPage() {
       <div className="flex flex-wrap gap-4">
         <Link href="/buchung" className="btn-primary">{tr.cta}</Link>
         <Link href="/kontakt" className="btn-secondary">{tr.ctaContact}</Link>
+        <Link href="/gaestekarte" className="btn-secondary">Gästekarte & Vorteile</Link>
       </div>
     </div>
   );

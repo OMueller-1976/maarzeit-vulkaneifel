@@ -15,6 +15,7 @@ export default async function Footer() {
     ["/hund", "Mit Hund"],
     ["/motorrad", "Motorrad"],
     ["/guide", "Reiseführer"],
+    ["/gaestekarte", "Gästekarte & Vorteile"],
     ["/kontakt", "Kontakt"],
   ]
 

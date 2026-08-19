@@ -27,6 +27,7 @@ const pages = [
   { path: '/hund', priority: 0.8 },
   { path: '/motorrad', priority: 0.7 },
   { path: '/anreise', priority: 0.6 },
+  { path: '/gaestekarte', priority: 0.6 },
   { path: '/kontakt', priority: 0.5 },
 ]
 
